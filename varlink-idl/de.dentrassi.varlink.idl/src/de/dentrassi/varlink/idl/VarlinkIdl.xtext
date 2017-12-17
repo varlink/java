@@ -1,0 +1,67 @@
+grammar de.dentrassi.varlink.idl.VarlinkIdl with org.eclipse.xtext.xbase.Xbase // org.eclipse.xtext.common.Terminals
+
+generate varlinkIdl "http://www.dentrassi.de/varlink/idl/VarlinkIdl"
+
+Interface:
+	'interface' name=InterfaceName
+	members += Member*
+	;
+
+Member:
+	TypeAlias | Method | Error;
+
+TypeAlias:
+	'type' name=ID definition=TypeAliasDefinition
+	;
+
+TypeAliasDefinition:
+	Enum | Object
+;
+
+Enum:
+	"("
+
+	fields+=ID
+	("," fields+=ID)*
+
+	 ")"
+;
+
+Object: {Object}
+	"("
+	fields+=Field?
+	("," fields+=Field)*
+	")"
+;
+
+Field:
+	name=ID ":" type=ElementType
+;
+
+ElementType:
+	( BasicType | TypeReference | Enum ) ( multi?="[]" )? 
+;
+
+TypeReference:
+	name=ID
+;
+
+BasicType:
+	type = ( "bool" | "int" | "float" | "string" |"data" | "object") 
+;
+
+Method:
+	'method' name=ID arguments=Object "->" result=Object
+	;
+
+Error:
+	'error' name=ID properties=Object
+;
+
+InterfaceName:
+	ID ( => "." ID)*
+;
+
+
+@Override
+terminal SL_COMMENT	: '#' !('\n'|'\r')* ('\r'? '\n')?;
