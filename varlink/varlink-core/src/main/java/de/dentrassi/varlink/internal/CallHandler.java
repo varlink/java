@@ -53,7 +53,7 @@ public class CallHandler extends ChannelDuplexHandler {
 
     @Override
     public void exceptionCaught(final ChannelHandlerContext ctx, final Throwable cause) throws Exception {
-        this.logger.warn("Channel failed", cause);
+        logger.warn("Channel failed", cause);
 
         ctx.close();
         this.result.completeExceptionally(cause);
