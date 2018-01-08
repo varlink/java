@@ -24,7 +24,6 @@ import org.slf4j.LoggerFactory;
 import de.dentrassi.varlink.spi.CallRequest;
 import de.dentrassi.varlink.spi.CallResponse;
 import de.dentrassi.varlink.spi.Connection;
-import de.dentrassi.varlink.spi.Futures;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -54,7 +53,7 @@ class ConnectionImpl implements Connection {
     private final SocketAddress address;
     private final EventLoopGroup group;
 
-    protected ChannelHandler stringEncoder = new StringEncoder(UTF_8);
+    protected final ChannelHandler stringEncoder = new StringEncoder(UTF_8);
 
     ConnectionImpl(final EventLoopGroup group, final Path socket) {
         Objects.requireNonNull(group);
@@ -66,10 +65,6 @@ class ConnectionImpl implements Connection {
 
     @Override
     public void close() throws Exception {
-    }
-
-    public CompletableFuture<?> shutdown() {
-        return Futures.handle(this.group.shutdownGracefully());
     }
 
     @Override
