@@ -33,9 +33,8 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SL_COMMENT", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'bool'", "'int'", "'float'", "'string'", "'data'", "'object'", "'interface'", "'type'", "'('", "')'", "','", "':'", "'method'", "'->'", "'error'", "'.'", "'[]'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'bool'", "'int'", "'float'", "'string'", "'data'", "'object'", "'interface'", "'type'", "'('", "')'", "','", "':'", "'method'", "'->'", "'error'", "'.'", "'[]'"
     };
-    public static final int RULE_STRING=7;
     public static final int RULE_SL_COMMENT=5;
     public static final int T__19=19;
     public static final int T__15=15;
@@ -47,17 +46,15 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int T__10=10;
+    public static final int T__9=9;
+    public static final int T__8=8;
     public static final int RULE_ID=4;
-    public static final int RULE_WS=9;
-    public static final int RULE_ANY_OTHER=10;
-    public static final int T__26=26;
-    public static final int T__27=27;
-    public static final int RULE_INT=6;
+    public static final int RULE_WS=6;
+    public static final int RULE_ANY_OTHER=7;
     public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=8;
     public static final int T__23=23;
     public static final int T__24=24;
-    public static final int T__25=25;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -1211,17 +1208,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             // InternalVarlinkIdl.g:389:1: ( ( ruleTypeAlias ) | ( ruleMethod ) | ( ruleError ) )
             int alt1=3;
             switch ( input.LA(1) ) {
-            case 18:
+            case 15:
                 {
                 alt1=1;
                 }
                 break;
-            case 23:
+            case 20:
                 {
                 alt1=2;
                 }
                 break;
-            case 25:
+            case 22:
                 {
                 alt1=3;
                 }
@@ -1332,16 +1329,16 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==19) ) {
+            if ( (LA2_0==16) ) {
                 int LA2_1 = input.LA(2);
 
                 if ( (LA2_1==RULE_ID) ) {
                     int LA2_2 = input.LA(3);
 
-                    if ( (LA2_2==22) ) {
+                    if ( (LA2_2==19) ) {
                         alt2=2;
                     }
-                    else if ( ((LA2_2>=20 && LA2_2<=21)) ) {
+                    else if ( ((LA2_2>=17 && LA2_2<=18)) ) {
                         alt2=1;
                     }
                     else {
@@ -1352,7 +1349,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                         throw nvae;
                     }
                 }
-                else if ( ((LA2_1>=20 && LA2_1<=21)) ) {
+                else if ( ((LA2_1>=17 && LA2_1<=18)) ) {
                     alt2=2;
                 }
                 else {
@@ -1444,12 +1441,12 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             // InternalVarlinkIdl.g:437:1: ( ( ruleBasicType ) | ( ruleTypeReference ) | ( ruleEnum ) )
             int alt3=3;
             switch ( input.LA(1) ) {
+            case 8:
+            case 9:
+            case 10:
             case 11:
             case 12:
             case 13:
-            case 14:
-            case 15:
-            case 16:
                 {
                 alt3=1;
                 }
@@ -1459,7 +1456,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                 alt3=2;
                 }
                 break;
-            case 19:
+            case 16:
                 {
                 alt3=3;
                 }
@@ -1569,32 +1566,32 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             // InternalVarlinkIdl.g:464:1: ( ( 'bool' ) | ( 'int' ) | ( 'float' ) | ( 'string' ) | ( 'data' ) | ( 'object' ) )
             int alt4=6;
             switch ( input.LA(1) ) {
-            case 11:
+            case 8:
                 {
                 alt4=1;
                 }
                 break;
-            case 12:
+            case 9:
                 {
                 alt4=2;
                 }
                 break;
-            case 13:
+            case 10:
                 {
                 alt4=3;
                 }
                 break;
-            case 14:
+            case 11:
                 {
                 alt4=4;
                 }
                 break;
-            case 15:
+            case 12:
                 {
                 alt4=5;
                 }
                 break;
-            case 16:
+            case 13:
                 {
                 alt4=6;
                 }
@@ -1617,7 +1614,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBasicTypeAccess().getTypeBoolKeyword_0_0()); 
                     }
-                    match(input,11,FOLLOW_2); if (state.failed) return ;
+                    match(input,8,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBasicTypeAccess().getTypeBoolKeyword_0_0()); 
                     }
@@ -1636,7 +1633,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBasicTypeAccess().getTypeIntKeyword_0_1()); 
                     }
-                    match(input,12,FOLLOW_2); if (state.failed) return ;
+                    match(input,9,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBasicTypeAccess().getTypeIntKeyword_0_1()); 
                     }
@@ -1655,7 +1652,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBasicTypeAccess().getTypeFloatKeyword_0_2()); 
                     }
-                    match(input,13,FOLLOW_2); if (state.failed) return ;
+                    match(input,10,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBasicTypeAccess().getTypeFloatKeyword_0_2()); 
                     }
@@ -1674,7 +1671,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBasicTypeAccess().getTypeStringKeyword_0_3()); 
                     }
-                    match(input,14,FOLLOW_2); if (state.failed) return ;
+                    match(input,11,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBasicTypeAccess().getTypeStringKeyword_0_3()); 
                     }
@@ -1693,7 +1690,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBasicTypeAccess().getTypeDataKeyword_0_4()); 
                     }
-                    match(input,15,FOLLOW_2); if (state.failed) return ;
+                    match(input,12,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBasicTypeAccess().getTypeDataKeyword_0_4()); 
                     }
@@ -1712,7 +1709,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBasicTypeAccess().getTypeObjectKeyword_0_5()); 
                     }
-                    match(input,16,FOLLOW_2); if (state.failed) return ;
+                    match(input,13,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getBasicTypeAccess().getTypeObjectKeyword_0_5()); 
                     }
@@ -1793,7 +1790,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInterfaceAccess().getInterfaceKeyword_0()); 
             }
-            match(input,17,FOLLOW_2); if (state.failed) return ;
+            match(input,14,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInterfaceAccess().getInterfaceKeyword_0()); 
             }
@@ -1962,7 +1959,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==18||LA5_0==23||LA5_0==25) ) {
+                if ( (LA5_0==15||LA5_0==20||LA5_0==22) ) {
                     alt5=1;
                 }
 
@@ -2063,7 +2060,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeAliasAccess().getTypeKeyword_0()); 
             }
-            match(input,18,FOLLOW_2); if (state.failed) return ;
+            match(input,15,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTypeAliasAccess().getTypeKeyword_0()); 
             }
@@ -2315,7 +2312,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getLeftParenthesisKeyword_0()); 
             }
-            match(input,19,FOLLOW_2); if (state.failed) return ;
+            match(input,16,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEnumAccess().getLeftParenthesisKeyword_0()); 
             }
@@ -2489,7 +2486,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==21) ) {
+                if ( (LA6_0==18) ) {
                     alt6=1;
                 }
 
@@ -2585,7 +2582,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getRightParenthesisKeyword_3()); 
             }
-            match(input,20,FOLLOW_2); if (state.failed) return ;
+            match(input,17,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEnumAccess().getRightParenthesisKeyword_3()); 
             }
@@ -2664,7 +2661,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getCommaKeyword_2_0()); 
             }
-            match(input,21,FOLLOW_2); if (state.failed) return ;
+            match(input,18,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEnumAccess().getCommaKeyword_2_0()); 
             }
@@ -2906,7 +2903,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getLeftParenthesisKeyword_1()); 
             }
-            match(input,19,FOLLOW_2); if (state.failed) return ;
+            match(input,16,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getObjectAccess().getLeftParenthesisKeyword_1()); 
             }
@@ -3091,7 +3088,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( (LA8_0==21) ) {
+                if ( (LA8_0==18) ) {
                     alt8=1;
                 }
 
@@ -3187,7 +3184,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getRightParenthesisKeyword_4()); 
             }
-            match(input,20,FOLLOW_2); if (state.failed) return ;
+            match(input,17,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getObjectAccess().getRightParenthesisKeyword_4()); 
             }
@@ -3266,7 +3263,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getCommaKeyword_3_0()); 
             }
-            match(input,21,FOLLOW_2); if (state.failed) return ;
+            match(input,18,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getObjectAccess().getCommaKeyword_3_0()); 
             }
@@ -3518,7 +3515,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getColonKeyword_1()); 
             }
-            match(input,22,FOLLOW_2); if (state.failed) return ;
+            match(input,19,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFieldAccess().getColonKeyword_1()); 
             }
@@ -3769,7 +3766,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==27) ) {
+            if ( (LA9_0==24) ) {
                 alt9=1;
             }
             switch (alt9) {
@@ -3865,7 +3862,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodAccess().getMethodKeyword_0()); 
             }
-            match(input,23,FOLLOW_2); if (state.failed) return ;
+            match(input,20,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMethodAccess().getMethodKeyword_0()); 
             }
@@ -4122,7 +4119,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodAccess().getHyphenMinusGreaterThanSignKeyword_3()); 
             }
-            match(input,24,FOLLOW_2); if (state.failed) return ;
+            match(input,21,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMethodAccess().getHyphenMinusGreaterThanSignKeyword_3()); 
             }
@@ -4285,7 +4282,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getErrorAccess().getErrorKeyword_0()); 
             }
-            match(input,25,FOLLOW_2); if (state.failed) return ;
+            match(input,22,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getErrorAccess().getErrorKeyword_0()); 
             }
@@ -4617,7 +4614,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( (LA10_0==26) ) {
+                if ( (LA10_0==23) ) {
                     alt10=1;
                 }
 
@@ -4721,7 +4718,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             // InternalVarlinkIdl.g:1442:2: ( '.' )
             // InternalVarlinkIdl.g:1442:3: '.'
             {
-            match(input,26,FOLLOW_2); if (state.failed) return ;
+            match(input,23,FOLLOW_2); if (state.failed) return ;
 
             }
 
@@ -5279,7 +5276,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             if ( state.backtracking==0 ) {
                before(grammarAccess.getElementTypeAccess().getMultiLeftSquareBracketRightSquareBracketKeyword_1_0()); 
             }
-            match(input,27,FOLLOW_2); if (state.failed) return ;
+            match(input,24,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getElementTypeAccess().getMultiLeftSquareBracketRightSquareBracketKeyword_1_0()); 
             }
@@ -5626,17 +5623,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000002840000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000002840002L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000300000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000200002L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000300010L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x000000000009F810L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000508000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000508002L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000060000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000060010L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000013F10L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000800002L});
 
 }

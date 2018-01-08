@@ -207,7 +207,7 @@ ruleTypeAlias returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"de.dentrassi.varlink.idl.VarlinkIdl.ID");
 				}
 			)
 		)
@@ -303,7 +303,7 @@ ruleEnum returns [EObject current=null]
 						$current,
 						"fields",
 						lv_fields_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"de.dentrassi.varlink.idl.VarlinkIdl.ID");
 				}
 			)
 		)
@@ -326,7 +326,7 @@ ruleEnum returns [EObject current=null]
 							$current,
 							"fields",
 							lv_fields_3_0,
-							"org.eclipse.xtext.common.Terminals.ID");
+							"de.dentrassi.varlink.idl.VarlinkIdl.ID");
 					}
 				)
 			)
@@ -446,7 +446,7 @@ ruleField returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_0_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"de.dentrassi.varlink.idl.VarlinkIdl.ID");
 				}
 			)
 		)
@@ -566,7 +566,7 @@ ruleTypeReference returns [EObject current=null]
 					$current,
 					"name",
 					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
+					"de.dentrassi.varlink.idl.VarlinkIdl.ID");
 			}
 		)
 	)
@@ -694,7 +694,7 @@ ruleMethod returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"de.dentrassi.varlink.idl.VarlinkIdl.ID");
 				}
 			)
 		)
@@ -777,7 +777,7 @@ ruleError returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"de.dentrassi.varlink.idl.VarlinkIdl.ID");
 				}
 			)
 		)
@@ -846,15 +846,9 @@ ruleInterfaceName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
 	)
 ;
 
+RULE_ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
 RULE_SL_COMMENT : '#' ~(('\n'|'\r'))* ('\r'? '\n')?;
-
-RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-
-RULE_INT : ('0'..'9')+;
-
-RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
-
-RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 

@@ -9,7 +9,12 @@
  *     Jens Reimann - initial API and implementation
  *******************************************************************************/
 
-grammar de.dentrassi.varlink.idl.VarlinkIdl with org.eclipse.xtext.common.Terminals // org.eclipse.xtext.xbase.Xbase // 
+grammar de.dentrassi.varlink.idl.VarlinkIdl hidden(WS,SL_COMMENT)
+
+// with org.eclipse.xtext.common.Terminals 
+// with org.eclipse.xtext.xbase.Xbase
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 generate varlinkIdl "http://www.dentrassi.de/varlink/idl/VarlinkIdl"
 
@@ -73,6 +78,12 @@ InterfaceName:
 	ID ( => "." ID)*
 ;
 
+// terminals
 
-@Override
+terminal ID  		: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
 terminal SL_COMMENT	: '#' !('\n'|'\r')* ('\r'? '\n')?;
+
+terminal WS			: (' '|'\t'|'\r'|'\n')+;
+
+terminal ANY_OTHER: .;
