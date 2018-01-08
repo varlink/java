@@ -10,6 +10,8 @@
     </parent>
 
     <artifactId>varlink-core</artifactId>
+    <packaging>bundle</packaging>
+
     <name>Varlink Java :: Core</name>
 
     <properties>
@@ -65,7 +67,6 @@
         <dependency>
             <groupId>io.glutamate</groupId>
             <artifactId>glutamate</artifactId>
-            <version>0.0.7</version>
         </dependency>
 
         <dependency>

@@ -14,19 +14,9 @@ import static io.glutamate.lang.Exceptions.wrap;
 
 import java.util.concurrent.CompletableFuture;
 
-import io.glutamate.util.concurrent.CloseableCompletableFuture;
-
 public final class Syncer {
 
     public Syncer() {
-    }
-
-    public static <T> T await(final CloseableCompletableFuture<T> future) {
-        try {
-            return wrap(() -> future.get());
-        } finally {
-            wrap(future::close);
-        }
     }
 
     public static <T> T await(final CompletableFuture<T> future) {

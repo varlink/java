@@ -10,6 +10,8 @@
     </parent>
 
     <artifactId>io.systemd</artifactId>
+    <packaging>bundle</packaging>
+
     <name>Varlink Java :: Bindings :: io.systemd</name>
 
     <dependencies>
