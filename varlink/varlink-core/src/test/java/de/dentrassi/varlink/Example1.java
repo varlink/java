@@ -10,7 +10,7 @@ import de.dentrassi.varlink.internal.VarlinkImpl;
 import de.dentrassi.varlink.spi.CallResponse;
 import de.dentrassi.varlink.spi.Connection;
 
-public class Test3 {
+public class Example1 {
     public static void main(final String[] args) throws Exception {
 
         try (
@@ -20,7 +20,7 @@ public class Test3 {
             final CompletableFuture<CallResponse> r = connection
                     .call(of("org.varlink.service.GetInterfaceDescription",
                             map(map -> {
-                                map.put("interface", "org.varlink.resolverX");
+                                map.put("interface", "org.varlink.resolver");
                             })));
 
             final CallResponse response = r.get();

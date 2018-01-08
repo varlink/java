@@ -12,7 +12,7 @@ import de.dentrassi.varlink.Varlink;
 import io.systemd.Network;
 import io.systemd.Network.Netdev;
 
-public class Test2 {
+public class Example2 {
     public static void main(final String[] args) throws Exception {
 
         try (final Varlink v = varlink()) {

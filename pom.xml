@@ -2,8 +2,75 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>de.dentrassi.varlink</groupId>
-    <artifactId>varlink</artifactId>
+    <artifactId>varlink-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <name>Varlink Java :: Parent</name>
+    <description>Varlink for Java</description>
+    <url>https://github.com/ctron/varlink-java</url>
+
+    <inceptionYear>2017</inceptionYear>
+
+    <developers>
+        <developer>
+            <id>ctron</id>
+            <name>Jens Reimann</name>
+            <email>ctron@dentrassi.de</email>
+            <url>https://dentrassi.de</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/ctron/varlink-java</url>
+        <connection>scm:git:git://github.com/ctron/varlink-java.git</connection>
+        <developerConnection>scm:git:git@github.com:ctron/varlink-java.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <url>https://github.com/ctron/varlink-java/issues</url>
+        <system>GitHub</system>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>Eclipse Public License - v 1.0</name>
+            <distribution>repo</distribution>
+            <url>https://www.eclipse.org/legal/epl-v10.html</url>
+        </license>
+    </licenses>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <modules>
+        <module>varlink</module>
+        <module>varlink-bindings</module>
+    </modules>
+
+    <build>
+
+        <pluginManagement>
+
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+
+        </pluginManagement>
+
+    </build>
+
 </project>
