@@ -91,6 +91,9 @@
                     <unpackBundle>true</unpackBundle>
                     <instructions>
                         <Bundle-SymbolicName>$(maven-symbolicname);singleton:=true</Bundle-SymbolicName>
+                        <Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
+                        <Bundle-Localization>OSGI-INF/l10n/bundle</Bundle-Localization>
+                        <Include-Resource>OSGI-INF=OSGI-INF;recursive=true</Include-Resource>
                     </instructions>
                 </configuration>
             </plugin>

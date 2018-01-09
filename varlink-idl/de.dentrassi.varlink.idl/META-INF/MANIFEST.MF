@@ -1,14 +1,14 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: de.dentrassi.varlink.idl
-Bundle-Vendor: Jens Reimann
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Localization: OSGI-INF/l10n/bundle
 Bundle-Version: 0.0.1.qualifier
 Bundle-SymbolicName: de.dentrassi.varlink.idl; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;bundle-version="[2.12.0,3.0.0)",
  org.eclipse.equinox.common;bundle-version="[3.5.0,4.0.0)",
  org.eclipse.emf.ecore;bundle-version="[2.12.0,3.0.0)",
- org.eclipse.xtext.xbase.lib;bundle-version="[2.12.0,3.0.0)",
  org.antlr.runtime;bundle-version="[4.0.0,5.0.0)",
  org.eclipse.xtext.util;bundle-version="[2.12.0,3.0.0)",
  org.eclipse.xtend.lib;bundle-version="[2.12.0,3.0.0)",
