@@ -56,11 +56,10 @@
                         <configuration>
                             <sources>
                                 <source>src-gen</source>
-                                <source>xtext-gen</source>
                             </sources>
                             <resources>
                                 <resource>
-                                    <directory>xtext-gen</directory>
+                                    <directory>src-gen</directory>
                                     <excludes>
                                         <exclude>**/*.java</exclude>
                                         <exclude>**/*.g</exclude>
