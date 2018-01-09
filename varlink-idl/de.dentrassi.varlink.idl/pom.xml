@@ -90,6 +90,9 @@
                 <extensions>true</extensions>
                 <configuration>
                     <unpackBundle>true</unpackBundle>
+                    <instructions>
+                        <Bundle-SymbolicName>$(maven-symbolicname);singleton:=true</Bundle-SymbolicName>
+                    </instructions>
                 </configuration>
             </plugin>
 
