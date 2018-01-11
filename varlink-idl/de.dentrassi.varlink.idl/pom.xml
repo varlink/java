@@ -93,7 +93,11 @@
                         <Bundle-SymbolicName>$(maven-symbolicname);singleton:=true</Bundle-SymbolicName>
                         <Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
                         <Bundle-Localization>OSGI-INF/l10n/bundle</Bundle-Localization>
-                        <Include-Resource>OSGI-INF=OSGI-INF;recursive=true</Include-Resource>
+                        <Include-Resource>
+                            OSGI-INF=OSGI-INF;recursive=true,
+                            model=model;recursive=true,
+                            plugin.xml
+                        </Include-Resource>
                     </instructions>
                 </configuration>
             </plugin>
