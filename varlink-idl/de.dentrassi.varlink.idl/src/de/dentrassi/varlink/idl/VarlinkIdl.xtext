@@ -1,0 +1,89 @@
+/*******************************************************************************
+ * Copyright (c) 2017 Red Hat Inc
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Jens Reimann - initial API and implementation
+ *******************************************************************************/
+
+grammar de.dentrassi.varlink.idl.VarlinkIdl hidden(WS,SL_COMMENT)
+
+// with org.eclipse.xtext.common.Terminals 
+// with org.eclipse.xtext.xbase.Xbase
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate varlinkIdl "http://www.dentrassi.de/varlink/idl/VarlinkIdl"
+
+Interface:
+	'interface' name=InterfaceName
+	members += Member*
+	;
+
+Member:
+	TypeAlias | Method | Error;
+
+TypeAlias:
+	'type' name=ID definition=TypeAliasDefinition
+	;
+
+TypeAliasDefinition:
+	Enum | Object
+;
+
+Enum:
+	"("
+
+	fields+=ID
+	("," fields+=ID)*
+
+	 ")"
+;
+
+Object: {Object}
+	"("
+	fields+=Field?
+	("," fields+=Field)*
+	")"
+;
+
+Field:
+	name=ID ":" type=ElementType
+;
+
+ElementType:
+	( BasicType | TypeReference | Enum ) ( multi?="[]" )? 
+;
+
+TypeReference:
+	name=ID
+;
+
+BasicType:
+	type = ( "bool" | "int" | "float" | "string" |"data" | "object") 
+;
+
+Method:
+	'method' name=ID arguments=Object "->" result=Object
+	;
+
+Error:
+	'error' name=ID properties=Object
+;
+
+InterfaceName:
+	ID ( => "." ID)*
+;
+
+// terminals
+
+terminal ID  		: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
+terminal SL_COMMENT	: '#' !('\n'|'\r')* ('\r'? '\n')?;
+
+terminal WS			: (' '|'\t'|'\r'|'\n')+;
+
+terminal ANY_OTHER: .;

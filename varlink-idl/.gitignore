@@ -1,0 +1,9 @@
+
+# Eclipse
+
+bin/
+
+# Local
+
+/.project
+/.settings/
