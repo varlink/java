@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>de.dentrassi.varlink</groupId>
-        <artifactId>varlink-parent</artifactId>
+        <groupId>de.dentrassi.varlink.idl</groupId>
+        <artifactId>varlink-idl</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../..</relativePath>
+        <relativePath>..</relativePath>
     </parent>
 
     <artifactId>de.dentrassi.varlink.idl</artifactId>
