@@ -4,25 +4,40 @@
 package de.dentrassi.varlink.idl.tests
 
 import com.google.inject.Inject
-import de.dentrassi.varlink.idl.varlinkIdl.Model
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import de.dentrassi.varlink.idl.varlinkIdl.Interface
+import org.eclipse.xtext.resource.XtextResourceSet
+import com.google.inject.Provider
+import org.eclipse.emf.common.util.URI
 
 @RunWith(XtextRunner)
 @InjectWith(VarlinkIdlInjectorProvider)
 class VarlinkIdlParsingTest {
+	
 	@Inject
-	ParseHelper<Model> parseHelper
+	Provider<XtextResourceSet> resourceSetProvider;
+	
+	@Inject
+	ParseHelper<Interface> parseHelper
 
 	@Test
 	def void loadModel() {
-		val result = parseHelper.parse('''
-			Hello Xtext!
-		''')
+		
+		val options = null
+		var resourceSet = resourceSetProvider.get();
+		
+		val result = parseHelper.parse(
+			getClass().getResourceAsStream("test.varlink"),
+			URI.createURI("test.varlink"),
+			options,
+			resourceSet
+		);
+		
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)
 	}
