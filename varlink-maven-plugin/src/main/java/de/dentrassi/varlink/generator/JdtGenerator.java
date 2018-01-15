@@ -107,9 +107,8 @@ public class JdtGenerator implements Generator {
 
         final LinkedList<String> toks = new LinkedList<>(Arrays.asList(iface.getName().split("\\.")));
 
-        final String name = toUpperFirst(toks.removeLast());
-
-        final String packageName = String.join(".", toks);
+        final String name = toUpperFirst(toks.getLast());
+        final String packageName = iface.getName();
 
         createCompilationUnit(this.options.getTargetPath(), packageName, name, this.options.getCharacterSet(),
                 (ast, cu) -> {

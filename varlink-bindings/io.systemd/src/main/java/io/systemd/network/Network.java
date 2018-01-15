@@ -8,7 +8,7 @@
  * Contributors:
  *     Jens Reimann - initial API and implementation
  *******************************************************************************/
-package io.systemd;
+package io.systemd.network;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

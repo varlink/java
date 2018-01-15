@@ -8,7 +8,7 @@
  * Contributors:
  *     Jens Reimann - initial API and implementation
  *******************************************************************************/
-package io.systemd;
+package io.systemd.network;
 
 import static de.dentrassi.varlink.spi.Errors.check;
 import static java.util.Arrays.asList;

@@ -9,8 +9,8 @@ import java.util.List;
 import org.eclipse.scada.utils.str.Tables;
 
 import de.dentrassi.varlink.Varlink;
-import io.systemd.Network;
-import io.systemd.Network.Netdev;
+import io.systemd.network.Network;
+import io.systemd.network.Network.Netdev;
 
 public class Example2 {
     public static void main(final String[] args) throws Exception {
