@@ -9,7 +9,7 @@
  *     Jens Reimann - initial API and implementation
  *******************************************************************************/
 
-grammar de.dentrassi.varlink.idl.VarlinkIdl hidden(WS,SL_COMMENT)
+grammar de.dentrassi.varlink.idl.VarlinkIdl hidden(WS,SL_COMMENT) 
 
 // with org.eclipse.xtext.common.Terminals 
 // with org.eclipse.xtext.xbase.Xbase
@@ -27,7 +27,7 @@ Member:
 	TypeAlias | Method | Error;
 
 TypeAlias:
-	'type' name=ID definition=TypeAliasDefinition
+	'type' name=ValidID definition=TypeAliasDefinition
 	;
 
 TypeAliasDefinition:
@@ -36,9 +36,8 @@ TypeAliasDefinition:
 
 Enum:
 	"("
-
-	fields+=ID
-	("," fields+=ID)*
+	fields+=ValidID
+	("," fields+=ValidID)*
 
 	 ")"
 ;
@@ -51,7 +50,7 @@ Object: {Object}
 ;
 
 Field:
-	name=ID ":" type=ElementType
+	name=ValidID ":" type=ElementType
 ;
 
 ElementType:
@@ -59,7 +58,7 @@ ElementType:
 ;
 
 TypeReference:
-	name=ID
+	name=ValidID
 ;
 
 BasicType:
@@ -79,6 +78,10 @@ InterfaceName:
 ;
 
 // terminals
+
+ValidID: ID | KEYWORD;
+
+KEYWORD: 'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' |'float' | 'string' | 'data' | 'object';
 
 terminal ID  		: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
