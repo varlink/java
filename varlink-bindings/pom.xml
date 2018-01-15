@@ -15,7 +15,7 @@
     <name>Varlink Java :: Bindings</name>
 
     <modules>
-        <module>io.systemd</module>
+        <module>io.systemd.network</module>
     </modules>
 
     <dependencies>

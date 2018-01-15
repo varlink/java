@@ -8,10 +8,10 @@
         <version>0.0.2-SNAPSHOT</version>
     </parent>
 
-    <artifactId>io.systemd</artifactId>
+    <artifactId>io.systemd.network</artifactId>
     <packaging>bundle</packaging>
 
-    <name>Varlink Java :: Bindings :: io.systemd</name>
+    <name>Varlink Java :: Bindings :: io.systemd.network</name>
 
     <dependencies>
 
