@@ -68,7 +68,7 @@
         <module>varlink-core</module>
         <module>varlink-bindings</module>
         <module>varlink-idl</module>
-        <module>varlink-maven</module>
+        <module>varlink-maven-plugin</module>
     </modules>
 
     <build>
