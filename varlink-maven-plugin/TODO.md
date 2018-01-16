@@ -1,6 +1,6 @@
 # ToDo list
 
 * [ ] Composite return types
-* [ ] Arrays
+* [X] Arrays
 * [ ] Types Exceptions/Error types
 * [ ] Monitor
