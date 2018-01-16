@@ -4,3 +4,4 @@
 * [X] Arrays
 * [ ] Types Exceptions/Error types
 * [ ] Monitor
+* [ ] Java-friendly naming
