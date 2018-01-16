@@ -16,6 +16,7 @@
 
     <modules>
         <module>io.systemd.network</module>
+        <module>org.kernel.kmod</module>
     </modules>
 
     <dependencies>
