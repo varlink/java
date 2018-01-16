@@ -592,14 +592,23 @@ public class JdtGenerator implements Generator {
 
         final NormalAnnotation ann = JdtHelper.addAnnotation(td, "de.dentrassi.varlink.spi.Interface");
 
-        final MemberValuePair mvp = ast.newMemberValuePair();
-        ann.values().add(mvp);
-        mvp.setName(ast.newSimpleName("factory"));
+        {
+            final MemberValuePair mvpName = ast.newMemberValuePair();
+            ann.values().add(mvpName);
+            mvpName.setName(ast.newSimpleName("name"));
+            mvpName.setValue(JdtHelper.newStringLiteral(ast, iface.getName()));
+        }
 
-        final TypeLiteral fn = ast.newTypeLiteral();
-        fn.setType(ast.newSimpleType(ast.newName(name + "Impl.Factory")));
+        {
+            final MemberValuePair mvpFactory = ast.newMemberValuePair();
+            ann.values().add(mvpFactory);
+            mvpFactory.setName(ast.newSimpleName("factory"));
 
-        mvp.setValue(fn);
+            final TypeLiteral fn = ast.newTypeLiteral();
+            fn.setType(ast.newSimpleType(ast.newName(name + "Impl.Factory")));
+
+            mvpFactory.setValue(fn);
+        }
 
         // create types
 
@@ -857,6 +866,15 @@ public class JdtGenerator implements Generator {
     }
 
     private static Type asType(final AST ast, final String propertyName, final ElementType type) {
+        final Type main = asMainType(ast, propertyName, type);
+        if (type.isMulti()) {
+            return ast.newArrayType(main);
+        } else {
+            return main;
+        }
+    }
+
+    private static Type asMainType(final AST ast, final String propertyName, final ElementType type) {
 
         if (type instanceof BasicType) {
             switch (((BasicType) type).getType().toLowerCase()) {
@@ -866,6 +884,8 @@ public class JdtGenerator implements Generator {
                 return ast.newSimpleType(ast.newName("java.lang.Long"));
             case "bool":
                 return ast.newSimpleType(ast.newName("java.lang.Boolean"));
+            case "string":
+                return ast.newSimpleType(ast.newName("java.lang.String"));
             default:
                 throw new IllegalArgumentException("Unknown basic type: " + ((BasicType) type).getType().toLowerCase());
             }
