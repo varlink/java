@@ -1,0 +1,43 @@
+# Provides information about kernel modules.
+interface org.kernel.kmod
+
+type Parameter (
+  name: string,
+  type: string,
+  description: string
+)
+
+type ModuleInfo (
+  name: string,
+  description: string,
+  path: string,
+  author: string,
+  license: string,
+  version: string,
+  srcversion: string,
+  vermagic: string,
+  depends: string,
+  aliases: string[],
+  parameters: Parameter[]
+)
+
+type LoadedModule (
+  name: string,
+  size: int,
+  use_count: int,
+  used_by: string[]
+)
+
+# Returns static information about a kernel module that is
+# installed on the system.
+method Info(module: string) -> (info: ModuleInfo)
+
+# Lists all modules that are loaded in the kernel, along
+# with their size and dependencies.
+method List() -> (modules: LoadedModule[])
+
+error UnknownModule ()
+
+error NoInfoAvailable ()
+
+error InvalidParameter ()

@@ -27,6 +27,7 @@ import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.project.MavenProject;
 import org.sonatype.plexus.build.incremental.BuildContext;
 
 import de.dentrassi.varlink.generator.Generator;
@@ -83,7 +84,7 @@ public class GenerateMojo extends AbstractMojo {
     /**
      * The path to load the sources from
      */
-    @Parameter(required = true, property = "varlink.sourcePath", defaultValue = "${project.build.directory}/src/main/varlink")
+    @Parameter(required = true, property = "varlink.sourcePath", defaultValue = "${basedir}/src/main/varlink")
     private File sourcePath;
 
     public void setSourcePath(final File sourcePath) {
@@ -94,8 +95,19 @@ public class GenerateMojo extends AbstractMojo {
         return this.sourcePath;
     }
 
+    @Parameter(property = "project", readonly = true, required = true)
+    protected MavenProject project;
+
+    public void setProject(final MavenProject project) {
+        this.project = project;
+    }
+
     @Component
     private BuildContext buildContext;
+
+    public void setBuildContext(final BuildContext buildContext) {
+        this.buildContext = buildContext;
+    }
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
@@ -133,6 +145,11 @@ public class GenerateMojo extends AbstractMojo {
             // generate
 
             generator.generateAll(loader);
+
+            // add sources
+
+            this.project.addCompileSourceRoot(this.targetPath.getAbsolutePath());
+            this.buildContext.refresh(this.targetPath.getAbsoluteFile());
 
         } catch (final Exception e) {
             throw new MojoExecutionException("Failed to generate", e);
