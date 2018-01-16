@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.dentrassi.varlink.Resolver;
+import de.dentrassi.varlink.spi.Interface;
 
 public class ResolverImpl implements Resolver {
 
@@ -62,6 +63,14 @@ public class ResolverImpl implements Resolver {
     }
 
     private String interfaceFromClass(final Class<?> clazz) {
+
+        final Interface iface = clazz.getAnnotation(Interface.class);
+
+        if (iface != null) {
+            if (iface.name() != null && !iface.name().isEmpty()) {
+                return iface.name();
+            }
+        }
 
         String s = clazz.getSimpleName();
         s = Character.toLowerCase(s.charAt(0)) + s.substring(1);

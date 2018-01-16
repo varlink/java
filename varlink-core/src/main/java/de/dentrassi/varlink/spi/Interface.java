@@ -22,4 +22,6 @@ import java.lang.annotation.Target;
 @Documented
 public @interface Interface {
     public Class<? extends de.dentrassi.varlink.spi.Factory> factory();
+
+    public String name() default "";
 }
