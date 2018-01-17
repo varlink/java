@@ -144,7 +144,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ElementType returns Enum
 	 *
 	 * Constraint:
-	 *     (fields+=ID fields+=ID* multi?='[]'?)
+	 *     (fields+=ValidID fields+=ValidID* multi?='[]'?)
 	 */
 	protected void sequence_ElementType_Enum(ISerializationContext context, de.dentrassi.varlink.idl.varlinkIdl.Enum semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -156,7 +156,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ElementType returns TypeReference
 	 *
 	 * Constraint:
-	 *     (name=ID multi?='[]'?)
+	 *     (name=ValidID multi?='[]'?)
 	 */
 	protected void sequence_ElementType_TypeReference(ISerializationContext context, TypeReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -169,7 +169,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Enum returns Enum
 	 *
 	 * Constraint:
-	 *     (fields+=ID fields+=ID*)
+	 *     (fields+=ValidID fields+=ValidID*)
 	 */
 	protected void sequence_Enum(ISerializationContext context, de.dentrassi.varlink.idl.varlinkIdl.Enum semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -203,7 +203,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Field returns Field
 	 *
 	 * Constraint:
-	 *     (name=ID type=ElementType)
+	 *     (name=ValidID type=ElementType)
 	 */
 	protected void sequence_Field(ISerializationContext context, Field semanticObject) {
 		if (errorAcceptor != null) {
@@ -213,7 +213,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VarlinkIdlPackage.Literals.FIELD__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFieldAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getFieldAccess().getNameValidIDParserRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getFieldAccess().getTypeElementTypeParserRuleCall_2_0(), semanticObject.getType());
 		feeder.finish();
 	}
@@ -275,7 +275,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     TypeAlias returns TypeAlias
 	 *
 	 * Constraint:
-	 *     (name=ID definition=TypeAliasDefinition)
+	 *     (name=ValidID definition=TypeAliasDefinition)
 	 */
 	protected void sequence_TypeAlias(ISerializationContext context, TypeAlias semanticObject) {
 		if (errorAcceptor != null) {
@@ -285,7 +285,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VarlinkIdlPackage.Literals.TYPE_ALIAS__DEFINITION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeAliasAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTypeAliasAccess().getNameValidIDParserRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getTypeAliasAccess().getDefinitionTypeAliasDefinitionParserRuleCall_2_0(), semanticObject.getDefinition());
 		feeder.finish();
 	}
@@ -296,7 +296,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     TypeReference returns TypeReference
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     name=ValidID
 	 */
 	protected void sequence_TypeReference(ISerializationContext context, TypeReference semanticObject) {
 		if (errorAcceptor != null) {
@@ -304,7 +304,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VarlinkIdlPackage.Literals.TYPE_REFERENCE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeReferenceAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTypeReferenceAccess().getNameValidIDParserRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

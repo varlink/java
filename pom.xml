@@ -4,7 +4,7 @@
 
     <groupId>de.dentrassi.varlink</groupId>
     <artifactId>varlink-parent</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0</version>
     <packaging>pom</packaging>
 
     <name>Varlink Java :: Parent</name>
@@ -26,7 +26,7 @@
         <url>https://github.com/ctron/varlink-java</url>
         <connection>scm:git:git://github.com/ctron/varlink-java.git</connection>
         <developerConnection>scm:git:git@github.com:ctron/varlink-java.git</developerConnection>
-        <tag>varlink-java-0.0.1</tag>
+        <tag>varlink-java-0.1.0</tag>
     </scm>
 
     <issueManagement>
@@ -67,6 +67,7 @@
         <module>varlink-core</module>
         <module>varlink-bindings</module>
         <module>varlink-idl</module>
+        <module>varlink-maven-plugin</module>
     </modules>
 
     <build>
@@ -161,6 +162,21 @@
                     <version>3.5.0</version>
                 </plugin>
 
+                <!-- maven plugins -->
+
+                <plugin>
+                    <groupId>org.codehaus.plexus</groupId>
+                    <artifactId>plexus-component-metadata</artifactId>
+                    <version>1.7.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-plugin-plugin</artifactId>
+                    <version>3.5</version>
+                </plugin>
+
+
                 <!-- xtext -->
 
                 <plugin>
@@ -182,6 +198,15 @@
                         <testOutputDirectory>${basedir}/src/test/xtend-gen</testOutputDirectory>
                     </configuration>
                 </plugin>
+
+                <!-- maven plugin -->
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-invoker-plugin</artifactId>
+                    <version>3.0.1</version>
+                </plugin>
+
 
             </plugins>
 

@@ -32,6 +32,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
     public static final int T__22=22;
     public static final int T__23=23;
     public static final int T__24=24;
+    public static final int T__25=25;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -400,13 +401,34 @@ public class InternalVarlinkIdlLexer extends Lexer {
     }
     // $ANTLR end "T__24"
 
+    // $ANTLR start "T__25"
+    public final void mT__25() throws RecognitionException {
+        try {
+            int _type = T__25;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalVarlinkIdl.g:28:7: ( 'enum' )
+            // InternalVarlinkIdl.g:28:9: 'enum'
+            {
+            match("enum"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__25"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:849:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalVarlinkIdl.g:849:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVarlinkIdl.g:969:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalVarlinkIdl.g:969:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -417,7 +439,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalVarlinkIdl.g:849:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVarlinkIdl.g:969:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -466,11 +488,11 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:851:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalVarlinkIdl.g:851:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalVarlinkIdl.g:971:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalVarlinkIdl.g:971:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match('#'); 
-            // InternalVarlinkIdl.g:851:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalVarlinkIdl.g:971:23: (~ ( ( '\\n' | '\\r' ) ) )*
             loop2:
             do {
                 int alt2=2;
@@ -483,7 +505,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalVarlinkIdl.g:851:23: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalVarlinkIdl.g:971:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -503,7 +525,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalVarlinkIdl.g:851:39: ( ( '\\r' )? '\\n' )?
+            // InternalVarlinkIdl.g:971:39: ( ( '\\r' )? '\\n' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -512,9 +534,9 @@ public class InternalVarlinkIdlLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalVarlinkIdl.g:851:40: ( '\\r' )? '\\n'
+                    // InternalVarlinkIdl.g:971:40: ( '\\r' )? '\\n'
                     {
-                    // InternalVarlinkIdl.g:851:40: ( '\\r' )?
+                    // InternalVarlinkIdl.g:971:40: ( '\\r' )?
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -523,7 +545,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // InternalVarlinkIdl.g:851:40: '\\r'
+                            // InternalVarlinkIdl.g:971:40: '\\r'
                             {
                             match('\r'); 
 
@@ -555,10 +577,10 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:853:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalVarlinkIdl.g:853:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVarlinkIdl.g:973:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalVarlinkIdl.g:973:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalVarlinkIdl.g:853:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVarlinkIdl.g:973:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt5=0;
             loop5:
             do {
@@ -612,8 +634,8 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:855:16: ( . )
-            // InternalVarlinkIdl.g:855:18: .
+            // InternalVarlinkIdl.g:975:16: ( . )
+            // InternalVarlinkIdl.g:975:18: .
             {
             matchAny(); 
 
@@ -628,8 +650,8 @@ public class InternalVarlinkIdlLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalVarlinkIdl.g:1:8: ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | RULE_ID | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt6=21;
+        // InternalVarlinkIdl.g:1:8: ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | RULE_ID | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt6=22;
         alt6 = dfa6.predict(input);
         switch (alt6) {
             case 1 :
@@ -752,28 +774,35 @@ public class InternalVarlinkIdlLexer extends Lexer {
                 }
                 break;
             case 18 :
-                // InternalVarlinkIdl.g:1:110: RULE_ID
+                // InternalVarlinkIdl.g:1:110: T__25
+                {
+                mT__25(); 
+
+                }
+                break;
+            case 19 :
+                // InternalVarlinkIdl.g:1:116: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 19 :
-                // InternalVarlinkIdl.g:1:118: RULE_SL_COMMENT
+            case 20 :
+                // InternalVarlinkIdl.g:1:124: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 20 :
-                // InternalVarlinkIdl.g:1:134: RULE_WS
+            case 21 :
+                // InternalVarlinkIdl.g:1:140: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 21 :
-                // InternalVarlinkIdl.g:1:142: RULE_ANY_OTHER
+            case 22 :
+                // InternalVarlinkIdl.g:1:148: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -787,17 +816,17 @@ public class InternalVarlinkIdlLexer extends Lexer {
 
     protected DFA6 dfa6 = new DFA6(this);
     static final String DFA6_eotS =
-        "\1\uffff\2\26\4\uffff\1\24\6\26\1\24\1\26\5\uffff\1\26\1\uffff\1\26\5\uffff\6\26\1\uffff\1\26\3\uffff\1\62\11\26\1\uffff\1\74\1\75\2\26\1\100\4\26\2\uffff\1\105\1\26\1\uffff\2\26\1\111\1\26\1\uffff\1\113\1\114\1\115\1\uffff\1\26\3\uffff\1\26\1\120\1\uffff";
+        "\1\uffff\2\26\4\uffff\1\24\6\26\1\24\1\26\5\uffff\1\26\1\uffff\1\26\5\uffff\6\26\1\uffff\2\26\3\uffff\1\64\12\26\1\uffff\1\77\1\100\2\26\1\103\3\26\1\107\1\26\2\uffff\1\111\1\26\1\uffff\2\26\1\115\1\uffff\1\26\1\uffff\1\117\1\120\1\121\1\uffff\1\26\3\uffff\1\26\1\124\1\uffff";
     static final String DFA6_eofS =
-        "\121\uffff";
+        "\125\uffff";
     static final String DFA6_minS =
-        "\1\0\1\156\1\171\4\uffff\1\135\1\157\1\154\1\164\1\141\1\142\1\145\1\76\1\162\5\uffff\1\164\1\uffff\1\160\5\uffff\2\157\1\162\1\164\1\152\1\164\1\uffff\1\162\3\uffff\1\60\1\145\1\154\1\141\1\151\1\141\1\145\1\150\1\157\1\162\1\uffff\2\60\1\164\1\156\1\60\1\143\1\157\1\162\1\146\2\uffff\1\60\1\147\1\uffff\1\164\1\144\1\60\1\141\1\uffff\3\60\1\uffff\1\143\3\uffff\1\145\1\60\1\uffff";
+        "\1\0\1\156\1\171\4\uffff\1\135\1\157\1\154\1\164\1\141\1\142\1\145\1\76\1\156\5\uffff\1\164\1\uffff\1\160\5\uffff\2\157\1\162\1\164\1\152\1\164\1\uffff\1\162\1\165\3\uffff\1\60\1\145\1\154\1\141\1\151\1\141\1\145\1\150\1\157\1\155\1\162\1\uffff\2\60\1\164\1\156\1\60\1\143\1\157\1\162\1\60\1\146\2\uffff\1\60\1\147\1\uffff\1\164\1\144\1\60\1\uffff\1\141\1\uffff\3\60\1\uffff\1\143\3\uffff\1\145\1\60\1\uffff";
     static final String DFA6_maxS =
-        "\1\uffff\1\156\1\171\4\uffff\1\135\1\157\1\154\1\164\1\141\1\142\1\145\1\76\1\162\5\uffff\1\164\1\uffff\1\160\5\uffff\2\157\1\162\1\164\1\152\1\164\1\uffff\1\162\3\uffff\1\172\1\145\1\154\1\141\1\151\1\141\1\145\1\150\1\157\1\162\1\uffff\2\172\1\164\1\156\1\172\1\143\1\157\1\162\1\146\2\uffff\1\172\1\147\1\uffff\1\164\1\144\1\172\1\141\1\uffff\3\172\1\uffff\1\143\3\uffff\1\145\1\172\1\uffff";
+        "\1\uffff\1\156\1\171\4\uffff\1\135\1\157\1\154\1\164\1\141\1\142\1\145\1\76\1\162\5\uffff\1\164\1\uffff\1\160\5\uffff\2\157\1\162\1\164\1\152\1\164\1\uffff\1\162\1\165\3\uffff\1\172\1\145\1\154\1\141\1\151\1\141\1\145\1\150\1\157\1\155\1\162\1\uffff\2\172\1\164\1\156\1\172\1\143\1\157\1\162\1\172\1\146\2\uffff\1\172\1\147\1\uffff\1\164\1\144\1\172\1\uffff\1\141\1\uffff\3\172\1\uffff\1\143\3\uffff\1\145\1\172\1\uffff";
     static final String DFA6_acceptS =
-        "\3\uffff\1\3\1\4\1\5\1\6\11\uffff\1\21\1\22\1\23\1\24\1\25\1\uffff\1\22\1\uffff\1\3\1\4\1\5\1\6\1\7\6\uffff\1\17\1\uffff\1\21\1\23\1\24\12\uffff\1\11\11\uffff\1\2\1\10\2\uffff\1\14\4\uffff\1\12\3\uffff\1\20\1\uffff\1\13\1\15\1\16\2\uffff\1\1";
+        "\3\uffff\1\3\1\4\1\5\1\6\11\uffff\1\21\1\23\1\24\1\25\1\26\1\uffff\1\23\1\uffff\1\3\1\4\1\5\1\6\1\7\6\uffff\1\17\2\uffff\1\21\1\24\1\25\13\uffff\1\11\12\uffff\1\2\1\10\2\uffff\1\14\3\uffff\1\22\1\uffff\1\12\3\uffff\1\20\1\uffff\1\13\1\15\1\16\2\uffff\1\1";
     static final String DFA6_specialS =
-        "\1\0\120\uffff}>";
+        "\1\0\124\uffff}>";
     static final String[] DFA6_transitionS = {
             "\11\24\2\23\2\24\1\23\22\24\1\23\2\24\1\22\4\24\1\3\1\5\2\24\1\4\1\16\1\20\13\24\1\6\6\24\32\21\1\7\3\24\1\21\1\24\1\21\1\10\1\21\1\13\1\17\1\11\2\21\1\1\3\21\1\15\1\21\1\14\3\21\1\12\1\2\6\21\uff85\24",
             "\1\25",
@@ -814,34 +843,33 @@ public class InternalVarlinkIdlLexer extends Lexer {
             "\1\41",
             "\1\42",
             "\1\43",
-            "\1\44",
+            "\1\45\3\uffff\1\44",
             "",
             "",
             "",
             "",
-            "",
-            "\1\50",
             "",
             "\1\51",
             "",
-            "",
-            "",
-            "",
-            "",
             "\1\52",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\53",
             "\1\54",
             "\1\55",
             "\1\56",
             "\1\57",
-            "",
             "\1\60",
             "",
+            "\1\61",
+            "\1\62",
             "",
             "",
-            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\4\26\1\61\25\26",
-            "\1\63",
-            "\1\64",
+            "",
+            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\4\26\1\63\25\26",
             "\1\65",
             "\1\66",
             "\1\67",
@@ -849,35 +877,40 @@ public class InternalVarlinkIdlLexer extends Lexer {
             "\1\71",
             "\1\72",
             "\1\73",
+            "\1\74",
+            "\1\75",
+            "\1\76",
             "",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
-            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
-            "\1\76",
-            "\1\77",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
             "\1\101",
             "\1\102",
-            "\1\103",
-            "\1\104",
-            "",
-            "",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+            "\1\104",
+            "\1\105",
             "\1\106",
-            "",
-            "\1\107",
+            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
             "\1\110",
+            "",
+            "",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
             "\1\112",
             "",
-            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
-            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+            "\1\113",
+            "\1\114",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
             "",
             "\1\116",
             "",
+            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+            "",
+            "\1\122",
             "",
             "",
-            "\1\117",
+            "",
+            "\1\123",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
             ""
     };
@@ -912,7 +945,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
             this.transition = DFA6_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | RULE_ID | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | RULE_ID | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;

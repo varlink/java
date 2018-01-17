@@ -42,6 +42,8 @@ public class VarlinkIdlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeAliasDefinitionAccess().getAlternatives(), "rule__TypeAliasDefinition__Alternatives");
 					put(grammarAccess.getElementTypeAccess().getAlternatives_0(), "rule__ElementType__Alternatives_0");
 					put(grammarAccess.getBasicTypeAccess().getTypeAlternatives_0(), "rule__BasicType__TypeAlternatives_0");
+					put(grammarAccess.getValidIDAccess().getAlternatives(), "rule__ValidID__Alternatives");
+					put(grammarAccess.getKEYWORDAccess().getAlternatives(), "rule__KEYWORD__Alternatives");
 					put(grammarAccess.getInterfaceAccess().getGroup(), "rule__Interface__Group__0");
 					put(grammarAccess.getTypeAliasAccess().getGroup(), "rule__TypeAlias__Group__0");
 					put(grammarAccess.getEnumAccess().getGroup(), "rule__Enum__Group__0");
