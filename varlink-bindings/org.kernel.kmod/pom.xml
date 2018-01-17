@@ -34,9 +34,6 @@
                         <goals>
                             <goal>generate</goal>
                         </goals>
-                        <configuration>
-                            <sourcePath>src/main/varlink</sourcePath>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
