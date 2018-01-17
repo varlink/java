@@ -915,7 +915,6 @@ public class JdtGenerator implements Generator {
             }
         } else {
             md.setReturnType2(null);
-            System.out.println(ret);
             future.typeArguments().add(ret);
         }
 
