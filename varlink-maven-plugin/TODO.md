@@ -2,6 +2,6 @@
 
 * [ ] Composite return types
 * [X] Arrays
-* [ ] Types Exceptions/Error types
+* [ ] Typed Exceptions/Error types
 * [ ] Monitor
 * [ ] Java-friendly naming
