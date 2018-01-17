@@ -23,7 +23,12 @@ public class ApplicationKmod1 {
     public static void main(final String[] args) throws Exception {
 
         try (Varlink v = Varlink.varlink()) {
+
+            // get kernel modules
+
             final LoadedModule[] modules = v.resolveSync(Kmod.class).sync().list();
+
+            // dump table
 
             final List<List<String>> data = new LinkedList<>();
 
