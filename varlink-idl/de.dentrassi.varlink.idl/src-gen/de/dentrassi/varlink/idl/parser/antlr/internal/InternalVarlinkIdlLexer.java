@@ -427,8 +427,8 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:969:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalVarlinkIdl.g:969:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVarlinkIdl.g:978:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalVarlinkIdl.g:978:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -439,7 +439,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalVarlinkIdl.g:969:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVarlinkIdl.g:978:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -488,11 +488,11 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:971:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalVarlinkIdl.g:971:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalVarlinkIdl.g:980:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalVarlinkIdl.g:980:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match('#'); 
-            // InternalVarlinkIdl.g:971:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalVarlinkIdl.g:980:23: (~ ( ( '\\n' | '\\r' ) ) )*
             loop2:
             do {
                 int alt2=2;
@@ -505,7 +505,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalVarlinkIdl.g:971:23: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalVarlinkIdl.g:980:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -525,7 +525,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalVarlinkIdl.g:971:39: ( ( '\\r' )? '\\n' )?
+            // InternalVarlinkIdl.g:980:39: ( ( '\\r' )? '\\n' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -534,9 +534,9 @@ public class InternalVarlinkIdlLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalVarlinkIdl.g:971:40: ( '\\r' )? '\\n'
+                    // InternalVarlinkIdl.g:980:40: ( '\\r' )? '\\n'
                     {
-                    // InternalVarlinkIdl.g:971:40: ( '\\r' )?
+                    // InternalVarlinkIdl.g:980:40: ( '\\r' )?
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -545,7 +545,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // InternalVarlinkIdl.g:971:40: '\\r'
+                            // InternalVarlinkIdl.g:980:40: '\\r'
                             {
                             match('\r'); 
 
@@ -577,10 +577,10 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:973:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalVarlinkIdl.g:973:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVarlinkIdl.g:982:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalVarlinkIdl.g:982:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalVarlinkIdl.g:973:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVarlinkIdl.g:982:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt5=0;
             loop5:
             do {
@@ -634,8 +634,8 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:975:16: ( . )
-            // InternalVarlinkIdl.g:975:18: .
+            // InternalVarlinkIdl.g:984:16: ( . )
+            // InternalVarlinkIdl.g:984:18: .
             {
             matchAny(); 
 

@@ -523,12 +523,21 @@ ruleElementType returns [EObject current=null]
 				$current = $this_Enum_2.current;
 				afterParserOrEnumRuleCall();
 			}
+			    |
+			{
+				newCompositeNode(grammarAccess.getElementTypeAccess().getObjectParserRuleCall_0_3());
+			}
+			this_Object_3=ruleObject
+			{
+				$current = $this_Object_3.current;
+				afterParserOrEnumRuleCall();
+			}
 		)
 		(
 			(
-				lv_multi_3_0='[]'
+				lv_multi_4_0='[]'
 				{
-					newLeafNode(lv_multi_3_0, grammarAccess.getElementTypeAccess().getMultiLeftSquareBracketRightSquareBracketKeyword_1_0());
+					newLeafNode(lv_multi_4_0, grammarAccess.getElementTypeAccess().getMultiLeftSquareBracketRightSquareBracketKeyword_1_0());
 				}
 				{
 					if ($current==null) {

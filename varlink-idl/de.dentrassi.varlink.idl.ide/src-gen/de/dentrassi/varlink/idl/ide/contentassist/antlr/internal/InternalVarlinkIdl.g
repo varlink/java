@@ -502,6 +502,12 @@ rule__ElementType__Alternatives_0
 		ruleEnum
 		{ after(grammarAccess.getElementTypeAccess().getEnumParserRuleCall_0_2()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getElementTypeAccess().getObjectParserRuleCall_0_3()); }
+		ruleObject
+		{ after(grammarAccess.getElementTypeAccess().getObjectParserRuleCall_0_3()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);

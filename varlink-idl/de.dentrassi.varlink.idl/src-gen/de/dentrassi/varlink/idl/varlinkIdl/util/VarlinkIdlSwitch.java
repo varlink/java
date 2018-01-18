@@ -134,6 +134,7 @@ public class VarlinkIdlSwitch<T> extends Switch<T>
         de.dentrassi.varlink.idl.varlinkIdl.Object object = (de.dentrassi.varlink.idl.varlinkIdl.Object)theEObject;
         T result = caseObject(object);
         if (result == null) result = caseTypeAliasDefinition(object);
+        if (result == null) result = caseElementType(object);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

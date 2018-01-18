@@ -267,17 +267,18 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBasicTypeParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
 		private final RuleCall cTypeReferenceParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
 		private final RuleCall cEnumParserRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
+		private final RuleCall cObjectParserRuleCall_0_3 = (RuleCall)cAlternatives_0.eContents().get(3);
 		private final Assignment cMultiAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Keyword cMultiLeftSquareBracketRightSquareBracketKeyword_1_0 = (Keyword)cMultiAssignment_1.eContents().get(0);
 		
 		//ElementType:
-		//	(BasicType | TypeReference | Enum) multi?="[]"?;
+		//	(BasicType | TypeReference | Enum | Object) multi?="[]"?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(BasicType | TypeReference | Enum) multi?="[]"?
+		//(BasicType | TypeReference | Enum | Object) multi?="[]"?
 		public Group getGroup() { return cGroup; }
 		
-		//BasicType | TypeReference | Enum
+		//BasicType | TypeReference | Enum | Object
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
 		//BasicType
@@ -288,6 +289,9 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Enum
 		public RuleCall getEnumParserRuleCall_0_2() { return cEnumParserRuleCall_0_2; }
+		
+		//Object
+		public RuleCall getObjectParserRuleCall_0_3() { return cObjectParserRuleCall_0_3; }
 		
 		//multi?="[]"?
 		public Assignment getMultiAssignment_1() { return cMultiAssignment_1; }
@@ -669,7 +673,7 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ElementType:
-	//	(BasicType | TypeReference | Enum) multi?="[]"?;
+	//	(BasicType | TypeReference | Enum | Object) multi?="[]"?;
 	public ElementTypeElements getElementTypeAccess() {
 		return pElementType;
 	}

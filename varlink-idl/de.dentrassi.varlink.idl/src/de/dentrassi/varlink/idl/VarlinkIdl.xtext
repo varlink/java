@@ -54,7 +54,7 @@ Field:
 ;
 
 ElementType:
-	( BasicType | TypeReference | Enum ) ( multi?="[]" )? 
+	( BasicType | TypeReference | Enum  | Object) ( multi?="[]" )? 
 ;
 
 TypeReference:

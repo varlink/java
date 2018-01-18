@@ -12,7 +12,6 @@
  */
 package de.dentrassi.varlink.idl.varlinkIdl.impl;
 
-import de.dentrassi.varlink.idl.varlinkIdl.ElementType;
 import de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage;
 
 import java.util.Collection;
@@ -35,14 +34,24 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dentrassi.varlink.idl.varlinkIdl.impl.EnumImpl#isMulti <em>Multi</em>}</li>
  *   <li>{@link de.dentrassi.varlink.idl.varlinkIdl.impl.EnumImpl#getFields <em>Fields</em>}</li>
+ *   <li>{@link de.dentrassi.varlink.idl.varlinkIdl.impl.EnumImpl#isMulti <em>Multi</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class EnumImpl extends TypeAliasDefinitionImpl implements de.dentrassi.varlink.idl.varlinkIdl.Enum
 {
+  /**
+   * The cached value of the '{@link #getFields() <em>Fields</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFields()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> fields;
+
   /**
    * The default value of the '{@link #isMulti() <em>Multi</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -64,16 +73,6 @@ public class EnumImpl extends TypeAliasDefinitionImpl implements de.dentrassi.va
   protected boolean multi = MULTI_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getFields() <em>Fields</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFields()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> fields;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -92,6 +91,20 @@ public class EnumImpl extends TypeAliasDefinitionImpl implements de.dentrassi.va
   protected EClass eStaticClass()
   {
     return VarlinkIdlPackage.Literals.ENUM;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getFields()
+  {
+    if (fields == null)
+    {
+      fields = new EDataTypeEList<String>(String.class, this, VarlinkIdlPackage.ENUM__FIELDS);
+    }
+    return fields;
   }
 
   /**
@@ -122,29 +135,15 @@ public class EnumImpl extends TypeAliasDefinitionImpl implements de.dentrassi.va
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getFields()
-  {
-    if (fields == null)
-    {
-      fields = new EDataTypeEList<String>(String.class, this, VarlinkIdlPackage.ENUM__FIELDS);
-    }
-    return fields;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.ENUM__MULTI:
-        return isMulti();
       case VarlinkIdlPackage.ENUM__FIELDS:
         return getFields();
+      case VarlinkIdlPackage.ENUM__MULTI:
+        return isMulti();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -160,12 +159,12 @@ public class EnumImpl extends TypeAliasDefinitionImpl implements de.dentrassi.va
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.ENUM__MULTI:
-        setMulti((Boolean)newValue);
-        return;
       case VarlinkIdlPackage.ENUM__FIELDS:
         getFields().clear();
         getFields().addAll((Collection<? extends String>)newValue);
+        return;
+      case VarlinkIdlPackage.ENUM__MULTI:
+        setMulti((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -181,11 +180,11 @@ public class EnumImpl extends TypeAliasDefinitionImpl implements de.dentrassi.va
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.ENUM__MULTI:
-        setMulti(MULTI_EDEFAULT);
-        return;
       case VarlinkIdlPackage.ENUM__FIELDS:
         getFields().clear();
+        return;
+      case VarlinkIdlPackage.ENUM__MULTI:
+        setMulti(MULTI_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -201,50 +200,12 @@ public class EnumImpl extends TypeAliasDefinitionImpl implements de.dentrassi.va
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.ENUM__MULTI:
-        return multi != MULTI_EDEFAULT;
       case VarlinkIdlPackage.ENUM__FIELDS:
         return fields != null && !fields.isEmpty();
+      case VarlinkIdlPackage.ENUM__MULTI:
+        return multi != MULTI_EDEFAULT;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == ElementType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case VarlinkIdlPackage.ENUM__MULTI: return VarlinkIdlPackage.ELEMENT_TYPE__MULTI;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == ElementType.class)
-    {
-      switch (baseFeatureID)
-      {
-        case VarlinkIdlPackage.ELEMENT_TYPE__MULTI: return VarlinkIdlPackage.ENUM__MULTI;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**
@@ -258,10 +219,10 @@ public class EnumImpl extends TypeAliasDefinitionImpl implements de.dentrassi.va
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (multi: ");
-    result.append(multi);
-    result.append(", fields: ");
+    result.append(" (fields: ");
     result.append(fields);
+    result.append(", multi: ");
+    result.append(multi);
     result.append(')');
     return result.toString();
   }

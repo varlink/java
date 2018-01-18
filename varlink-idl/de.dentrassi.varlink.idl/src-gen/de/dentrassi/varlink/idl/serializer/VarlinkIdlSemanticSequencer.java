@@ -78,8 +78,16 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 				sequence_Method(context, (Method) semanticObject); 
 				return; 
 			case VarlinkIdlPackage.OBJECT:
-				sequence_Object(context, (de.dentrassi.varlink.idl.varlinkIdl.Object) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getElementTypeRule()) {
+					sequence_ElementType_Object(context, (de.dentrassi.varlink.idl.varlinkIdl.Object) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getTypeAliasDefinitionRule()
+						|| rule == grammarAccess.getObjectRule()) {
+					sequence_Object(context, (de.dentrassi.varlink.idl.varlinkIdl.Object) semanticObject); 
+					return; 
+				}
+				else break;
 			case VarlinkIdlPackage.TYPE_ALIAS:
 				sequence_TypeAlias(context, (TypeAlias) semanticObject); 
 				return; 
@@ -147,6 +155,18 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (fields+=ValidID fields+=ValidID* multi?='[]'?)
 	 */
 	protected void sequence_ElementType_Enum(ISerializationContext context, de.dentrassi.varlink.idl.varlinkIdl.Enum semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ElementType returns Object
+	 *
+	 * Constraint:
+	 *     (fields+=Field? fields+=Field* multi?='[]'?)
+	 */
+	protected void sequence_ElementType_Object(ISerializationContext context, de.dentrassi.varlink.idl.varlinkIdl.Object semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
