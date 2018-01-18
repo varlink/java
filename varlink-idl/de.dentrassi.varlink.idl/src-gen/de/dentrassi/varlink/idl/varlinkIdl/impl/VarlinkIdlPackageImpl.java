@@ -391,9 +391,9 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeReference_Name()
+  public EReference getTypeReference_Name()
   {
-    return (EAttribute)typeReferenceEClass.getEStructuralFeatures().get(1);
+    return (EReference)typeReferenceEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -534,7 +534,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
 
     typeReferenceEClass = createEClass(TYPE_REFERENCE);
     createEAttribute(typeReferenceEClass, TYPE_REFERENCE__MULTI);
-    createEAttribute(typeReferenceEClass, TYPE_REFERENCE__NAME);
+    createEReference(typeReferenceEClass, TYPE_REFERENCE__NAME);
 
     basicTypeEClass = createEClass(BASIC_TYPE);
     createEAttribute(basicTypeEClass, BASIC_TYPE__MULTI);
@@ -616,7 +616,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
 
     initEClass(typeReferenceEClass, TypeReference.class, "TypeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeReference_Multi(), ecorePackage.getEBoolean(), "multi", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTypeReference_Name(), ecorePackage.getEString(), "name", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeReference_Name(), this.getTypeAlias(), null, "name", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(basicTypeEClass, BasicType.class, "BasicType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBasicType_Multi(), ecorePackage.getEBoolean(), "multi", null, 0, 1, BasicType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -176,7 +176,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ElementType returns TypeReference
 	 *
 	 * Constraint:
-	 *     (name=ValidID multi?='[]'?)
+	 *     (name=[TypeAlias|ID] multi?='[]'?)
 	 */
 	protected void sequence_ElementType_TypeReference(ISerializationContext context, TypeReference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -316,7 +316,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     TypeReference returns TypeReference
 	 *
 	 * Constraint:
-	 *     name=ValidID
+	 *     name=[TypeAlias|ID]
 	 */
 	protected void sequence_TypeReference(ISerializationContext context, TypeReference semanticObject) {
 		if (errorAcceptor != null) {
@@ -324,7 +324,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VarlinkIdlPackage.Literals.TYPE_REFERENCE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeReferenceAccess().getNameValidIDParserRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTypeReferenceAccess().getNameTypeAliasIDTerminalRuleCall_0_1(), semanticObject.eGet(VarlinkIdlPackage.Literals.TYPE_REFERENCE__NAME, false));
 		feeder.finish();
 	}
 	

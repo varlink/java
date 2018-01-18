@@ -32,7 +32,7 @@
     <genClasses ecoreClass="VarlinkIdl.ecore#//ElementType"/>
     <genClasses ecoreClass="VarlinkIdl.ecore#//TypeReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//TypeReference/multi"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//TypeReference/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//TypeReference/name"/>
     </genClasses>
     <genClasses ecoreClass="VarlinkIdl.ecore#//BasicType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//BasicType/multi"/>

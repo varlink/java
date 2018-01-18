@@ -38,7 +38,6 @@ Enum:
 	"("
 	fields+=ValidID
 	("," fields+=ValidID)*
-
 	 ")"
 ;
 
@@ -54,11 +53,11 @@ Field:
 ;
 
 ElementType:
-	( BasicType | TypeReference | Enum  | Object) ( multi?="[]" )? 
+	( BasicType | TypeReference | Enum | Object) (multi?="[]")?
 ;
 
 TypeReference:
-	name=ValidID
+	name=[TypeAlias]
 ;
 
 BasicType:

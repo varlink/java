@@ -568,19 +568,13 @@ ruleTypeReference returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getTypeReferenceAccess().getNameValidIDParserRuleCall_0());
-			}
-			lv_name_0_0=ruleValidID
-			{
 				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getTypeReferenceRule());
+					$current = createModelElement(grammarAccess.getTypeReferenceRule());
 				}
-				set(
-					$current,
-					"name",
-					lv_name_0_0,
-					"de.dentrassi.varlink.idl.VarlinkIdl.ValidID");
-				afterParserOrEnumRuleCall();
+			}
+			otherlv_0=RULE_ID
+			{
+				newLeafNode(otherlv_0, grammarAccess.getTypeReferenceAccess().getNameTypeAliasCrossReference_0());
 			}
 		)
 	)

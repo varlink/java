@@ -337,7 +337,7 @@ public interface VarlinkIdlPackage extends EPackage
   int TYPE_REFERENCE__MULTI = ELEMENT_TYPE_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -687,15 +687,15 @@ public interface VarlinkIdlPackage extends EPackage
   EAttribute getTypeReference_Multi();
 
   /**
-   * Returns the meta object for the attribute '{@link de.dentrassi.varlink.idl.varlinkIdl.TypeReference#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link de.dentrassi.varlink.idl.varlinkIdl.TypeReference#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the reference '<em>Name</em>'.
    * @see de.dentrassi.varlink.idl.varlinkIdl.TypeReference#getName()
    * @see #getTypeReference()
    * @generated
    */
-  EAttribute getTypeReference_Name();
+  EReference getTypeReference_Name();
 
   /**
    * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.BasicType <em>Basic Type</em>}'.
@@ -984,12 +984,12 @@ public interface VarlinkIdlPackage extends EPackage
     EAttribute TYPE_REFERENCE__MULTI = eINSTANCE.getTypeReference_Multi();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TYPE_REFERENCE__NAME = eINSTANCE.getTypeReference_Name();
+    EReference TYPE_REFERENCE__NAME = eINSTANCE.getTypeReference_Name();
 
     /**
      * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.BasicTypeImpl <em>Basic Type</em>}' class.

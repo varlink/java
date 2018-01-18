@@ -16,6 +16,7 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -302,17 +303,21 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	public class TypeReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.TypeReference");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameValidIDParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final CrossReference cNameTypeAliasCrossReference_0 = (CrossReference)cNameAssignment.eContents().get(0);
+		private final RuleCall cNameTypeAliasIDTerminalRuleCall_0_1 = (RuleCall)cNameTypeAliasCrossReference_0.eContents().get(1);
 		
 		//TypeReference:
-		//	name=ValidID;
+		//	name=[TypeAlias];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ValidID
+		//name=[TypeAlias]
 		public Assignment getNameAssignment() { return cNameAssignment; }
 		
-		//ValidID
-		public RuleCall getNameValidIDParserRuleCall_0() { return cNameValidIDParserRuleCall_0; }
+		//[TypeAlias]
+		public CrossReference getNameTypeAliasCrossReference_0() { return cNameTypeAliasCrossReference_0; }
+		
+		//ID
+		public RuleCall getNameTypeAliasIDTerminalRuleCall_0_1() { return cNameTypeAliasIDTerminalRuleCall_0_1; }
 	}
 	public class BasicTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.BasicType");
@@ -683,7 +688,7 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TypeReference:
-	//	name=ValidID;
+	//	name=[TypeAlias];
 	public TypeReferenceElements getTypeReferenceAccess() {
 		return pTypeReference;
 	}

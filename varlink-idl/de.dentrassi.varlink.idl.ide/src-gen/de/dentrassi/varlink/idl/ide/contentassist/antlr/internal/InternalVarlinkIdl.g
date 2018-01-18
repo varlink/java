@@ -1795,9 +1795,13 @@ rule__TypeReference__NameAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getTypeReferenceAccess().getNameValidIDParserRuleCall_0()); }
-		ruleValidID
-		{ after(grammarAccess.getTypeReferenceAccess().getNameValidIDParserRuleCall_0()); }
+		{ before(grammarAccess.getTypeReferenceAccess().getNameTypeAliasCrossReference_0()); }
+		(
+			{ before(grammarAccess.getTypeReferenceAccess().getNameTypeAliasIDTerminalRuleCall_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getTypeReferenceAccess().getNameTypeAliasIDTerminalRuleCall_0_1()); }
+		)
+		{ after(grammarAccess.getTypeReferenceAccess().getNameTypeAliasCrossReference_0()); }
 	)
 ;
 finally {

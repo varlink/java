@@ -12,12 +12,14 @@
  */
 package de.dentrassi.varlink.idl.varlinkIdl.impl;
 
+import de.dentrassi.varlink.idl.varlinkIdl.TypeAlias;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeReference;
 import de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -58,24 +60,14 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
   protected boolean multi = MULTI_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected TypeAlias name;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,7 +118,27 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public TypeAlias getName()
+  {
+    if (name != null && name.eIsProxy())
+    {
+      InternalEObject oldName = (InternalEObject)name;
+      name = (TypeAlias)eResolveProxy(oldName);
+      if (name != oldName)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, VarlinkIdlPackage.TYPE_REFERENCE__NAME, oldName, name));
+      }
+    }
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeAlias basicGetName()
   {
     return name;
   }
@@ -136,9 +148,9 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setName(TypeAlias newName)
   {
-    String oldName = name;
+    TypeAlias oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, VarlinkIdlPackage.TYPE_REFERENCE__NAME, oldName, name));
@@ -157,7 +169,8 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
       case VarlinkIdlPackage.TYPE_REFERENCE__MULTI:
         return isMulti();
       case VarlinkIdlPackage.TYPE_REFERENCE__NAME:
-        return getName();
+        if (resolve) return getName();
+        return basicGetName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -176,7 +189,7 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
         setMulti((Boolean)newValue);
         return;
       case VarlinkIdlPackage.TYPE_REFERENCE__NAME:
-        setName((String)newValue);
+        setName((TypeAlias)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -196,7 +209,7 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
         setMulti(MULTI_EDEFAULT);
         return;
       case VarlinkIdlPackage.TYPE_REFERENCE__NAME:
-        setName(NAME_EDEFAULT);
+        setName((TypeAlias)null);
         return;
     }
     super.eUnset(featureID);
@@ -215,7 +228,7 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
       case VarlinkIdlPackage.TYPE_REFERENCE__MULTI:
         return multi != MULTI_EDEFAULT;
       case VarlinkIdlPackage.TYPE_REFERENCE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+        return name != null;
     }
     return super.eIsSet(featureID);
   }
@@ -233,8 +246,6 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (multi: ");
     result.append(multi);
-    result.append(", name: ");
-    result.append(name);
     result.append(')');
     return result.toString();
   }
