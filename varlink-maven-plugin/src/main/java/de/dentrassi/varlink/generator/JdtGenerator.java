@@ -518,7 +518,7 @@ public class JdtGenerator implements Generator {
         final Object arguments = method.getArguments();
         if (arguments != null) {
             for (final Field field : arguments.getFields()) {
-                final Type type = asType(ast, field.getName(), field.getType());
+                final Type type = asType(ast, field);
                 parameters.put(field.getName(), type);
             }
         }
@@ -526,7 +526,7 @@ public class JdtGenerator implements Generator {
         final Object result = method.getResult();
         if (result != null) {
             for (final Field field : result.getFields()) {
-                final Type type = asType(ast, field.getName(), field.getType());
+                final Type type = asType(ast, field);
                 returns.put(field.getName(), type);
             }
         }
@@ -783,7 +783,7 @@ public class JdtGenerator implements Generator {
                     final VariableDeclarationFragment vdf = ast.newVariableDeclarationFragment();
                     vdf.setName(ast.newSimpleName(name));
                     final FieldDeclaration fd = ast.newFieldDeclaration(vdf);
-                    fd.setType(asType(ast, name, field.getType()));
+                    fd.setType(asType(ast, field));
                     make(fd, PRIVATE_KEYWORD);
 
                     td.bodyDeclarations().add(fd);
@@ -797,7 +797,7 @@ public class JdtGenerator implements Generator {
                     td.bodyDeclarations().add(md);
                     make(md, PUBLIC_KEYWORD);
 
-                    md.setReturnType2(asType(ast, name, field.getType()));
+                    md.setReturnType2(asType(ast, field));
 
                     final Block body = ast.newBlock();
                     md.setBody(body);
@@ -822,7 +822,7 @@ public class JdtGenerator implements Generator {
 
                     final SingleVariableDeclaration svd = ast.newSingleVariableDeclaration();
                     svd.setName(ast.newSimpleName(name));
-                    svd.setType(asType(ast, name, field.getType()));
+                    svd.setType(asType(ast, field));
 
                     md.parameters().add(svd);
 
@@ -865,9 +865,10 @@ public class JdtGenerator implements Generator {
         }
     }
 
-    private static Type asType(final AST ast, final String propertyName, final ElementType type) {
-        final Type main = asMainType(ast, propertyName, type);
-        if (type.isMulti()) {
+    private static Type asType(final AST ast, final Field field) {
+        final String name = field.getName();
+        final Type main = asMainType(ast, name, field.getType());
+        if (field.isMulti()) {
             return ast.newArrayType(main);
         } else {
             return main;
@@ -893,10 +894,11 @@ public class JdtGenerator implements Generator {
             return ast.newSimpleType(
                     ast.newSimpleName(toUpperFirst(propertyName)));
         } else if (type instanceof TypeReference) {
-            return ast.newSimpleType(ast.newSimpleName(toUpperFirst(((TypeReference) type).getName())));
+            final String name = ((TypeReference) type).getName().getName();
+            return ast.newSimpleType(ast.newSimpleName(toUpperFirst(name)));
         }
 
-        throw new IllegalArgumentException("Unknown type: " + type.eClass().getName());
+        throw new IllegalArgumentException("Unsupported type: " + type.eClass().getName());
     }
 
     @SuppressWarnings("unchecked")

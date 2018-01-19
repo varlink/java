@@ -238,12 +238,14 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTypeElementTypeParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
+		private final Assignment cMultiAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cMultiLeftSquareBracketRightSquareBracketKeyword_3_0 = (Keyword)cMultiAssignment_3.eContents().get(0);
 		
 		//Field:
-		//	name=ValidID ":" type=ElementType;
+		//	name=ValidID ":" type=ElementType multi?="[]"?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ValidID ":" type=ElementType
+		//name=ValidID ":" type=ElementType multi?="[]"?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ValidID
@@ -260,45 +262,39 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ElementType
 		public RuleCall getTypeElementTypeParserRuleCall_2_0() { return cTypeElementTypeParserRuleCall_2_0; }
+		
+		//multi?="[]"?
+		public Assignment getMultiAssignment_3() { return cMultiAssignment_3; }
+		
+		//"[]"
+		public Keyword getMultiLeftSquareBracketRightSquareBracketKeyword_3_0() { return cMultiLeftSquareBracketRightSquareBracketKeyword_3_0; }
 	}
 	public class ElementTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.ElementType");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final RuleCall cBasicTypeParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cTypeReferenceParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final RuleCall cEnumParserRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
-		private final RuleCall cObjectParserRuleCall_0_3 = (RuleCall)cAlternatives_0.eContents().get(3);
-		private final Assignment cMultiAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cMultiLeftSquareBracketRightSquareBracketKeyword_1_0 = (Keyword)cMultiAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cBasicTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTypeReferenceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEnumParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cObjectParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//ElementType:
-		//	(BasicType | TypeReference | Enum | Object) multi?="[]"?;
+		//	BasicType | TypeReference | Enum | Object;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(BasicType | TypeReference | Enum | Object) multi?="[]"?
-		public Group getGroup() { return cGroup; }
-		
 		//BasicType | TypeReference | Enum | Object
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//BasicType
-		public RuleCall getBasicTypeParserRuleCall_0_0() { return cBasicTypeParserRuleCall_0_0; }
+		public RuleCall getBasicTypeParserRuleCall_0() { return cBasicTypeParserRuleCall_0; }
 		
 		//TypeReference
-		public RuleCall getTypeReferenceParserRuleCall_0_1() { return cTypeReferenceParserRuleCall_0_1; }
+		public RuleCall getTypeReferenceParserRuleCall_1() { return cTypeReferenceParserRuleCall_1; }
 		
 		//Enum
-		public RuleCall getEnumParserRuleCall_0_2() { return cEnumParserRuleCall_0_2; }
+		public RuleCall getEnumParserRuleCall_2() { return cEnumParserRuleCall_2; }
 		
 		//Object
-		public RuleCall getObjectParserRuleCall_0_3() { return cObjectParserRuleCall_0_3; }
-		
-		//multi?="[]"?
-		public Assignment getMultiAssignment_1() { return cMultiAssignment_1; }
-		
-		//"[]"
-		public Keyword getMultiLeftSquareBracketRightSquareBracketKeyword_1_0() { return cMultiLeftSquareBracketRightSquareBracketKeyword_1_0; }
+		public RuleCall getObjectParserRuleCall_3() { return cObjectParserRuleCall_3; }
 	}
 	public class TypeReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.TypeReference");
@@ -668,7 +664,7 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Field:
-	//	name=ValidID ":" type=ElementType;
+	//	name=ValidID ":" type=ElementType multi?="[]"?;
 	public FieldElements getFieldAccess() {
 		return pField;
 	}
@@ -678,7 +674,7 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ElementType:
-	//	(BasicType | TypeReference | Enum | Object) multi?="[]"?;
+	//	BasicType | TypeReference | Enum | Object;
 	public ElementTypeElements getElementTypeAccess() {
 		return pElementType;
 	}

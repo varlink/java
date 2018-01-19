@@ -49,11 +49,11 @@ Object: {Object}
 ;
 
 Field:
-	name=ValidID ":" type=ElementType
+	name=ValidID ":" type=ElementType (multi?="[]")?
 ;
 
 ElementType:
-	( BasicType | TypeReference | Enum | Object) (multi?="[]")?
+	( BasicType | TypeReference | Enum | Object)
 ;
 
 TypeReference:

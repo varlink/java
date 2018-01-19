@@ -207,22 +207,13 @@ public interface VarlinkIdlPackage extends EPackage
   int ENUM__FIELDS = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Multi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUM__MULTI = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Enum</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUM_FEATURE_COUNT = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 2;
+  int ENUM_FEATURE_COUNT = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ObjectImpl <em>Object</em>}' class.
@@ -244,22 +235,13 @@ public interface VarlinkIdlPackage extends EPackage
   int OBJECT__FIELDS = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Multi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OBJECT__MULTI = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Object</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBJECT_FEATURE_COUNT = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 2;
+  int OBJECT_FEATURE_COUNT = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.FieldImpl <em>Field</em>}' class.
@@ -290,13 +272,22 @@ public interface VarlinkIdlPackage extends EPackage
   int FIELD__TYPE = 1;
 
   /**
+   * The feature id for the '<em><b>Multi</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__MULTI = 2;
+
+  /**
    * The number of structural features of the '<em>Field</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_FEATURE_COUNT = 2;
+  int FIELD_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ElementTypeImpl <em>Element Type</em>}' class.
@@ -328,22 +319,13 @@ public interface VarlinkIdlPackage extends EPackage
   int TYPE_REFERENCE = 8;
 
   /**
-   * The feature id for the '<em><b>Multi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_REFERENCE__MULTI = ELEMENT_TYPE_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE__NAME = ELEMENT_TYPE_FEATURE_COUNT + 1;
+  int TYPE_REFERENCE__NAME = ELEMENT_TYPE_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Type Reference</em>' class.
@@ -352,7 +334,7 @@ public interface VarlinkIdlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_REFERENCE_FEATURE_COUNT = ELEMENT_TYPE_FEATURE_COUNT + 2;
+  int TYPE_REFERENCE_FEATURE_COUNT = ELEMENT_TYPE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.BasicTypeImpl <em>Basic Type</em>}' class.
@@ -365,22 +347,13 @@ public interface VarlinkIdlPackage extends EPackage
   int BASIC_TYPE = 9;
 
   /**
-   * The feature id for the '<em><b>Multi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BASIC_TYPE__MULTI = ELEMENT_TYPE_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BASIC_TYPE__TYPE = ELEMENT_TYPE_FEATURE_COUNT + 1;
+  int BASIC_TYPE__TYPE = ELEMENT_TYPE_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Basic Type</em>' class.
@@ -389,7 +362,7 @@ public interface VarlinkIdlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_TYPE_FEATURE_COUNT = ELEMENT_TYPE_FEATURE_COUNT + 2;
+  int BASIC_TYPE_FEATURE_COUNT = ELEMENT_TYPE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.MethodImpl <em>Method</em>}' class.
@@ -581,17 +554,6 @@ public interface VarlinkIdlPackage extends EPackage
   EAttribute getEnum_Fields();
 
   /**
-   * Returns the meta object for the attribute '{@link de.dentrassi.varlink.idl.varlinkIdl.Enum#isMulti <em>Multi</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Multi</em>'.
-   * @see de.dentrassi.varlink.idl.varlinkIdl.Enum#isMulti()
-   * @see #getEnum()
-   * @generated
-   */
-  EAttribute getEnum_Multi();
-
-  /**
    * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.Object <em>Object</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -611,17 +573,6 @@ public interface VarlinkIdlPackage extends EPackage
    * @generated
    */
   EReference getObject_Fields();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.dentrassi.varlink.idl.varlinkIdl.Object#isMulti <em>Multi</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Multi</em>'.
-   * @see de.dentrassi.varlink.idl.varlinkIdl.Object#isMulti()
-   * @see #getObject()
-   * @generated
-   */
-  EAttribute getObject_Multi();
 
   /**
    * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.Field <em>Field</em>}'.
@@ -656,6 +607,17 @@ public interface VarlinkIdlPackage extends EPackage
   EReference getField_Type();
 
   /**
+   * Returns the meta object for the attribute '{@link de.dentrassi.varlink.idl.varlinkIdl.Field#isMulti <em>Multi</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Multi</em>'.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Field#isMulti()
+   * @see #getField()
+   * @generated
+   */
+  EAttribute getField_Multi();
+
+  /**
    * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.ElementType <em>Element Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -674,17 +636,6 @@ public interface VarlinkIdlPackage extends EPackage
    * @generated
    */
   EClass getTypeReference();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.dentrassi.varlink.idl.varlinkIdl.TypeReference#isMulti <em>Multi</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Multi</em>'.
-   * @see de.dentrassi.varlink.idl.varlinkIdl.TypeReference#isMulti()
-   * @see #getTypeReference()
-   * @generated
-   */
-  EAttribute getTypeReference_Multi();
 
   /**
    * Returns the meta object for the reference '{@link de.dentrassi.varlink.idl.varlinkIdl.TypeReference#getName <em>Name</em>}'.
@@ -706,17 +657,6 @@ public interface VarlinkIdlPackage extends EPackage
    * @generated
    */
   EClass getBasicType();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.dentrassi.varlink.idl.varlinkIdl.BasicType#isMulti <em>Multi</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Multi</em>'.
-   * @see de.dentrassi.varlink.idl.varlinkIdl.BasicType#isMulti()
-   * @see #getBasicType()
-   * @generated
-   */
-  EAttribute getBasicType_Multi();
 
   /**
    * Returns the meta object for the attribute '{@link de.dentrassi.varlink.idl.varlinkIdl.BasicType#getType <em>Type</em>}'.
@@ -896,14 +836,6 @@ public interface VarlinkIdlPackage extends EPackage
     EAttribute ENUM__FIELDS = eINSTANCE.getEnum_Fields();
 
     /**
-     * The meta object literal for the '<em><b>Multi</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENUM__MULTI = eINSTANCE.getEnum_Multi();
-
-    /**
      * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ObjectImpl <em>Object</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -920,14 +852,6 @@ public interface VarlinkIdlPackage extends EPackage
      * @generated
      */
     EReference OBJECT__FIELDS = eINSTANCE.getObject_Fields();
-
-    /**
-     * The meta object literal for the '<em><b>Multi</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute OBJECT__MULTI = eINSTANCE.getObject_Multi();
 
     /**
      * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.FieldImpl <em>Field</em>}' class.
@@ -956,6 +880,14 @@ public interface VarlinkIdlPackage extends EPackage
     EReference FIELD__TYPE = eINSTANCE.getField_Type();
 
     /**
+     * The meta object literal for the '<em><b>Multi</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD__MULTI = eINSTANCE.getField_Multi();
+
+    /**
      * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ElementTypeImpl <em>Element Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -976,14 +908,6 @@ public interface VarlinkIdlPackage extends EPackage
     EClass TYPE_REFERENCE = eINSTANCE.getTypeReference();
 
     /**
-     * The meta object literal for the '<em><b>Multi</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_REFERENCE__MULTI = eINSTANCE.getTypeReference_Multi();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1000,14 +924,6 @@ public interface VarlinkIdlPackage extends EPackage
      * @generated
      */
     EClass BASIC_TYPE = eINSTANCE.getBasicType();
-
-    /**
-     * The meta object literal for the '<em><b>Multi</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BASIC_TYPE__MULTI = eINSTANCE.getBasicType_Multi();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.

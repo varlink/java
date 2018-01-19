@@ -19,23 +19,20 @@
     <genClasses ecoreClass="VarlinkIdl.ecore#//TypeAliasDefinition"/>
     <genClasses ecoreClass="VarlinkIdl.ecore#//Enum">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//Enum/fields"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//Enum/multi"/>
     </genClasses>
     <genClasses ecoreClass="VarlinkIdl.ecore#//Object">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//Object/fields"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//Object/multi"/>
     </genClasses>
     <genClasses ecoreClass="VarlinkIdl.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//Field/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//Field/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//Field/multi"/>
     </genClasses>
     <genClasses ecoreClass="VarlinkIdl.ecore#//ElementType"/>
     <genClasses ecoreClass="VarlinkIdl.ecore#//TypeReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//TypeReference/multi"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//TypeReference/name"/>
     </genClasses>
     <genClasses ecoreClass="VarlinkIdl.ecore#//BasicType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//BasicType/multi"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//BasicType/type"/>
     </genClasses>
     <genClasses ecoreClass="VarlinkIdl.ecore#//Method">

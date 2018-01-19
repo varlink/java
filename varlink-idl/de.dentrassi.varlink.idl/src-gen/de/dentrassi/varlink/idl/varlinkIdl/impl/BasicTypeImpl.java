@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dentrassi.varlink.idl.varlinkIdl.impl.BasicTypeImpl#isMulti <em>Multi</em>}</li>
  *   <li>{@link de.dentrassi.varlink.idl.varlinkIdl.impl.BasicTypeImpl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -37,26 +36,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class BasicTypeImpl extends ElementTypeImpl implements BasicType
 {
-  /**
-   * The default value of the '{@link #isMulti() <em>Multi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isMulti()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean MULTI_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isMulti() <em>Multi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isMulti()
-   * @generated
-   * @ordered
-   */
-  protected boolean multi = MULTI_EDEFAULT;
-
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -103,29 +82,6 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isMulti()
-  {
-    return multi;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMulti(boolean newMulti)
-  {
-    boolean oldMulti = multi;
-    multi = newMulti;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, VarlinkIdlPackage.BASIC_TYPE__MULTI, oldMulti, multi));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getType()
   {
     return type;
@@ -154,8 +110,6 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.BASIC_TYPE__MULTI:
-        return isMulti();
       case VarlinkIdlPackage.BASIC_TYPE__TYPE:
         return getType();
     }
@@ -172,9 +126,6 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.BASIC_TYPE__MULTI:
-        setMulti((Boolean)newValue);
-        return;
       case VarlinkIdlPackage.BASIC_TYPE__TYPE:
         setType((String)newValue);
         return;
@@ -192,9 +143,6 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.BASIC_TYPE__MULTI:
-        setMulti(MULTI_EDEFAULT);
-        return;
       case VarlinkIdlPackage.BASIC_TYPE__TYPE:
         setType(TYPE_EDEFAULT);
         return;
@@ -212,8 +160,6 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.BASIC_TYPE__MULTI:
-        return multi != MULTI_EDEFAULT;
       case VarlinkIdlPackage.BASIC_TYPE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
     }
@@ -231,9 +177,7 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (multi: ");
-    result.append(multi);
-    result.append(", type: ");
+    result.append(" (type: ");
     result.append(type);
     result.append(')');
     return result.toString();

@@ -24,7 +24,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link de.dentrassi.varlink.idl.varlinkIdl.Object#getFields <em>Fields</em>}</li>
- *   <li>{@link de.dentrassi.varlink.idl.varlinkIdl.Object#isMulti <em>Multi</em>}</li>
  * </ul>
  *
  * @see de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage#getObject()
@@ -48,31 +47,5 @@ public interface Object extends TypeAliasDefinition, ElementType
    * @generated
    */
   EList<Field> getFields();
-
-  /**
-   * Returns the value of the '<em><b>Multi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Multi</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Multi</em>' attribute.
-   * @see #setMulti(boolean)
-   * @see de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage#getObject_Multi()
-   * @model
-   * @generated
-   */
-  boolean isMulti();
-
-  /**
-   * Sets the value of the '{@link de.dentrassi.varlink.idl.varlinkIdl.Object#isMulti <em>Multi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Multi</em>' attribute.
-   * @see #isMulti()
-   * @generated
-   */
-  void setMulti(boolean value);
 
 } // Object

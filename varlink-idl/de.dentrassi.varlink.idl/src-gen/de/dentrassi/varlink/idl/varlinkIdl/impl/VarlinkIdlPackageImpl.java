@@ -291,16 +291,6 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEnum_Multi()
-  {
-    return (EAttribute)enumEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getObject()
   {
     return objectEClass;
@@ -314,16 +304,6 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
   public EReference getObject_Fields()
   {
     return (EReference)objectEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getObject_Multi()
-  {
-    return (EAttribute)objectEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -361,6 +341,16 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getField_Multi()
+  {
+    return (EAttribute)fieldEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getElementType()
   {
     return elementTypeEClass;
@@ -381,19 +371,9 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeReference_Multi()
-  {
-    return (EAttribute)typeReferenceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getTypeReference_Name()
   {
-    return (EReference)typeReferenceEClass.getEStructuralFeatures().get(1);
+    return (EReference)typeReferenceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -411,19 +391,9 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBasicType_Multi()
-  {
-    return (EAttribute)basicTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getBasicType_Type()
   {
-    return (EAttribute)basicTypeEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)basicTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -520,24 +490,21 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
 
     enumEClass = createEClass(ENUM);
     createEAttribute(enumEClass, ENUM__FIELDS);
-    createEAttribute(enumEClass, ENUM__MULTI);
 
     objectEClass = createEClass(OBJECT);
     createEReference(objectEClass, OBJECT__FIELDS);
-    createEAttribute(objectEClass, OBJECT__MULTI);
 
     fieldEClass = createEClass(FIELD);
     createEAttribute(fieldEClass, FIELD__NAME);
     createEReference(fieldEClass, FIELD__TYPE);
+    createEAttribute(fieldEClass, FIELD__MULTI);
 
     elementTypeEClass = createEClass(ELEMENT_TYPE);
 
     typeReferenceEClass = createEClass(TYPE_REFERENCE);
-    createEAttribute(typeReferenceEClass, TYPE_REFERENCE__MULTI);
     createEReference(typeReferenceEClass, TYPE_REFERENCE__NAME);
 
     basicTypeEClass = createEClass(BASIC_TYPE);
-    createEAttribute(basicTypeEClass, BASIC_TYPE__MULTI);
     createEAttribute(basicTypeEClass, BASIC_TYPE__TYPE);
 
     methodEClass = createEClass(METHOD);
@@ -602,24 +569,21 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
 
     initEClass(enumEClass, de.dentrassi.varlink.idl.varlinkIdl.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnum_Fields(), ecorePackage.getEString(), "fields", null, 0, -1, de.dentrassi.varlink.idl.varlinkIdl.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEnum_Multi(), ecorePackage.getEBoolean(), "multi", null, 0, 1, de.dentrassi.varlink.idl.varlinkIdl.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(objectEClass, de.dentrassi.varlink.idl.varlinkIdl.Object.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getObject_Fields(), this.getField(), null, "fields", null, 0, -1, de.dentrassi.varlink.idl.varlinkIdl.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getObject_Multi(), ecorePackage.getEBoolean(), "multi", null, 0, 1, de.dentrassi.varlink.idl.varlinkIdl.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getField_Name(), ecorePackage.getEString(), "name", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getField_Type(), this.getElementType(), null, "type", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getField_Multi(), ecorePackage.getEBoolean(), "multi", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementTypeEClass, ElementType.class, "ElementType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(typeReferenceEClass, TypeReference.class, "TypeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTypeReference_Multi(), ecorePackage.getEBoolean(), "multi", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeReference_Name(), this.getTypeAlias(), null, "name", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(basicTypeEClass, BasicType.class, "BasicType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBasicType_Multi(), ecorePackage.getEBoolean(), "multi", null, 0, 1, BasicType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBasicType_Type(), ecorePackage.getEString(), "type", null, 0, 1, BasicType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

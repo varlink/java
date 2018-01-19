@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.dentrassi.varlink.idl.varlinkIdl.impl.TypeReferenceImpl#isMulti <em>Multi</em>}</li>
  *   <li>{@link de.dentrassi.varlink.idl.varlinkIdl.impl.TypeReferenceImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -39,26 +38,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
 {
-  /**
-   * The default value of the '{@link #isMulti() <em>Multi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isMulti()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean MULTI_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isMulti() <em>Multi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isMulti()
-   * @generated
-   * @ordered
-   */
-  protected boolean multi = MULTI_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
@@ -88,29 +67,6 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
   protected EClass eStaticClass()
   {
     return VarlinkIdlPackage.Literals.TYPE_REFERENCE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isMulti()
-  {
-    return multi;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMulti(boolean newMulti)
-  {
-    boolean oldMulti = multi;
-    multi = newMulti;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, VarlinkIdlPackage.TYPE_REFERENCE__MULTI, oldMulti, multi));
   }
 
   /**
@@ -166,8 +122,6 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.TYPE_REFERENCE__MULTI:
-        return isMulti();
       case VarlinkIdlPackage.TYPE_REFERENCE__NAME:
         if (resolve) return getName();
         return basicGetName();
@@ -185,9 +139,6 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.TYPE_REFERENCE__MULTI:
-        setMulti((Boolean)newValue);
-        return;
       case VarlinkIdlPackage.TYPE_REFERENCE__NAME:
         setName((TypeAlias)newValue);
         return;
@@ -205,9 +156,6 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.TYPE_REFERENCE__MULTI:
-        setMulti(MULTI_EDEFAULT);
-        return;
       case VarlinkIdlPackage.TYPE_REFERENCE__NAME:
         setName((TypeAlias)null);
         return;
@@ -225,29 +173,10 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
   {
     switch (featureID)
     {
-      case VarlinkIdlPackage.TYPE_REFERENCE__MULTI:
-        return multi != MULTI_EDEFAULT;
       case VarlinkIdlPackage.TYPE_REFERENCE__NAME:
         return name != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (multi: ");
-    result.append(multi);
-    result.append(')');
-    return result.toString();
   }
 
 } //TypeReferenceImpl

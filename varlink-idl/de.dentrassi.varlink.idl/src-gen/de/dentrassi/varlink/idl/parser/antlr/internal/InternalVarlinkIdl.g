@@ -477,6 +477,20 @@ ruleField returns [EObject current=null]
 				}
 			)
 		)
+		(
+			(
+				lv_multi_3_0='[]'
+				{
+					newLeafNode(lv_multi_3_0, grammarAccess.getFieldAccess().getMultiLeftSquareBracketRightSquareBracketKeyword_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFieldRule());
+					}
+					setWithLastConsumed($current, "multi", true, "[]");
+				}
+			)
+		)?
 	)
 ;
 
@@ -496,57 +510,41 @@ ruleElementType returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			{
-				newCompositeNode(grammarAccess.getElementTypeAccess().getBasicTypeParserRuleCall_0_0());
-			}
-			this_BasicType_0=ruleBasicType
-			{
-				$current = $this_BasicType_0.current;
-				afterParserOrEnumRuleCall();
-			}
-			    |
-			{
-				newCompositeNode(grammarAccess.getElementTypeAccess().getTypeReferenceParserRuleCall_0_1());
-			}
-			this_TypeReference_1=ruleTypeReference
-			{
-				$current = $this_TypeReference_1.current;
-				afterParserOrEnumRuleCall();
-			}
-			    |
-			{
-				newCompositeNode(grammarAccess.getElementTypeAccess().getEnumParserRuleCall_0_2());
-			}
-			this_Enum_2=ruleEnum
-			{
-				$current = $this_Enum_2.current;
-				afterParserOrEnumRuleCall();
-			}
-			    |
-			{
-				newCompositeNode(grammarAccess.getElementTypeAccess().getObjectParserRuleCall_0_3());
-			}
-			this_Object_3=ruleObject
-			{
-				$current = $this_Object_3.current;
-				afterParserOrEnumRuleCall();
-			}
-		)
-		(
-			(
-				lv_multi_4_0='[]'
-				{
-					newLeafNode(lv_multi_4_0, grammarAccess.getElementTypeAccess().getMultiLeftSquareBracketRightSquareBracketKeyword_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getElementTypeRule());
-					}
-					setWithLastConsumed($current, "multi", true, "[]");
-				}
-			)
-		)?
+		{
+			newCompositeNode(grammarAccess.getElementTypeAccess().getBasicTypeParserRuleCall_0());
+		}
+		this_BasicType_0=ruleBasicType
+		{
+			$current = $this_BasicType_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getElementTypeAccess().getTypeReferenceParserRuleCall_1());
+		}
+		this_TypeReference_1=ruleTypeReference
+		{
+			$current = $this_TypeReference_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getElementTypeAccess().getEnumParserRuleCall_2());
+		}
+		this_Enum_2=ruleEnum
+		{
+			$current = $this_Enum_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getElementTypeAccess().getObjectParserRuleCall_3());
+		}
+		this_Object_3=ruleObject
+		{
+			$current = $this_Object_3.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
