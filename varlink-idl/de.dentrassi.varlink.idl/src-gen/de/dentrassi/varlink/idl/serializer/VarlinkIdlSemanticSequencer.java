@@ -82,14 +82,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     BasicType returns BasicType
 	 *
 	 * Constraint:
-	 *     (
-	 *         type='bool' | 
-	 *         type='int' | 
-	 *         type='float' | 
-	 *         type='string' | 
-	 *         type='data' | 
-	 *         type='object'
-	 *     )
+	 *     (type='bool' | type='int' | type='float' | type='string')
 	 */
 	protected void sequence_BasicType(ISerializationContext context, BasicType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

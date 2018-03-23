@@ -281,10 +281,10 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:22:7: ( 'data' )
-            // InternalVarlinkIdl.g:22:9: 'data'
+            // InternalVarlinkIdl.g:22:7: ( 'method' )
+            // InternalVarlinkIdl.g:22:9: 'method'
             {
-            match("data"); 
+            match("method"); 
 
 
             }
@@ -302,10 +302,10 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:23:7: ( 'object' )
-            // InternalVarlinkIdl.g:23:9: 'object'
+            // InternalVarlinkIdl.g:23:7: ( '->' )
+            // InternalVarlinkIdl.g:23:9: '->'
             {
-            match("object"); 
+            match("->"); 
 
 
             }
@@ -323,10 +323,10 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:24:7: ( 'method' )
-            // InternalVarlinkIdl.g:24:9: 'method'
+            // InternalVarlinkIdl.g:24:7: ( 'error' )
+            // InternalVarlinkIdl.g:24:9: 'error'
             {
-            match("method"); 
+            match("error"); 
 
 
             }
@@ -344,11 +344,10 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:25:7: ( '->' )
-            // InternalVarlinkIdl.g:25:9: '->'
+            // InternalVarlinkIdl.g:25:7: ( '.' )
+            // InternalVarlinkIdl.g:25:9: '.'
             {
-            match("->"); 
-
+            match('.'); 
 
             }
 
@@ -365,10 +364,10 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:26:7: ( 'error' )
-            // InternalVarlinkIdl.g:26:9: 'error'
+            // InternalVarlinkIdl.g:26:7: ( 'enum' )
+            // InternalVarlinkIdl.g:26:9: 'enum'
             {
-            match("error"); 
+            match("enum"); 
 
 
             }
@@ -386,10 +385,11 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:27:7: ( '.' )
-            // InternalVarlinkIdl.g:27:9: '.'
+            // InternalVarlinkIdl.g:27:7: ( 'data' )
+            // InternalVarlinkIdl.g:27:9: 'data'
             {
-            match('.'); 
+            match("data"); 
+
 
             }
 
@@ -406,10 +406,10 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:28:7: ( 'enum' )
-            // InternalVarlinkIdl.g:28:9: 'enum'
+            // InternalVarlinkIdl.g:28:7: ( 'object' )
+            // InternalVarlinkIdl.g:28:9: 'object'
             {
-            match("enum"); 
+            match("object"); 
 
 
             }
@@ -427,8 +427,8 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:970:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalVarlinkIdl.g:970:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVarlinkIdl.g:954:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalVarlinkIdl.g:954:11: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -439,7 +439,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalVarlinkIdl.g:970:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVarlinkIdl.g:954:35: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -488,11 +488,11 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:972:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalVarlinkIdl.g:972:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalVarlinkIdl.g:956:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalVarlinkIdl.g:956:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match('#'); 
-            // InternalVarlinkIdl.g:972:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalVarlinkIdl.g:956:23: (~ ( ( '\\n' | '\\r' ) ) )*
             loop2:
             do {
                 int alt2=2;
@@ -505,7 +505,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalVarlinkIdl.g:972:23: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalVarlinkIdl.g:956:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -525,7 +525,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalVarlinkIdl.g:972:39: ( ( '\\r' )? '\\n' )?
+            // InternalVarlinkIdl.g:956:39: ( ( '\\r' )? '\\n' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -534,9 +534,9 @@ public class InternalVarlinkIdlLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalVarlinkIdl.g:972:40: ( '\\r' )? '\\n'
+                    // InternalVarlinkIdl.g:956:40: ( '\\r' )? '\\n'
                     {
-                    // InternalVarlinkIdl.g:972:40: ( '\\r' )?
+                    // InternalVarlinkIdl.g:956:40: ( '\\r' )?
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -545,7 +545,7 @@ public class InternalVarlinkIdlLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // InternalVarlinkIdl.g:972:40: '\\r'
+                            // InternalVarlinkIdl.g:956:40: '\\r'
                             {
                             match('\r'); 
 
@@ -577,10 +577,10 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:974:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalVarlinkIdl.g:974:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVarlinkIdl.g:958:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalVarlinkIdl.g:958:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalVarlinkIdl.g:974:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVarlinkIdl.g:958:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt5=0;
             loop5:
             do {
@@ -634,8 +634,8 @@ public class InternalVarlinkIdlLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVarlinkIdl.g:976:16: ( . )
-            // InternalVarlinkIdl.g:976:18: .
+            // InternalVarlinkIdl.g:960:16: ( . )
+            // InternalVarlinkIdl.g:960:18: .
             {
             matchAny(); 
 
@@ -816,19 +816,19 @@ public class InternalVarlinkIdlLexer extends Lexer {
 
     protected DFA6 dfa6 = new DFA6(this);
     static final String DFA6_eotS =
-        "\1\uffff\2\26\4\uffff\1\24\6\26\1\24\1\26\5\uffff\1\26\1\uffff\1\26\5\uffff\6\26\1\uffff\2\26\3\uffff\1\64\12\26\1\uffff\1\77\1\100\2\26\1\103\3\26\1\107\1\26\2\uffff\1\111\1\26\1\uffff\2\26\1\115\1\uffff\1\26\1\uffff\1\117\1\120\1\121\1\uffff\1\26\3\uffff\1\26\1\124\1\uffff";
+        "\1\uffff\2\26\4\uffff\1\24\4\26\1\24\1\26\1\uffff\2\26\4\uffff\1\26\1\uffff\1\26\5\uffff\4\26\1\uffff\2\26\1\uffff\2\26\2\uffff\1\64\12\26\1\uffff\1\77\1\100\4\26\1\105\1\106\2\26\2\uffff\1\111\2\26\1\114\2\uffff\2\26\1\uffff\1\117\1\120\1\uffff\1\121\1\26\3\uffff\1\26\1\124\1\uffff";
     static final String DFA6_eofS =
         "\125\uffff";
     static final String DFA6_minS =
-        "\1\0\1\156\1\171\4\uffff\1\135\1\157\1\154\1\164\1\141\1\142\1\145\1\76\1\156\5\uffff\1\164\1\uffff\1\160\5\uffff\2\157\1\162\1\164\1\152\1\164\1\uffff\1\162\1\165\3\uffff\1\60\1\145\1\154\1\141\1\151\1\141\1\145\1\150\1\157\1\155\1\162\1\uffff\2\60\1\164\1\156\1\60\1\143\1\157\1\162\1\60\1\146\2\uffff\1\60\1\147\1\uffff\1\164\1\144\1\60\1\uffff\1\141\1\uffff\3\60\1\uffff\1\143\3\uffff\1\145\1\60\1\uffff";
+        "\1\0\1\156\1\171\4\uffff\1\135\1\157\1\154\1\164\1\145\1\76\1\156\1\uffff\1\141\1\142\4\uffff\1\164\1\uffff\1\160\5\uffff\2\157\1\162\1\164\1\uffff\1\162\1\165\1\uffff\1\164\1\152\2\uffff\1\60\1\145\1\154\1\141\1\151\1\150\1\157\1\155\1\141\1\145\1\162\1\uffff\2\60\1\164\1\156\1\157\1\162\2\60\1\143\1\146\2\uffff\1\60\1\147\1\144\1\60\2\uffff\1\164\1\141\1\uffff\2\60\1\uffff\1\60\1\143\3\uffff\1\145\1\60\1\uffff";
     static final String DFA6_maxS =
-        "\1\uffff\1\156\1\171\4\uffff\1\135\1\157\1\154\1\164\1\141\1\142\1\145\1\76\1\162\5\uffff\1\164\1\uffff\1\160\5\uffff\2\157\1\162\1\164\1\152\1\164\1\uffff\1\162\1\165\3\uffff\1\172\1\145\1\154\1\141\1\151\1\141\1\145\1\150\1\157\1\155\1\162\1\uffff\2\172\1\164\1\156\1\172\1\143\1\157\1\162\1\172\1\146\2\uffff\1\172\1\147\1\uffff\1\164\1\144\1\172\1\uffff\1\141\1\uffff\3\172\1\uffff\1\143\3\uffff\1\145\1\172\1\uffff";
+        "\1\uffff\1\156\1\171\4\uffff\1\135\1\157\1\154\1\164\1\145\1\76\1\162\1\uffff\1\141\1\142\4\uffff\1\164\1\uffff\1\160\5\uffff\2\157\1\162\1\164\1\uffff\1\162\1\165\1\uffff\1\164\1\152\2\uffff\1\172\1\145\1\154\1\141\1\151\1\150\1\157\1\155\1\141\1\145\1\162\1\uffff\2\172\1\164\1\156\1\157\1\162\2\172\1\143\1\146\2\uffff\1\172\1\147\1\144\1\172\2\uffff\1\164\1\141\1\uffff\2\172\1\uffff\1\172\1\143\3\uffff\1\145\1\172\1\uffff";
     static final String DFA6_acceptS =
-        "\3\uffff\1\3\1\4\1\5\1\6\11\uffff\1\21\1\23\1\24\1\25\1\26\1\uffff\1\23\1\uffff\1\3\1\4\1\5\1\6\1\7\6\uffff\1\17\2\uffff\1\21\1\24\1\25\13\uffff\1\11\12\uffff\1\2\1\10\2\uffff\1\14\3\uffff\1\22\1\uffff\1\12\3\uffff\1\20\1\uffff\1\13\1\15\1\16\2\uffff\1\1";
+        "\3\uffff\1\3\1\4\1\5\1\6\7\uffff\1\17\2\uffff\1\23\1\24\1\25\1\26\1\uffff\1\23\1\uffff\1\3\1\4\1\5\1\6\1\7\4\uffff\1\15\2\uffff\1\17\2\uffff\1\24\1\25\13\uffff\1\11\12\uffff\1\2\1\10\4\uffff\1\20\1\21\2\uffff\1\12\2\uffff\1\16\2\uffff\1\13\1\14\1\22\2\uffff\1\1";
     static final String DFA6_specialS =
         "\1\0\124\uffff}>";
     static final String[] DFA6_transitionS = {
-            "\11\24\2\23\2\24\1\23\22\24\1\23\2\24\1\22\4\24\1\3\1\5\2\24\1\4\1\16\1\20\13\24\1\6\6\24\32\21\1\7\3\24\1\21\1\24\1\21\1\10\1\21\1\13\1\17\1\11\2\21\1\1\3\21\1\15\1\21\1\14\3\21\1\12\1\2\6\21\uff85\24",
+            "\11\24\2\23\2\24\1\23\22\24\1\23\2\24\1\22\4\24\1\3\1\5\2\24\1\4\1\14\1\16\13\24\1\6\6\24\32\21\1\7\3\24\1\21\1\24\1\21\1\10\1\21\1\17\1\15\1\11\2\21\1\1\3\21\1\13\1\21\1\20\3\21\1\12\1\2\6\21\uff85\24",
             "\1\25",
             "\1\27",
             "",
@@ -841,10 +841,10 @@ public class InternalVarlinkIdlLexer extends Lexer {
             "\1\37",
             "\1\40",
             "\1\41",
-            "\1\42",
-            "\1\43",
-            "\1\45\3\uffff\1\44",
+            "\1\43\3\uffff\1\42",
             "",
+            "\1\45",
+            "\1\46",
             "",
             "",
             "",
@@ -861,12 +861,12 @@ public class InternalVarlinkIdlLexer extends Lexer {
             "\1\54",
             "\1\55",
             "\1\56",
+            "",
             "\1\57",
             "\1\60",
             "",
             "\1\61",
             "\1\62",
-            "",
             "",
             "",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\4\26\1\63\25\26",
@@ -885,27 +885,27 @@ public class InternalVarlinkIdlLexer extends Lexer {
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
             "\1\101",
             "\1\102",
-            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+            "\1\103",
             "\1\104",
-            "\1\105",
-            "\1\106",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+            "\1\107",
             "\1\110",
             "",
             "",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
             "\1\112",
-            "",
             "\1\113",
-            "\1\114",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
             "",
+            "",
+            "\1\115",
             "\1\116",
             "",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
             "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
-            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
             "",
+            "\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
             "\1\122",
             "",
             "",
@@ -975,17 +975,17 @@ public class InternalVarlinkIdlLexer extends Lexer {
 
                         else if ( (LA6_0=='s') ) {s = 10;}
 
-                        else if ( (LA6_0=='d') ) {s = 11;}
+                        else if ( (LA6_0=='m') ) {s = 11;}
 
-                        else if ( (LA6_0=='o') ) {s = 12;}
+                        else if ( (LA6_0=='-') ) {s = 12;}
 
-                        else if ( (LA6_0=='m') ) {s = 13;}
+                        else if ( (LA6_0=='e') ) {s = 13;}
 
-                        else if ( (LA6_0=='-') ) {s = 14;}
+                        else if ( (LA6_0=='.') ) {s = 14;}
 
-                        else if ( (LA6_0=='e') ) {s = 15;}
+                        else if ( (LA6_0=='d') ) {s = 15;}
 
-                        else if ( (LA6_0=='.') ) {s = 16;}
+                        else if ( (LA6_0=='o') ) {s = 16;}
 
                         else if ( ((LA6_0>='A' && LA6_0<='Z')||LA6_0=='_'||LA6_0=='a'||LA6_0=='c'||(LA6_0>='g' && LA6_0<='h')||(LA6_0>='j' && LA6_0<='l')||LA6_0=='n'||(LA6_0>='p' && LA6_0<='r')||(LA6_0>='u' && LA6_0<='z')) ) {s = 17;}
 

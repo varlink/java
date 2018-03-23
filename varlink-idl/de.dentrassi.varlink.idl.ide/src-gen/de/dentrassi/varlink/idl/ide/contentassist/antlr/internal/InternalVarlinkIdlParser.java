@@ -33,7 +33,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'bool'", "'int'", "'float'", "'string'", "'data'", "'object'", "'type'", "'enum'", "'interface'", "'method'", "'error'", "'('", "')'", "','", "':'", "'->'", "'.'", "'[]'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'bool'", "'int'", "'float'", "'string'", "'type'", "'enum'", "'interface'", "'method'", "'error'", "'data'", "'object'", "'('", "')'", "','", "':'", "'->'", "'.'", "'[]'"
     };
     public static final int RULE_SL_COMMENT=5;
     public static final int T__19=19;
@@ -1379,17 +1379,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             // InternalVarlinkIdl.g:439:1: ( ( ruleTypeAlias ) | ( ruleMethod ) | ( ruleError ) )
             int alt1=3;
             switch ( input.LA(1) ) {
-            case 14:
+            case 12:
                 {
                 alt1=1;
                 }
                 break;
-            case 17:
+            case 15:
                 {
                 alt1=2;
                 }
                 break;
-            case 18:
+            case 16:
                 {
                 alt1=3;
                 }
@@ -1684,14 +1684,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BasicType__TypeAlternatives_0"
-    // InternalVarlinkIdl.g:516:1: rule__BasicType__TypeAlternatives_0 : ( ( 'bool' ) | ( 'int' ) | ( 'float' ) | ( 'string' ) | ( 'data' ) | ( 'object' ) );
+    // InternalVarlinkIdl.g:516:1: rule__BasicType__TypeAlternatives_0 : ( ( 'bool' ) | ( 'int' ) | ( 'float' ) | ( 'string' ) );
     public final void rule__BasicType__TypeAlternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:520:1: ( ( 'bool' ) | ( 'int' ) | ( 'float' ) | ( 'string' ) | ( 'data' ) | ( 'object' ) )
-            int alt4=6;
+            // InternalVarlinkIdl.g:520:1: ( ( 'bool' ) | ( 'int' ) | ( 'float' ) | ( 'string' ) )
+            int alt4=4;
             switch ( input.LA(1) ) {
             case 8:
                 {
@@ -1711,16 +1711,6 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             case 11:
                 {
                 alt4=4;
-                }
-                break;
-            case 12:
-                {
-                alt4=5;
-                }
-                break;
-            case 13:
-                {
-                alt4=6;
                 }
                 break;
             default:
@@ -1808,44 +1798,6 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
                     }
                     break;
-                case 5 :
-                    // InternalVarlinkIdl.g:545:2: ( 'data' )
-                    {
-                    // InternalVarlinkIdl.g:545:2: ( 'data' )
-                    // InternalVarlinkIdl.g:546:3: 'data'
-                    {
-                    if ( state.backtracking==0 ) {
-                       before(grammarAccess.getBasicTypeAccess().getTypeDataKeyword_0_4()); 
-                    }
-                    match(input,12,FOLLOW_2); if (state.failed) return ;
-                    if ( state.backtracking==0 ) {
-                       after(grammarAccess.getBasicTypeAccess().getTypeDataKeyword_0_4()); 
-                    }
-
-                    }
-
-
-                    }
-                    break;
-                case 6 :
-                    // InternalVarlinkIdl.g:551:2: ( 'object' )
-                    {
-                    // InternalVarlinkIdl.g:551:2: ( 'object' )
-                    // InternalVarlinkIdl.g:552:3: 'object'
-                    {
-                    if ( state.backtracking==0 ) {
-                       before(grammarAccess.getBasicTypeAccess().getTypeObjectKeyword_0_5()); 
-                    }
-                    match(input,13,FOLLOW_2); if (state.failed) return ;
-                    if ( state.backtracking==0 ) {
-                       after(grammarAccess.getBasicTypeAccess().getTypeObjectKeyword_0_5()); 
-                    }
-
-                    }
-
-
-                    }
-                    break;
 
             }
         }
@@ -1864,20 +1816,20 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValidID__Alternatives"
-    // InternalVarlinkIdl.g:561:1: rule__ValidID__Alternatives : ( ( RULE_ID ) | ( ruleKEYWORD ) );
+    // InternalVarlinkIdl.g:549:1: rule__ValidID__Alternatives : ( ( RULE_ID ) | ( ruleKEYWORD ) );
     public final void rule__ValidID__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:565:1: ( ( RULE_ID ) | ( ruleKEYWORD ) )
+            // InternalVarlinkIdl.g:553:1: ( ( RULE_ID ) | ( ruleKEYWORD ) )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
             if ( (LA5_0==RULE_ID) ) {
                 alt5=1;
             }
-            else if ( (LA5_0==8||(LA5_0>=10 && LA5_0<=18)) ) {
+            else if ( ((LA5_0>=8 && LA5_0<=18)) ) {
                 alt5=2;
             }
             else {
@@ -1889,10 +1841,10 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             }
             switch (alt5) {
                 case 1 :
-                    // InternalVarlinkIdl.g:566:2: ( RULE_ID )
+                    // InternalVarlinkIdl.g:554:2: ( RULE_ID )
                     {
-                    // InternalVarlinkIdl.g:566:2: ( RULE_ID )
-                    // InternalVarlinkIdl.g:567:3: RULE_ID
+                    // InternalVarlinkIdl.g:554:2: ( RULE_ID )
+                    // InternalVarlinkIdl.g:555:3: RULE_ID
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getValidIDAccess().getIDTerminalRuleCall_0()); 
@@ -1908,10 +1860,10 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // InternalVarlinkIdl.g:572:2: ( ruleKEYWORD )
+                    // InternalVarlinkIdl.g:560:2: ( ruleKEYWORD )
                     {
-                    // InternalVarlinkIdl.g:572:2: ( ruleKEYWORD )
-                    // InternalVarlinkIdl.g:573:3: ruleKEYWORD
+                    // InternalVarlinkIdl.g:560:2: ( ruleKEYWORD )
+                    // InternalVarlinkIdl.g:561:3: ruleKEYWORD
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getValidIDAccess().getKEYWORDParserRuleCall_1()); 
@@ -1948,36 +1900,36 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__KEYWORD__Alternatives"
-    // InternalVarlinkIdl.g:582:1: rule__KEYWORD__Alternatives : ( ( 'type' ) | ( 'enum' ) | ( 'interface' ) | ( 'method' ) | ( 'error' ) | ( 'bool' ) | ( 'float' ) | ( 'string' ) | ( 'data' ) | ( 'object' ) );
+    // InternalVarlinkIdl.g:570:1: rule__KEYWORD__Alternatives : ( ( 'type' ) | ( 'enum' ) | ( 'interface' ) | ( 'method' ) | ( 'error' ) | ( 'bool' ) | ( 'int' ) | ( 'float' ) | ( 'string' ) | ( 'data' ) | ( 'object' ) );
     public final void rule__KEYWORD__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:586:1: ( ( 'type' ) | ( 'enum' ) | ( 'interface' ) | ( 'method' ) | ( 'error' ) | ( 'bool' ) | ( 'float' ) | ( 'string' ) | ( 'data' ) | ( 'object' ) )
-            int alt6=10;
+            // InternalVarlinkIdl.g:574:1: ( ( 'type' ) | ( 'enum' ) | ( 'interface' ) | ( 'method' ) | ( 'error' ) | ( 'bool' ) | ( 'int' ) | ( 'float' ) | ( 'string' ) | ( 'data' ) | ( 'object' ) )
+            int alt6=11;
             switch ( input.LA(1) ) {
-            case 14:
+            case 12:
                 {
                 alt6=1;
                 }
                 break;
-            case 15:
+            case 13:
                 {
                 alt6=2;
                 }
                 break;
-            case 16:
+            case 14:
                 {
                 alt6=3;
                 }
                 break;
-            case 17:
+            case 15:
                 {
                 alt6=4;
                 }
                 break;
-            case 18:
+            case 16:
                 {
                 alt6=5;
                 }
@@ -1987,24 +1939,29 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                 alt6=6;
                 }
                 break;
-            case 10:
+            case 9:
                 {
                 alt6=7;
                 }
                 break;
-            case 11:
+            case 10:
                 {
                 alt6=8;
                 }
                 break;
-            case 12:
+            case 11:
                 {
                 alt6=9;
                 }
                 break;
-            case 13:
+            case 17:
                 {
                 alt6=10;
+                }
+                break;
+            case 18:
+                {
+                alt6=11;
                 }
                 break;
             default:
@@ -2017,15 +1974,15 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
             switch (alt6) {
                 case 1 :
-                    // InternalVarlinkIdl.g:587:2: ( 'type' )
+                    // InternalVarlinkIdl.g:575:2: ( 'type' )
                     {
-                    // InternalVarlinkIdl.g:587:2: ( 'type' )
-                    // InternalVarlinkIdl.g:588:3: 'type'
+                    // InternalVarlinkIdl.g:575:2: ( 'type' )
+                    // InternalVarlinkIdl.g:576:3: 'type'
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getKEYWORDAccess().getTypeKeyword_0()); 
                     }
-                    match(input,14,FOLLOW_2); if (state.failed) return ;
+                    match(input,12,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getKEYWORDAccess().getTypeKeyword_0()); 
                     }
@@ -2036,15 +1993,15 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // InternalVarlinkIdl.g:593:2: ( 'enum' )
+                    // InternalVarlinkIdl.g:581:2: ( 'enum' )
                     {
-                    // InternalVarlinkIdl.g:593:2: ( 'enum' )
-                    // InternalVarlinkIdl.g:594:3: 'enum'
+                    // InternalVarlinkIdl.g:581:2: ( 'enum' )
+                    // InternalVarlinkIdl.g:582:3: 'enum'
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getKEYWORDAccess().getEnumKeyword_1()); 
                     }
-                    match(input,15,FOLLOW_2); if (state.failed) return ;
+                    match(input,13,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getKEYWORDAccess().getEnumKeyword_1()); 
                     }
@@ -2055,15 +2012,15 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 3 :
-                    // InternalVarlinkIdl.g:599:2: ( 'interface' )
+                    // InternalVarlinkIdl.g:587:2: ( 'interface' )
                     {
-                    // InternalVarlinkIdl.g:599:2: ( 'interface' )
-                    // InternalVarlinkIdl.g:600:3: 'interface'
+                    // InternalVarlinkIdl.g:587:2: ( 'interface' )
+                    // InternalVarlinkIdl.g:588:3: 'interface'
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getKEYWORDAccess().getInterfaceKeyword_2()); 
                     }
-                    match(input,16,FOLLOW_2); if (state.failed) return ;
+                    match(input,14,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getKEYWORDAccess().getInterfaceKeyword_2()); 
                     }
@@ -2074,15 +2031,15 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 4 :
-                    // InternalVarlinkIdl.g:605:2: ( 'method' )
+                    // InternalVarlinkIdl.g:593:2: ( 'method' )
                     {
-                    // InternalVarlinkIdl.g:605:2: ( 'method' )
-                    // InternalVarlinkIdl.g:606:3: 'method'
+                    // InternalVarlinkIdl.g:593:2: ( 'method' )
+                    // InternalVarlinkIdl.g:594:3: 'method'
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getKEYWORDAccess().getMethodKeyword_3()); 
                     }
-                    match(input,17,FOLLOW_2); if (state.failed) return ;
+                    match(input,15,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getKEYWORDAccess().getMethodKeyword_3()); 
                     }
@@ -2093,15 +2050,15 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 5 :
-                    // InternalVarlinkIdl.g:611:2: ( 'error' )
+                    // InternalVarlinkIdl.g:599:2: ( 'error' )
                     {
-                    // InternalVarlinkIdl.g:611:2: ( 'error' )
-                    // InternalVarlinkIdl.g:612:3: 'error'
+                    // InternalVarlinkIdl.g:599:2: ( 'error' )
+                    // InternalVarlinkIdl.g:600:3: 'error'
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getKEYWORDAccess().getErrorKeyword_4()); 
                     }
-                    match(input,18,FOLLOW_2); if (state.failed) return ;
+                    match(input,16,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getKEYWORDAccess().getErrorKeyword_4()); 
                     }
@@ -2112,10 +2069,10 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 6 :
-                    // InternalVarlinkIdl.g:617:2: ( 'bool' )
+                    // InternalVarlinkIdl.g:605:2: ( 'bool' )
                     {
-                    // InternalVarlinkIdl.g:617:2: ( 'bool' )
-                    // InternalVarlinkIdl.g:618:3: 'bool'
+                    // InternalVarlinkIdl.g:605:2: ( 'bool' )
+                    // InternalVarlinkIdl.g:606:3: 'bool'
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getKEYWORDAccess().getBoolKeyword_5()); 
@@ -2131,17 +2088,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 7 :
-                    // InternalVarlinkIdl.g:623:2: ( 'float' )
+                    // InternalVarlinkIdl.g:611:2: ( 'int' )
                     {
-                    // InternalVarlinkIdl.g:623:2: ( 'float' )
-                    // InternalVarlinkIdl.g:624:3: 'float'
+                    // InternalVarlinkIdl.g:611:2: ( 'int' )
+                    // InternalVarlinkIdl.g:612:3: 'int'
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getKEYWORDAccess().getFloatKeyword_6()); 
+                       before(grammarAccess.getKEYWORDAccess().getIntKeyword_6()); 
                     }
-                    match(input,10,FOLLOW_2); if (state.failed) return ;
+                    match(input,9,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getKEYWORDAccess().getFloatKeyword_6()); 
+                       after(grammarAccess.getKEYWORDAccess().getIntKeyword_6()); 
                     }
 
                     }
@@ -2150,17 +2107,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 8 :
-                    // InternalVarlinkIdl.g:629:2: ( 'string' )
+                    // InternalVarlinkIdl.g:617:2: ( 'float' )
                     {
-                    // InternalVarlinkIdl.g:629:2: ( 'string' )
-                    // InternalVarlinkIdl.g:630:3: 'string'
+                    // InternalVarlinkIdl.g:617:2: ( 'float' )
+                    // InternalVarlinkIdl.g:618:3: 'float'
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getKEYWORDAccess().getStringKeyword_7()); 
+                       before(grammarAccess.getKEYWORDAccess().getFloatKeyword_7()); 
                     }
-                    match(input,11,FOLLOW_2); if (state.failed) return ;
+                    match(input,10,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getKEYWORDAccess().getStringKeyword_7()); 
+                       after(grammarAccess.getKEYWORDAccess().getFloatKeyword_7()); 
                     }
 
                     }
@@ -2169,17 +2126,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 9 :
-                    // InternalVarlinkIdl.g:635:2: ( 'data' )
+                    // InternalVarlinkIdl.g:623:2: ( 'string' )
                     {
-                    // InternalVarlinkIdl.g:635:2: ( 'data' )
-                    // InternalVarlinkIdl.g:636:3: 'data'
+                    // InternalVarlinkIdl.g:623:2: ( 'string' )
+                    // InternalVarlinkIdl.g:624:3: 'string'
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getKEYWORDAccess().getDataKeyword_8()); 
+                       before(grammarAccess.getKEYWORDAccess().getStringKeyword_8()); 
                     }
-                    match(input,12,FOLLOW_2); if (state.failed) return ;
+                    match(input,11,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getKEYWORDAccess().getDataKeyword_8()); 
+                       after(grammarAccess.getKEYWORDAccess().getStringKeyword_8()); 
                     }
 
                     }
@@ -2188,17 +2145,36 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 10 :
-                    // InternalVarlinkIdl.g:641:2: ( 'object' )
+                    // InternalVarlinkIdl.g:629:2: ( 'data' )
                     {
-                    // InternalVarlinkIdl.g:641:2: ( 'object' )
-                    // InternalVarlinkIdl.g:642:3: 'object'
+                    // InternalVarlinkIdl.g:629:2: ( 'data' )
+                    // InternalVarlinkIdl.g:630:3: 'data'
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getKEYWORDAccess().getObjectKeyword_9()); 
+                       before(grammarAccess.getKEYWORDAccess().getDataKeyword_9()); 
                     }
-                    match(input,13,FOLLOW_2); if (state.failed) return ;
+                    match(input,17,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getKEYWORDAccess().getObjectKeyword_9()); 
+                       after(grammarAccess.getKEYWORDAccess().getDataKeyword_9()); 
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 11 :
+                    // InternalVarlinkIdl.g:635:2: ( 'object' )
+                    {
+                    // InternalVarlinkIdl.g:635:2: ( 'object' )
+                    // InternalVarlinkIdl.g:636:3: 'object'
+                    {
+                    if ( state.backtracking==0 ) {
+                       before(grammarAccess.getKEYWORDAccess().getObjectKeyword_10()); 
+                    }
+                    match(input,18,FOLLOW_2); if (state.failed) return ;
+                    if ( state.backtracking==0 ) {
+                       after(grammarAccess.getKEYWORDAccess().getObjectKeyword_10()); 
                     }
 
                     }
@@ -2224,14 +2200,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Interface__Group__0"
-    // InternalVarlinkIdl.g:651:1: rule__Interface__Group__0 : rule__Interface__Group__0__Impl rule__Interface__Group__1 ;
+    // InternalVarlinkIdl.g:645:1: rule__Interface__Group__0 : rule__Interface__Group__0__Impl rule__Interface__Group__1 ;
     public final void rule__Interface__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:655:1: ( rule__Interface__Group__0__Impl rule__Interface__Group__1 )
-            // InternalVarlinkIdl.g:656:2: rule__Interface__Group__0__Impl rule__Interface__Group__1
+            // InternalVarlinkIdl.g:649:1: ( rule__Interface__Group__0__Impl rule__Interface__Group__1 )
+            // InternalVarlinkIdl.g:650:2: rule__Interface__Group__0__Impl rule__Interface__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Interface__Group__0__Impl();
@@ -2262,22 +2238,22 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Interface__Group__0__Impl"
-    // InternalVarlinkIdl.g:663:1: rule__Interface__Group__0__Impl : ( 'interface' ) ;
+    // InternalVarlinkIdl.g:657:1: rule__Interface__Group__0__Impl : ( 'interface' ) ;
     public final void rule__Interface__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:667:1: ( ( 'interface' ) )
-            // InternalVarlinkIdl.g:668:1: ( 'interface' )
+            // InternalVarlinkIdl.g:661:1: ( ( 'interface' ) )
+            // InternalVarlinkIdl.g:662:1: ( 'interface' )
             {
-            // InternalVarlinkIdl.g:668:1: ( 'interface' )
-            // InternalVarlinkIdl.g:669:2: 'interface'
+            // InternalVarlinkIdl.g:662:1: ( 'interface' )
+            // InternalVarlinkIdl.g:663:2: 'interface'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInterfaceAccess().getInterfaceKeyword_0()); 
             }
-            match(input,16,FOLLOW_2); if (state.failed) return ;
+            match(input,14,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInterfaceAccess().getInterfaceKeyword_0()); 
             }
@@ -2303,14 +2279,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Interface__Group__1"
-    // InternalVarlinkIdl.g:678:1: rule__Interface__Group__1 : rule__Interface__Group__1__Impl rule__Interface__Group__2 ;
+    // InternalVarlinkIdl.g:672:1: rule__Interface__Group__1 : rule__Interface__Group__1__Impl rule__Interface__Group__2 ;
     public final void rule__Interface__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:682:1: ( rule__Interface__Group__1__Impl rule__Interface__Group__2 )
-            // InternalVarlinkIdl.g:683:2: rule__Interface__Group__1__Impl rule__Interface__Group__2
+            // InternalVarlinkIdl.g:676:1: ( rule__Interface__Group__1__Impl rule__Interface__Group__2 )
+            // InternalVarlinkIdl.g:677:2: rule__Interface__Group__1__Impl rule__Interface__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__Interface__Group__1__Impl();
@@ -2341,23 +2317,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Interface__Group__1__Impl"
-    // InternalVarlinkIdl.g:690:1: rule__Interface__Group__1__Impl : ( ( rule__Interface__NameAssignment_1 ) ) ;
+    // InternalVarlinkIdl.g:684:1: rule__Interface__Group__1__Impl : ( ( rule__Interface__NameAssignment_1 ) ) ;
     public final void rule__Interface__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:694:1: ( ( ( rule__Interface__NameAssignment_1 ) ) )
-            // InternalVarlinkIdl.g:695:1: ( ( rule__Interface__NameAssignment_1 ) )
+            // InternalVarlinkIdl.g:688:1: ( ( ( rule__Interface__NameAssignment_1 ) ) )
+            // InternalVarlinkIdl.g:689:1: ( ( rule__Interface__NameAssignment_1 ) )
             {
-            // InternalVarlinkIdl.g:695:1: ( ( rule__Interface__NameAssignment_1 ) )
-            // InternalVarlinkIdl.g:696:2: ( rule__Interface__NameAssignment_1 )
+            // InternalVarlinkIdl.g:689:1: ( ( rule__Interface__NameAssignment_1 ) )
+            // InternalVarlinkIdl.g:690:2: ( rule__Interface__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInterfaceAccess().getNameAssignment_1()); 
             }
-            // InternalVarlinkIdl.g:697:2: ( rule__Interface__NameAssignment_1 )
-            // InternalVarlinkIdl.g:697:3: rule__Interface__NameAssignment_1
+            // InternalVarlinkIdl.g:691:2: ( rule__Interface__NameAssignment_1 )
+            // InternalVarlinkIdl.g:691:3: rule__Interface__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Interface__NameAssignment_1();
@@ -2392,14 +2368,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Interface__Group__2"
-    // InternalVarlinkIdl.g:705:1: rule__Interface__Group__2 : rule__Interface__Group__2__Impl ;
+    // InternalVarlinkIdl.g:699:1: rule__Interface__Group__2 : rule__Interface__Group__2__Impl ;
     public final void rule__Interface__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:709:1: ( rule__Interface__Group__2__Impl )
-            // InternalVarlinkIdl.g:710:2: rule__Interface__Group__2__Impl
+            // InternalVarlinkIdl.g:703:1: ( rule__Interface__Group__2__Impl )
+            // InternalVarlinkIdl.g:704:2: rule__Interface__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Interface__Group__2__Impl();
@@ -2425,35 +2401,35 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Interface__Group__2__Impl"
-    // InternalVarlinkIdl.g:716:1: rule__Interface__Group__2__Impl : ( ( rule__Interface__MembersAssignment_2 )* ) ;
+    // InternalVarlinkIdl.g:710:1: rule__Interface__Group__2__Impl : ( ( rule__Interface__MembersAssignment_2 )* ) ;
     public final void rule__Interface__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:720:1: ( ( ( rule__Interface__MembersAssignment_2 )* ) )
-            // InternalVarlinkIdl.g:721:1: ( ( rule__Interface__MembersAssignment_2 )* )
+            // InternalVarlinkIdl.g:714:1: ( ( ( rule__Interface__MembersAssignment_2 )* ) )
+            // InternalVarlinkIdl.g:715:1: ( ( rule__Interface__MembersAssignment_2 )* )
             {
-            // InternalVarlinkIdl.g:721:1: ( ( rule__Interface__MembersAssignment_2 )* )
-            // InternalVarlinkIdl.g:722:2: ( rule__Interface__MembersAssignment_2 )*
+            // InternalVarlinkIdl.g:715:1: ( ( rule__Interface__MembersAssignment_2 )* )
+            // InternalVarlinkIdl.g:716:2: ( rule__Interface__MembersAssignment_2 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInterfaceAccess().getMembersAssignment_2()); 
             }
-            // InternalVarlinkIdl.g:723:2: ( rule__Interface__MembersAssignment_2 )*
+            // InternalVarlinkIdl.g:717:2: ( rule__Interface__MembersAssignment_2 )*
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0==14||(LA7_0>=17 && LA7_0<=18)) ) {
+                if ( (LA7_0==12||(LA7_0>=15 && LA7_0<=16)) ) {
                     alt7=1;
                 }
 
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalVarlinkIdl.g:723:3: rule__Interface__MembersAssignment_2
+            	    // InternalVarlinkIdl.g:717:3: rule__Interface__MembersAssignment_2
             	    {
             	    pushFollow(FOLLOW_5);
             	    rule__Interface__MembersAssignment_2();
@@ -2494,14 +2470,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TypeAlias__Group__0"
-    // InternalVarlinkIdl.g:732:1: rule__TypeAlias__Group__0 : rule__TypeAlias__Group__0__Impl rule__TypeAlias__Group__1 ;
+    // InternalVarlinkIdl.g:726:1: rule__TypeAlias__Group__0 : rule__TypeAlias__Group__0__Impl rule__TypeAlias__Group__1 ;
     public final void rule__TypeAlias__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:736:1: ( rule__TypeAlias__Group__0__Impl rule__TypeAlias__Group__1 )
-            // InternalVarlinkIdl.g:737:2: rule__TypeAlias__Group__0__Impl rule__TypeAlias__Group__1
+            // InternalVarlinkIdl.g:730:1: ( rule__TypeAlias__Group__0__Impl rule__TypeAlias__Group__1 )
+            // InternalVarlinkIdl.g:731:2: rule__TypeAlias__Group__0__Impl rule__TypeAlias__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__TypeAlias__Group__0__Impl();
@@ -2532,22 +2508,22 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TypeAlias__Group__0__Impl"
-    // InternalVarlinkIdl.g:744:1: rule__TypeAlias__Group__0__Impl : ( 'type' ) ;
+    // InternalVarlinkIdl.g:738:1: rule__TypeAlias__Group__0__Impl : ( 'type' ) ;
     public final void rule__TypeAlias__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:748:1: ( ( 'type' ) )
-            // InternalVarlinkIdl.g:749:1: ( 'type' )
+            // InternalVarlinkIdl.g:742:1: ( ( 'type' ) )
+            // InternalVarlinkIdl.g:743:1: ( 'type' )
             {
-            // InternalVarlinkIdl.g:749:1: ( 'type' )
-            // InternalVarlinkIdl.g:750:2: 'type'
+            // InternalVarlinkIdl.g:743:1: ( 'type' )
+            // InternalVarlinkIdl.g:744:2: 'type'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeAliasAccess().getTypeKeyword_0()); 
             }
-            match(input,14,FOLLOW_2); if (state.failed) return ;
+            match(input,12,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTypeAliasAccess().getTypeKeyword_0()); 
             }
@@ -2573,14 +2549,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TypeAlias__Group__1"
-    // InternalVarlinkIdl.g:759:1: rule__TypeAlias__Group__1 : rule__TypeAlias__Group__1__Impl rule__TypeAlias__Group__2 ;
+    // InternalVarlinkIdl.g:753:1: rule__TypeAlias__Group__1 : rule__TypeAlias__Group__1__Impl rule__TypeAlias__Group__2 ;
     public final void rule__TypeAlias__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:763:1: ( rule__TypeAlias__Group__1__Impl rule__TypeAlias__Group__2 )
-            // InternalVarlinkIdl.g:764:2: rule__TypeAlias__Group__1__Impl rule__TypeAlias__Group__2
+            // InternalVarlinkIdl.g:757:1: ( rule__TypeAlias__Group__1__Impl rule__TypeAlias__Group__2 )
+            // InternalVarlinkIdl.g:758:2: rule__TypeAlias__Group__1__Impl rule__TypeAlias__Group__2
             {
             pushFollow(FOLLOW_7);
             rule__TypeAlias__Group__1__Impl();
@@ -2611,23 +2587,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TypeAlias__Group__1__Impl"
-    // InternalVarlinkIdl.g:771:1: rule__TypeAlias__Group__1__Impl : ( ( rule__TypeAlias__NameAssignment_1 ) ) ;
+    // InternalVarlinkIdl.g:765:1: rule__TypeAlias__Group__1__Impl : ( ( rule__TypeAlias__NameAssignment_1 ) ) ;
     public final void rule__TypeAlias__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:775:1: ( ( ( rule__TypeAlias__NameAssignment_1 ) ) )
-            // InternalVarlinkIdl.g:776:1: ( ( rule__TypeAlias__NameAssignment_1 ) )
+            // InternalVarlinkIdl.g:769:1: ( ( ( rule__TypeAlias__NameAssignment_1 ) ) )
+            // InternalVarlinkIdl.g:770:1: ( ( rule__TypeAlias__NameAssignment_1 ) )
             {
-            // InternalVarlinkIdl.g:776:1: ( ( rule__TypeAlias__NameAssignment_1 ) )
-            // InternalVarlinkIdl.g:777:2: ( rule__TypeAlias__NameAssignment_1 )
+            // InternalVarlinkIdl.g:770:1: ( ( rule__TypeAlias__NameAssignment_1 ) )
+            // InternalVarlinkIdl.g:771:2: ( rule__TypeAlias__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeAliasAccess().getNameAssignment_1()); 
             }
-            // InternalVarlinkIdl.g:778:2: ( rule__TypeAlias__NameAssignment_1 )
-            // InternalVarlinkIdl.g:778:3: rule__TypeAlias__NameAssignment_1
+            // InternalVarlinkIdl.g:772:2: ( rule__TypeAlias__NameAssignment_1 )
+            // InternalVarlinkIdl.g:772:3: rule__TypeAlias__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__TypeAlias__NameAssignment_1();
@@ -2662,14 +2638,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TypeAlias__Group__2"
-    // InternalVarlinkIdl.g:786:1: rule__TypeAlias__Group__2 : rule__TypeAlias__Group__2__Impl ;
+    // InternalVarlinkIdl.g:780:1: rule__TypeAlias__Group__2 : rule__TypeAlias__Group__2__Impl ;
     public final void rule__TypeAlias__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:790:1: ( rule__TypeAlias__Group__2__Impl )
-            // InternalVarlinkIdl.g:791:2: rule__TypeAlias__Group__2__Impl
+            // InternalVarlinkIdl.g:784:1: ( rule__TypeAlias__Group__2__Impl )
+            // InternalVarlinkIdl.g:785:2: rule__TypeAlias__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TypeAlias__Group__2__Impl();
@@ -2695,23 +2671,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TypeAlias__Group__2__Impl"
-    // InternalVarlinkIdl.g:797:1: rule__TypeAlias__Group__2__Impl : ( ( rule__TypeAlias__DefinitionAssignment_2 ) ) ;
+    // InternalVarlinkIdl.g:791:1: rule__TypeAlias__Group__2__Impl : ( ( rule__TypeAlias__DefinitionAssignment_2 ) ) ;
     public final void rule__TypeAlias__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:801:1: ( ( ( rule__TypeAlias__DefinitionAssignment_2 ) ) )
-            // InternalVarlinkIdl.g:802:1: ( ( rule__TypeAlias__DefinitionAssignment_2 ) )
+            // InternalVarlinkIdl.g:795:1: ( ( ( rule__TypeAlias__DefinitionAssignment_2 ) ) )
+            // InternalVarlinkIdl.g:796:1: ( ( rule__TypeAlias__DefinitionAssignment_2 ) )
             {
-            // InternalVarlinkIdl.g:802:1: ( ( rule__TypeAlias__DefinitionAssignment_2 ) )
-            // InternalVarlinkIdl.g:803:2: ( rule__TypeAlias__DefinitionAssignment_2 )
+            // InternalVarlinkIdl.g:796:1: ( ( rule__TypeAlias__DefinitionAssignment_2 ) )
+            // InternalVarlinkIdl.g:797:2: ( rule__TypeAlias__DefinitionAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeAliasAccess().getDefinitionAssignment_2()); 
             }
-            // InternalVarlinkIdl.g:804:2: ( rule__TypeAlias__DefinitionAssignment_2 )
-            // InternalVarlinkIdl.g:804:3: rule__TypeAlias__DefinitionAssignment_2
+            // InternalVarlinkIdl.g:798:2: ( rule__TypeAlias__DefinitionAssignment_2 )
+            // InternalVarlinkIdl.g:798:3: rule__TypeAlias__DefinitionAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__TypeAlias__DefinitionAssignment_2();
@@ -2746,14 +2722,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group__0"
-    // InternalVarlinkIdl.g:813:1: rule__Enum__Group__0 : rule__Enum__Group__0__Impl rule__Enum__Group__1 ;
+    // InternalVarlinkIdl.g:807:1: rule__Enum__Group__0 : rule__Enum__Group__0__Impl rule__Enum__Group__1 ;
     public final void rule__Enum__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:817:1: ( rule__Enum__Group__0__Impl rule__Enum__Group__1 )
-            // InternalVarlinkIdl.g:818:2: rule__Enum__Group__0__Impl rule__Enum__Group__1
+            // InternalVarlinkIdl.g:811:1: ( rule__Enum__Group__0__Impl rule__Enum__Group__1 )
+            // InternalVarlinkIdl.g:812:2: rule__Enum__Group__0__Impl rule__Enum__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__Enum__Group__0__Impl();
@@ -2784,17 +2760,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group__0__Impl"
-    // InternalVarlinkIdl.g:825:1: rule__Enum__Group__0__Impl : ( '(' ) ;
+    // InternalVarlinkIdl.g:819:1: rule__Enum__Group__0__Impl : ( '(' ) ;
     public final void rule__Enum__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:829:1: ( ( '(' ) )
-            // InternalVarlinkIdl.g:830:1: ( '(' )
+            // InternalVarlinkIdl.g:823:1: ( ( '(' ) )
+            // InternalVarlinkIdl.g:824:1: ( '(' )
             {
-            // InternalVarlinkIdl.g:830:1: ( '(' )
-            // InternalVarlinkIdl.g:831:2: '('
+            // InternalVarlinkIdl.g:824:1: ( '(' )
+            // InternalVarlinkIdl.g:825:2: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getLeftParenthesisKeyword_0()); 
@@ -2825,14 +2801,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group__1"
-    // InternalVarlinkIdl.g:840:1: rule__Enum__Group__1 : rule__Enum__Group__1__Impl rule__Enum__Group__2 ;
+    // InternalVarlinkIdl.g:834:1: rule__Enum__Group__1 : rule__Enum__Group__1__Impl rule__Enum__Group__2 ;
     public final void rule__Enum__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:844:1: ( rule__Enum__Group__1__Impl rule__Enum__Group__2 )
-            // InternalVarlinkIdl.g:845:2: rule__Enum__Group__1__Impl rule__Enum__Group__2
+            // InternalVarlinkIdl.g:838:1: ( rule__Enum__Group__1__Impl rule__Enum__Group__2 )
+            // InternalVarlinkIdl.g:839:2: rule__Enum__Group__1__Impl rule__Enum__Group__2
             {
             pushFollow(FOLLOW_8);
             rule__Enum__Group__1__Impl();
@@ -2863,23 +2839,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group__1__Impl"
-    // InternalVarlinkIdl.g:852:1: rule__Enum__Group__1__Impl : ( ( rule__Enum__FieldsAssignment_1 ) ) ;
+    // InternalVarlinkIdl.g:846:1: rule__Enum__Group__1__Impl : ( ( rule__Enum__FieldsAssignment_1 ) ) ;
     public final void rule__Enum__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:856:1: ( ( ( rule__Enum__FieldsAssignment_1 ) ) )
-            // InternalVarlinkIdl.g:857:1: ( ( rule__Enum__FieldsAssignment_1 ) )
+            // InternalVarlinkIdl.g:850:1: ( ( ( rule__Enum__FieldsAssignment_1 ) ) )
+            // InternalVarlinkIdl.g:851:1: ( ( rule__Enum__FieldsAssignment_1 ) )
             {
-            // InternalVarlinkIdl.g:857:1: ( ( rule__Enum__FieldsAssignment_1 ) )
-            // InternalVarlinkIdl.g:858:2: ( rule__Enum__FieldsAssignment_1 )
+            // InternalVarlinkIdl.g:851:1: ( ( rule__Enum__FieldsAssignment_1 ) )
+            // InternalVarlinkIdl.g:852:2: ( rule__Enum__FieldsAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getFieldsAssignment_1()); 
             }
-            // InternalVarlinkIdl.g:859:2: ( rule__Enum__FieldsAssignment_1 )
-            // InternalVarlinkIdl.g:859:3: rule__Enum__FieldsAssignment_1
+            // InternalVarlinkIdl.g:853:2: ( rule__Enum__FieldsAssignment_1 )
+            // InternalVarlinkIdl.g:853:3: rule__Enum__FieldsAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Enum__FieldsAssignment_1();
@@ -2914,14 +2890,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group__2"
-    // InternalVarlinkIdl.g:867:1: rule__Enum__Group__2 : rule__Enum__Group__2__Impl rule__Enum__Group__3 ;
+    // InternalVarlinkIdl.g:861:1: rule__Enum__Group__2 : rule__Enum__Group__2__Impl rule__Enum__Group__3 ;
     public final void rule__Enum__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:871:1: ( rule__Enum__Group__2__Impl rule__Enum__Group__3 )
-            // InternalVarlinkIdl.g:872:2: rule__Enum__Group__2__Impl rule__Enum__Group__3
+            // InternalVarlinkIdl.g:865:1: ( rule__Enum__Group__2__Impl rule__Enum__Group__3 )
+            // InternalVarlinkIdl.g:866:2: rule__Enum__Group__2__Impl rule__Enum__Group__3
             {
             pushFollow(FOLLOW_8);
             rule__Enum__Group__2__Impl();
@@ -2952,22 +2928,22 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group__2__Impl"
-    // InternalVarlinkIdl.g:879:1: rule__Enum__Group__2__Impl : ( ( rule__Enum__Group_2__0 )* ) ;
+    // InternalVarlinkIdl.g:873:1: rule__Enum__Group__2__Impl : ( ( rule__Enum__Group_2__0 )* ) ;
     public final void rule__Enum__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:883:1: ( ( ( rule__Enum__Group_2__0 )* ) )
-            // InternalVarlinkIdl.g:884:1: ( ( rule__Enum__Group_2__0 )* )
+            // InternalVarlinkIdl.g:877:1: ( ( ( rule__Enum__Group_2__0 )* ) )
+            // InternalVarlinkIdl.g:878:1: ( ( rule__Enum__Group_2__0 )* )
             {
-            // InternalVarlinkIdl.g:884:1: ( ( rule__Enum__Group_2__0 )* )
-            // InternalVarlinkIdl.g:885:2: ( rule__Enum__Group_2__0 )*
+            // InternalVarlinkIdl.g:878:1: ( ( rule__Enum__Group_2__0 )* )
+            // InternalVarlinkIdl.g:879:2: ( rule__Enum__Group_2__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getGroup_2()); 
             }
-            // InternalVarlinkIdl.g:886:2: ( rule__Enum__Group_2__0 )*
+            // InternalVarlinkIdl.g:880:2: ( rule__Enum__Group_2__0 )*
             loop8:
             do {
                 int alt8=2;
@@ -2980,7 +2956,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalVarlinkIdl.g:886:3: rule__Enum__Group_2__0
+            	    // InternalVarlinkIdl.g:880:3: rule__Enum__Group_2__0
             	    {
             	    pushFollow(FOLLOW_9);
             	    rule__Enum__Group_2__0();
@@ -3021,14 +2997,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group__3"
-    // InternalVarlinkIdl.g:894:1: rule__Enum__Group__3 : rule__Enum__Group__3__Impl ;
+    // InternalVarlinkIdl.g:888:1: rule__Enum__Group__3 : rule__Enum__Group__3__Impl ;
     public final void rule__Enum__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:898:1: ( rule__Enum__Group__3__Impl )
-            // InternalVarlinkIdl.g:899:2: rule__Enum__Group__3__Impl
+            // InternalVarlinkIdl.g:892:1: ( rule__Enum__Group__3__Impl )
+            // InternalVarlinkIdl.g:893:2: rule__Enum__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Enum__Group__3__Impl();
@@ -3054,17 +3030,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group__3__Impl"
-    // InternalVarlinkIdl.g:905:1: rule__Enum__Group__3__Impl : ( ')' ) ;
+    // InternalVarlinkIdl.g:899:1: rule__Enum__Group__3__Impl : ( ')' ) ;
     public final void rule__Enum__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:909:1: ( ( ')' ) )
-            // InternalVarlinkIdl.g:910:1: ( ')' )
+            // InternalVarlinkIdl.g:903:1: ( ( ')' ) )
+            // InternalVarlinkIdl.g:904:1: ( ')' )
             {
-            // InternalVarlinkIdl.g:910:1: ( ')' )
-            // InternalVarlinkIdl.g:911:2: ')'
+            // InternalVarlinkIdl.g:904:1: ( ')' )
+            // InternalVarlinkIdl.g:905:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getRightParenthesisKeyword_3()); 
@@ -3095,14 +3071,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group_2__0"
-    // InternalVarlinkIdl.g:921:1: rule__Enum__Group_2__0 : rule__Enum__Group_2__0__Impl rule__Enum__Group_2__1 ;
+    // InternalVarlinkIdl.g:915:1: rule__Enum__Group_2__0 : rule__Enum__Group_2__0__Impl rule__Enum__Group_2__1 ;
     public final void rule__Enum__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:925:1: ( rule__Enum__Group_2__0__Impl rule__Enum__Group_2__1 )
-            // InternalVarlinkIdl.g:926:2: rule__Enum__Group_2__0__Impl rule__Enum__Group_2__1
+            // InternalVarlinkIdl.g:919:1: ( rule__Enum__Group_2__0__Impl rule__Enum__Group_2__1 )
+            // InternalVarlinkIdl.g:920:2: rule__Enum__Group_2__0__Impl rule__Enum__Group_2__1
             {
             pushFollow(FOLLOW_6);
             rule__Enum__Group_2__0__Impl();
@@ -3133,17 +3109,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group_2__0__Impl"
-    // InternalVarlinkIdl.g:933:1: rule__Enum__Group_2__0__Impl : ( ',' ) ;
+    // InternalVarlinkIdl.g:927:1: rule__Enum__Group_2__0__Impl : ( ',' ) ;
     public final void rule__Enum__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:937:1: ( ( ',' ) )
-            // InternalVarlinkIdl.g:938:1: ( ',' )
+            // InternalVarlinkIdl.g:931:1: ( ( ',' ) )
+            // InternalVarlinkIdl.g:932:1: ( ',' )
             {
-            // InternalVarlinkIdl.g:938:1: ( ',' )
-            // InternalVarlinkIdl.g:939:2: ','
+            // InternalVarlinkIdl.g:932:1: ( ',' )
+            // InternalVarlinkIdl.g:933:2: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getCommaKeyword_2_0()); 
@@ -3174,14 +3150,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group_2__1"
-    // InternalVarlinkIdl.g:948:1: rule__Enum__Group_2__1 : rule__Enum__Group_2__1__Impl ;
+    // InternalVarlinkIdl.g:942:1: rule__Enum__Group_2__1 : rule__Enum__Group_2__1__Impl ;
     public final void rule__Enum__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:952:1: ( rule__Enum__Group_2__1__Impl )
-            // InternalVarlinkIdl.g:953:2: rule__Enum__Group_2__1__Impl
+            // InternalVarlinkIdl.g:946:1: ( rule__Enum__Group_2__1__Impl )
+            // InternalVarlinkIdl.g:947:2: rule__Enum__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Enum__Group_2__1__Impl();
@@ -3207,23 +3183,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__Group_2__1__Impl"
-    // InternalVarlinkIdl.g:959:1: rule__Enum__Group_2__1__Impl : ( ( rule__Enum__FieldsAssignment_2_1 ) ) ;
+    // InternalVarlinkIdl.g:953:1: rule__Enum__Group_2__1__Impl : ( ( rule__Enum__FieldsAssignment_2_1 ) ) ;
     public final void rule__Enum__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:963:1: ( ( ( rule__Enum__FieldsAssignment_2_1 ) ) )
-            // InternalVarlinkIdl.g:964:1: ( ( rule__Enum__FieldsAssignment_2_1 ) )
+            // InternalVarlinkIdl.g:957:1: ( ( ( rule__Enum__FieldsAssignment_2_1 ) ) )
+            // InternalVarlinkIdl.g:958:1: ( ( rule__Enum__FieldsAssignment_2_1 ) )
             {
-            // InternalVarlinkIdl.g:964:1: ( ( rule__Enum__FieldsAssignment_2_1 ) )
-            // InternalVarlinkIdl.g:965:2: ( rule__Enum__FieldsAssignment_2_1 )
+            // InternalVarlinkIdl.g:958:1: ( ( rule__Enum__FieldsAssignment_2_1 ) )
+            // InternalVarlinkIdl.g:959:2: ( rule__Enum__FieldsAssignment_2_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getFieldsAssignment_2_1()); 
             }
-            // InternalVarlinkIdl.g:966:2: ( rule__Enum__FieldsAssignment_2_1 )
-            // InternalVarlinkIdl.g:966:3: rule__Enum__FieldsAssignment_2_1
+            // InternalVarlinkIdl.g:960:2: ( rule__Enum__FieldsAssignment_2_1 )
+            // InternalVarlinkIdl.g:960:3: rule__Enum__FieldsAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__Enum__FieldsAssignment_2_1();
@@ -3258,14 +3234,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group__0"
-    // InternalVarlinkIdl.g:975:1: rule__Object__Group__0 : rule__Object__Group__0__Impl rule__Object__Group__1 ;
+    // InternalVarlinkIdl.g:969:1: rule__Object__Group__0 : rule__Object__Group__0__Impl rule__Object__Group__1 ;
     public final void rule__Object__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:979:1: ( rule__Object__Group__0__Impl rule__Object__Group__1 )
-            // InternalVarlinkIdl.g:980:2: rule__Object__Group__0__Impl rule__Object__Group__1
+            // InternalVarlinkIdl.g:973:1: ( rule__Object__Group__0__Impl rule__Object__Group__1 )
+            // InternalVarlinkIdl.g:974:2: rule__Object__Group__0__Impl rule__Object__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__Object__Group__0__Impl();
@@ -3296,23 +3272,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group__0__Impl"
-    // InternalVarlinkIdl.g:987:1: rule__Object__Group__0__Impl : ( () ) ;
+    // InternalVarlinkIdl.g:981:1: rule__Object__Group__0__Impl : ( () ) ;
     public final void rule__Object__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:991:1: ( ( () ) )
-            // InternalVarlinkIdl.g:992:1: ( () )
+            // InternalVarlinkIdl.g:985:1: ( ( () ) )
+            // InternalVarlinkIdl.g:986:1: ( () )
             {
-            // InternalVarlinkIdl.g:992:1: ( () )
-            // InternalVarlinkIdl.g:993:2: ()
+            // InternalVarlinkIdl.g:986:1: ( () )
+            // InternalVarlinkIdl.g:987:2: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getObjectAction_0()); 
             }
-            // InternalVarlinkIdl.g:994:2: ()
-            // InternalVarlinkIdl.g:994:3: 
+            // InternalVarlinkIdl.g:988:2: ()
+            // InternalVarlinkIdl.g:988:3: 
             {
             }
 
@@ -3337,14 +3313,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group__1"
-    // InternalVarlinkIdl.g:1002:1: rule__Object__Group__1 : rule__Object__Group__1__Impl rule__Object__Group__2 ;
+    // InternalVarlinkIdl.g:996:1: rule__Object__Group__1 : rule__Object__Group__1__Impl rule__Object__Group__2 ;
     public final void rule__Object__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1006:1: ( rule__Object__Group__1__Impl rule__Object__Group__2 )
-            // InternalVarlinkIdl.g:1007:2: rule__Object__Group__1__Impl rule__Object__Group__2
+            // InternalVarlinkIdl.g:1000:1: ( rule__Object__Group__1__Impl rule__Object__Group__2 )
+            // InternalVarlinkIdl.g:1001:2: rule__Object__Group__1__Impl rule__Object__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__Object__Group__1__Impl();
@@ -3375,17 +3351,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group__1__Impl"
-    // InternalVarlinkIdl.g:1014:1: rule__Object__Group__1__Impl : ( '(' ) ;
+    // InternalVarlinkIdl.g:1008:1: rule__Object__Group__1__Impl : ( '(' ) ;
     public final void rule__Object__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1018:1: ( ( '(' ) )
-            // InternalVarlinkIdl.g:1019:1: ( '(' )
+            // InternalVarlinkIdl.g:1012:1: ( ( '(' ) )
+            // InternalVarlinkIdl.g:1013:1: ( '(' )
             {
-            // InternalVarlinkIdl.g:1019:1: ( '(' )
-            // InternalVarlinkIdl.g:1020:2: '('
+            // InternalVarlinkIdl.g:1013:1: ( '(' )
+            // InternalVarlinkIdl.g:1014:2: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getLeftParenthesisKeyword_1()); 
@@ -3416,14 +3392,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group__2"
-    // InternalVarlinkIdl.g:1029:1: rule__Object__Group__2 : rule__Object__Group__2__Impl rule__Object__Group__3 ;
+    // InternalVarlinkIdl.g:1023:1: rule__Object__Group__2 : rule__Object__Group__2__Impl rule__Object__Group__3 ;
     public final void rule__Object__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1033:1: ( rule__Object__Group__2__Impl rule__Object__Group__3 )
-            // InternalVarlinkIdl.g:1034:2: rule__Object__Group__2__Impl rule__Object__Group__3
+            // InternalVarlinkIdl.g:1027:1: ( rule__Object__Group__2__Impl rule__Object__Group__3 )
+            // InternalVarlinkIdl.g:1028:2: rule__Object__Group__2__Impl rule__Object__Group__3
             {
             pushFollow(FOLLOW_10);
             rule__Object__Group__2__Impl();
@@ -3454,31 +3430,31 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group__2__Impl"
-    // InternalVarlinkIdl.g:1041:1: rule__Object__Group__2__Impl : ( ( rule__Object__FieldsAssignment_2 )? ) ;
+    // InternalVarlinkIdl.g:1035:1: rule__Object__Group__2__Impl : ( ( rule__Object__FieldsAssignment_2 )? ) ;
     public final void rule__Object__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1045:1: ( ( ( rule__Object__FieldsAssignment_2 )? ) )
-            // InternalVarlinkIdl.g:1046:1: ( ( rule__Object__FieldsAssignment_2 )? )
+            // InternalVarlinkIdl.g:1039:1: ( ( ( rule__Object__FieldsAssignment_2 )? ) )
+            // InternalVarlinkIdl.g:1040:1: ( ( rule__Object__FieldsAssignment_2 )? )
             {
-            // InternalVarlinkIdl.g:1046:1: ( ( rule__Object__FieldsAssignment_2 )? )
-            // InternalVarlinkIdl.g:1047:2: ( rule__Object__FieldsAssignment_2 )?
+            // InternalVarlinkIdl.g:1040:1: ( ( rule__Object__FieldsAssignment_2 )? )
+            // InternalVarlinkIdl.g:1041:2: ( rule__Object__FieldsAssignment_2 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getFieldsAssignment_2()); 
             }
-            // InternalVarlinkIdl.g:1048:2: ( rule__Object__FieldsAssignment_2 )?
+            // InternalVarlinkIdl.g:1042:2: ( rule__Object__FieldsAssignment_2 )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==RULE_ID||LA9_0==8||(LA9_0>=10 && LA9_0<=18)) ) {
+            if ( (LA9_0==RULE_ID||(LA9_0>=8 && LA9_0<=18)) ) {
                 alt9=1;
             }
             switch (alt9) {
                 case 1 :
-                    // InternalVarlinkIdl.g:1048:3: rule__Object__FieldsAssignment_2
+                    // InternalVarlinkIdl.g:1042:3: rule__Object__FieldsAssignment_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__Object__FieldsAssignment_2();
@@ -3516,14 +3492,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group__3"
-    // InternalVarlinkIdl.g:1056:1: rule__Object__Group__3 : rule__Object__Group__3__Impl rule__Object__Group__4 ;
+    // InternalVarlinkIdl.g:1050:1: rule__Object__Group__3 : rule__Object__Group__3__Impl rule__Object__Group__4 ;
     public final void rule__Object__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1060:1: ( rule__Object__Group__3__Impl rule__Object__Group__4 )
-            // InternalVarlinkIdl.g:1061:2: rule__Object__Group__3__Impl rule__Object__Group__4
+            // InternalVarlinkIdl.g:1054:1: ( rule__Object__Group__3__Impl rule__Object__Group__4 )
+            // InternalVarlinkIdl.g:1055:2: rule__Object__Group__3__Impl rule__Object__Group__4
             {
             pushFollow(FOLLOW_10);
             rule__Object__Group__3__Impl();
@@ -3554,22 +3530,22 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group__3__Impl"
-    // InternalVarlinkIdl.g:1068:1: rule__Object__Group__3__Impl : ( ( rule__Object__Group_3__0 )* ) ;
+    // InternalVarlinkIdl.g:1062:1: rule__Object__Group__3__Impl : ( ( rule__Object__Group_3__0 )* ) ;
     public final void rule__Object__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1072:1: ( ( ( rule__Object__Group_3__0 )* ) )
-            // InternalVarlinkIdl.g:1073:1: ( ( rule__Object__Group_3__0 )* )
+            // InternalVarlinkIdl.g:1066:1: ( ( ( rule__Object__Group_3__0 )* ) )
+            // InternalVarlinkIdl.g:1067:1: ( ( rule__Object__Group_3__0 )* )
             {
-            // InternalVarlinkIdl.g:1073:1: ( ( rule__Object__Group_3__0 )* )
-            // InternalVarlinkIdl.g:1074:2: ( rule__Object__Group_3__0 )*
+            // InternalVarlinkIdl.g:1067:1: ( ( rule__Object__Group_3__0 )* )
+            // InternalVarlinkIdl.g:1068:2: ( rule__Object__Group_3__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getGroup_3()); 
             }
-            // InternalVarlinkIdl.g:1075:2: ( rule__Object__Group_3__0 )*
+            // InternalVarlinkIdl.g:1069:2: ( rule__Object__Group_3__0 )*
             loop10:
             do {
                 int alt10=2;
@@ -3582,7 +3558,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalVarlinkIdl.g:1075:3: rule__Object__Group_3__0
+            	    // InternalVarlinkIdl.g:1069:3: rule__Object__Group_3__0
             	    {
             	    pushFollow(FOLLOW_9);
             	    rule__Object__Group_3__0();
@@ -3623,14 +3599,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group__4"
-    // InternalVarlinkIdl.g:1083:1: rule__Object__Group__4 : rule__Object__Group__4__Impl ;
+    // InternalVarlinkIdl.g:1077:1: rule__Object__Group__4 : rule__Object__Group__4__Impl ;
     public final void rule__Object__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1087:1: ( rule__Object__Group__4__Impl )
-            // InternalVarlinkIdl.g:1088:2: rule__Object__Group__4__Impl
+            // InternalVarlinkIdl.g:1081:1: ( rule__Object__Group__4__Impl )
+            // InternalVarlinkIdl.g:1082:2: rule__Object__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Object__Group__4__Impl();
@@ -3656,17 +3632,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group__4__Impl"
-    // InternalVarlinkIdl.g:1094:1: rule__Object__Group__4__Impl : ( ')' ) ;
+    // InternalVarlinkIdl.g:1088:1: rule__Object__Group__4__Impl : ( ')' ) ;
     public final void rule__Object__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1098:1: ( ( ')' ) )
-            // InternalVarlinkIdl.g:1099:1: ( ')' )
+            // InternalVarlinkIdl.g:1092:1: ( ( ')' ) )
+            // InternalVarlinkIdl.g:1093:1: ( ')' )
             {
-            // InternalVarlinkIdl.g:1099:1: ( ')' )
-            // InternalVarlinkIdl.g:1100:2: ')'
+            // InternalVarlinkIdl.g:1093:1: ( ')' )
+            // InternalVarlinkIdl.g:1094:2: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getRightParenthesisKeyword_4()); 
@@ -3697,14 +3673,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group_3__0"
-    // InternalVarlinkIdl.g:1110:1: rule__Object__Group_3__0 : rule__Object__Group_3__0__Impl rule__Object__Group_3__1 ;
+    // InternalVarlinkIdl.g:1104:1: rule__Object__Group_3__0 : rule__Object__Group_3__0__Impl rule__Object__Group_3__1 ;
     public final void rule__Object__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1114:1: ( rule__Object__Group_3__0__Impl rule__Object__Group_3__1 )
-            // InternalVarlinkIdl.g:1115:2: rule__Object__Group_3__0__Impl rule__Object__Group_3__1
+            // InternalVarlinkIdl.g:1108:1: ( rule__Object__Group_3__0__Impl rule__Object__Group_3__1 )
+            // InternalVarlinkIdl.g:1109:2: rule__Object__Group_3__0__Impl rule__Object__Group_3__1
             {
             pushFollow(FOLLOW_6);
             rule__Object__Group_3__0__Impl();
@@ -3735,17 +3711,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group_3__0__Impl"
-    // InternalVarlinkIdl.g:1122:1: rule__Object__Group_3__0__Impl : ( ',' ) ;
+    // InternalVarlinkIdl.g:1116:1: rule__Object__Group_3__0__Impl : ( ',' ) ;
     public final void rule__Object__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1126:1: ( ( ',' ) )
-            // InternalVarlinkIdl.g:1127:1: ( ',' )
+            // InternalVarlinkIdl.g:1120:1: ( ( ',' ) )
+            // InternalVarlinkIdl.g:1121:1: ( ',' )
             {
-            // InternalVarlinkIdl.g:1127:1: ( ',' )
-            // InternalVarlinkIdl.g:1128:2: ','
+            // InternalVarlinkIdl.g:1121:1: ( ',' )
+            // InternalVarlinkIdl.g:1122:2: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getCommaKeyword_3_0()); 
@@ -3776,14 +3752,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group_3__1"
-    // InternalVarlinkIdl.g:1137:1: rule__Object__Group_3__1 : rule__Object__Group_3__1__Impl ;
+    // InternalVarlinkIdl.g:1131:1: rule__Object__Group_3__1 : rule__Object__Group_3__1__Impl ;
     public final void rule__Object__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1141:1: ( rule__Object__Group_3__1__Impl )
-            // InternalVarlinkIdl.g:1142:2: rule__Object__Group_3__1__Impl
+            // InternalVarlinkIdl.g:1135:1: ( rule__Object__Group_3__1__Impl )
+            // InternalVarlinkIdl.g:1136:2: rule__Object__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Object__Group_3__1__Impl();
@@ -3809,23 +3785,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__Group_3__1__Impl"
-    // InternalVarlinkIdl.g:1148:1: rule__Object__Group_3__1__Impl : ( ( rule__Object__FieldsAssignment_3_1 ) ) ;
+    // InternalVarlinkIdl.g:1142:1: rule__Object__Group_3__1__Impl : ( ( rule__Object__FieldsAssignment_3_1 ) ) ;
     public final void rule__Object__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1152:1: ( ( ( rule__Object__FieldsAssignment_3_1 ) ) )
-            // InternalVarlinkIdl.g:1153:1: ( ( rule__Object__FieldsAssignment_3_1 ) )
+            // InternalVarlinkIdl.g:1146:1: ( ( ( rule__Object__FieldsAssignment_3_1 ) ) )
+            // InternalVarlinkIdl.g:1147:1: ( ( rule__Object__FieldsAssignment_3_1 ) )
             {
-            // InternalVarlinkIdl.g:1153:1: ( ( rule__Object__FieldsAssignment_3_1 ) )
-            // InternalVarlinkIdl.g:1154:2: ( rule__Object__FieldsAssignment_3_1 )
+            // InternalVarlinkIdl.g:1147:1: ( ( rule__Object__FieldsAssignment_3_1 ) )
+            // InternalVarlinkIdl.g:1148:2: ( rule__Object__FieldsAssignment_3_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getFieldsAssignment_3_1()); 
             }
-            // InternalVarlinkIdl.g:1155:2: ( rule__Object__FieldsAssignment_3_1 )
-            // InternalVarlinkIdl.g:1155:3: rule__Object__FieldsAssignment_3_1
+            // InternalVarlinkIdl.g:1149:2: ( rule__Object__FieldsAssignment_3_1 )
+            // InternalVarlinkIdl.g:1149:3: rule__Object__FieldsAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__Object__FieldsAssignment_3_1();
@@ -3860,14 +3836,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__0"
-    // InternalVarlinkIdl.g:1164:1: rule__Field__Group__0 : rule__Field__Group__0__Impl rule__Field__Group__1 ;
+    // InternalVarlinkIdl.g:1158:1: rule__Field__Group__0 : rule__Field__Group__0__Impl rule__Field__Group__1 ;
     public final void rule__Field__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1168:1: ( rule__Field__Group__0__Impl rule__Field__Group__1 )
-            // InternalVarlinkIdl.g:1169:2: rule__Field__Group__0__Impl rule__Field__Group__1
+            // InternalVarlinkIdl.g:1162:1: ( rule__Field__Group__0__Impl rule__Field__Group__1 )
+            // InternalVarlinkIdl.g:1163:2: rule__Field__Group__0__Impl rule__Field__Group__1
             {
             pushFollow(FOLLOW_11);
             rule__Field__Group__0__Impl();
@@ -3898,23 +3874,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__0__Impl"
-    // InternalVarlinkIdl.g:1176:1: rule__Field__Group__0__Impl : ( ( rule__Field__NameAssignment_0 ) ) ;
+    // InternalVarlinkIdl.g:1170:1: rule__Field__Group__0__Impl : ( ( rule__Field__NameAssignment_0 ) ) ;
     public final void rule__Field__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1180:1: ( ( ( rule__Field__NameAssignment_0 ) ) )
-            // InternalVarlinkIdl.g:1181:1: ( ( rule__Field__NameAssignment_0 ) )
+            // InternalVarlinkIdl.g:1174:1: ( ( ( rule__Field__NameAssignment_0 ) ) )
+            // InternalVarlinkIdl.g:1175:1: ( ( rule__Field__NameAssignment_0 ) )
             {
-            // InternalVarlinkIdl.g:1181:1: ( ( rule__Field__NameAssignment_0 ) )
-            // InternalVarlinkIdl.g:1182:2: ( rule__Field__NameAssignment_0 )
+            // InternalVarlinkIdl.g:1175:1: ( ( rule__Field__NameAssignment_0 ) )
+            // InternalVarlinkIdl.g:1176:2: ( rule__Field__NameAssignment_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getNameAssignment_0()); 
             }
-            // InternalVarlinkIdl.g:1183:2: ( rule__Field__NameAssignment_0 )
-            // InternalVarlinkIdl.g:1183:3: rule__Field__NameAssignment_0
+            // InternalVarlinkIdl.g:1177:2: ( rule__Field__NameAssignment_0 )
+            // InternalVarlinkIdl.g:1177:3: rule__Field__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Field__NameAssignment_0();
@@ -3949,14 +3925,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__1"
-    // InternalVarlinkIdl.g:1191:1: rule__Field__Group__1 : rule__Field__Group__1__Impl rule__Field__Group__2 ;
+    // InternalVarlinkIdl.g:1185:1: rule__Field__Group__1 : rule__Field__Group__1__Impl rule__Field__Group__2 ;
     public final void rule__Field__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1195:1: ( rule__Field__Group__1__Impl rule__Field__Group__2 )
-            // InternalVarlinkIdl.g:1196:2: rule__Field__Group__1__Impl rule__Field__Group__2
+            // InternalVarlinkIdl.g:1189:1: ( rule__Field__Group__1__Impl rule__Field__Group__2 )
+            // InternalVarlinkIdl.g:1190:2: rule__Field__Group__1__Impl rule__Field__Group__2
             {
             pushFollow(FOLLOW_12);
             rule__Field__Group__1__Impl();
@@ -3987,17 +3963,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__1__Impl"
-    // InternalVarlinkIdl.g:1203:1: rule__Field__Group__1__Impl : ( ':' ) ;
+    // InternalVarlinkIdl.g:1197:1: rule__Field__Group__1__Impl : ( ':' ) ;
     public final void rule__Field__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1207:1: ( ( ':' ) )
-            // InternalVarlinkIdl.g:1208:1: ( ':' )
+            // InternalVarlinkIdl.g:1201:1: ( ( ':' ) )
+            // InternalVarlinkIdl.g:1202:1: ( ':' )
             {
-            // InternalVarlinkIdl.g:1208:1: ( ':' )
-            // InternalVarlinkIdl.g:1209:2: ':'
+            // InternalVarlinkIdl.g:1202:1: ( ':' )
+            // InternalVarlinkIdl.g:1203:2: ':'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getColonKeyword_1()); 
@@ -4028,14 +4004,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__2"
-    // InternalVarlinkIdl.g:1218:1: rule__Field__Group__2 : rule__Field__Group__2__Impl rule__Field__Group__3 ;
+    // InternalVarlinkIdl.g:1212:1: rule__Field__Group__2 : rule__Field__Group__2__Impl rule__Field__Group__3 ;
     public final void rule__Field__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1222:1: ( rule__Field__Group__2__Impl rule__Field__Group__3 )
-            // InternalVarlinkIdl.g:1223:2: rule__Field__Group__2__Impl rule__Field__Group__3
+            // InternalVarlinkIdl.g:1216:1: ( rule__Field__Group__2__Impl rule__Field__Group__3 )
+            // InternalVarlinkIdl.g:1217:2: rule__Field__Group__2__Impl rule__Field__Group__3
             {
             pushFollow(FOLLOW_13);
             rule__Field__Group__2__Impl();
@@ -4066,23 +4042,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__2__Impl"
-    // InternalVarlinkIdl.g:1230:1: rule__Field__Group__2__Impl : ( ( rule__Field__TypeAssignment_2 ) ) ;
+    // InternalVarlinkIdl.g:1224:1: rule__Field__Group__2__Impl : ( ( rule__Field__TypeAssignment_2 ) ) ;
     public final void rule__Field__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1234:1: ( ( ( rule__Field__TypeAssignment_2 ) ) )
-            // InternalVarlinkIdl.g:1235:1: ( ( rule__Field__TypeAssignment_2 ) )
+            // InternalVarlinkIdl.g:1228:1: ( ( ( rule__Field__TypeAssignment_2 ) ) )
+            // InternalVarlinkIdl.g:1229:1: ( ( rule__Field__TypeAssignment_2 ) )
             {
-            // InternalVarlinkIdl.g:1235:1: ( ( rule__Field__TypeAssignment_2 ) )
-            // InternalVarlinkIdl.g:1236:2: ( rule__Field__TypeAssignment_2 )
+            // InternalVarlinkIdl.g:1229:1: ( ( rule__Field__TypeAssignment_2 ) )
+            // InternalVarlinkIdl.g:1230:2: ( rule__Field__TypeAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getTypeAssignment_2()); 
             }
-            // InternalVarlinkIdl.g:1237:2: ( rule__Field__TypeAssignment_2 )
-            // InternalVarlinkIdl.g:1237:3: rule__Field__TypeAssignment_2
+            // InternalVarlinkIdl.g:1231:2: ( rule__Field__TypeAssignment_2 )
+            // InternalVarlinkIdl.g:1231:3: rule__Field__TypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Field__TypeAssignment_2();
@@ -4117,14 +4093,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__3"
-    // InternalVarlinkIdl.g:1245:1: rule__Field__Group__3 : rule__Field__Group__3__Impl ;
+    // InternalVarlinkIdl.g:1239:1: rule__Field__Group__3 : rule__Field__Group__3__Impl ;
     public final void rule__Field__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1249:1: ( rule__Field__Group__3__Impl )
-            // InternalVarlinkIdl.g:1250:2: rule__Field__Group__3__Impl
+            // InternalVarlinkIdl.g:1243:1: ( rule__Field__Group__3__Impl )
+            // InternalVarlinkIdl.g:1244:2: rule__Field__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Field__Group__3__Impl();
@@ -4150,22 +4126,22 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__Group__3__Impl"
-    // InternalVarlinkIdl.g:1256:1: rule__Field__Group__3__Impl : ( ( rule__Field__MultiAssignment_3 )? ) ;
+    // InternalVarlinkIdl.g:1250:1: rule__Field__Group__3__Impl : ( ( rule__Field__MultiAssignment_3 )? ) ;
     public final void rule__Field__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1260:1: ( ( ( rule__Field__MultiAssignment_3 )? ) )
-            // InternalVarlinkIdl.g:1261:1: ( ( rule__Field__MultiAssignment_3 )? )
+            // InternalVarlinkIdl.g:1254:1: ( ( ( rule__Field__MultiAssignment_3 )? ) )
+            // InternalVarlinkIdl.g:1255:1: ( ( rule__Field__MultiAssignment_3 )? )
             {
-            // InternalVarlinkIdl.g:1261:1: ( ( rule__Field__MultiAssignment_3 )? )
-            // InternalVarlinkIdl.g:1262:2: ( rule__Field__MultiAssignment_3 )?
+            // InternalVarlinkIdl.g:1255:1: ( ( rule__Field__MultiAssignment_3 )? )
+            // InternalVarlinkIdl.g:1256:2: ( rule__Field__MultiAssignment_3 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getMultiAssignment_3()); 
             }
-            // InternalVarlinkIdl.g:1263:2: ( rule__Field__MultiAssignment_3 )?
+            // InternalVarlinkIdl.g:1257:2: ( rule__Field__MultiAssignment_3 )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -4174,7 +4150,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             }
             switch (alt11) {
                 case 1 :
-                    // InternalVarlinkIdl.g:1263:3: rule__Field__MultiAssignment_3
+                    // InternalVarlinkIdl.g:1257:3: rule__Field__MultiAssignment_3
                     {
                     pushFollow(FOLLOW_2);
                     rule__Field__MultiAssignment_3();
@@ -4212,14 +4188,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__Group__0"
-    // InternalVarlinkIdl.g:1272:1: rule__Method__Group__0 : rule__Method__Group__0__Impl rule__Method__Group__1 ;
+    // InternalVarlinkIdl.g:1266:1: rule__Method__Group__0 : rule__Method__Group__0__Impl rule__Method__Group__1 ;
     public final void rule__Method__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1276:1: ( rule__Method__Group__0__Impl rule__Method__Group__1 )
-            // InternalVarlinkIdl.g:1277:2: rule__Method__Group__0__Impl rule__Method__Group__1
+            // InternalVarlinkIdl.g:1270:1: ( rule__Method__Group__0__Impl rule__Method__Group__1 )
+            // InternalVarlinkIdl.g:1271:2: rule__Method__Group__0__Impl rule__Method__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Method__Group__0__Impl();
@@ -4250,22 +4226,22 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__Group__0__Impl"
-    // InternalVarlinkIdl.g:1284:1: rule__Method__Group__0__Impl : ( 'method' ) ;
+    // InternalVarlinkIdl.g:1278:1: rule__Method__Group__0__Impl : ( 'method' ) ;
     public final void rule__Method__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1288:1: ( ( 'method' ) )
-            // InternalVarlinkIdl.g:1289:1: ( 'method' )
+            // InternalVarlinkIdl.g:1282:1: ( ( 'method' ) )
+            // InternalVarlinkIdl.g:1283:1: ( 'method' )
             {
-            // InternalVarlinkIdl.g:1289:1: ( 'method' )
-            // InternalVarlinkIdl.g:1290:2: 'method'
+            // InternalVarlinkIdl.g:1283:1: ( 'method' )
+            // InternalVarlinkIdl.g:1284:2: 'method'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodAccess().getMethodKeyword_0()); 
             }
-            match(input,17,FOLLOW_2); if (state.failed) return ;
+            match(input,15,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMethodAccess().getMethodKeyword_0()); 
             }
@@ -4291,14 +4267,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__Group__1"
-    // InternalVarlinkIdl.g:1299:1: rule__Method__Group__1 : rule__Method__Group__1__Impl rule__Method__Group__2 ;
+    // InternalVarlinkIdl.g:1293:1: rule__Method__Group__1 : rule__Method__Group__1__Impl rule__Method__Group__2 ;
     public final void rule__Method__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1303:1: ( rule__Method__Group__1__Impl rule__Method__Group__2 )
-            // InternalVarlinkIdl.g:1304:2: rule__Method__Group__1__Impl rule__Method__Group__2
+            // InternalVarlinkIdl.g:1297:1: ( rule__Method__Group__1__Impl rule__Method__Group__2 )
+            // InternalVarlinkIdl.g:1298:2: rule__Method__Group__1__Impl rule__Method__Group__2
             {
             pushFollow(FOLLOW_7);
             rule__Method__Group__1__Impl();
@@ -4329,23 +4305,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__Group__1__Impl"
-    // InternalVarlinkIdl.g:1311:1: rule__Method__Group__1__Impl : ( ( rule__Method__NameAssignment_1 ) ) ;
+    // InternalVarlinkIdl.g:1305:1: rule__Method__Group__1__Impl : ( ( rule__Method__NameAssignment_1 ) ) ;
     public final void rule__Method__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1315:1: ( ( ( rule__Method__NameAssignment_1 ) ) )
-            // InternalVarlinkIdl.g:1316:1: ( ( rule__Method__NameAssignment_1 ) )
+            // InternalVarlinkIdl.g:1309:1: ( ( ( rule__Method__NameAssignment_1 ) ) )
+            // InternalVarlinkIdl.g:1310:1: ( ( rule__Method__NameAssignment_1 ) )
             {
-            // InternalVarlinkIdl.g:1316:1: ( ( rule__Method__NameAssignment_1 ) )
-            // InternalVarlinkIdl.g:1317:2: ( rule__Method__NameAssignment_1 )
+            // InternalVarlinkIdl.g:1310:1: ( ( rule__Method__NameAssignment_1 ) )
+            // InternalVarlinkIdl.g:1311:2: ( rule__Method__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodAccess().getNameAssignment_1()); 
             }
-            // InternalVarlinkIdl.g:1318:2: ( rule__Method__NameAssignment_1 )
-            // InternalVarlinkIdl.g:1318:3: rule__Method__NameAssignment_1
+            // InternalVarlinkIdl.g:1312:2: ( rule__Method__NameAssignment_1 )
+            // InternalVarlinkIdl.g:1312:3: rule__Method__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Method__NameAssignment_1();
@@ -4380,14 +4356,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__Group__2"
-    // InternalVarlinkIdl.g:1326:1: rule__Method__Group__2 : rule__Method__Group__2__Impl rule__Method__Group__3 ;
+    // InternalVarlinkIdl.g:1320:1: rule__Method__Group__2 : rule__Method__Group__2__Impl rule__Method__Group__3 ;
     public final void rule__Method__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1330:1: ( rule__Method__Group__2__Impl rule__Method__Group__3 )
-            // InternalVarlinkIdl.g:1331:2: rule__Method__Group__2__Impl rule__Method__Group__3
+            // InternalVarlinkIdl.g:1324:1: ( rule__Method__Group__2__Impl rule__Method__Group__3 )
+            // InternalVarlinkIdl.g:1325:2: rule__Method__Group__2__Impl rule__Method__Group__3
             {
             pushFollow(FOLLOW_14);
             rule__Method__Group__2__Impl();
@@ -4418,23 +4394,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__Group__2__Impl"
-    // InternalVarlinkIdl.g:1338:1: rule__Method__Group__2__Impl : ( ( rule__Method__ArgumentsAssignment_2 ) ) ;
+    // InternalVarlinkIdl.g:1332:1: rule__Method__Group__2__Impl : ( ( rule__Method__ArgumentsAssignment_2 ) ) ;
     public final void rule__Method__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1342:1: ( ( ( rule__Method__ArgumentsAssignment_2 ) ) )
-            // InternalVarlinkIdl.g:1343:1: ( ( rule__Method__ArgumentsAssignment_2 ) )
+            // InternalVarlinkIdl.g:1336:1: ( ( ( rule__Method__ArgumentsAssignment_2 ) ) )
+            // InternalVarlinkIdl.g:1337:1: ( ( rule__Method__ArgumentsAssignment_2 ) )
             {
-            // InternalVarlinkIdl.g:1343:1: ( ( rule__Method__ArgumentsAssignment_2 ) )
-            // InternalVarlinkIdl.g:1344:2: ( rule__Method__ArgumentsAssignment_2 )
+            // InternalVarlinkIdl.g:1337:1: ( ( rule__Method__ArgumentsAssignment_2 ) )
+            // InternalVarlinkIdl.g:1338:2: ( rule__Method__ArgumentsAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodAccess().getArgumentsAssignment_2()); 
             }
-            // InternalVarlinkIdl.g:1345:2: ( rule__Method__ArgumentsAssignment_2 )
-            // InternalVarlinkIdl.g:1345:3: rule__Method__ArgumentsAssignment_2
+            // InternalVarlinkIdl.g:1339:2: ( rule__Method__ArgumentsAssignment_2 )
+            // InternalVarlinkIdl.g:1339:3: rule__Method__ArgumentsAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Method__ArgumentsAssignment_2();
@@ -4469,14 +4445,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__Group__3"
-    // InternalVarlinkIdl.g:1353:1: rule__Method__Group__3 : rule__Method__Group__3__Impl rule__Method__Group__4 ;
+    // InternalVarlinkIdl.g:1347:1: rule__Method__Group__3 : rule__Method__Group__3__Impl rule__Method__Group__4 ;
     public final void rule__Method__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1357:1: ( rule__Method__Group__3__Impl rule__Method__Group__4 )
-            // InternalVarlinkIdl.g:1358:2: rule__Method__Group__3__Impl rule__Method__Group__4
+            // InternalVarlinkIdl.g:1351:1: ( rule__Method__Group__3__Impl rule__Method__Group__4 )
+            // InternalVarlinkIdl.g:1352:2: rule__Method__Group__3__Impl rule__Method__Group__4
             {
             pushFollow(FOLLOW_7);
             rule__Method__Group__3__Impl();
@@ -4507,17 +4483,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__Group__3__Impl"
-    // InternalVarlinkIdl.g:1365:1: rule__Method__Group__3__Impl : ( '->' ) ;
+    // InternalVarlinkIdl.g:1359:1: rule__Method__Group__3__Impl : ( '->' ) ;
     public final void rule__Method__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1369:1: ( ( '->' ) )
-            // InternalVarlinkIdl.g:1370:1: ( '->' )
+            // InternalVarlinkIdl.g:1363:1: ( ( '->' ) )
+            // InternalVarlinkIdl.g:1364:1: ( '->' )
             {
-            // InternalVarlinkIdl.g:1370:1: ( '->' )
-            // InternalVarlinkIdl.g:1371:2: '->'
+            // InternalVarlinkIdl.g:1364:1: ( '->' )
+            // InternalVarlinkIdl.g:1365:2: '->'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodAccess().getHyphenMinusGreaterThanSignKeyword_3()); 
@@ -4548,14 +4524,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__Group__4"
-    // InternalVarlinkIdl.g:1380:1: rule__Method__Group__4 : rule__Method__Group__4__Impl ;
+    // InternalVarlinkIdl.g:1374:1: rule__Method__Group__4 : rule__Method__Group__4__Impl ;
     public final void rule__Method__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1384:1: ( rule__Method__Group__4__Impl )
-            // InternalVarlinkIdl.g:1385:2: rule__Method__Group__4__Impl
+            // InternalVarlinkIdl.g:1378:1: ( rule__Method__Group__4__Impl )
+            // InternalVarlinkIdl.g:1379:2: rule__Method__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Method__Group__4__Impl();
@@ -4581,23 +4557,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__Group__4__Impl"
-    // InternalVarlinkIdl.g:1391:1: rule__Method__Group__4__Impl : ( ( rule__Method__ResultAssignment_4 ) ) ;
+    // InternalVarlinkIdl.g:1385:1: rule__Method__Group__4__Impl : ( ( rule__Method__ResultAssignment_4 ) ) ;
     public final void rule__Method__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1395:1: ( ( ( rule__Method__ResultAssignment_4 ) ) )
-            // InternalVarlinkIdl.g:1396:1: ( ( rule__Method__ResultAssignment_4 ) )
+            // InternalVarlinkIdl.g:1389:1: ( ( ( rule__Method__ResultAssignment_4 ) ) )
+            // InternalVarlinkIdl.g:1390:1: ( ( rule__Method__ResultAssignment_4 ) )
             {
-            // InternalVarlinkIdl.g:1396:1: ( ( rule__Method__ResultAssignment_4 ) )
-            // InternalVarlinkIdl.g:1397:2: ( rule__Method__ResultAssignment_4 )
+            // InternalVarlinkIdl.g:1390:1: ( ( rule__Method__ResultAssignment_4 ) )
+            // InternalVarlinkIdl.g:1391:2: ( rule__Method__ResultAssignment_4 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodAccess().getResultAssignment_4()); 
             }
-            // InternalVarlinkIdl.g:1398:2: ( rule__Method__ResultAssignment_4 )
-            // InternalVarlinkIdl.g:1398:3: rule__Method__ResultAssignment_4
+            // InternalVarlinkIdl.g:1392:2: ( rule__Method__ResultAssignment_4 )
+            // InternalVarlinkIdl.g:1392:3: rule__Method__ResultAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Method__ResultAssignment_4();
@@ -4632,14 +4608,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Error__Group__0"
-    // InternalVarlinkIdl.g:1407:1: rule__Error__Group__0 : rule__Error__Group__0__Impl rule__Error__Group__1 ;
+    // InternalVarlinkIdl.g:1401:1: rule__Error__Group__0 : rule__Error__Group__0__Impl rule__Error__Group__1 ;
     public final void rule__Error__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1411:1: ( rule__Error__Group__0__Impl rule__Error__Group__1 )
-            // InternalVarlinkIdl.g:1412:2: rule__Error__Group__0__Impl rule__Error__Group__1
+            // InternalVarlinkIdl.g:1405:1: ( rule__Error__Group__0__Impl rule__Error__Group__1 )
+            // InternalVarlinkIdl.g:1406:2: rule__Error__Group__0__Impl rule__Error__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Error__Group__0__Impl();
@@ -4670,22 +4646,22 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Error__Group__0__Impl"
-    // InternalVarlinkIdl.g:1419:1: rule__Error__Group__0__Impl : ( 'error' ) ;
+    // InternalVarlinkIdl.g:1413:1: rule__Error__Group__0__Impl : ( 'error' ) ;
     public final void rule__Error__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1423:1: ( ( 'error' ) )
-            // InternalVarlinkIdl.g:1424:1: ( 'error' )
+            // InternalVarlinkIdl.g:1417:1: ( ( 'error' ) )
+            // InternalVarlinkIdl.g:1418:1: ( 'error' )
             {
-            // InternalVarlinkIdl.g:1424:1: ( 'error' )
-            // InternalVarlinkIdl.g:1425:2: 'error'
+            // InternalVarlinkIdl.g:1418:1: ( 'error' )
+            // InternalVarlinkIdl.g:1419:2: 'error'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getErrorAccess().getErrorKeyword_0()); 
             }
-            match(input,18,FOLLOW_2); if (state.failed) return ;
+            match(input,16,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getErrorAccess().getErrorKeyword_0()); 
             }
@@ -4711,14 +4687,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Error__Group__1"
-    // InternalVarlinkIdl.g:1434:1: rule__Error__Group__1 : rule__Error__Group__1__Impl rule__Error__Group__2 ;
+    // InternalVarlinkIdl.g:1428:1: rule__Error__Group__1 : rule__Error__Group__1__Impl rule__Error__Group__2 ;
     public final void rule__Error__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1438:1: ( rule__Error__Group__1__Impl rule__Error__Group__2 )
-            // InternalVarlinkIdl.g:1439:2: rule__Error__Group__1__Impl rule__Error__Group__2
+            // InternalVarlinkIdl.g:1432:1: ( rule__Error__Group__1__Impl rule__Error__Group__2 )
+            // InternalVarlinkIdl.g:1433:2: rule__Error__Group__1__Impl rule__Error__Group__2
             {
             pushFollow(FOLLOW_7);
             rule__Error__Group__1__Impl();
@@ -4749,23 +4725,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Error__Group__1__Impl"
-    // InternalVarlinkIdl.g:1446:1: rule__Error__Group__1__Impl : ( ( rule__Error__NameAssignment_1 ) ) ;
+    // InternalVarlinkIdl.g:1440:1: rule__Error__Group__1__Impl : ( ( rule__Error__NameAssignment_1 ) ) ;
     public final void rule__Error__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1450:1: ( ( ( rule__Error__NameAssignment_1 ) ) )
-            // InternalVarlinkIdl.g:1451:1: ( ( rule__Error__NameAssignment_1 ) )
+            // InternalVarlinkIdl.g:1444:1: ( ( ( rule__Error__NameAssignment_1 ) ) )
+            // InternalVarlinkIdl.g:1445:1: ( ( rule__Error__NameAssignment_1 ) )
             {
-            // InternalVarlinkIdl.g:1451:1: ( ( rule__Error__NameAssignment_1 ) )
-            // InternalVarlinkIdl.g:1452:2: ( rule__Error__NameAssignment_1 )
+            // InternalVarlinkIdl.g:1445:1: ( ( rule__Error__NameAssignment_1 ) )
+            // InternalVarlinkIdl.g:1446:2: ( rule__Error__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getErrorAccess().getNameAssignment_1()); 
             }
-            // InternalVarlinkIdl.g:1453:2: ( rule__Error__NameAssignment_1 )
-            // InternalVarlinkIdl.g:1453:3: rule__Error__NameAssignment_1
+            // InternalVarlinkIdl.g:1447:2: ( rule__Error__NameAssignment_1 )
+            // InternalVarlinkIdl.g:1447:3: rule__Error__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Error__NameAssignment_1();
@@ -4800,14 +4776,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Error__Group__2"
-    // InternalVarlinkIdl.g:1461:1: rule__Error__Group__2 : rule__Error__Group__2__Impl ;
+    // InternalVarlinkIdl.g:1455:1: rule__Error__Group__2 : rule__Error__Group__2__Impl ;
     public final void rule__Error__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1465:1: ( rule__Error__Group__2__Impl )
-            // InternalVarlinkIdl.g:1466:2: rule__Error__Group__2__Impl
+            // InternalVarlinkIdl.g:1459:1: ( rule__Error__Group__2__Impl )
+            // InternalVarlinkIdl.g:1460:2: rule__Error__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Error__Group__2__Impl();
@@ -4833,23 +4809,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Error__Group__2__Impl"
-    // InternalVarlinkIdl.g:1472:1: rule__Error__Group__2__Impl : ( ( rule__Error__PropertiesAssignment_2 ) ) ;
+    // InternalVarlinkIdl.g:1466:1: rule__Error__Group__2__Impl : ( ( rule__Error__PropertiesAssignment_2 ) ) ;
     public final void rule__Error__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1476:1: ( ( ( rule__Error__PropertiesAssignment_2 ) ) )
-            // InternalVarlinkIdl.g:1477:1: ( ( rule__Error__PropertiesAssignment_2 ) )
+            // InternalVarlinkIdl.g:1470:1: ( ( ( rule__Error__PropertiesAssignment_2 ) ) )
+            // InternalVarlinkIdl.g:1471:1: ( ( rule__Error__PropertiesAssignment_2 ) )
             {
-            // InternalVarlinkIdl.g:1477:1: ( ( rule__Error__PropertiesAssignment_2 ) )
-            // InternalVarlinkIdl.g:1478:2: ( rule__Error__PropertiesAssignment_2 )
+            // InternalVarlinkIdl.g:1471:1: ( ( rule__Error__PropertiesAssignment_2 ) )
+            // InternalVarlinkIdl.g:1472:2: ( rule__Error__PropertiesAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getErrorAccess().getPropertiesAssignment_2()); 
             }
-            // InternalVarlinkIdl.g:1479:2: ( rule__Error__PropertiesAssignment_2 )
-            // InternalVarlinkIdl.g:1479:3: rule__Error__PropertiesAssignment_2
+            // InternalVarlinkIdl.g:1473:2: ( rule__Error__PropertiesAssignment_2 )
+            // InternalVarlinkIdl.g:1473:3: rule__Error__PropertiesAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Error__PropertiesAssignment_2();
@@ -4884,14 +4860,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__InterfaceName__Group__0"
-    // InternalVarlinkIdl.g:1488:1: rule__InterfaceName__Group__0 : rule__InterfaceName__Group__0__Impl rule__InterfaceName__Group__1 ;
+    // InternalVarlinkIdl.g:1482:1: rule__InterfaceName__Group__0 : rule__InterfaceName__Group__0__Impl rule__InterfaceName__Group__1 ;
     public final void rule__InterfaceName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1492:1: ( rule__InterfaceName__Group__0__Impl rule__InterfaceName__Group__1 )
-            // InternalVarlinkIdl.g:1493:2: rule__InterfaceName__Group__0__Impl rule__InterfaceName__Group__1
+            // InternalVarlinkIdl.g:1486:1: ( rule__InterfaceName__Group__0__Impl rule__InterfaceName__Group__1 )
+            // InternalVarlinkIdl.g:1487:2: rule__InterfaceName__Group__0__Impl rule__InterfaceName__Group__1
             {
             pushFollow(FOLLOW_15);
             rule__InterfaceName__Group__0__Impl();
@@ -4922,17 +4898,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__InterfaceName__Group__0__Impl"
-    // InternalVarlinkIdl.g:1500:1: rule__InterfaceName__Group__0__Impl : ( RULE_ID ) ;
+    // InternalVarlinkIdl.g:1494:1: rule__InterfaceName__Group__0__Impl : ( RULE_ID ) ;
     public final void rule__InterfaceName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1504:1: ( ( RULE_ID ) )
-            // InternalVarlinkIdl.g:1505:1: ( RULE_ID )
+            // InternalVarlinkIdl.g:1498:1: ( ( RULE_ID ) )
+            // InternalVarlinkIdl.g:1499:1: ( RULE_ID )
             {
-            // InternalVarlinkIdl.g:1505:1: ( RULE_ID )
-            // InternalVarlinkIdl.g:1506:2: RULE_ID
+            // InternalVarlinkIdl.g:1499:1: ( RULE_ID )
+            // InternalVarlinkIdl.g:1500:2: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInterfaceNameAccess().getIDTerminalRuleCall_0()); 
@@ -4963,14 +4939,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__InterfaceName__Group__1"
-    // InternalVarlinkIdl.g:1515:1: rule__InterfaceName__Group__1 : rule__InterfaceName__Group__1__Impl ;
+    // InternalVarlinkIdl.g:1509:1: rule__InterfaceName__Group__1 : rule__InterfaceName__Group__1__Impl ;
     public final void rule__InterfaceName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1519:1: ( rule__InterfaceName__Group__1__Impl )
-            // InternalVarlinkIdl.g:1520:2: rule__InterfaceName__Group__1__Impl
+            // InternalVarlinkIdl.g:1513:1: ( rule__InterfaceName__Group__1__Impl )
+            // InternalVarlinkIdl.g:1514:2: rule__InterfaceName__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__InterfaceName__Group__1__Impl();
@@ -4996,22 +4972,22 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__InterfaceName__Group__1__Impl"
-    // InternalVarlinkIdl.g:1526:1: rule__InterfaceName__Group__1__Impl : ( ( rule__InterfaceName__Group_1__0 )* ) ;
+    // InternalVarlinkIdl.g:1520:1: rule__InterfaceName__Group__1__Impl : ( ( rule__InterfaceName__Group_1__0 )* ) ;
     public final void rule__InterfaceName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1530:1: ( ( ( rule__InterfaceName__Group_1__0 )* ) )
-            // InternalVarlinkIdl.g:1531:1: ( ( rule__InterfaceName__Group_1__0 )* )
+            // InternalVarlinkIdl.g:1524:1: ( ( ( rule__InterfaceName__Group_1__0 )* ) )
+            // InternalVarlinkIdl.g:1525:1: ( ( rule__InterfaceName__Group_1__0 )* )
             {
-            // InternalVarlinkIdl.g:1531:1: ( ( rule__InterfaceName__Group_1__0 )* )
-            // InternalVarlinkIdl.g:1532:2: ( rule__InterfaceName__Group_1__0 )*
+            // InternalVarlinkIdl.g:1525:1: ( ( rule__InterfaceName__Group_1__0 )* )
+            // InternalVarlinkIdl.g:1526:2: ( rule__InterfaceName__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInterfaceNameAccess().getGroup_1()); 
             }
-            // InternalVarlinkIdl.g:1533:2: ( rule__InterfaceName__Group_1__0 )*
+            // InternalVarlinkIdl.g:1527:2: ( rule__InterfaceName__Group_1__0 )*
             loop12:
             do {
                 int alt12=2;
@@ -5024,7 +5000,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalVarlinkIdl.g:1533:3: rule__InterfaceName__Group_1__0
+            	    // InternalVarlinkIdl.g:1527:3: rule__InterfaceName__Group_1__0
             	    {
             	    pushFollow(FOLLOW_16);
             	    rule__InterfaceName__Group_1__0();
@@ -5065,14 +5041,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__InterfaceName__Group_1__0"
-    // InternalVarlinkIdl.g:1542:1: rule__InterfaceName__Group_1__0 : rule__InterfaceName__Group_1__0__Impl rule__InterfaceName__Group_1__1 ;
+    // InternalVarlinkIdl.g:1536:1: rule__InterfaceName__Group_1__0 : rule__InterfaceName__Group_1__0__Impl rule__InterfaceName__Group_1__1 ;
     public final void rule__InterfaceName__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1546:1: ( rule__InterfaceName__Group_1__0__Impl rule__InterfaceName__Group_1__1 )
-            // InternalVarlinkIdl.g:1547:2: rule__InterfaceName__Group_1__0__Impl rule__InterfaceName__Group_1__1
+            // InternalVarlinkIdl.g:1540:1: ( rule__InterfaceName__Group_1__0__Impl rule__InterfaceName__Group_1__1 )
+            // InternalVarlinkIdl.g:1541:2: rule__InterfaceName__Group_1__0__Impl rule__InterfaceName__Group_1__1
             {
             pushFollow(FOLLOW_3);
             rule__InterfaceName__Group_1__0__Impl();
@@ -5103,23 +5079,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__InterfaceName__Group_1__0__Impl"
-    // InternalVarlinkIdl.g:1554:1: rule__InterfaceName__Group_1__0__Impl : ( ( '.' ) ) ;
+    // InternalVarlinkIdl.g:1548:1: rule__InterfaceName__Group_1__0__Impl : ( ( '.' ) ) ;
     public final void rule__InterfaceName__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1558:1: ( ( ( '.' ) ) )
-            // InternalVarlinkIdl.g:1559:1: ( ( '.' ) )
+            // InternalVarlinkIdl.g:1552:1: ( ( ( '.' ) ) )
+            // InternalVarlinkIdl.g:1553:1: ( ( '.' ) )
             {
-            // InternalVarlinkIdl.g:1559:1: ( ( '.' ) )
-            // InternalVarlinkIdl.g:1560:2: ( '.' )
+            // InternalVarlinkIdl.g:1553:1: ( ( '.' ) )
+            // InternalVarlinkIdl.g:1554:2: ( '.' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInterfaceNameAccess().getFullStopKeyword_1_0()); 
             }
-            // InternalVarlinkIdl.g:1561:2: ( '.' )
-            // InternalVarlinkIdl.g:1561:3: '.'
+            // InternalVarlinkIdl.g:1555:2: ( '.' )
+            // InternalVarlinkIdl.g:1555:3: '.'
             {
             match(input,24,FOLLOW_2); if (state.failed) return ;
 
@@ -5150,14 +5126,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__InterfaceName__Group_1__1"
-    // InternalVarlinkIdl.g:1569:1: rule__InterfaceName__Group_1__1 : rule__InterfaceName__Group_1__1__Impl ;
+    // InternalVarlinkIdl.g:1563:1: rule__InterfaceName__Group_1__1 : rule__InterfaceName__Group_1__1__Impl ;
     public final void rule__InterfaceName__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1573:1: ( rule__InterfaceName__Group_1__1__Impl )
-            // InternalVarlinkIdl.g:1574:2: rule__InterfaceName__Group_1__1__Impl
+            // InternalVarlinkIdl.g:1567:1: ( rule__InterfaceName__Group_1__1__Impl )
+            // InternalVarlinkIdl.g:1568:2: rule__InterfaceName__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__InterfaceName__Group_1__1__Impl();
@@ -5183,17 +5159,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__InterfaceName__Group_1__1__Impl"
-    // InternalVarlinkIdl.g:1580:1: rule__InterfaceName__Group_1__1__Impl : ( RULE_ID ) ;
+    // InternalVarlinkIdl.g:1574:1: rule__InterfaceName__Group_1__1__Impl : ( RULE_ID ) ;
     public final void rule__InterfaceName__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1584:1: ( ( RULE_ID ) )
-            // InternalVarlinkIdl.g:1585:1: ( RULE_ID )
+            // InternalVarlinkIdl.g:1578:1: ( ( RULE_ID ) )
+            // InternalVarlinkIdl.g:1579:1: ( RULE_ID )
             {
-            // InternalVarlinkIdl.g:1585:1: ( RULE_ID )
-            // InternalVarlinkIdl.g:1586:2: RULE_ID
+            // InternalVarlinkIdl.g:1579:1: ( RULE_ID )
+            // InternalVarlinkIdl.g:1580:2: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInterfaceNameAccess().getIDTerminalRuleCall_1_1()); 
@@ -5224,17 +5200,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Interface__NameAssignment_1"
-    // InternalVarlinkIdl.g:1596:1: rule__Interface__NameAssignment_1 : ( ruleInterfaceName ) ;
+    // InternalVarlinkIdl.g:1590:1: rule__Interface__NameAssignment_1 : ( ruleInterfaceName ) ;
     public final void rule__Interface__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1600:1: ( ( ruleInterfaceName ) )
-            // InternalVarlinkIdl.g:1601:2: ( ruleInterfaceName )
+            // InternalVarlinkIdl.g:1594:1: ( ( ruleInterfaceName ) )
+            // InternalVarlinkIdl.g:1595:2: ( ruleInterfaceName )
             {
-            // InternalVarlinkIdl.g:1601:2: ( ruleInterfaceName )
-            // InternalVarlinkIdl.g:1602:3: ruleInterfaceName
+            // InternalVarlinkIdl.g:1595:2: ( ruleInterfaceName )
+            // InternalVarlinkIdl.g:1596:3: ruleInterfaceName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInterfaceAccess().getNameInterfaceNameParserRuleCall_1_0()); 
@@ -5269,17 +5245,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Interface__MembersAssignment_2"
-    // InternalVarlinkIdl.g:1611:1: rule__Interface__MembersAssignment_2 : ( ruleMember ) ;
+    // InternalVarlinkIdl.g:1605:1: rule__Interface__MembersAssignment_2 : ( ruleMember ) ;
     public final void rule__Interface__MembersAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1615:1: ( ( ruleMember ) )
-            // InternalVarlinkIdl.g:1616:2: ( ruleMember )
+            // InternalVarlinkIdl.g:1609:1: ( ( ruleMember ) )
+            // InternalVarlinkIdl.g:1610:2: ( ruleMember )
             {
-            // InternalVarlinkIdl.g:1616:2: ( ruleMember )
-            // InternalVarlinkIdl.g:1617:3: ruleMember
+            // InternalVarlinkIdl.g:1610:2: ( ruleMember )
+            // InternalVarlinkIdl.g:1611:3: ruleMember
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInterfaceAccess().getMembersMemberParserRuleCall_2_0()); 
@@ -5314,17 +5290,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TypeAlias__NameAssignment_1"
-    // InternalVarlinkIdl.g:1626:1: rule__TypeAlias__NameAssignment_1 : ( ruleValidID ) ;
+    // InternalVarlinkIdl.g:1620:1: rule__TypeAlias__NameAssignment_1 : ( ruleValidID ) ;
     public final void rule__TypeAlias__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1630:1: ( ( ruleValidID ) )
-            // InternalVarlinkIdl.g:1631:2: ( ruleValidID )
+            // InternalVarlinkIdl.g:1624:1: ( ( ruleValidID ) )
+            // InternalVarlinkIdl.g:1625:2: ( ruleValidID )
             {
-            // InternalVarlinkIdl.g:1631:2: ( ruleValidID )
-            // InternalVarlinkIdl.g:1632:3: ruleValidID
+            // InternalVarlinkIdl.g:1625:2: ( ruleValidID )
+            // InternalVarlinkIdl.g:1626:3: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeAliasAccess().getNameValidIDParserRuleCall_1_0()); 
@@ -5359,17 +5335,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TypeAlias__DefinitionAssignment_2"
-    // InternalVarlinkIdl.g:1641:1: rule__TypeAlias__DefinitionAssignment_2 : ( ruleTypeAliasDefinition ) ;
+    // InternalVarlinkIdl.g:1635:1: rule__TypeAlias__DefinitionAssignment_2 : ( ruleTypeAliasDefinition ) ;
     public final void rule__TypeAlias__DefinitionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1645:1: ( ( ruleTypeAliasDefinition ) )
-            // InternalVarlinkIdl.g:1646:2: ( ruleTypeAliasDefinition )
+            // InternalVarlinkIdl.g:1639:1: ( ( ruleTypeAliasDefinition ) )
+            // InternalVarlinkIdl.g:1640:2: ( ruleTypeAliasDefinition )
             {
-            // InternalVarlinkIdl.g:1646:2: ( ruleTypeAliasDefinition )
-            // InternalVarlinkIdl.g:1647:3: ruleTypeAliasDefinition
+            // InternalVarlinkIdl.g:1640:2: ( ruleTypeAliasDefinition )
+            // InternalVarlinkIdl.g:1641:3: ruleTypeAliasDefinition
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeAliasAccess().getDefinitionTypeAliasDefinitionParserRuleCall_2_0()); 
@@ -5404,17 +5380,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__FieldsAssignment_1"
-    // InternalVarlinkIdl.g:1656:1: rule__Enum__FieldsAssignment_1 : ( ruleValidID ) ;
+    // InternalVarlinkIdl.g:1650:1: rule__Enum__FieldsAssignment_1 : ( ruleValidID ) ;
     public final void rule__Enum__FieldsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1660:1: ( ( ruleValidID ) )
-            // InternalVarlinkIdl.g:1661:2: ( ruleValidID )
+            // InternalVarlinkIdl.g:1654:1: ( ( ruleValidID ) )
+            // InternalVarlinkIdl.g:1655:2: ( ruleValidID )
             {
-            // InternalVarlinkIdl.g:1661:2: ( ruleValidID )
-            // InternalVarlinkIdl.g:1662:3: ruleValidID
+            // InternalVarlinkIdl.g:1655:2: ( ruleValidID )
+            // InternalVarlinkIdl.g:1656:3: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getFieldsValidIDParserRuleCall_1_0()); 
@@ -5449,17 +5425,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Enum__FieldsAssignment_2_1"
-    // InternalVarlinkIdl.g:1671:1: rule__Enum__FieldsAssignment_2_1 : ( ruleValidID ) ;
+    // InternalVarlinkIdl.g:1665:1: rule__Enum__FieldsAssignment_2_1 : ( ruleValidID ) ;
     public final void rule__Enum__FieldsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1675:1: ( ( ruleValidID ) )
-            // InternalVarlinkIdl.g:1676:2: ( ruleValidID )
+            // InternalVarlinkIdl.g:1669:1: ( ( ruleValidID ) )
+            // InternalVarlinkIdl.g:1670:2: ( ruleValidID )
             {
-            // InternalVarlinkIdl.g:1676:2: ( ruleValidID )
-            // InternalVarlinkIdl.g:1677:3: ruleValidID
+            // InternalVarlinkIdl.g:1670:2: ( ruleValidID )
+            // InternalVarlinkIdl.g:1671:3: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getFieldsValidIDParserRuleCall_2_1_0()); 
@@ -5494,17 +5470,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__FieldsAssignment_2"
-    // InternalVarlinkIdl.g:1686:1: rule__Object__FieldsAssignment_2 : ( ruleField ) ;
+    // InternalVarlinkIdl.g:1680:1: rule__Object__FieldsAssignment_2 : ( ruleField ) ;
     public final void rule__Object__FieldsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1690:1: ( ( ruleField ) )
-            // InternalVarlinkIdl.g:1691:2: ( ruleField )
+            // InternalVarlinkIdl.g:1684:1: ( ( ruleField ) )
+            // InternalVarlinkIdl.g:1685:2: ( ruleField )
             {
-            // InternalVarlinkIdl.g:1691:2: ( ruleField )
-            // InternalVarlinkIdl.g:1692:3: ruleField
+            // InternalVarlinkIdl.g:1685:2: ( ruleField )
+            // InternalVarlinkIdl.g:1686:3: ruleField
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getFieldsFieldParserRuleCall_2_0()); 
@@ -5539,17 +5515,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Object__FieldsAssignment_3_1"
-    // InternalVarlinkIdl.g:1701:1: rule__Object__FieldsAssignment_3_1 : ( ruleField ) ;
+    // InternalVarlinkIdl.g:1695:1: rule__Object__FieldsAssignment_3_1 : ( ruleField ) ;
     public final void rule__Object__FieldsAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1705:1: ( ( ruleField ) )
-            // InternalVarlinkIdl.g:1706:2: ( ruleField )
+            // InternalVarlinkIdl.g:1699:1: ( ( ruleField ) )
+            // InternalVarlinkIdl.g:1700:2: ( ruleField )
             {
-            // InternalVarlinkIdl.g:1706:2: ( ruleField )
-            // InternalVarlinkIdl.g:1707:3: ruleField
+            // InternalVarlinkIdl.g:1700:2: ( ruleField )
+            // InternalVarlinkIdl.g:1701:3: ruleField
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObjectAccess().getFieldsFieldParserRuleCall_3_1_0()); 
@@ -5584,17 +5560,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__NameAssignment_0"
-    // InternalVarlinkIdl.g:1716:1: rule__Field__NameAssignment_0 : ( ruleValidID ) ;
+    // InternalVarlinkIdl.g:1710:1: rule__Field__NameAssignment_0 : ( ruleValidID ) ;
     public final void rule__Field__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1720:1: ( ( ruleValidID ) )
-            // InternalVarlinkIdl.g:1721:2: ( ruleValidID )
+            // InternalVarlinkIdl.g:1714:1: ( ( ruleValidID ) )
+            // InternalVarlinkIdl.g:1715:2: ( ruleValidID )
             {
-            // InternalVarlinkIdl.g:1721:2: ( ruleValidID )
-            // InternalVarlinkIdl.g:1722:3: ruleValidID
+            // InternalVarlinkIdl.g:1715:2: ( ruleValidID )
+            // InternalVarlinkIdl.g:1716:3: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getNameValidIDParserRuleCall_0_0()); 
@@ -5629,17 +5605,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__TypeAssignment_2"
-    // InternalVarlinkIdl.g:1731:1: rule__Field__TypeAssignment_2 : ( ruleElementType ) ;
+    // InternalVarlinkIdl.g:1725:1: rule__Field__TypeAssignment_2 : ( ruleElementType ) ;
     public final void rule__Field__TypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1735:1: ( ( ruleElementType ) )
-            // InternalVarlinkIdl.g:1736:2: ( ruleElementType )
+            // InternalVarlinkIdl.g:1729:1: ( ( ruleElementType ) )
+            // InternalVarlinkIdl.g:1730:2: ( ruleElementType )
             {
-            // InternalVarlinkIdl.g:1736:2: ( ruleElementType )
-            // InternalVarlinkIdl.g:1737:3: ruleElementType
+            // InternalVarlinkIdl.g:1730:2: ( ruleElementType )
+            // InternalVarlinkIdl.g:1731:3: ruleElementType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getTypeElementTypeParserRuleCall_2_0()); 
@@ -5674,23 +5650,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Field__MultiAssignment_3"
-    // InternalVarlinkIdl.g:1746:1: rule__Field__MultiAssignment_3 : ( ( '[]' ) ) ;
+    // InternalVarlinkIdl.g:1740:1: rule__Field__MultiAssignment_3 : ( ( '[]' ) ) ;
     public final void rule__Field__MultiAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1750:1: ( ( ( '[]' ) ) )
-            // InternalVarlinkIdl.g:1751:2: ( ( '[]' ) )
+            // InternalVarlinkIdl.g:1744:1: ( ( ( '[]' ) ) )
+            // InternalVarlinkIdl.g:1745:2: ( ( '[]' ) )
             {
-            // InternalVarlinkIdl.g:1751:2: ( ( '[]' ) )
-            // InternalVarlinkIdl.g:1752:3: ( '[]' )
+            // InternalVarlinkIdl.g:1745:2: ( ( '[]' ) )
+            // InternalVarlinkIdl.g:1746:3: ( '[]' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getMultiLeftSquareBracketRightSquareBracketKeyword_3_0()); 
             }
-            // InternalVarlinkIdl.g:1753:3: ( '[]' )
-            // InternalVarlinkIdl.g:1754:4: '[]'
+            // InternalVarlinkIdl.g:1747:3: ( '[]' )
+            // InternalVarlinkIdl.g:1748:4: '[]'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getMultiLeftSquareBracketRightSquareBracketKeyword_3_0()); 
@@ -5727,23 +5703,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TypeReference__NameAssignment"
-    // InternalVarlinkIdl.g:1765:1: rule__TypeReference__NameAssignment : ( ( RULE_ID ) ) ;
+    // InternalVarlinkIdl.g:1759:1: rule__TypeReference__NameAssignment : ( ( RULE_ID ) ) ;
     public final void rule__TypeReference__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1769:1: ( ( ( RULE_ID ) ) )
-            // InternalVarlinkIdl.g:1770:2: ( ( RULE_ID ) )
+            // InternalVarlinkIdl.g:1763:1: ( ( ( RULE_ID ) ) )
+            // InternalVarlinkIdl.g:1764:2: ( ( RULE_ID ) )
             {
-            // InternalVarlinkIdl.g:1770:2: ( ( RULE_ID ) )
-            // InternalVarlinkIdl.g:1771:3: ( RULE_ID )
+            // InternalVarlinkIdl.g:1764:2: ( ( RULE_ID ) )
+            // InternalVarlinkIdl.g:1765:3: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeReferenceAccess().getNameTypeAliasCrossReference_0()); 
             }
-            // InternalVarlinkIdl.g:1772:3: ( RULE_ID )
-            // InternalVarlinkIdl.g:1773:4: RULE_ID
+            // InternalVarlinkIdl.g:1766:3: ( RULE_ID )
+            // InternalVarlinkIdl.g:1767:4: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeReferenceAccess().getNameTypeAliasIDTerminalRuleCall_0_1()); 
@@ -5780,23 +5756,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BasicType__TypeAssignment"
-    // InternalVarlinkIdl.g:1784:1: rule__BasicType__TypeAssignment : ( ( rule__BasicType__TypeAlternatives_0 ) ) ;
+    // InternalVarlinkIdl.g:1778:1: rule__BasicType__TypeAssignment : ( ( rule__BasicType__TypeAlternatives_0 ) ) ;
     public final void rule__BasicType__TypeAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1788:1: ( ( ( rule__BasicType__TypeAlternatives_0 ) ) )
-            // InternalVarlinkIdl.g:1789:2: ( ( rule__BasicType__TypeAlternatives_0 ) )
+            // InternalVarlinkIdl.g:1782:1: ( ( ( rule__BasicType__TypeAlternatives_0 ) ) )
+            // InternalVarlinkIdl.g:1783:2: ( ( rule__BasicType__TypeAlternatives_0 ) )
             {
-            // InternalVarlinkIdl.g:1789:2: ( ( rule__BasicType__TypeAlternatives_0 ) )
-            // InternalVarlinkIdl.g:1790:3: ( rule__BasicType__TypeAlternatives_0 )
+            // InternalVarlinkIdl.g:1783:2: ( ( rule__BasicType__TypeAlternatives_0 ) )
+            // InternalVarlinkIdl.g:1784:3: ( rule__BasicType__TypeAlternatives_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBasicTypeAccess().getTypeAlternatives_0()); 
             }
-            // InternalVarlinkIdl.g:1791:3: ( rule__BasicType__TypeAlternatives_0 )
-            // InternalVarlinkIdl.g:1791:4: rule__BasicType__TypeAlternatives_0
+            // InternalVarlinkIdl.g:1785:3: ( rule__BasicType__TypeAlternatives_0 )
+            // InternalVarlinkIdl.g:1785:4: rule__BasicType__TypeAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__BasicType__TypeAlternatives_0();
@@ -5831,17 +5807,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__NameAssignment_1"
-    // InternalVarlinkIdl.g:1799:1: rule__Method__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalVarlinkIdl.g:1793:1: rule__Method__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Method__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1803:1: ( ( RULE_ID ) )
-            // InternalVarlinkIdl.g:1804:2: ( RULE_ID )
+            // InternalVarlinkIdl.g:1797:1: ( ( RULE_ID ) )
+            // InternalVarlinkIdl.g:1798:2: ( RULE_ID )
             {
-            // InternalVarlinkIdl.g:1804:2: ( RULE_ID )
-            // InternalVarlinkIdl.g:1805:3: RULE_ID
+            // InternalVarlinkIdl.g:1798:2: ( RULE_ID )
+            // InternalVarlinkIdl.g:1799:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -5872,17 +5848,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__ArgumentsAssignment_2"
-    // InternalVarlinkIdl.g:1814:1: rule__Method__ArgumentsAssignment_2 : ( ruleObject ) ;
+    // InternalVarlinkIdl.g:1808:1: rule__Method__ArgumentsAssignment_2 : ( ruleObject ) ;
     public final void rule__Method__ArgumentsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1818:1: ( ( ruleObject ) )
-            // InternalVarlinkIdl.g:1819:2: ( ruleObject )
+            // InternalVarlinkIdl.g:1812:1: ( ( ruleObject ) )
+            // InternalVarlinkIdl.g:1813:2: ( ruleObject )
             {
-            // InternalVarlinkIdl.g:1819:2: ( ruleObject )
-            // InternalVarlinkIdl.g:1820:3: ruleObject
+            // InternalVarlinkIdl.g:1813:2: ( ruleObject )
+            // InternalVarlinkIdl.g:1814:3: ruleObject
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodAccess().getArgumentsObjectParserRuleCall_2_0()); 
@@ -5917,17 +5893,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Method__ResultAssignment_4"
-    // InternalVarlinkIdl.g:1829:1: rule__Method__ResultAssignment_4 : ( ruleObject ) ;
+    // InternalVarlinkIdl.g:1823:1: rule__Method__ResultAssignment_4 : ( ruleObject ) ;
     public final void rule__Method__ResultAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1833:1: ( ( ruleObject ) )
-            // InternalVarlinkIdl.g:1834:2: ( ruleObject )
+            // InternalVarlinkIdl.g:1827:1: ( ( ruleObject ) )
+            // InternalVarlinkIdl.g:1828:2: ( ruleObject )
             {
-            // InternalVarlinkIdl.g:1834:2: ( ruleObject )
-            // InternalVarlinkIdl.g:1835:3: ruleObject
+            // InternalVarlinkIdl.g:1828:2: ( ruleObject )
+            // InternalVarlinkIdl.g:1829:3: ruleObject
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodAccess().getResultObjectParserRuleCall_4_0()); 
@@ -5962,17 +5938,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Error__NameAssignment_1"
-    // InternalVarlinkIdl.g:1844:1: rule__Error__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalVarlinkIdl.g:1838:1: rule__Error__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Error__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1848:1: ( ( RULE_ID ) )
-            // InternalVarlinkIdl.g:1849:2: ( RULE_ID )
+            // InternalVarlinkIdl.g:1842:1: ( ( RULE_ID ) )
+            // InternalVarlinkIdl.g:1843:2: ( RULE_ID )
             {
-            // InternalVarlinkIdl.g:1849:2: ( RULE_ID )
-            // InternalVarlinkIdl.g:1850:3: RULE_ID
+            // InternalVarlinkIdl.g:1843:2: ( RULE_ID )
+            // InternalVarlinkIdl.g:1844:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getErrorAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -6003,17 +5979,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Error__PropertiesAssignment_2"
-    // InternalVarlinkIdl.g:1859:1: rule__Error__PropertiesAssignment_2 : ( ruleObject ) ;
+    // InternalVarlinkIdl.g:1853:1: rule__Error__PropertiesAssignment_2 : ( ruleObject ) ;
     public final void rule__Error__PropertiesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVarlinkIdl.g:1863:1: ( ( ruleObject ) )
-            // InternalVarlinkIdl.g:1864:2: ( ruleObject )
+            // InternalVarlinkIdl.g:1857:1: ( ( ruleObject ) )
+            // InternalVarlinkIdl.g:1858:2: ( ruleObject )
             {
-            // InternalVarlinkIdl.g:1864:2: ( ruleObject )
-            // InternalVarlinkIdl.g:1865:3: ruleObject
+            // InternalVarlinkIdl.g:1858:2: ( ruleObject )
+            // InternalVarlinkIdl.g:1859:3: ruleObject
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getErrorAccess().getPropertiesObjectParserRuleCall_2_0()); 
@@ -6051,25 +6027,26 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
 
     protected DFA2 dfa2 = new DFA2(this);
     protected DFA3 dfa3 = new DFA3(this);
-    static final String dfa_1s = "\17\uffff";
-    static final String dfa_2s = "\1\23\1\4\13\24\2\uffff";
-    static final String dfa_3s = "\1\23\1\25\13\26\2\uffff";
-    static final String dfa_4s = "\15\uffff\1\2\1\1";
-    static final String dfa_5s = "\17\uffff}>";
+    static final String dfa_1s = "\20\uffff";
+    static final String dfa_2s = "\1\23\1\4\14\24\2\uffff";
+    static final String dfa_3s = "\1\23\1\25\14\26\2\uffff";
+    static final String dfa_4s = "\16\uffff\1\2\1\1";
+    static final String dfa_5s = "\20\uffff}>";
     static final String[] dfa_6s = {
             "\1\1",
-            "\1\2\3\uffff\1\10\1\uffff\1\11\1\12\1\13\1\14\1\3\1\4\1\5\1\6\1\7\1\uffff\2\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
+            "\1\2\3\uffff\1\10\1\11\1\12\1\13\1\3\1\4\1\5\1\6\1\7\1\14\1\15\1\uffff\2\16",
+            "\2\17\1\16",
+            "\2\17\1\16",
+            "\2\17\1\16",
+            "\2\17\1\16",
+            "\2\17\1\16",
+            "\2\17\1\16",
+            "\2\17\1\16",
+            "\2\17\1\16",
+            "\2\17\1\16",
+            "\2\17\1\16",
+            "\2\17\1\16",
+            "\2\17\1\16",
             "",
             ""
     };
@@ -6098,27 +6075,28 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
             return "462:1: rule__TypeAliasDefinition__Alternatives : ( ( ruleEnum ) | ( ruleObject ) );";
         }
     }
-    static final String dfa_7s = "\21\uffff";
-    static final String dfa_8s = "\1\4\2\uffff\1\4\13\24\2\uffff";
-    static final String dfa_9s = "\1\23\2\uffff\1\25\13\26\2\uffff";
-    static final String dfa_10s = "\1\uffff\1\1\1\2\14\uffff\1\4\1\3";
-    static final String dfa_11s = "\21\uffff}>";
+    static final String dfa_7s = "\22\uffff";
+    static final String dfa_8s = "\1\4\2\uffff\1\4\14\24\2\uffff";
+    static final String dfa_9s = "\1\23\2\uffff\1\25\14\26\2\uffff";
+    static final String dfa_10s = "\1\uffff\1\1\1\2\15\uffff\1\4\1\3";
+    static final String dfa_11s = "\22\uffff}>";
     static final String[] dfa_12s = {
-            "\1\2\3\uffff\6\1\5\uffff\1\3",
+            "\1\2\3\uffff\4\1\7\uffff\1\3",
             "",
             "",
-            "\1\4\3\uffff\1\12\1\uffff\1\13\1\14\1\15\1\16\1\5\1\6\1\7\1\10\1\11\1\uffff\2\17",
-            "\2\20\1\17",
-            "\2\20\1\17",
-            "\2\20\1\17",
-            "\2\20\1\17",
-            "\2\20\1\17",
-            "\2\20\1\17",
-            "\2\20\1\17",
-            "\2\20\1\17",
-            "\2\20\1\17",
-            "\2\20\1\17",
-            "\2\20\1\17",
+            "\1\4\3\uffff\1\12\1\13\1\14\1\15\1\5\1\6\1\7\1\10\1\11\1\16\1\17\1\uffff\2\20",
+            "\2\21\1\20",
+            "\2\21\1\20",
+            "\2\21\1\20",
+            "\2\21\1\20",
+            "\2\21\1\20",
+            "\2\21\1\20",
+            "\2\21\1\20",
+            "\2\21\1\20",
+            "\2\21\1\20",
+            "\2\21\1\20",
+            "\2\21\1\20",
+            "\2\21\1\20",
             "",
             ""
     };
@@ -6152,15 +6130,15 @@ public class InternalVarlinkIdlParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000064000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000064002L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000007FD10L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000019000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000019002L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000007FF10L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000300000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000200002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x000000000037FD10L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x000000000037FF10L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000083F10L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080F10L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001000000L});

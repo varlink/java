@@ -61,7 +61,7 @@ TypeReference:
 ;
 
 BasicType:
-	type = ( "bool" | "int" | "float" | "string" |"data" | "object") 
+	type = ( "bool" | "int" | "float" | "string") 
 ;
 
 Method:
@@ -80,9 +80,9 @@ InterfaceName:
 
 ValidID: ID | KEYWORD;
 
-KEYWORD: 'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' |'float' | 'string' | 'data' | 'object';
+KEYWORD: 'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'int' |'float' | 'string';
 
-terminal ID  		: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal ID			: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 terminal SL_COMMENT	: '#' !('\n'|'\r')* ('\r'? '\n')?;
 

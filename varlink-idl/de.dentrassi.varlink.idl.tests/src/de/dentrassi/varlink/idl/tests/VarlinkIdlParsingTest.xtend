@@ -26,7 +26,7 @@ class VarlinkIdlParsingTest {
 	ParseHelper<Interface> parseHelper
 
 	@Test
-	def void loadModel() {
+	def void loadModel1() {
 		
 		val options = null
 		var resourceSet = resourceSetProvider.get();
@@ -34,6 +34,26 @@ class VarlinkIdlParsingTest {
 		val result = parseHelper.parse(
 			getClass().getResourceAsStream("test.varlink"),
 			URI.createURI("test.varlink"),
+			options,
+			resourceSet
+		);
+		
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+
+	/**
+	 * A more complex model, with some corner cases around keywords
+	 */
+	@Test
+	def void loadModel2() {
+		
+		val options = null
+		var resourceSet = resourceSetProvider.get();
+		
+		val result = parseHelper.parse(
+			getClass().getResourceAsStream("test2.varlink"),
+			URI.createURI("test2.varlink"),
 			options,
 			resourceSet
 		);

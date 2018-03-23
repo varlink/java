@@ -639,28 +639,6 @@ ruleBasicType returns [EObject current=null]
 					}
 					setWithLastConsumed($current, "type", lv_type_0_4, null);
 				}
-				    |
-				lv_type_0_5='data'
-				{
-					newLeafNode(lv_type_0_5, grammarAccess.getBasicTypeAccess().getTypeDataKeyword_0_4());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getBasicTypeRule());
-					}
-					setWithLastConsumed($current, "type", lv_type_0_5, null);
-				}
-				    |
-				lv_type_0_6='object'
-				{
-					newLeafNode(lv_type_0_6, grammarAccess.getBasicTypeAccess().getTypeObjectKeyword_0_5());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getBasicTypeRule());
-					}
-					setWithLastConsumed($current, "type", lv_type_0_6, null);
-				}
 			)
 		)
 	)
@@ -941,28 +919,34 @@ ruleKEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getBoolKeyword_5());
 		}
 		    |
+		kw='int'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getIntKeyword_6());
+		}
+		    |
 		kw='float'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getFloatKeyword_6());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getFloatKeyword_7());
 		}
 		    |
 		kw='string'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getStringKeyword_7());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getStringKeyword_8());
 		}
 		    |
 		kw='data'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDataKeyword_8());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDataKeyword_9());
 		}
 		    |
 		kw='object'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getObjectKeyword_9());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getObjectKeyword_10());
 		}
 	)
 ;
