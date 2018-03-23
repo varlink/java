@@ -32,6 +32,7 @@ Workflow {
 		language = StandardLanguage {
 			name = "de.dentrassi.varlink.idl.VarlinkIdl"
 			fileExtensions = "varlink"
+			xbaseSupport = {}
 
 			serializer = {
 				generateStub = false
