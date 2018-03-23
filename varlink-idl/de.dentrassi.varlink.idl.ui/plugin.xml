@@ -8,6 +8,7 @@
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
 			extensions="varlink"
+			icon="icons/varlink.png"
 			id="de.dentrassi.varlink.idl.VarlinkIdl"
 			name="VarlinkIdl Editor">
 		</editor>

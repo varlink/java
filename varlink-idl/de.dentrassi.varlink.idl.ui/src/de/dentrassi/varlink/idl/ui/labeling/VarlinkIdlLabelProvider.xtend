@@ -6,6 +6,8 @@ package de.dentrassi.varlink.idl.ui.labeling
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import de.dentrassi.varlink.idl.varlinkIdl.Interface
+import de.dentrassi.varlink.idl.varlinkIdl.Method
 
 /**
  * Provides labels for EObjects.
@@ -21,11 +23,15 @@ class VarlinkIdlLabelProvider extends DefaultEObjectLabelProvider {
 
 	// Labels and icons can be computed like this:
 	
+	def image(Interface ele) {
+		'obj16/interface_obj.png'
+	}
+
+	def image(Method ele) {
+		'obj16/methpub_obj.png'
+	}
+
 //	def text(Greeting ele) {
 //		'A greeting to ' + ele.name
-//	}
-//
-//	def image(Greeting ele) {
-//		'Greeting.gif'
 //	}
 }
