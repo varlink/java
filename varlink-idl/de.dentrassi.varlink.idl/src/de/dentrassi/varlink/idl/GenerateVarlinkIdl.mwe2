@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017, 2018 Red Hat Inc
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Jens Reimann - initial API and implementation
+ *******************************************************************************/
 module de.dentrassi.varlink.idl.GenerateVarlinkIdl
 
 import org.eclipse.xtext.xtext.generator.*
@@ -26,7 +36,7 @@ Workflow {
 			code = {
 				encoding = "UTF-8"
 				lineDelimiter = "\n"
-				fileHeader = "/*******************************************************************************\n * Copyright (c) 2017 Red Hat Inc\n * All rights reserved. This program and the accompanying materials\n * are made available under the terms of the Eclipse Public License v1.0\n * which accompanies this distribution, and is available at\n * http://www.eclipse.org/legal/epl-v10.html\n *\n * Contributors:\n *     Jens Reimann - initial API and implementation\n *******************************************************************************/"
+				fileHeader = "/*******************************************************************************\n * Copyright (c) 2018 Red Hat Inc\n * All rights reserved. This program and the accompanying materials\n * are made available under the terms of the Eclipse Public License v1.0\n * which accompanies this distribution, and is available at\n * http://www.eclipse.org/legal/epl-v10.html\n *\n * Contributors:\n *     Jens Reimann - initial API and implementation\n *******************************************************************************/"
 			}
 		}
 		language = StandardLanguage {
@@ -39,6 +49,7 @@ Workflow {
 			validator = {
 				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
+			// fragment = exporting.QualifiedNamesFragment2 {}
 		}
 	}
 }

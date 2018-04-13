@@ -16,18 +16,26 @@ import de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage
 
 class VarlinkIdlValidator extends AbstractVarlinkIdlValidator {
 
+	public static final val FIELD_NOT_LOWER_CASE = "field.notLowerCase"
+
 	@Check
 	def checkFieldName(Field field) {
 		if (field.name === null || field.name.empty) {
 			return;
 		}
 
-		if (!Character.isLowerCase(field.name.charAt(0))) {
-			warning("Field names should start with lower case letter", field, VarlinkIdlPackage.Literals.FIELD__NAME);
-		}
-
-		if (field.name.charAt(0) == '_') {
+		if (field.name.startsWith("_")) {
 			error("Field names must not start with '_'", field, VarlinkIdlPackage.Literals.FIELD__NAME);
 		}
+		
+		if (field.name.endsWith("_")) {
+			error("Field names must not end with '_'", field, VarlinkIdlPackage.Literals.FIELD__NAME);
+		}
+
+		if (!Character.isLowerCase(field.name.charAt(0))) {
+			error("Field names should start with lower case letter", field, VarlinkIdlPackage.Literals.FIELD__NAME,
+				FIELD_NOT_LOWER_CASE);
+		}
+
 	}
 }

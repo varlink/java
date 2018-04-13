@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/de.dentrassi.varlink.idl_0.1.1.qualifier.jar" id="de.dentrassi.varlink.idl" version="0.1.1.qualifier">
+   <feature url="features/de.dentrassi.varlink.idl_0.2.0.qualifier.jar" id="de.dentrassi.varlink.idl" version="0.2.0.qualifier">
       <category name="de.dentrassi.varlink.idl"/>
    </feature>
    <category-def name="de.dentrassi.varlink.idl" label="Varlink Editor Support">

@@ -4,12 +4,12 @@
 
     <groupId>de.dentrassi.varlink</groupId>
     <artifactId>varlink-parent</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.2.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Varlink Java :: Parent</name>
     <description>Varlink for Java</description>
-    <url>https://github.com/ctron/varlink-java</url>
+    <url>https://github.com/varlink/java</url>
 
     <inceptionYear>2017</inceptionYear>
 

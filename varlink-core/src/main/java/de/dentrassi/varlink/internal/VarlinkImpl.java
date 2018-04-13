@@ -12,6 +12,7 @@ package de.dentrassi.varlink.internal;
 
 import static java.nio.file.Paths.get;
 
+import java.lang.reflect.Type;
 import java.net.URI;
 import java.nio.file.Path;
 
@@ -89,5 +90,9 @@ public final class VarlinkImpl implements Varlink {
 
     public <T> T fromJson(final Class<T> clazz, final JsonElement json) {
         return new GsonBuilder().create().fromJson(json, clazz);
+    }
+
+    public <T> T fromJson(final Type typeOf, final JsonElement json) {
+        return new GsonBuilder().create().fromJson(json, typeOf);
     }
 }

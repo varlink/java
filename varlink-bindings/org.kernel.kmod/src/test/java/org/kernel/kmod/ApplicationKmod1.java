@@ -26,7 +26,7 @@ public class ApplicationKmod1 {
 
             // get kernel modules
 
-            final LoadedModule[] modules = v.resolveSync(Kmod.class).sync().list();
+            final List<LoadedModule> modules = v.resolveSync(Kmod.class).sync().list();
 
             // dump table
 

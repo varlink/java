@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2017, 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,11 +13,8 @@ package io.systemd.network;
 import static de.dentrassi.varlink.spi.Errors.check;
 import static java.util.Arrays.asList;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-
-import com.google.gson.JsonElement;
 
 import de.dentrassi.varlink.internal.VarlinkImpl;
 import de.dentrassi.varlink.spi.CallRequest;
@@ -58,13 +55,11 @@ public class NetworkImpl implements Network {
                 .thenApply(cr -> {
                     check(cr);
 
-                    final Iterator<JsonElement> i = cr.getParameters().values().iterator();
-
                     return asList(
                             this.varlink
                                     .fromJson(
                                             Netdev[].class,
-                                            i.next()));
+                                            cr.getFirstParameter()));
                 });
     }
 

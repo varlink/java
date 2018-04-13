@@ -143,4 +143,20 @@ public final class Names {
         return "v" + version.replace(".", "_");
     }
 
+    public static String toUpperFirst(final String string) {
+        if (string.length() < 2) {
+            return string.toUpperCase();
+        }
+
+        return Character.toUpperCase(string.charAt(0)) + string.substring(1);
+    }
+
+    public static String toLowerFirst(final String string) {
+        if (string.length() < 2) {
+            return string.toLowerCase();
+        }
+
+        return Character.toLowerCase(string.charAt(0)) + string.substring(1);
+    }
+
 }
