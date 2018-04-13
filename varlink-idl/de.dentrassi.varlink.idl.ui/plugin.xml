@@ -10,7 +10,7 @@
 			extensions="varlink"
 			icon="icons/varlink.png"
 			id="de.dentrassi.varlink.idl.VarlinkIdl"
-			name="VarlinkIdl Editor">
+			name="Varlink IDL Editor">
 		</editor>
 	</extension>
 	<extension
@@ -81,7 +81,7 @@
 		<page
 			class="de.dentrassi.varlink.idl.ui.VarlinkIdlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
 			id="de.dentrassi.varlink.idl.VarlinkIdl"
-			name="VarlinkIdl">
+			name="Varlink IDL">
 			<keywordReference id="de.dentrassi.varlink.idl.ui.keyword_VarlinkIdl"/>
 		</page>
 		<page
@@ -104,7 +104,7 @@
 		<page
 			class="de.dentrassi.varlink.idl.ui.VarlinkIdlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
 			id="de.dentrassi.varlink.idl.VarlinkIdl"
-			name="VarlinkIdl">
+			name="Varlink IDL">
 			<keywordReference id="de.dentrassi.varlink.idl.ui.keyword_VarlinkIdl"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
@@ -116,7 +116,7 @@
 		point="org.eclipse.ui.keywords">
 		<keyword
 			id="de.dentrassi.varlink.idl.ui.keyword_VarlinkIdl"
-			label="VarlinkIdl"/>
+			label="Varlink IDL"/>
 	</extension>
 	<extension
 		point="org.eclipse.ui.commands">
@@ -222,21 +222,21 @@
 	<!-- marker definitions for de.dentrassi.varlink.idl.VarlinkIdl -->
 	<extension
 			id="varlinkidl.check.fast"
-			name="VarlinkIdl Problem"
+			name="Varlink IDL Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.fast"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
 			id="varlinkidl.check.normal"
-			name="VarlinkIdl Problem"
+			name="Varlink IDL Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.normal"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
 			id="varlinkidl.check.expensive"
-			name="VarlinkIdl Problem"
+			name="Varlink IDL Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.expensive"/>
 		<persistent value="true"/>
