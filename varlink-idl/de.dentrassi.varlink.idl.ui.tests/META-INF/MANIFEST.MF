@@ -1,4 +1,5 @@
 Manifest-Version: 1.0
+Automatic-Module-Name: de.dentrassi.varlink.idl.ui.tests
 Bundle-ManifestVersion: 2
 Bundle-Name: de.dentrassi.varlink.idl.ui.tests
 Bundle-Vendor: Jens Reimann

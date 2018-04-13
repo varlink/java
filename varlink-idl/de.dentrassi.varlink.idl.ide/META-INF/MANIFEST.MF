@@ -1,4 +1,5 @@
 Manifest-Version: 1.0
+Automatic-Module-Name: de.dentrassi.varlink.idl.ide
 Bundle-ManifestVersion: 2
 Bundle-Name: de.dentrassi.varlink.idl.ide
 Bundle-Vendor: Jens Reimann
@@ -18,4 +19,3 @@ Export-Package: de.dentrassi.varlink.idl.ide.contentassist.antlr;version="0.1.0"
    de.dentrassi.varlink.idl.ide.contentassist.antlr.internal",
  de.dentrassi.varlink.idl.ide.contentassist.antlr.internal;version="0.1.0";uses:="org.eclipse.xtext.ide.editor.contentassist.antlr.internal,org.antlr.runtime,org.eclipse.xtext",
  de.dentrassi.varlink.idl.ide.util;version="0.1.0"
-
