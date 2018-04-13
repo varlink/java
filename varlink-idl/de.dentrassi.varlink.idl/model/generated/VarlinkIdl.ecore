@@ -27,9 +27,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ElementType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multi" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElementType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Array" eSuperTypes="#//ElementType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ElementType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dictionary" eSuperTypes="#//ElementType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ElementType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Optional" eSuperTypes="#//ElementType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ElementType"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeReference" eSuperTypes="#//ElementType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//TypeAlias"/>
   </eClassifiers>
@@ -37,8 +48,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//Member">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" eType="#//Arguments"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="result" eType="#//Result"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Arguments">
     <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" eType="#//Object"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Result">
     <eStructuralFeatures xsi:type="ecore:EReference" name="result" eType="#//Object"
         containment="true"/>
   </eClassifiers>

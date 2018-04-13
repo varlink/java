@@ -12,12 +12,17 @@
  */
 package de.dentrassi.varlink.idl.varlinkIdl.impl;
 
+import de.dentrassi.varlink.idl.varlinkIdl.Arguments;
+import de.dentrassi.varlink.idl.varlinkIdl.Array;
 import de.dentrassi.varlink.idl.varlinkIdl.BasicType;
+import de.dentrassi.varlink.idl.varlinkIdl.Dictionary;
 import de.dentrassi.varlink.idl.varlinkIdl.ElementType;
 import de.dentrassi.varlink.idl.varlinkIdl.Field;
 import de.dentrassi.varlink.idl.varlinkIdl.Interface;
 import de.dentrassi.varlink.idl.varlinkIdl.Member;
 import de.dentrassi.varlink.idl.varlinkIdl.Method;
+import de.dentrassi.varlink.idl.varlinkIdl.Optional;
+import de.dentrassi.varlink.idl.varlinkIdl.Result;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeAlias;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeAliasDefinition;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeReference;
@@ -92,9 +97,14 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
       case VarlinkIdlPackage.OBJECT: return createObject();
       case VarlinkIdlPackage.FIELD: return createField();
       case VarlinkIdlPackage.ELEMENT_TYPE: return createElementType();
+      case VarlinkIdlPackage.ARRAY: return createArray();
+      case VarlinkIdlPackage.DICTIONARY: return createDictionary();
+      case VarlinkIdlPackage.OPTIONAL: return createOptional();
       case VarlinkIdlPackage.TYPE_REFERENCE: return createTypeReference();
       case VarlinkIdlPackage.BASIC_TYPE: return createBasicType();
       case VarlinkIdlPackage.METHOD: return createMethod();
+      case VarlinkIdlPackage.ARGUMENTS: return createArguments();
+      case VarlinkIdlPackage.RESULT: return createResult();
       case VarlinkIdlPackage.ERROR: return createError();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -194,6 +204,39 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public Array createArray()
+  {
+    ArrayImpl array = new ArrayImpl();
+    return array;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Dictionary createDictionary()
+  {
+    DictionaryImpl dictionary = new DictionaryImpl();
+    return dictionary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Optional createOptional()
+  {
+    OptionalImpl optional = new OptionalImpl();
+    return optional;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TypeReference createTypeReference()
   {
     TypeReferenceImpl typeReference = new TypeReferenceImpl();
@@ -220,6 +263,28 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
   {
     MethodImpl method = new MethodImpl();
     return method;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Arguments createArguments()
+  {
+    ArgumentsImpl arguments = new ArgumentsImpl();
+    return arguments;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Result createResult()
+  {
+    ResultImpl result = new ResultImpl();
+    return result;
   }
 
   /**

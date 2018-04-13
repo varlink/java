@@ -9,6 +9,10 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 import de.dentrassi.varlink.idl.varlinkIdl.Interface
 import de.dentrassi.varlink.idl.varlinkIdl.Method
 import de.dentrassi.varlink.idl.varlinkIdl.TypeAlias
+import de.dentrassi.varlink.idl.varlinkIdl.Array
+import de.dentrassi.varlink.idl.varlinkIdl.Optional
+import de.dentrassi.varlink.idl.varlinkIdl.Arguments
+import de.dentrassi.varlink.idl.varlinkIdl.Result
 
 /**
  * Provides labels for EObjects.
@@ -34,6 +38,22 @@ class VarlinkIdlLabelProvider extends DefaultEObjectLabelProvider {
 
 	def image(TypeAlias ele) {
 		'obj16/type_obj.png'
+	}
+
+	def text(Array array) {
+		return "Array"
+	}
+
+	def text(Optional optional) {
+		return "Optional"
+	}
+
+	def text(Arguments arguments) {
+		return "Arguments"
+	}
+
+	def text(Result result) {
+		return "Result"
 	}
 
 //	def text(Greeting ele) {

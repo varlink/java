@@ -41,12 +41,12 @@ public interface Method extends Member
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Arguments</em>' containment reference.
-   * @see #setArguments(de.dentrassi.varlink.idl.varlinkIdl.Object)
+   * @see #setArguments(Arguments)
    * @see de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage#getMethod_Arguments()
    * @model containment="true"
    * @generated
    */
-  de.dentrassi.varlink.idl.varlinkIdl.Object getArguments();
+  Arguments getArguments();
 
   /**
    * Sets the value of the '{@link de.dentrassi.varlink.idl.varlinkIdl.Method#getArguments <em>Arguments</em>}' containment reference.
@@ -56,7 +56,7 @@ public interface Method extends Member
    * @see #getArguments()
    * @generated
    */
-  void setArguments(de.dentrassi.varlink.idl.varlinkIdl.Object value);
+  void setArguments(Arguments value);
 
   /**
    * Returns the value of the '<em><b>Result</b></em>' containment reference.
@@ -67,12 +67,12 @@ public interface Method extends Member
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Result</em>' containment reference.
-   * @see #setResult(de.dentrassi.varlink.idl.varlinkIdl.Object)
+   * @see #setResult(Result)
    * @see de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage#getMethod_Result()
    * @model containment="true"
    * @generated
    */
-  de.dentrassi.varlink.idl.varlinkIdl.Object getResult();
+  Result getResult();
 
   /**
    * Sets the value of the '{@link de.dentrassi.varlink.idl.varlinkIdl.Method#getResult <em>Result</em>}' containment reference.
@@ -82,6 +82,6 @@ public interface Method extends Member
    * @see #getResult()
    * @generated
    */
-  void setResult(de.dentrassi.varlink.idl.varlinkIdl.Object value);
+  void setResult(Result value);
 
 } // Method

@@ -26,9 +26,17 @@
     <genClasses ecoreClass="VarlinkIdl.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//Field/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//Field/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VarlinkIdl.ecore#//Field/multi"/>
     </genClasses>
     <genClasses ecoreClass="VarlinkIdl.ecore#//ElementType"/>
+    <genClasses ecoreClass="VarlinkIdl.ecore#//Array">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//Array/type"/>
+    </genClasses>
+    <genClasses ecoreClass="VarlinkIdl.ecore#//Dictionary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//Dictionary/type"/>
+    </genClasses>
+    <genClasses ecoreClass="VarlinkIdl.ecore#//Optional">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//Optional/type"/>
+    </genClasses>
     <genClasses ecoreClass="VarlinkIdl.ecore#//TypeReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//TypeReference/name"/>
     </genClasses>
@@ -38,6 +46,12 @@
     <genClasses ecoreClass="VarlinkIdl.ecore#//Method">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//Method/arguments"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//Method/result"/>
+    </genClasses>
+    <genClasses ecoreClass="VarlinkIdl.ecore#//Arguments">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//Arguments/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="VarlinkIdl.ecore#//Result">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//Result/result"/>
     </genClasses>
     <genClasses ecoreClass="VarlinkIdl.ecore#//Error">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VarlinkIdl.ecore#//Error/properties"/>

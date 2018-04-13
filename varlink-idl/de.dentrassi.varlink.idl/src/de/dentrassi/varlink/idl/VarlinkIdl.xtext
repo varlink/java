@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2017, 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -49,11 +49,23 @@ Object: {Object}
 ;
 
 Field:
-	name=ValidID ":" type=ElementType (multi?="[]")?
+	name=ValidID ":" type=ElementType
 ;
 
 ElementType:
-	( BasicType | TypeReference | Enum | Object)
+	( BasicType | TypeReference | Enum | Object | Array | Dictionary | Optional )
+;
+
+Array:
+	"[]" type=ElementType
+;
+
+Dictionary:
+	"[string]" type=ElementType
+;
+
+Optional:
+	"?" type=ElementType
 ;
 
 TypeReference:
@@ -65,8 +77,16 @@ BasicType:
 ;
 
 Method:
-	'method' name=ID arguments=Object "->" result=Object
+	'method' name=ID arguments=Arguments "->" result=Result
 	;
+
+Arguments:
+	arguments=Object
+;
+
+Result:
+	result=Object
+;
 
 Error:
 	'error' name=ID properties=Object

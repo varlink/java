@@ -105,6 +105,33 @@ public interface VarlinkIdlFactory extends EFactory
   ElementType createElementType();
 
   /**
+   * Returns a new object of class '<em>Array</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array</em>'.
+   * @generated
+   */
+  Array createArray();
+
+  /**
+   * Returns a new object of class '<em>Dictionary</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dictionary</em>'.
+   * @generated
+   */
+  Dictionary createDictionary();
+
+  /**
+   * Returns a new object of class '<em>Optional</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Optional</em>'.
+   * @generated
+   */
+  Optional createOptional();
+
+  /**
    * Returns a new object of class '<em>Type Reference</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -130,6 +157,24 @@ public interface VarlinkIdlFactory extends EFactory
    * @generated
    */
   Method createMethod();
+
+  /**
+   * Returns a new object of class '<em>Arguments</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Arguments</em>'.
+   * @generated
+   */
+  Arguments createArguments();
+
+  /**
+   * Returns a new object of class '<em>Result</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Result</em>'.
+   * @generated
+   */
+  Result createResult();
 
   /**
    * Returns a new object of class '<em>Error</em>'.

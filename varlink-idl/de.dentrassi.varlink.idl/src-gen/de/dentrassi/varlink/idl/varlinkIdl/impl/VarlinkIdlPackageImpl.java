@@ -12,12 +12,17 @@
  */
 package de.dentrassi.varlink.idl.varlinkIdl.impl;
 
+import de.dentrassi.varlink.idl.varlinkIdl.Arguments;
+import de.dentrassi.varlink.idl.varlinkIdl.Array;
 import de.dentrassi.varlink.idl.varlinkIdl.BasicType;
+import de.dentrassi.varlink.idl.varlinkIdl.Dictionary;
 import de.dentrassi.varlink.idl.varlinkIdl.ElementType;
 import de.dentrassi.varlink.idl.varlinkIdl.Field;
 import de.dentrassi.varlink.idl.varlinkIdl.Interface;
 import de.dentrassi.varlink.idl.varlinkIdl.Member;
 import de.dentrassi.varlink.idl.varlinkIdl.Method;
+import de.dentrassi.varlink.idl.varlinkIdl.Optional;
+import de.dentrassi.varlink.idl.varlinkIdl.Result;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeAlias;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeAliasDefinition;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeReference;
@@ -100,6 +105,27 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass arrayEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dictionaryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass optionalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass typeReferenceEClass = null;
 
   /**
@@ -115,6 +141,20 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * @generated
    */
   private EClass methodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass argumentsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass resultEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -341,9 +381,9 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getField_Multi()
+  public EClass getElementType()
   {
-    return (EAttribute)fieldEClass.getEStructuralFeatures().get(2);
+    return elementTypeEClass;
   }
 
   /**
@@ -351,9 +391,59 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getElementType()
+  public EClass getArray()
   {
-    return elementTypeEClass;
+    return arrayEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArray_Type()
+  {
+    return (EReference)arrayEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDictionary()
+  {
+    return dictionaryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDictionary_Type()
+  {
+    return (EReference)dictionaryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOptional()
+  {
+    return optionalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOptional_Type()
+  {
+    return (EReference)optionalEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -431,6 +521,46 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getArguments()
+  {
+    return argumentsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArguments_Arguments()
+  {
+    return (EReference)argumentsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getResult()
+  {
+    return resultEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getResult_Result()
+  {
+    return (EReference)resultEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getError()
   {
     return errorEClass;
@@ -497,9 +627,17 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
     fieldEClass = createEClass(FIELD);
     createEAttribute(fieldEClass, FIELD__NAME);
     createEReference(fieldEClass, FIELD__TYPE);
-    createEAttribute(fieldEClass, FIELD__MULTI);
 
     elementTypeEClass = createEClass(ELEMENT_TYPE);
+
+    arrayEClass = createEClass(ARRAY);
+    createEReference(arrayEClass, ARRAY__TYPE);
+
+    dictionaryEClass = createEClass(DICTIONARY);
+    createEReference(dictionaryEClass, DICTIONARY__TYPE);
+
+    optionalEClass = createEClass(OPTIONAL);
+    createEReference(optionalEClass, OPTIONAL__TYPE);
 
     typeReferenceEClass = createEClass(TYPE_REFERENCE);
     createEReference(typeReferenceEClass, TYPE_REFERENCE__NAME);
@@ -510,6 +648,12 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
     methodEClass = createEClass(METHOD);
     createEReference(methodEClass, METHOD__ARGUMENTS);
     createEReference(methodEClass, METHOD__RESULT);
+
+    argumentsEClass = createEClass(ARGUMENTS);
+    createEReference(argumentsEClass, ARGUMENTS__ARGUMENTS);
+
+    resultEClass = createEClass(RESULT);
+    createEReference(resultEClass, RESULT__RESULT);
 
     errorEClass = createEClass(ERROR);
     createEReference(errorEClass, ERROR__PROPERTIES);
@@ -549,6 +693,9 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
     enumEClass.getESuperTypes().add(this.getElementType());
     objectEClass.getESuperTypes().add(this.getTypeAliasDefinition());
     objectEClass.getESuperTypes().add(this.getElementType());
+    arrayEClass.getESuperTypes().add(this.getElementType());
+    dictionaryEClass.getESuperTypes().add(this.getElementType());
+    optionalEClass.getESuperTypes().add(this.getElementType());
     typeReferenceEClass.getESuperTypes().add(this.getElementType());
     basicTypeEClass.getESuperTypes().add(this.getElementType());
     methodEClass.getESuperTypes().add(this.getMember());
@@ -576,9 +723,17 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
     initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getField_Name(), ecorePackage.getEString(), "name", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getField_Type(), this.getElementType(), null, "type", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getField_Multi(), ecorePackage.getEBoolean(), "multi", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementTypeEClass, ElementType.class, "ElementType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(arrayEClass, Array.class, "Array", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArray_Type(), this.getElementType(), null, "type", null, 0, 1, Array.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dictionaryEClass, Dictionary.class, "Dictionary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDictionary_Type(), this.getElementType(), null, "type", null, 0, 1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(optionalEClass, Optional.class, "Optional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOptional_Type(), this.getElementType(), null, "type", null, 0, 1, Optional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeReferenceEClass, TypeReference.class, "TypeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypeReference_Name(), this.getTypeAlias(), null, "name", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -587,8 +742,14 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
     initEAttribute(getBasicType_Type(), ecorePackage.getEString(), "type", null, 0, 1, BasicType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMethod_Arguments(), this.getObject(), null, "arguments", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMethod_Result(), this.getObject(), null, "result", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethod_Arguments(), this.getArguments(), null, "arguments", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethod_Result(), this.getResult(), null, "result", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(argumentsEClass, Arguments.class, "Arguments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArguments_Arguments(), this.getObject(), null, "arguments", null, 0, 1, Arguments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(resultEClass, Result.class, "Result", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getResult_Result(), this.getObject(), null, "result", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(errorEClass, de.dentrassi.varlink.idl.varlinkIdl.Error.class, "Error", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getError_Properties(), this.getObject(), null, "properties", null, 0, 1, de.dentrassi.varlink.idl.varlinkIdl.Error.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
