@@ -5,12 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>de.dentrassi.varlink.idl</groupId>
+        <groupId>de.dentrassi.varlink</groupId>
         <artifactId>varlink-idl</artifactId>
         <version>0.2.0-SNAPSHOT</version>
-        <relativePath>..</relativePath>
+        <relativePath>../..</relativePath>
     </parent>
 
+    <groupId>de.dentrassi.varlink.idl</groupId>
     <artifactId>de.dentrassi.varlink.idl</artifactId>
 
     <name>Varlink Java :: IDL :: Core</name>
