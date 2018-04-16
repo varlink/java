@@ -8,7 +8,6 @@
  * Contributors:
  *     Jens Reimann - initial API and implementation
  *******************************************************************************/
-
 package de.dentrassi.varlink.idl.ui.tests
 
 import com.google.inject.Inject
