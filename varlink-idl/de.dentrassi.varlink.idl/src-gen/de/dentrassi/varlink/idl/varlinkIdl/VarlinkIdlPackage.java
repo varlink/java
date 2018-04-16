@@ -1,6 +1,6 @@
 /**
  * ******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -198,22 +198,13 @@ public interface VarlinkIdlPackage extends EPackage
   int ENUM = 4;
 
   /**
-   * The feature id for the '<em><b>Multi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUM__MULTI = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Fields</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUM__FIELDS = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 1;
+  int ENUM__FIELDS = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Enum</em>' class.
@@ -222,7 +213,7 @@ public interface VarlinkIdlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_FEATURE_COUNT = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 2;
+  int ENUM_FEATURE_COUNT = TYPE_ALIAS_DEFINITION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ObjectImpl <em>Object</em>}' class.
@@ -300,22 +291,97 @@ public interface VarlinkIdlPackage extends EPackage
   int ELEMENT_TYPE = 7;
 
   /**
-   * The feature id for the '<em><b>Multi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_TYPE__MULTI = 0;
-
-  /**
    * The number of structural features of the '<em>Element Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ELEMENT_TYPE_FEATURE_COUNT = 1;
+  int ELEMENT_TYPE_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ArrayImpl <em>Array</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.dentrassi.varlink.idl.varlinkIdl.impl.ArrayImpl
+   * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getArray()
+   * @generated
+   */
+  int ARRAY = 8;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY__TYPE = ELEMENT_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Array</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_FEATURE_COUNT = ELEMENT_TYPE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.DictionaryImpl <em>Dictionary</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.dentrassi.varlink.idl.varlinkIdl.impl.DictionaryImpl
+   * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getDictionary()
+   * @generated
+   */
+  int DICTIONARY = 9;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DICTIONARY__TYPE = ELEMENT_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Dictionary</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DICTIONARY_FEATURE_COUNT = ELEMENT_TYPE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.OptionalImpl <em>Optional</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.dentrassi.varlink.idl.varlinkIdl.impl.OptionalImpl
+   * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getOptional()
+   * @generated
+   */
+  int OPTIONAL = 10;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTIONAL__TYPE = ELEMENT_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Optional</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTIONAL_FEATURE_COUNT = ELEMENT_TYPE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
@@ -325,19 +391,10 @@ public interface VarlinkIdlPackage extends EPackage
    * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getTypeReference()
    * @generated
    */
-  int TYPE_REFERENCE = 8;
+  int TYPE_REFERENCE = 11;
 
   /**
-   * The feature id for the '<em><b>Multi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_REFERENCE__MULTI = ELEMENT_TYPE__MULTI;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -362,16 +419,7 @@ public interface VarlinkIdlPackage extends EPackage
    * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getBasicType()
    * @generated
    */
-  int BASIC_TYPE = 9;
-
-  /**
-   * The feature id for the '<em><b>Multi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BASIC_TYPE__MULTI = ELEMENT_TYPE__MULTI;
+  int BASIC_TYPE = 12;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -399,7 +447,7 @@ public interface VarlinkIdlPackage extends EPackage
    * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getMethod()
    * @generated
    */
-  int METHOD = 10;
+  int METHOD = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -438,6 +486,62 @@ public interface VarlinkIdlPackage extends EPackage
   int METHOD_FEATURE_COUNT = MEMBER_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ArgumentsImpl <em>Arguments</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.dentrassi.varlink.idl.varlinkIdl.impl.ArgumentsImpl
+   * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getArguments()
+   * @generated
+   */
+  int ARGUMENTS = 14;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENTS__ARGUMENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Arguments</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENTS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ResultImpl <em>Result</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.dentrassi.varlink.idl.varlinkIdl.impl.ResultImpl
+   * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getResult()
+   * @generated
+   */
+  int RESULT = 15;
+
+  /**
+   * The feature id for the '<em><b>Result</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESULT__RESULT = 0;
+
+  /**
+   * The number of structural features of the '<em>Result</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESULT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ErrorImpl <em>Error</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -445,7 +549,7 @@ public interface VarlinkIdlPackage extends EPackage
    * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getError()
    * @generated
    */
-  int ERROR = 11;
+  int ERROR = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -644,15 +748,67 @@ public interface VarlinkIdlPackage extends EPackage
   EClass getElementType();
 
   /**
-   * Returns the meta object for the attribute '{@link de.dentrassi.varlink.idl.varlinkIdl.ElementType#isMulti <em>Multi</em>}'.
+   * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.Array <em>Array</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Multi</em>'.
-   * @see de.dentrassi.varlink.idl.varlinkIdl.ElementType#isMulti()
-   * @see #getElementType()
+   * @return the meta object for class '<em>Array</em>'.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Array
    * @generated
    */
-  EAttribute getElementType_Multi();
+  EClass getArray();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.dentrassi.varlink.idl.varlinkIdl.Array#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Array#getType()
+   * @see #getArray()
+   * @generated
+   */
+  EReference getArray_Type();
+
+  /**
+   * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.Dictionary <em>Dictionary</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Dictionary</em>'.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Dictionary
+   * @generated
+   */
+  EClass getDictionary();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.dentrassi.varlink.idl.varlinkIdl.Dictionary#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Dictionary#getType()
+   * @see #getDictionary()
+   * @generated
+   */
+  EReference getDictionary_Type();
+
+  /**
+   * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.Optional <em>Optional</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Optional</em>'.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Optional
+   * @generated
+   */
+  EClass getOptional();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.dentrassi.varlink.idl.varlinkIdl.Optional#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Optional#getType()
+   * @see #getOptional()
+   * @generated
+   */
+  EReference getOptional_Type();
 
   /**
    * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.TypeReference <em>Type Reference</em>}'.
@@ -665,15 +821,15 @@ public interface VarlinkIdlPackage extends EPackage
   EClass getTypeReference();
 
   /**
-   * Returns the meta object for the attribute '{@link de.dentrassi.varlink.idl.varlinkIdl.TypeReference#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link de.dentrassi.varlink.idl.varlinkIdl.TypeReference#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the reference '<em>Name</em>'.
    * @see de.dentrassi.varlink.idl.varlinkIdl.TypeReference#getName()
    * @see #getTypeReference()
    * @generated
    */
-  EAttribute getTypeReference_Name();
+  EReference getTypeReference_Name();
 
   /**
    * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.BasicType <em>Basic Type</em>}'.
@@ -727,6 +883,48 @@ public interface VarlinkIdlPackage extends EPackage
    * @generated
    */
   EReference getMethod_Result();
+
+  /**
+   * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.Arguments <em>Arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Arguments</em>'.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Arguments
+   * @generated
+   */
+  EClass getArguments();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.dentrassi.varlink.idl.varlinkIdl.Arguments#getArguments <em>Arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Arguments</em>'.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Arguments#getArguments()
+   * @see #getArguments()
+   * @generated
+   */
+  EReference getArguments_Arguments();
+
+  /**
+   * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.Result <em>Result</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Result</em>'.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Result
+   * @generated
+   */
+  EClass getResult();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.dentrassi.varlink.idl.varlinkIdl.Result#getResult <em>Result</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Result</em>'.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Result#getResult()
+   * @see #getResult()
+   * @generated
+   */
+  EReference getResult_Result();
 
   /**
    * Returns the meta object for class '{@link de.dentrassi.varlink.idl.varlinkIdl.Error <em>Error</em>}'.
@@ -917,12 +1115,58 @@ public interface VarlinkIdlPackage extends EPackage
     EClass ELEMENT_TYPE = eINSTANCE.getElementType();
 
     /**
-     * The meta object literal for the '<em><b>Multi</b></em>' attribute feature.
+     * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ArrayImpl <em>Array</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.dentrassi.varlink.idl.varlinkIdl.impl.ArrayImpl
+     * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getArray()
+     * @generated
+     */
+    EClass ARRAY = eINSTANCE.getArray();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ELEMENT_TYPE__MULTI = eINSTANCE.getElementType_Multi();
+    EReference ARRAY__TYPE = eINSTANCE.getArray_Type();
+
+    /**
+     * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.DictionaryImpl <em>Dictionary</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.dentrassi.varlink.idl.varlinkIdl.impl.DictionaryImpl
+     * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getDictionary()
+     * @generated
+     */
+    EClass DICTIONARY = eINSTANCE.getDictionary();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DICTIONARY__TYPE = eINSTANCE.getDictionary_Type();
+
+    /**
+     * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.OptionalImpl <em>Optional</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.dentrassi.varlink.idl.varlinkIdl.impl.OptionalImpl
+     * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getOptional()
+     * @generated
+     */
+    EClass OPTIONAL = eINSTANCE.getOptional();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPTIONAL__TYPE = eINSTANCE.getOptional_Type();
 
     /**
      * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
@@ -935,12 +1179,12 @@ public interface VarlinkIdlPackage extends EPackage
     EClass TYPE_REFERENCE = eINSTANCE.getTypeReference();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TYPE_REFERENCE__NAME = eINSTANCE.getTypeReference_Name();
+    EReference TYPE_REFERENCE__NAME = eINSTANCE.getTypeReference_Name();
 
     /**
      * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.BasicTypeImpl <em>Basic Type</em>}' class.
@@ -985,6 +1229,42 @@ public interface VarlinkIdlPackage extends EPackage
      * @generated
      */
     EReference METHOD__RESULT = eINSTANCE.getMethod_Result();
+
+    /**
+     * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ArgumentsImpl <em>Arguments</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.dentrassi.varlink.idl.varlinkIdl.impl.ArgumentsImpl
+     * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getArguments()
+     * @generated
+     */
+    EClass ARGUMENTS = eINSTANCE.getArguments();
+
+    /**
+     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENTS__ARGUMENTS = eINSTANCE.getArguments_Arguments();
+
+    /**
+     * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ResultImpl <em>Result</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.dentrassi.varlink.idl.varlinkIdl.impl.ResultImpl
+     * @see de.dentrassi.varlink.idl.varlinkIdl.impl.VarlinkIdlPackageImpl#getResult()
+     * @generated
+     */
+    EClass RESULT = eINSTANCE.getResult();
+
+    /**
+     * The meta object literal for the '<em><b>Result</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RESULT__RESULT = eINSTANCE.getResult_Result();
 
     /**
      * The meta object literal for the '{@link de.dentrassi.varlink.idl.varlinkIdl.impl.ErrorImpl <em>Error</em>}' class.

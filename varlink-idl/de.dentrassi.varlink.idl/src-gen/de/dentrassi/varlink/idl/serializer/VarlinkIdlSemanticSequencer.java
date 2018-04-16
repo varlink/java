@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,10 +12,15 @@ package de.dentrassi.varlink.idl.serializer;
 
 import com.google.inject.Inject;
 import de.dentrassi.varlink.idl.services.VarlinkIdlGrammarAccess;
+import de.dentrassi.varlink.idl.varlinkIdl.Arguments;
+import de.dentrassi.varlink.idl.varlinkIdl.Array;
 import de.dentrassi.varlink.idl.varlinkIdl.BasicType;
+import de.dentrassi.varlink.idl.varlinkIdl.Dictionary;
 import de.dentrassi.varlink.idl.varlinkIdl.Field;
 import de.dentrassi.varlink.idl.varlinkIdl.Interface;
 import de.dentrassi.varlink.idl.varlinkIdl.Method;
+import de.dentrassi.varlink.idl.varlinkIdl.Optional;
+import de.dentrassi.varlink.idl.varlinkIdl.Result;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeAlias;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeReference;
 import de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage;
@@ -44,27 +49,21 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == VarlinkIdlPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case VarlinkIdlPackage.ARGUMENTS:
+				sequence_Arguments(context, (Arguments) semanticObject); 
+				return; 
+			case VarlinkIdlPackage.ARRAY:
+				sequence_Array(context, (Array) semanticObject); 
+				return; 
 			case VarlinkIdlPackage.BASIC_TYPE:
-				if (rule == grammarAccess.getBasicTypeRule()) {
-					sequence_BasicType(context, (BasicType) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getElementTypeRule()) {
-					sequence_BasicType_ElementType(context, (BasicType) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_BasicType(context, (BasicType) semanticObject); 
+				return; 
+			case VarlinkIdlPackage.DICTIONARY:
+				sequence_Dictionary(context, (Dictionary) semanticObject); 
+				return; 
 			case VarlinkIdlPackage.ENUM:
-				if (rule == grammarAccess.getElementTypeRule()) {
-					sequence_ElementType_Enum(context, (de.dentrassi.varlink.idl.varlinkIdl.Enum) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getTypeAliasDefinitionRule()
-						|| rule == grammarAccess.getEnumRule()) {
-					sequence_Enum(context, (de.dentrassi.varlink.idl.varlinkIdl.Enum) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Enum(context, (de.dentrassi.varlink.idl.varlinkIdl.Enum) semanticObject); 
+				return; 
 			case VarlinkIdlPackage.ERROR:
 				sequence_Error(context, (de.dentrassi.varlink.idl.varlinkIdl.Error) semanticObject); 
 				return; 
@@ -80,19 +79,18 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case VarlinkIdlPackage.OBJECT:
 				sequence_Object(context, (de.dentrassi.varlink.idl.varlinkIdl.Object) semanticObject); 
 				return; 
+			case VarlinkIdlPackage.OPTIONAL:
+				sequence_Optional(context, (Optional) semanticObject); 
+				return; 
+			case VarlinkIdlPackage.RESULT:
+				sequence_Result(context, (Result) semanticObject); 
+				return; 
 			case VarlinkIdlPackage.TYPE_ALIAS:
 				sequence_TypeAlias(context, (TypeAlias) semanticObject); 
 				return; 
 			case VarlinkIdlPackage.TYPE_REFERENCE:
-				if (rule == grammarAccess.getElementTypeRule()) {
-					sequence_ElementType_TypeReference(context, (TypeReference) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getTypeReferenceRule()) {
-					sequence_TypeReference(context, (TypeReference) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_TypeReference(context, (TypeReference) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -100,17 +98,48 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Arguments returns Arguments
+	 *
+	 * Constraint:
+	 *     arguments=Object
+	 */
+	protected void sequence_Arguments(ISerializationContext context, Arguments semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, VarlinkIdlPackage.Literals.ARGUMENTS__ARGUMENTS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VarlinkIdlPackage.Literals.ARGUMENTS__ARGUMENTS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getArgumentsAccess().getArgumentsObjectParserRuleCall_0(), semanticObject.getArguments());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ElementType returns Array
+	 *     Array returns Array
+	 *
+	 * Constraint:
+	 *     type=ElementType
+	 */
+	protected void sequence_Array(ISerializationContext context, Array semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, VarlinkIdlPackage.Literals.ARRAY__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VarlinkIdlPackage.Literals.ARRAY__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getArrayAccess().getTypeElementTypeParserRuleCall_1_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ElementType returns BasicType
 	 *     BasicType returns BasicType
 	 *
 	 * Constraint:
-	 *     (
-	 *         type='bool' | 
-	 *         type='int' | 
-	 *         type='float' | 
-	 *         type='string' | 
-	 *         type='data' | 
-	 *         type='object'
-	 *     )
+	 *     (type='bool' | type='int' | type='float' | type='string')
 	 */
 	protected void sequence_BasicType(ISerializationContext context, BasicType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -119,47 +148,20 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     ElementType returns BasicType
+	 *     ElementType returns Dictionary
+	 *     Dictionary returns Dictionary
 	 *
 	 * Constraint:
-	 *     (
-	 *         (
-	 *             type='bool' | 
-	 *             type='int' | 
-	 *             type='float' | 
-	 *             type='string' | 
-	 *             type='data' | 
-	 *             type='object'
-	 *         ) 
-	 *         multi?='[]'?
-	 *     )
+	 *     type=ElementType
 	 */
-	protected void sequence_BasicType_ElementType(ISerializationContext context, BasicType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ElementType returns Enum
-	 *
-	 * Constraint:
-	 *     (fields+=ValidID fields+=ValidID* multi?='[]'?)
-	 */
-	protected void sequence_ElementType_Enum(ISerializationContext context, de.dentrassi.varlink.idl.varlinkIdl.Enum semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ElementType returns TypeReference
-	 *
-	 * Constraint:
-	 *     (name=ValidID multi?='[]'?)
-	 */
-	protected void sequence_ElementType_TypeReference(ISerializationContext context, TypeReference semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Dictionary(ISerializationContext context, Dictionary semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, VarlinkIdlPackage.Literals.DICTIONARY__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VarlinkIdlPackage.Literals.DICTIONARY__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDictionaryAccess().getTypeElementTypeParserRuleCall_1_0(), semanticObject.getType());
+		feeder.finish();
 	}
 	
 	
@@ -167,6 +169,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Contexts:
 	 *     TypeAliasDefinition returns Enum
 	 *     Enum returns Enum
+	 *     ElementType returns Enum
 	 *
 	 * Constraint:
 	 *     (fields+=ValidID fields+=ValidID*)
@@ -237,7 +240,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Method returns Method
 	 *
 	 * Constraint:
-	 *     (name=ID arguments=Object result=Object)
+	 *     (name=ID arguments=Arguments result=Result)
 	 */
 	protected void sequence_Method(ISerializationContext context, Method semanticObject) {
 		if (errorAcceptor != null) {
@@ -250,8 +253,8 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMethodAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMethodAccess().getArgumentsObjectParserRuleCall_2_0(), semanticObject.getArguments());
-		feeder.accept(grammarAccess.getMethodAccess().getResultObjectParserRuleCall_4_0(), semanticObject.getResult());
+		feeder.accept(grammarAccess.getMethodAccess().getArgumentsArgumentsParserRuleCall_2_0(), semanticObject.getArguments());
+		feeder.accept(grammarAccess.getMethodAccess().getResultResultParserRuleCall_4_0(), semanticObject.getResult());
 		feeder.finish();
 	}
 	
@@ -260,12 +263,50 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Contexts:
 	 *     TypeAliasDefinition returns Object
 	 *     Object returns Object
+	 *     ElementType returns Object
 	 *
 	 * Constraint:
 	 *     (fields+=Field? fields+=Field*)
 	 */
 	protected void sequence_Object(ISerializationContext context, de.dentrassi.varlink.idl.varlinkIdl.Object semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ElementType returns Optional
+	 *     Optional returns Optional
+	 *
+	 * Constraint:
+	 *     type=ElementType
+	 */
+	protected void sequence_Optional(ISerializationContext context, Optional semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, VarlinkIdlPackage.Literals.OPTIONAL__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VarlinkIdlPackage.Literals.OPTIONAL__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getOptionalAccess().getTypeElementTypeParserRuleCall_1_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Result returns Result
+	 *
+	 * Constraint:
+	 *     result=Object
+	 */
+	protected void sequence_Result(ISerializationContext context, Result semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, VarlinkIdlPackage.Literals.RESULT__RESULT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VarlinkIdlPackage.Literals.RESULT__RESULT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getResultAccess().getResultObjectParserRuleCall_0(), semanticObject.getResult());
+		feeder.finish();
 	}
 	
 	
@@ -293,10 +334,11 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     ElementType returns TypeReference
 	 *     TypeReference returns TypeReference
 	 *
 	 * Constraint:
-	 *     name=ValidID
+	 *     name=[TypeAlias|ID]
 	 */
 	protected void sequence_TypeReference(ISerializationContext context, TypeReference semanticObject) {
 		if (errorAcceptor != null) {
@@ -304,7 +346,7 @@ public class VarlinkIdlSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VarlinkIdlPackage.Literals.TYPE_REFERENCE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeReferenceAccess().getNameValidIDParserRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTypeReferenceAccess().getNameTypeAliasIDTerminalRuleCall_0_1(), semanticObject.eGet(VarlinkIdlPackage.Literals.TYPE_REFERENCE__NAME, false));
 		feeder.finish();
 	}
 	

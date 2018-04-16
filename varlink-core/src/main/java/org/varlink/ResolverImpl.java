@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2017, 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,10 +14,7 @@ import static de.dentrassi.varlink.spi.CallRequest.of;
 import static de.dentrassi.varlink.spi.Errors.check;
 import static java.util.Collections.singletonMap;
 
-import java.util.Iterator;
 import java.util.concurrent.CompletableFuture;
-
-import com.google.gson.JsonElement;
 
 import de.dentrassi.varlink.internal.VarlinkImpl;
 import de.dentrassi.varlink.spi.Connection;
@@ -64,12 +61,7 @@ public class ResolverImpl implements Resolver {
 
                     check(result);
 
-                    final Iterator<JsonElement> i = result.getParameters().values().iterator();
-
-                    return this.varlink
-                            .fromJson(
-                                    String.class,
-                                    i.next());
+                    return this.varlink.fromJson(String.class, result.getFirstParameter());
                 });
     }
 

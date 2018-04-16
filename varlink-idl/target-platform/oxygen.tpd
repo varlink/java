@@ -1,0 +1,36 @@
+target "Eclipse Oxygen"
+
+with source
+
+location "http://download.eclipse.org/releases/oxygen" {
+	org.eclipse.platform.feature.group
+	org.eclipse.jdt.feature.group
+
+	org.eclipse.emf.sdk.feature.group
+	org.eclipse.emf.edit.ui.feature.group
+	org.eclipse.emf.mwe.sdk.feature.group
+	org.eclipse.emf.mwe2.language.sdk.feature.group
+
+	org.eclipse.xtext.generator
+	org.eclipse.xtext.xtext.generator
+
+	org.eclipse.xtext.xbase.feature.group
+	org.eclipse.xtext.runtime.feature.group
+	org.eclipse.xtext.xtext.ui.feature.group
+	org.eclipse.xtext.redist.feature.group
+	org.eclipse.xtext.xbase.lib.feature.group
+
+	org.eclipse.xtend.feature.group
+	org.eclipse.xtend.dependencies.feature.group
+	org.eclipse.xtend.sdk.feature.group
+	org.eclipse.xtend.lib
+
+	org.eclipse.xpand.feature.group
+
+	com.google.inject
+	com.google.guava
+	org.objectweb.asm [5.0.1,6.0.0)
+	org.antlr.runtime
+
+	org.eclipse.draw2d.feature.group
+}

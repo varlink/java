@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,6 +16,7 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -262,53 +263,130 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ElementTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.ElementType");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final RuleCall cBasicTypeParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cTypeReferenceParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final RuleCall cEnumParserRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
-		private final Assignment cMultiAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cMultiLeftSquareBracketRightSquareBracketKeyword_1_0 = (Keyword)cMultiAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cBasicTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTypeReferenceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEnumParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cObjectParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cArrayParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cDictionaryParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cOptionalParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//ElementType:
-		//	(BasicType | TypeReference | Enum) multi?="[]"?;
+		//	BasicType | TypeReference | Enum | Object | Array | Dictionary | Optional;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(BasicType | TypeReference | Enum) multi?="[]"?
-		public Group getGroup() { return cGroup; }
-		
-		//BasicType | TypeReference | Enum
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//BasicType | TypeReference | Enum | Object | Array | Dictionary | Optional
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//BasicType
-		public RuleCall getBasicTypeParserRuleCall_0_0() { return cBasicTypeParserRuleCall_0_0; }
+		public RuleCall getBasicTypeParserRuleCall_0() { return cBasicTypeParserRuleCall_0; }
 		
 		//TypeReference
-		public RuleCall getTypeReferenceParserRuleCall_0_1() { return cTypeReferenceParserRuleCall_0_1; }
+		public RuleCall getTypeReferenceParserRuleCall_1() { return cTypeReferenceParserRuleCall_1; }
 		
 		//Enum
-		public RuleCall getEnumParserRuleCall_0_2() { return cEnumParserRuleCall_0_2; }
+		public RuleCall getEnumParserRuleCall_2() { return cEnumParserRuleCall_2; }
 		
-		//multi?="[]"?
-		public Assignment getMultiAssignment_1() { return cMultiAssignment_1; }
+		//Object
+		public RuleCall getObjectParserRuleCall_3() { return cObjectParserRuleCall_3; }
+		
+		//Array
+		public RuleCall getArrayParserRuleCall_4() { return cArrayParserRuleCall_4; }
+		
+		//Dictionary
+		public RuleCall getDictionaryParserRuleCall_5() { return cDictionaryParserRuleCall_5; }
+		
+		//Optional
+		public RuleCall getOptionalParserRuleCall_6() { return cOptionalParserRuleCall_6; }
+	}
+	public class ArrayElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.Array");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftSquareBracketRightSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeElementTypeParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		
+		//Array:
+		//	"[]" type=ElementType;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"[]" type=ElementType
+		public Group getGroup() { return cGroup; }
 		
 		//"[]"
-		public Keyword getMultiLeftSquareBracketRightSquareBracketKeyword_1_0() { return cMultiLeftSquareBracketRightSquareBracketKeyword_1_0; }
+		public Keyword getLeftSquareBracketRightSquareBracketKeyword_0() { return cLeftSquareBracketRightSquareBracketKeyword_0; }
+		
+		//type=ElementType
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		
+		//ElementType
+		public RuleCall getTypeElementTypeParserRuleCall_1_0() { return cTypeElementTypeParserRuleCall_1_0; }
+	}
+	public class DictionaryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.Dictionary");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cStringKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeElementTypeParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		
+		//Dictionary:
+		//	"[string]" type=ElementType;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"[string]" type=ElementType
+		public Group getGroup() { return cGroup; }
+		
+		//"[string]"
+		public Keyword getStringKeyword_0() { return cStringKeyword_0; }
+		
+		//type=ElementType
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		
+		//ElementType
+		public RuleCall getTypeElementTypeParserRuleCall_1_0() { return cTypeElementTypeParserRuleCall_1_0; }
+	}
+	public class OptionalElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.Optional");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cQuestionMarkKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeElementTypeParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		
+		//Optional:
+		//	"?" type=ElementType;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"?" type=ElementType
+		public Group getGroup() { return cGroup; }
+		
+		//"?"
+		public Keyword getQuestionMarkKeyword_0() { return cQuestionMarkKeyword_0; }
+		
+		//type=ElementType
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		
+		//ElementType
+		public RuleCall getTypeElementTypeParserRuleCall_1_0() { return cTypeElementTypeParserRuleCall_1_0; }
 	}
 	public class TypeReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.TypeReference");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameValidIDParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final CrossReference cNameTypeAliasCrossReference_0 = (CrossReference)cNameAssignment.eContents().get(0);
+		private final RuleCall cNameTypeAliasIDTerminalRuleCall_0_1 = (RuleCall)cNameTypeAliasCrossReference_0.eContents().get(1);
 		
 		//TypeReference:
-		//	name=ValidID;
+		//	name=[TypeAlias];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ValidID
+		//name=[TypeAlias]
 		public Assignment getNameAssignment() { return cNameAssignment; }
 		
-		//ValidID
-		public RuleCall getNameValidIDParserRuleCall_0() { return cNameValidIDParserRuleCall_0; }
+		//[TypeAlias]
+		public CrossReference getNameTypeAliasCrossReference_0() { return cNameTypeAliasCrossReference_0; }
+		
+		//ID
+		public RuleCall getNameTypeAliasIDTerminalRuleCall_0_1() { return cNameTypeAliasIDTerminalRuleCall_0_1; }
 	}
 	public class BasicTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.BasicType");
@@ -318,17 +396,15 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTypeIntKeyword_0_1 = (Keyword)cTypeAlternatives_0.eContents().get(1);
 		private final Keyword cTypeFloatKeyword_0_2 = (Keyword)cTypeAlternatives_0.eContents().get(2);
 		private final Keyword cTypeStringKeyword_0_3 = (Keyword)cTypeAlternatives_0.eContents().get(3);
-		private final Keyword cTypeDataKeyword_0_4 = (Keyword)cTypeAlternatives_0.eContents().get(4);
-		private final Keyword cTypeObjectKeyword_0_5 = (Keyword)cTypeAlternatives_0.eContents().get(5);
 		
 		//BasicType:
-		//	type=("bool" | "int" | "float" | "string" | "data" | "object");
+		//	type=("bool" | "int" | "float" | "string");
 		@Override public ParserRule getRule() { return rule; }
 		
-		//type=("bool" | "int" | "float" | "string" | "data" | "object")
+		//type=("bool" | "int" | "float" | "string")
 		public Assignment getTypeAssignment() { return cTypeAssignment; }
 		
-		//("bool" | "int" | "float" | "string" | "data" | "object")
+		//("bool" | "int" | "float" | "string")
 		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
 		
 		//"bool"
@@ -342,12 +418,6 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//"string"
 		public Keyword getTypeStringKeyword_0_3() { return cTypeStringKeyword_0_3; }
-		
-		//"data"
-		public Keyword getTypeDataKeyword_0_4() { return cTypeDataKeyword_0_4; }
-		
-		//"object"
-		public Keyword getTypeObjectKeyword_0_5() { return cTypeObjectKeyword_0_5; }
 	}
 	public class MethodElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.Method");
@@ -356,16 +426,16 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cArgumentsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cArgumentsObjectParserRuleCall_2_0 = (RuleCall)cArgumentsAssignment_2.eContents().get(0);
+		private final RuleCall cArgumentsArgumentsParserRuleCall_2_0 = (RuleCall)cArgumentsAssignment_2.eContents().get(0);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cResultAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cResultObjectParserRuleCall_4_0 = (RuleCall)cResultAssignment_4.eContents().get(0);
+		private final RuleCall cResultResultParserRuleCall_4_0 = (RuleCall)cResultAssignment_4.eContents().get(0);
 		
 		//Method:
-		//	'method' name=ID arguments=Object "->" result=Object;
+		//	'method' name=ID arguments=Arguments "->" result=Result;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'method' name=ID arguments=Object "->" result=Object
+		//'method' name=ID arguments=Arguments "->" result=Result
 		public Group getGroup() { return cGroup; }
 		
 		//'method'
@@ -377,20 +447,50 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//arguments=Object
+		//arguments=Arguments
 		public Assignment getArgumentsAssignment_2() { return cArgumentsAssignment_2; }
 		
-		//Object
-		public RuleCall getArgumentsObjectParserRuleCall_2_0() { return cArgumentsObjectParserRuleCall_2_0; }
+		//Arguments
+		public RuleCall getArgumentsArgumentsParserRuleCall_2_0() { return cArgumentsArgumentsParserRuleCall_2_0; }
 		
 		//"->"
 		public Keyword getHyphenMinusGreaterThanSignKeyword_3() { return cHyphenMinusGreaterThanSignKeyword_3; }
 		
-		//result=Object
+		//result=Result
 		public Assignment getResultAssignment_4() { return cResultAssignment_4; }
 		
+		//Result
+		public RuleCall getResultResultParserRuleCall_4_0() { return cResultResultParserRuleCall_4_0; }
+	}
+	public class ArgumentsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.Arguments");
+		private final Assignment cArgumentsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cArgumentsObjectParserRuleCall_0 = (RuleCall)cArgumentsAssignment.eContents().get(0);
+		
+		//Arguments:
+		//	arguments=Object;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//arguments=Object
+		public Assignment getArgumentsAssignment() { return cArgumentsAssignment; }
+		
 		//Object
-		public RuleCall getResultObjectParserRuleCall_4_0() { return cResultObjectParserRuleCall_4_0; }
+		public RuleCall getArgumentsObjectParserRuleCall_0() { return cArgumentsObjectParserRuleCall_0; }
+	}
+	public class ResultElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.Result");
+		private final Assignment cResultAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cResultObjectParserRuleCall_0 = (RuleCall)cResultAssignment.eContents().get(0);
+		
+		//Result:
+		//	result=Object;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//result=Object
+		public Assignment getResultAssignment() { return cResultAssignment; }
+		
+		//Object
+		public RuleCall getResultObjectParserRuleCall_0() { return cResultObjectParserRuleCall_0; }
 	}
 	public class ErrorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.Error");
@@ -479,16 +579,15 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMethodKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		private final Keyword cErrorKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
 		private final Keyword cBoolKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
-		private final Keyword cFloatKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
-		private final Keyword cStringKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
-		private final Keyword cDataKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
-		private final Keyword cObjectKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
+		private final Keyword cIntKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cFloatKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cStringKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
 		
 		//KEYWORD:
-		//	'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'float' | 'string' | 'data' | 'object';
+		//	'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'int' | 'float' | 'string';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'float' | 'string' | 'data' | 'object'
+		//'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'int' | 'float' | 'string'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'type'
@@ -509,17 +608,14 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		//'bool'
 		public Keyword getBoolKeyword_5() { return cBoolKeyword_5; }
 		
+		//'int'
+		public Keyword getIntKeyword_6() { return cIntKeyword_6; }
+		
 		//'float'
-		public Keyword getFloatKeyword_6() { return cFloatKeyword_6; }
+		public Keyword getFloatKeyword_7() { return cFloatKeyword_7; }
 		
 		//'string'
-		public Keyword getStringKeyword_7() { return cStringKeyword_7; }
-		
-		//'data'
-		public Keyword getDataKeyword_8() { return cDataKeyword_8; }
-		
-		//'object'
-		public Keyword getObjectKeyword_9() { return cObjectKeyword_9; }
+		public Keyword getStringKeyword_8() { return cStringKeyword_8; }
 	}
 	
 	
@@ -531,9 +627,14 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	private final ObjectElements pObject;
 	private final FieldElements pField;
 	private final ElementTypeElements pElementType;
+	private final ArrayElements pArray;
+	private final DictionaryElements pDictionary;
+	private final OptionalElements pOptional;
 	private final TypeReferenceElements pTypeReference;
 	private final BasicTypeElements pBasicType;
 	private final MethodElements pMethod;
+	private final ArgumentsElements pArguments;
+	private final ResultElements pResult;
 	private final ErrorElements pError;
 	private final InterfaceNameElements pInterfaceName;
 	private final ValidIDElements pValidID;
@@ -556,9 +657,14 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pObject = new ObjectElements();
 		this.pField = new FieldElements();
 		this.pElementType = new ElementTypeElements();
+		this.pArray = new ArrayElements();
+		this.pDictionary = new DictionaryElements();
+		this.pOptional = new OptionalElements();
 		this.pTypeReference = new TypeReferenceElements();
 		this.pBasicType = new BasicTypeElements();
 		this.pMethod = new MethodElements();
+		this.pArguments = new ArgumentsElements();
+		this.pResult = new ResultElements();
 		this.pError = new ErrorElements();
 		this.pInterfaceName = new InterfaceNameElements();
 		this.pValidID = new ValidIDElements();
@@ -669,7 +775,7 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ElementType:
-	//	(BasicType | TypeReference | Enum) multi?="[]"?;
+	//	BasicType | TypeReference | Enum | Object | Array | Dictionary | Optional;
 	public ElementTypeElements getElementTypeAccess() {
 		return pElementType;
 	}
@@ -678,8 +784,38 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		return getElementTypeAccess().getRule();
 	}
 	
+	//Array:
+	//	"[]" type=ElementType;
+	public ArrayElements getArrayAccess() {
+		return pArray;
+	}
+	
+	public ParserRule getArrayRule() {
+		return getArrayAccess().getRule();
+	}
+	
+	//Dictionary:
+	//	"[string]" type=ElementType;
+	public DictionaryElements getDictionaryAccess() {
+		return pDictionary;
+	}
+	
+	public ParserRule getDictionaryRule() {
+		return getDictionaryAccess().getRule();
+	}
+	
+	//Optional:
+	//	"?" type=ElementType;
+	public OptionalElements getOptionalAccess() {
+		return pOptional;
+	}
+	
+	public ParserRule getOptionalRule() {
+		return getOptionalAccess().getRule();
+	}
+	
 	//TypeReference:
-	//	name=ValidID;
+	//	name=[TypeAlias];
 	public TypeReferenceElements getTypeReferenceAccess() {
 		return pTypeReference;
 	}
@@ -689,7 +825,7 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BasicType:
-	//	type=("bool" | "int" | "float" | "string" | "data" | "object");
+	//	type=("bool" | "int" | "float" | "string");
 	public BasicTypeElements getBasicTypeAccess() {
 		return pBasicType;
 	}
@@ -699,13 +835,33 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Method:
-	//	'method' name=ID arguments=Object "->" result=Object;
+	//	'method' name=ID arguments=Arguments "->" result=Result;
 	public MethodElements getMethodAccess() {
 		return pMethod;
 	}
 	
 	public ParserRule getMethodRule() {
 		return getMethodAccess().getRule();
+	}
+	
+	//Arguments:
+	//	arguments=Object;
+	public ArgumentsElements getArgumentsAccess() {
+		return pArguments;
+	}
+	
+	public ParserRule getArgumentsRule() {
+		return getArgumentsAccess().getRule();
+	}
+	
+	//Result:
+	//	result=Object;
+	public ResultElements getResultAccess() {
+		return pResult;
+	}
+	
+	public ParserRule getResultRule() {
+		return getResultAccess().getRule();
 	}
 	
 	//Error:
@@ -740,7 +896,7 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//KEYWORD:
-	//	'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'float' | 'string' | 'data' | 'object';
+	//	'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'int' | 'float' | 'string';
 	public KEYWORDElements getKEYWORDAccess() {
 		return pKEYWORD;
 	}

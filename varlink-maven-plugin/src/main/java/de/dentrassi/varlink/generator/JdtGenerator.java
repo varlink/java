@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2017, 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,10 +14,13 @@ import static de.dentrassi.varlink.generator.util.JdtHelper.addSimpleAnnotation;
 import static de.dentrassi.varlink.generator.util.JdtHelper.copyNode;
 import static de.dentrassi.varlink.generator.util.JdtHelper.createCompilationUnit;
 import static de.dentrassi.varlink.generator.util.JdtHelper.createField;
+import static de.dentrassi.varlink.generator.util.JdtHelper.createGetter;
 import static de.dentrassi.varlink.generator.util.JdtHelper.createParameter;
 import static de.dentrassi.varlink.generator.util.JdtHelper.createThisAssignment;
 import static de.dentrassi.varlink.generator.util.JdtHelper.make;
 import static de.dentrassi.varlink.generator.util.JdtHelper.newStringLiteral;
+import static de.dentrassi.varlink.generator.util.Names.toLowerFirst;
+import static de.dentrassi.varlink.generator.util.Names.toUpperFirst;
 import static org.eclipse.jdt.core.dom.Modifier.ModifierKeyword.DEFAULT_KEYWORD;
 import static org.eclipse.jdt.core.dom.Modifier.ModifierKeyword.FINAL_KEYWORD;
 import static org.eclipse.jdt.core.dom.Modifier.ModifierKeyword.PRIVATE_KEYWORD;
@@ -28,6 +31,7 @@ import static org.eclipse.jdt.core.dom.Modifier.ModifierKeyword.STATIC_KEYWORD;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.BiConsumer;
@@ -42,6 +46,7 @@ import org.eclipse.jdt.core.dom.ClassInstanceCreation;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.EnumConstantDeclaration;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
+import org.eclipse.jdt.core.dom.ExpressionMethodReference;
 import org.eclipse.jdt.core.dom.FieldAccess;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.LambdaExpression;
@@ -53,26 +58,33 @@ import org.eclipse.jdt.core.dom.ParameterizedType;
 import org.eclipse.jdt.core.dom.PrimitiveType;
 import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
+import org.eclipse.jdt.core.dom.SwitchCase;
+import org.eclipse.jdt.core.dom.SwitchStatement;
 import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.TypeLiteral;
 import org.eclipse.jdt.core.dom.TypeParameter;
-import org.eclipse.jdt.core.dom.VariableDeclarationExpression;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 
 import de.dentrassi.varlink.generator.util.JdtHelper;
+import de.dentrassi.varlink.idl.varlinkIdl.Array;
 import de.dentrassi.varlink.idl.varlinkIdl.BasicType;
+import de.dentrassi.varlink.idl.varlinkIdl.Dictionary;
 import de.dentrassi.varlink.idl.varlinkIdl.ElementType;
+import de.dentrassi.varlink.idl.varlinkIdl.Error;
 import de.dentrassi.varlink.idl.varlinkIdl.Field;
 import de.dentrassi.varlink.idl.varlinkIdl.Interface;
 import de.dentrassi.varlink.idl.varlinkIdl.Method;
 import de.dentrassi.varlink.idl.varlinkIdl.Object;
+import de.dentrassi.varlink.idl.varlinkIdl.Optional;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeAlias;
+import de.dentrassi.varlink.idl.varlinkIdl.TypeAliasDefinition;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeReference;
 
 public class JdtGenerator implements Generator {
 
+    private static final String TYPE_TOKEN_TYPE_NAME = "com.google.gson.reflect.TypeToken";
     private final Options options;
 
     public JdtGenerator(final Generator.Options options) {
@@ -80,22 +92,6 @@ public class JdtGenerator implements Generator {
 
         this.options = new Options(options);
         this.options.validate();
-    }
-
-    private static String toUpperFirst(final String string) {
-        if (string.length() < 2) {
-            return string.toUpperCase();
-        }
-
-        return Character.toUpperCase(string.charAt(0)) + string.substring(1);
-    }
-
-    private static String toLowerFirst(final String string) {
-        if (string.length() < 2) {
-            return string.toLowerCase();
-        }
-
-        return Character.toLowerCase(string.charAt(0)) + string.substring(1);
     }
 
     private static String internalMethodName(final String name) {
@@ -172,6 +168,103 @@ public class JdtGenerator implements Generator {
             createThisAssignment(body, "varlink");
         }
 
+        // error mapper
+
+        {
+            final MethodDeclaration md = ast.newMethodDeclaration();
+            make(md, PUBLIC_KEYWORD);
+            td.bodyDeclarations().add(md);
+
+            md.setName(ast.newSimpleName("checkError"));
+            createParameter(md, "de.dentrassi.varlink.spi.CallResponse", "response", FINAL_KEYWORD);
+
+            final Block body = ast.newBlock();
+            md.setBody(body);
+
+            final MethodInvocation mi = ast.newMethodInvocation();
+            mi.setExpression(ast.newName("de.dentrassi.varlink.spi.Errors"));
+            mi.setName(ast.newSimpleName("checkErrors"));
+            mi.arguments().add(ast.newSimpleName("response"));
+
+            final ExpressionMethodReference ref = ast.newExpressionMethodReference();
+            ref.setExpression(ast.newThisExpression());
+            ref.setName(ast.newSimpleName("mapError"));
+            mi.arguments().add(ref);
+
+            body.statements().add(ast.newExpressionStatement(mi));
+        }
+
+        {
+            final MethodDeclaration md = ast.newMethodDeclaration();
+            make(md, PUBLIC_KEYWORD);
+            td.bodyDeclarations().add(md);
+
+            md.setName(ast.newSimpleName("mapError"));
+            createParameter(md, "java.lang.String", "error", FINAL_KEYWORD);
+            createParameter(md, "de.dentrassi.varlink.spi.CallResponse", "response", FINAL_KEYWORD);
+            md.setReturnType2(ast.newSimpleType(ast.newName("java.lang.RuntimeException")));
+
+            final Block body = ast.newBlock();
+            md.setBody(body);
+
+            final SwitchStatement sw = ast.newSwitchStatement();
+            body.statements().add(sw);
+            sw.setExpression(ast.newSimpleName("error"));
+
+            errors(iface).forEach(error -> {
+                final String errorName = errorTypeName(error);
+                final String fullErrorName = iface.getName() + "." + errorName;
+
+                final SwitchCase sc = ast.newSwitchCase();
+                sc.setExpression(JdtHelper.newStringLiteral(ast, fullErrorName));
+                sw.statements().add(sc);
+
+                final FieldAccess fa = ast.newFieldAccess();
+                fa.setExpression(ast.newThisExpression());
+                fa.setName(ast.newSimpleName("varlink"));
+
+                final MethodInvocation fromJson = ast.newMethodInvocation();
+                fromJson.setExpression(fa);
+                fromJson.setName(ast.newSimpleName("fromJson"));
+
+                // type name
+
+                final TypeLiteral typeLiteral = ast.newTypeLiteral();
+                typeLiteral.setType(ast.newSimpleType(ast.newName(errorName + ".Parameters")));
+
+                fromJson.arguments().add(typeLiteral);
+
+                // parameters
+
+                final MethodInvocation parameters = ast.newMethodInvocation();
+                parameters.setExpression(ast.newSimpleName("response"));
+                parameters.setName(ast.newSimpleName("getParameters"));
+                fromJson.arguments().add(parameters);
+
+                // new exception
+
+                final ClassInstanceCreation cic = ast.newClassInstanceCreation();
+                cic.setType(ast.newSimpleType(ast.newName(errorName)));
+                cic.arguments().add(fromJson);
+
+                // return
+
+                final ReturnStatement ret = ast.newReturnStatement();
+                ret.setExpression(cic);
+                sw.statements().add(ret);
+            });
+
+            {
+                final SwitchCase sc = ast.newSwitchCase();
+                sc.setExpression(null);
+                sw.statements().add(sc);
+                final ReturnStatement ret = ast.newReturnStatement();
+                ret.setExpression(ast.newNullLiteral());
+                sw.statements().add(ret);
+            }
+
+        }
+
         // async creator
 
         /*
@@ -239,13 +332,18 @@ public class JdtGenerator implements Generator {
             td.bodyDeclarations().add(md);
             md.setName(ast.newSimpleName(internalMethodName(m.getName())));
             makeAsync(md);
-            createInternalMethod(m, md);
+            createInternalMethod(td, m, md);
         });
 
     }
 
+    private String errorTypeName(final Error error) {
+        return error.getName() + "Exception";
+    }
+
     @SuppressWarnings("unchecked")
-    private void createInternalMethod(final MethodInformation m, final MethodDeclaration md) {
+    private void createInternalMethod(final TypeDeclaration parentTypeDeclaration, final MethodInformation m,
+            final MethodDeclaration md) {
         final AST ast = md.getAST();
 
         final Block body = ast.newBlock();
@@ -335,50 +433,26 @@ public class JdtGenerator implements Generator {
             // check result
 
             final MethodInvocation check = ast.newMethodInvocation();
-            check.setExpression(ast.newName("de.dentrassi.varlink.spi.Errors"));
-            check.setName(ast.newSimpleName("check"));
+            check.setName(ast.newSimpleName("checkError"));
             transform.statements().add(ast.newExpressionStatement(check));
             check.arguments().add(ast.newSimpleName("result"));
         }
 
         if (m.getReturnTypes().isEmpty()) {
+
             final ReturnStatement transformRet = ast.newReturnStatement();
             transformRet.setExpression(ast.newNullLiteral());
             transform.statements().add(transformRet);
+
         } else {
-            // code: final Iterator<JsonElement> i = cr.getParameters().values().iterator();
 
-            final VariableDeclarationFragment i = ast.newVariableDeclarationFragment();
-            i.setName(ast.newSimpleName("i"));
-            final VariableDeclarationExpression vd = ast.newVariableDeclarationExpression(i);
-            final ParameterizedType iter = ast
-                    .newParameterizedType(ast.newSimpleType(ast.newName("java.util.Iterator")));
-            iter.typeArguments().add(ast.newSimpleType(ast.newName("com.google.gson.JsonElement")));
-            vd.setType(iter);
+            final int returns = m.getReturnTypes().size();
 
-            transform.statements().add(ast.newExpressionStatement(vd));
+            if (returns > 0) {
 
-            {
-
-                final MethodInvocation getParameters = ast.newMethodInvocation();
-                getParameters.setName(ast.newSimpleName("getParameters"));
-                getParameters.setExpression(ast.newSimpleName("result"));
-
-                final MethodInvocation values = ast.newMethodInvocation();
-                values.setName(ast.newSimpleName("values"));
-                values.setExpression(getParameters);
-
-                final MethodInvocation iterator = ast.newMethodInvocation();
-                iterator.setExpression(values);
-                iterator.setName(ast.newSimpleName("iterator"));
-
-                i.setInitializer(iterator);
-
-            }
-
-            if (m.getReturnTypes().size() == 1) {
-
-                // return this.varlink.fromJson(DriveCondition.class, i.next());
+                // return this.varlink.fromJson(DriveCondition.class, result.getParameters());
+                // return this.varlink.fromJson(DriveCondition.class,
+                // result.getFirstParameter());
 
                 final FieldAccess varlink = ast.newFieldAccess();
                 varlink.setExpression(ast.newThisExpression());
@@ -388,14 +462,47 @@ public class JdtGenerator implements Generator {
                 fromJson.setExpression(varlink);
                 fromJson.setName(ast.newSimpleName("fromJson"));
 
-                final TypeLiteral returnType = ast.newTypeLiteral();
-                returnType.setType(m.createMainReturnType(ast));
-                fromJson.arguments().add(returnType);
+                // FIXME: add to parent
+                {
+                    final ParameterizedType ttt = ast.newParameterizedType(
+                            ast.newSimpleType(ast.newName(TYPE_TOKEN_TYPE_NAME)));
 
-                final MethodInvocation next = ast.newMethodInvocation();
-                next.setExpression(ast.newSimpleName("i"));
-                next.setName(ast.newSimpleName("next"));
-                fromJson.arguments().add(next);
+                    ttt.typeArguments().add(m.createMainReturnType(ast));
+                    final ClassInstanceCreation tt = ast.newClassInstanceCreation();
+                    tt.setType(JdtHelper.copyNode(ast, ttt));
+
+                    final AnonymousClassDeclaration decl = ast.newAnonymousClassDeclaration();
+                    tt.setAnonymousClassDeclaration(decl);
+
+                    final MethodInvocation getType = ast.newMethodInvocation();
+                    getType.setExpression(tt);
+                    getType.setName(ast.newSimpleName("getType"));
+
+                    final VariableDeclarationFragment vdf = ast.newVariableDeclarationFragment();
+                    vdf.setName(ast.newSimpleName(m.getName() + "_returnTypeToken"));
+                    vdf.setInitializer(getType);
+                    final FieldDeclaration fd = ast.newFieldDeclaration(vdf);
+                    fd.setType(ast.newSimpleType(ast.newName("java.lang.reflect.Type")));
+                    make(fd, PRIVATE_KEYWORD, FINAL_KEYWORD, STATIC_KEYWORD);
+
+                    parentTypeDeclaration.bodyDeclarations().add(fd);
+                }
+
+                fromJson.arguments().add(ast.newSimpleName(m.getName() + "_returnTypeToken"));
+
+                // json fragment
+
+                final MethodInvocation fragment = ast.newMethodInvocation();
+                if (returns == 1) {
+                    fragment.setName(ast.newSimpleName("getFirstParameter"));
+                } else {
+                    fragment.setName(ast.newSimpleName("getParameters"));
+                }
+                fragment.setExpression(ast.newSimpleName("result"));
+
+                fromJson.arguments().add(fragment);
+
+                // return
 
                 final ReturnStatement transformRet = ast.newReturnStatement();
                 transformRet.setExpression(fromJson);
@@ -470,6 +577,10 @@ public class JdtGenerator implements Generator {
         newImpl.arguments().add(ast.newSimpleName("varlink"));
     }
 
+    private static final Stream<Error> errors(final Interface iface) {
+        return iface.getMembers().stream().filter(m -> m instanceof Error).map(m -> (Error) m);
+    }
+
     private static final Stream<Method> methods(final Interface iface) {
         return iface.getMembers().stream().filter(m -> m instanceof Method).map(m -> (Method) m);
     }
@@ -515,34 +626,36 @@ public class JdtGenerator implements Generator {
         final Map<String, Type> parameters = new LinkedHashMap<>();
         final Map<String, Type> returns = new LinkedHashMap<>();
 
-        final Object arguments = method.getArguments();
+        final Object arguments = method.getArguments().getArguments();
         if (arguments != null) {
             for (final Field field : arguments.getFields()) {
-                final Type type = asType(ast, field.getName(), field.getType());
+                final Type type = asType(ast, methodArgumentsParentName(method), field);
                 parameters.put(field.getName(), type);
             }
         }
 
-        final Object result = method.getResult();
+        final Object result = method.getResult().getResult();
         if (result != null) {
             for (final Field field : result.getFields()) {
-                final Type type = asType(ast, field.getName(), field.getType());
+                final Type type = asType(ast, methodResultParentName(method), field);
                 returns.put(field.getName(), type);
             }
         }
 
-        return new MethodInformation(iface, name, returns, parameters);
+        return new MethodInformation(iface, method, name, returns, parameters);
     }
 
     private static class MethodInformation {
+        private final Interface iface;
         private final String name;
+        private final Method method;
         private final Map<String, Type> returnTypes;
         private final Map<String, Type> parameters;
-        private final Interface iface;
 
-        public MethodInformation(final Interface iface, final String name, final Map<String, Type> returnTypes,
-                final Map<String, Type> parameters) {
+        public MethodInformation(final Interface iface, final Method method, final String name,
+                final Map<String, Type> returnTypes, final Map<String, Type> parameters) {
             this.iface = iface;
+            this.method = method;
             this.name = name;
             this.returnTypes = returnTypes;
             this.parameters = parameters;
@@ -565,17 +678,21 @@ public class JdtGenerator implements Generator {
         }
 
         public Type createMainReturnType(final AST ast) {
+
             if (this.returnTypes.isEmpty()) {
+
                 return ast.newPrimitiveType(PrimitiveType.VOID);
-            }
 
-            if (this.returnTypes.size() == 1) {
+            } else if (this.returnTypes.size() == 1) {
+
                 return JdtHelper.copyNode(ast, this.returnTypes.values().iterator().next());
+
+            } else {
+
+                return ast.newSimpleType(ast.newSimpleName(methodResultParentName(this.method)));
+
             }
 
-            // FIXME: create composite return type
-
-            throw new IllegalStateException("Multi returns currently unsupported");
         }
 
     }
@@ -613,6 +730,10 @@ public class JdtGenerator implements Generator {
         // create types
 
         createTypes(td, iface);
+
+        // create errors
+
+        createErrors(td, iface);
 
         /*
          *
@@ -742,28 +863,141 @@ public class JdtGenerator implements Generator {
 
     }
 
-    private void createTypes(final TypeDeclaration td, final Interface iface) {
-        types(iface).forEach(type -> {
+    private static String methodArgumentsParentName(final Method method) {
+        return method.getName() + "_In";
+    }
 
-            createType(td, type);
+    private static String methodResultParentName(final Method method) {
+        return method.getName() + "_Out";
+    }
+
+    private void createErrors(final TypeDeclaration td, final Interface iface) {
+
+        final AST ast = td.getAST();
+        errors(iface).forEach(error -> {
+
+            createError(td, ast, error);
 
         });
     }
 
     @SuppressWarnings("unchecked")
-    private void createType(final TypeDeclaration parent, final TypeAlias type) {
+    private void createError(final TypeDeclaration td, final AST ast, final Error error) {
+        final TypeDeclaration etd = ast.newTypeDeclaration();
+        td.bodyDeclarations().add(etd);
+
+        etd.setName(ast.newSimpleName(errorTypeName(error)));
+        make(etd, PUBLIC_KEYWORD, STATIC_KEYWORD);
+
+        etd.setSuperclassType(ast.newSimpleType(ast.newName("java.lang.RuntimeException")));
+
+        // insert serialVersionUID
+        {
+            createSerialId(ast, etd.bodyDeclarations());
+        }
+
+        createType(etd, "Parameters", error.getProperties());
+
+        // field
+
+        {
+            final VariableDeclarationFragment vdf = ast.newVariableDeclarationFragment();
+            vdf.setName(ast.newSimpleName("parameters"));
+            final FieldDeclaration fd = ast.newFieldDeclaration(vdf);
+            fd.setType(ast.newSimpleType(ast.newSimpleName("Parameters")));
+            make(fd, PRIVATE_KEYWORD, FINAL_KEYWORD);
+            etd.bodyDeclarations().add(fd);
+        }
+
+        // constructor
+
+        {
+            final MethodDeclaration ctor = ast.newMethodDeclaration();
+            ctor.setConstructor(true);
+            ctor.setName(ast.newSimpleName(errorTypeName(error)));
+            make(ctor, PUBLIC_KEYWORD);
+            etd.bodyDeclarations().add(ctor);
+            createParameter(ctor, "Parameters", "parameters", FINAL_KEYWORD);
+
+            final Block body = ast.newBlock();
+            ctor.setBody(body);
+
+            JdtHelper.createThisAssignment(body, "parameters");
+        }
+
+        // getter
+
+        {
+            final MethodDeclaration getter = createGetter(ast, ast.newSimpleType(ast.newSimpleName("Parameters")),
+                    "parameters");
+            etd.bodyDeclarations().add(getter);
+        }
+    }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    private static void createSerialId(final AST ast, final List body) {
+        // private static final long serialVersionUID = 1L;
+
+        final VariableDeclarationFragment vdf = ast.newVariableDeclarationFragment();
+        vdf.setInitializer(ast.newNumberLiteral("1L"));
+        vdf.setName(ast.newSimpleName("serialVersionUID"));
+        final FieldDeclaration fd = ast.newFieldDeclaration(vdf);
+        fd.setType(ast.newPrimitiveType(PrimitiveType.LONG));
+        make(fd, PRIVATE_KEYWORD, STATIC_KEYWORD, FINAL_KEYWORD);
+
+        body.add(fd);
+    }
+
+    private void createTypes(final TypeDeclaration td, final Interface iface) {
+
+        types(iface).forEach(type -> {
+            createType(td, type.getName(), type.getDefinition());
+        });
+
+        methods(iface).forEach(method -> {
+
+            for (final Field field : method.getArguments().getArguments().getFields()) {
+                methodCreateTopLevelType(td, methodArgumentsParentName(method) + "_" + field.getName(),
+                        field.getType());
+            }
+
+            if (method.getResult().getResult().getFields().size() <= 1) {
+                for (final Field field : method.getResult().getResult().getFields()) {
+                    methodCreateTopLevelType(td, methodResultParentName(method) + "_" + field.getName(),
+                            field.getType());
+                }
+            } else {
+                createType(td, methodResultParentName(method), method.getResult().getResult());
+            }
+
+        });
+    }
+
+    private void methodCreateTopLevelType(final TypeDeclaration td, final String parentName, final ElementType type) {
+        if (type instanceof Object || type instanceof de.dentrassi.varlink.idl.varlinkIdl.Enum) {
+            createType(td, parentName, (Object) type);
+        } else if (type instanceof Array) {
+            methodCreateTopLevelType(td, parentName, ((Array) type).getType());
+        } else if (type instanceof Dictionary) {
+            methodCreateTopLevelType(td, parentName, ((Dictionary) type).getType());
+        } else if (type instanceof Optional) {
+            methodCreateTopLevelType(td, parentName, ((Optional) type).getType());
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void createType(final TypeDeclaration parent, final String parentName, final TypeAliasDefinition type) {
         final AST ast = parent.getAST();
 
-        if (type.getDefinition() instanceof de.dentrassi.varlink.idl.varlinkIdl.Object) {
+        if (type instanceof de.dentrassi.varlink.idl.varlinkIdl.Object) {
 
             final TypeDeclaration td = ast.newTypeDeclaration();
             parent.bodyDeclarations().add(td);
 
-            td.setName(ast.newSimpleName(toUpperFirst(type.getName())));
+            td.setName(ast.newSimpleName(toUpperFirst(parentName)));
             make(td, PUBLIC_KEYWORD, STATIC_KEYWORD);
 
-            final de.dentrassi.varlink.idl.varlinkIdl.Object o = (de.dentrassi.varlink.idl.varlinkIdl.Object) type
-                    .getDefinition();
+            final de.dentrassi.varlink.idl.varlinkIdl.Object o = (de.dentrassi.varlink.idl.varlinkIdl.Object) type;
 
             for (final Field field : o.getFields()) {
 
@@ -777,13 +1011,18 @@ public class JdtGenerator implements Generator {
                     createEnum(td, toUpperFirst(name), en.getFields());
                 }
 
+                // created nested type
+                if (field.getType() instanceof Object) {
+                    createType(td, field.getName(), (Object) field.getType());
+                }
+
                 // create field
 
                 {
                     final VariableDeclarationFragment vdf = ast.newVariableDeclarationFragment();
                     vdf.setName(ast.newSimpleName(name));
                     final FieldDeclaration fd = ast.newFieldDeclaration(vdf);
-                    fd.setType(asType(ast, name, field.getType()));
+                    fd.setType(asType(ast, null, field));
                     make(fd, PRIVATE_KEYWORD);
 
                     td.bodyDeclarations().add(fd);
@@ -792,24 +1031,8 @@ public class JdtGenerator implements Generator {
                 // create getter
 
                 {
-                    final MethodDeclaration md = ast.newMethodDeclaration();
-                    md.setName(ast.newSimpleName("get" + toUpperFirst(name)));
+                    final MethodDeclaration md = createGetter(ast, asType(ast, null, field), name);
                     td.bodyDeclarations().add(md);
-                    make(md, PUBLIC_KEYWORD);
-
-                    md.setReturnType2(asType(ast, name, field.getType()));
-
-                    final Block body = ast.newBlock();
-                    md.setBody(body);
-
-                    final ReturnStatement ret = ast.newReturnStatement();
-                    body.statements().add(ret);
-
-                    final FieldAccess fa = ast.newFieldAccess();
-                    fa.setExpression(ast.newThisExpression());
-                    fa.setName(ast.newSimpleName(name));
-                    ret.setExpression(fa);
-
                 }
 
                 // create setter
@@ -822,7 +1045,7 @@ public class JdtGenerator implements Generator {
 
                     final SingleVariableDeclaration svd = ast.newSingleVariableDeclaration();
                     svd.setName(ast.newSimpleName(name));
-                    svd.setType(asType(ast, name, field.getType()));
+                    svd.setType(asType(ast, null, field));
 
                     md.parameters().add(svd);
 
@@ -843,7 +1066,7 @@ public class JdtGenerator implements Generator {
 
             }
 
-        } else if (type.getDefinition() instanceof de.dentrassi.varlink.idl.varlinkIdl.Enum) {
+        } else if (type instanceof de.dentrassi.varlink.idl.varlinkIdl.Enum) {
 
             // FIXME: create enums
         }
@@ -865,38 +1088,85 @@ public class JdtGenerator implements Generator {
         }
     }
 
-    private static Type asType(final AST ast, final String propertyName, final ElementType type) {
-        final Type main = asMainType(ast, propertyName, type);
-        if (type.isMulti()) {
-            return ast.newArrayType(main);
+    private static Type asType(final AST ast, String parentName, final Field field) {
+
+        if (parentName != null) {
+            parentName = parentName + "_" + field.getName();
         } else {
-            return main;
+            parentName = field.getName();
         }
+
+        return asType(ast, parentName, field.getType());
     }
 
-    private static Type asMainType(final AST ast, final String propertyName, final ElementType type) {
+    @SuppressWarnings("unchecked")
+    private static Type asType(final AST ast, final String parentName, final ElementType type) {
 
         if (type instanceof BasicType) {
-            switch (((BasicType) type).getType().toLowerCase()) {
-            case "float":
-                return ast.newSimpleType(ast.newName("java.lang.Double"));
-            case "int":
-                return ast.newSimpleType(ast.newName("java.lang.Long"));
-            case "bool":
-                return ast.newSimpleType(ast.newName("java.lang.Boolean"));
-            case "string":
-                return ast.newSimpleType(ast.newName("java.lang.String"));
-            default:
-                throw new IllegalArgumentException("Unknown basic type: " + ((BasicType) type).getType().toLowerCase());
-            }
-        } else if (type instanceof de.dentrassi.varlink.idl.varlinkIdl.Enum) {
-            return ast.newSimpleType(
-                    ast.newSimpleName(toUpperFirst(propertyName)));
-        } else if (type instanceof TypeReference) {
-            return ast.newSimpleType(ast.newSimpleName(toUpperFirst(((TypeReference) type).getName())));
-        }
 
-        throw new IllegalArgumentException("Unknown type: " + type.eClass().getName());
+            return fromBasicType(ast, type);
+
+        } else if (type instanceof Array) {
+
+            final Type baseType = asType(ast, parentName, ((Array) type).getType());
+
+            final ParameterizedType result = ast
+                    .newParameterizedType(ast.newSimpleType(ast.newName("java.util.List")));
+
+            result.typeArguments().add(baseType);
+
+            return result;
+
+        } else if (type instanceof Optional) {
+
+            final Type baseType = asType(ast, parentName, ((Optional) type).getType());
+            final ParameterizedType result = ast
+                    .newParameterizedType(ast.newSimpleType(ast.newName("java.util.Optional")));
+
+            result.typeArguments().add(baseType);
+
+            return result;
+
+        } else if (type instanceof Dictionary) {
+
+            final Type baseType = asType(ast, parentName, ((Dictionary) type).getType());
+            final ParameterizedType result = ast
+                    .newParameterizedType(ast.newSimpleType(ast.newName("java.util.Map")));
+
+            result.typeArguments().add(ast.newSimpleType(ast.newName("java.lang.String")));
+            result.typeArguments().add(baseType);
+
+            return result;
+
+        } else if (type instanceof de.dentrassi.varlink.idl.varlinkIdl.Enum || type instanceof Object) {
+
+            // anonymous enum or object
+
+            return ast.newSimpleType(
+                    ast.newSimpleName(toUpperFirst(parentName)));
+
+        } else if (type instanceof TypeReference) {
+
+            final String name = ((TypeReference) type).getName().getName();
+            return ast.newSimpleType(ast.newSimpleName(toUpperFirst(name)));
+
+        }
+        throw new IllegalArgumentException("Unsupported type: " + type.eClass().getName());
+    }
+
+    private static Type fromBasicType(final AST ast, final ElementType type) {
+        switch (((BasicType) type).getType().toLowerCase()) {
+        case "float":
+            return ast.newSimpleType(ast.newName("java.lang.Double"));
+        case "int":
+            return ast.newSimpleType(ast.newName("java.lang.Long"));
+        case "bool":
+            return ast.newSimpleType(ast.newName("java.lang.Boolean"));
+        case "string":
+            return ast.newSimpleType(ast.newName("java.lang.String"));
+        default:
+            throw new IllegalArgumentException("Unknown basic type: " + ((BasicType) type).getType().toLowerCase());
+        }
     }
 
     @SuppressWarnings("unchecked")

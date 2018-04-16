@@ -1,8 +1,9 @@
 # ToDo list
 
-* [ ] Composite return types
-* [X] Arrays
-* [ ] Typed Exceptions/Error types
+* [X] Composite return types
+* [X] Arrays, Optionals, Dictionaries
+* [X] Nested types
+* [X] Typed Exceptions/Error types
 * [ ] Monitor
 * [ ] Java-friendly naming
 * [ ] Find a better way to generate Java code

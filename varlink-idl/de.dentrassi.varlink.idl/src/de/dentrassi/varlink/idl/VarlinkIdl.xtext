@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2017, 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -38,7 +38,6 @@ Enum:
 	"("
 	fields+=ValidID
 	("," fields+=ValidID)*
-
 	 ")"
 ;
 
@@ -54,20 +53,40 @@ Field:
 ;
 
 ElementType:
-	( BasicType | TypeReference | Enum ) ( multi?="[]" )? 
+	( BasicType | TypeReference | Enum | Object | Array | Dictionary | Optional )
+;
+
+Array:
+	"[]" type=ElementType
+;
+
+Dictionary:
+	"[string]" type=ElementType
+;
+
+Optional:
+	"?" type=ElementType
 ;
 
 TypeReference:
-	name=ValidID
+	name=[TypeAlias]
 ;
 
 BasicType:
-	type = ( "bool" | "int" | "float" | "string" |"data" | "object") 
+	type = ( "bool" | "int" | "float" | "string") 
 ;
 
 Method:
-	'method' name=ID arguments=Object "->" result=Object
+	'method' name=ID arguments=Arguments "->" result=Result
 	;
+
+Arguments:
+	arguments=Object
+;
+
+Result:
+	result=Object
+;
 
 Error:
 	'error' name=ID properties=Object
@@ -81,9 +100,9 @@ InterfaceName:
 
 ValidID: ID | KEYWORD;
 
-KEYWORD: 'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' |'float' | 'string' | 'data' | 'object';
+KEYWORD: 'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'int' |'float' | 'string';
 
-terminal ID  		: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal ID			: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 terminal SL_COMMENT	: '#' !('\n'|'\r')* ('\r'? '\n')?;
 

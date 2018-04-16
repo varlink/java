@@ -1,6 +1,6 @@
 /**
  * ******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,12 +12,17 @@
  */
 package de.dentrassi.varlink.idl.varlinkIdl.util;
 
+import de.dentrassi.varlink.idl.varlinkIdl.Arguments;
+import de.dentrassi.varlink.idl.varlinkIdl.Array;
 import de.dentrassi.varlink.idl.varlinkIdl.BasicType;
+import de.dentrassi.varlink.idl.varlinkIdl.Dictionary;
 import de.dentrassi.varlink.idl.varlinkIdl.ElementType;
 import de.dentrassi.varlink.idl.varlinkIdl.Field;
 import de.dentrassi.varlink.idl.varlinkIdl.Interface;
 import de.dentrassi.varlink.idl.varlinkIdl.Member;
 import de.dentrassi.varlink.idl.varlinkIdl.Method;
+import de.dentrassi.varlink.idl.varlinkIdl.Optional;
+import de.dentrassi.varlink.idl.varlinkIdl.Result;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeAlias;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeAliasDefinition;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeReference;
@@ -134,6 +139,21 @@ public class VarlinkIdlAdapterFactory extends AdapterFactoryImpl
         return createElementTypeAdapter();
       }
       @Override
+      public Adapter caseArray(Array object)
+      {
+        return createArrayAdapter();
+      }
+      @Override
+      public Adapter caseDictionary(Dictionary object)
+      {
+        return createDictionaryAdapter();
+      }
+      @Override
+      public Adapter caseOptional(Optional object)
+      {
+        return createOptionalAdapter();
+      }
+      @Override
       public Adapter caseTypeReference(TypeReference object)
       {
         return createTypeReferenceAdapter();
@@ -147,6 +167,16 @@ public class VarlinkIdlAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMethod(Method object)
       {
         return createMethodAdapter();
+      }
+      @Override
+      public Adapter caseArguments(Arguments object)
+      {
+        return createArgumentsAdapter();
+      }
+      @Override
+      public Adapter caseResult(Result object)
+      {
+        return createResultAdapter();
       }
       @Override
       public Adapter caseError(de.dentrassi.varlink.idl.varlinkIdl.Error object)
@@ -296,6 +326,51 @@ public class VarlinkIdlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link de.dentrassi.varlink.idl.varlinkIdl.Array <em>Array</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Array
+   * @generated
+   */
+  public Adapter createArrayAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.dentrassi.varlink.idl.varlinkIdl.Dictionary <em>Dictionary</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Dictionary
+   * @generated
+   */
+  public Adapter createDictionaryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.dentrassi.varlink.idl.varlinkIdl.Optional <em>Optional</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Optional
+   * @generated
+   */
+  public Adapter createOptionalAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link de.dentrassi.varlink.idl.varlinkIdl.TypeReference <em>Type Reference</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -336,6 +411,36 @@ public class VarlinkIdlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.dentrassi.varlink.idl.varlinkIdl.Arguments <em>Arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Arguments
+   * @generated
+   */
+  public Adapter createArgumentsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.dentrassi.varlink.idl.varlinkIdl.Result <em>Result</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.dentrassi.varlink.idl.varlinkIdl.Result
+   * @generated
+   */
+  public Adapter createResultAdapter()
   {
     return null;
   }

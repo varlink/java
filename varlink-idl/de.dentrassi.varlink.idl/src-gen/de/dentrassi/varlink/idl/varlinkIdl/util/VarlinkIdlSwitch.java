@@ -1,6 +1,6 @@
 /**
  * ******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,12 +12,17 @@
  */
 package de.dentrassi.varlink.idl.varlinkIdl.util;
 
+import de.dentrassi.varlink.idl.varlinkIdl.Arguments;
+import de.dentrassi.varlink.idl.varlinkIdl.Array;
 import de.dentrassi.varlink.idl.varlinkIdl.BasicType;
+import de.dentrassi.varlink.idl.varlinkIdl.Dictionary;
 import de.dentrassi.varlink.idl.varlinkIdl.ElementType;
 import de.dentrassi.varlink.idl.varlinkIdl.Field;
 import de.dentrassi.varlink.idl.varlinkIdl.Interface;
 import de.dentrassi.varlink.idl.varlinkIdl.Member;
 import de.dentrassi.varlink.idl.varlinkIdl.Method;
+import de.dentrassi.varlink.idl.varlinkIdl.Optional;
+import de.dentrassi.varlink.idl.varlinkIdl.Result;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeAlias;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeAliasDefinition;
 import de.dentrassi.varlink.idl.varlinkIdl.TypeReference;
@@ -134,6 +139,7 @@ public class VarlinkIdlSwitch<T> extends Switch<T>
         de.dentrassi.varlink.idl.varlinkIdl.Object object = (de.dentrassi.varlink.idl.varlinkIdl.Object)theEObject;
         T result = caseObject(object);
         if (result == null) result = caseTypeAliasDefinition(object);
+        if (result == null) result = caseElementType(object);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -148,6 +154,30 @@ public class VarlinkIdlSwitch<T> extends Switch<T>
       {
         ElementType elementType = (ElementType)theEObject;
         T result = caseElementType(elementType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case VarlinkIdlPackage.ARRAY:
+      {
+        Array array = (Array)theEObject;
+        T result = caseArray(array);
+        if (result == null) result = caseElementType(array);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case VarlinkIdlPackage.DICTIONARY:
+      {
+        Dictionary dictionary = (Dictionary)theEObject;
+        T result = caseDictionary(dictionary);
+        if (result == null) result = caseElementType(dictionary);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case VarlinkIdlPackage.OPTIONAL:
+      {
+        Optional optional = (Optional)theEObject;
+        T result = caseOptional(optional);
+        if (result == null) result = caseElementType(optional);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -174,6 +204,20 @@ public class VarlinkIdlSwitch<T> extends Switch<T>
         if (result == null) result = caseMember(method);
         if (result == null) result = defaultCase(theEObject);
         return result;
+      }
+      case VarlinkIdlPackage.ARGUMENTS:
+      {
+        Arguments arguments = (Arguments)theEObject;
+        T result = caseArguments(arguments);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case VarlinkIdlPackage.RESULT:
+      {
+        Result result = (Result)theEObject;
+        T theResult = caseResult(result);
+        if (theResult == null) theResult = defaultCase(theEObject);
+        return theResult;
       }
       case VarlinkIdlPackage.ERROR:
       {
@@ -316,6 +360,54 @@ public class VarlinkIdlSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Array</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArray(Array object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Dictionary</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Dictionary</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDictionary(Dictionary object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Optional</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Optional</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOptional(Optional object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Type Reference</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -359,6 +451,38 @@ public class VarlinkIdlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMethod(Method object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Arguments</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Arguments</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArguments(Arguments object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Result</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Result</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseResult(Result object)
   {
     return null;
   }

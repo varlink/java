@@ -18,6 +18,7 @@ import org.eclipse.xtext.ide.editor.syntaxcoloring.IHighlightedPositionAcceptor
 import org.eclipse.xtext.util.CancelIndicator
 import de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage
 import de.dentrassi.varlink.idl.varlinkIdl.Field
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 
 class VarlinkIdlSemanticHighlightingCalculator extends DefaultSemanticHighlightingCalculator {
 
@@ -25,14 +26,21 @@ class VarlinkIdlSemanticHighlightingCalculator extends DefaultSemanticHighlighti
 		CancelIndicator cancelIndicator) {
 
 		switch (object) {
+			de.dentrassi.varlink.idl.varlinkIdl.Enum: {
+				// Disable keyword highlighting for enum literals
+				for (child : NodeModelUtils.findNodesForFeature(object, VarlinkIdlPackage.eINSTANCE.enum_Fields)) {
+					highlightNode(acceptor, child, HighlightingStyles.DEFAULT_ID);
+				}
+				return true
+			}
 			Field: {
 				// Disable keyword highlighting for field names
 				highlightFeature(acceptor, object, VarlinkIdlPackage.eINSTANCE.field_Name,
 					HighlightingStyles.DEFAULT_ID)
-				return true
+				return false
 			}
 			default:
 				false
 		}
-	}
+	} 
 }

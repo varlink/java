@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 /*******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -32,7 +32,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'interface'", "'type'", "'('", "','", "')'", "':'", "'[]'", "'bool'", "'int'", "'float'", "'string'", "'data'", "'object'", "'method'", "'->'", "'error'", "'.'", "'enum'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'interface'", "'type'", "'('", "','", "')'", "':'", "'[]'", "'[string]'", "'?'", "'bool'", "'int'", "'float'", "'string'", "'method'", "'->'", "'error'", "'.'", "'enum'"
     };
     public static final int RULE_SL_COMMENT=5;
     public static final int T__19=19;
@@ -1027,7 +1027,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==RULE_ID||(LA5_0>=8 && LA5_0<=9)||LA5_0==15||(LA5_0>=17 && LA5_0<=21)||LA5_0==23||LA5_0==25) ) {
+            if ( (LA5_0==RULE_ID||(LA5_0>=8 && LA5_0<=9)||(LA5_0>=17 && LA5_0<=21)||LA5_0==23||LA5_0==25) ) {
                 alt5=1;
             }
             switch (alt5) {
@@ -1366,187 +1366,190 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleElementType"
-    // InternalVarlinkIdl.g:491:1: ruleElementType returns [EObject current=null] : ( (this_BasicType_0= ruleBasicType | this_TypeReference_1= ruleTypeReference | this_Enum_2= ruleEnum ) ( (lv_multi_3_0= '[]' ) )? ) ;
+    // InternalVarlinkIdl.g:491:1: ruleElementType returns [EObject current=null] : (this_BasicType_0= ruleBasicType | this_TypeReference_1= ruleTypeReference | this_Enum_2= ruleEnum | this_Object_3= ruleObject | this_Array_4= ruleArray | this_Dictionary_5= ruleDictionary | this_Optional_6= ruleOptional ) ;
     public final EObject ruleElementType() throws RecognitionException {
         EObject current = null;
 
-        Token lv_multi_3_0=null;
         EObject this_BasicType_0 = null;
 
         EObject this_TypeReference_1 = null;
 
         EObject this_Enum_2 = null;
 
+        EObject this_Object_3 = null;
+
+        EObject this_Array_4 = null;
+
+        EObject this_Dictionary_5 = null;
+
+        EObject this_Optional_6 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:497:2: ( ( (this_BasicType_0= ruleBasicType | this_TypeReference_1= ruleTypeReference | this_Enum_2= ruleEnum ) ( (lv_multi_3_0= '[]' ) )? ) )
-            // InternalVarlinkIdl.g:498:2: ( (this_BasicType_0= ruleBasicType | this_TypeReference_1= ruleTypeReference | this_Enum_2= ruleEnum ) ( (lv_multi_3_0= '[]' ) )? )
+            // InternalVarlinkIdl.g:497:2: ( (this_BasicType_0= ruleBasicType | this_TypeReference_1= ruleTypeReference | this_Enum_2= ruleEnum | this_Object_3= ruleObject | this_Array_4= ruleArray | this_Dictionary_5= ruleDictionary | this_Optional_6= ruleOptional ) )
+            // InternalVarlinkIdl.g:498:2: (this_BasicType_0= ruleBasicType | this_TypeReference_1= ruleTypeReference | this_Enum_2= ruleEnum | this_Object_3= ruleObject | this_Array_4= ruleArray | this_Dictionary_5= ruleDictionary | this_Optional_6= ruleOptional )
             {
-            // InternalVarlinkIdl.g:498:2: ( (this_BasicType_0= ruleBasicType | this_TypeReference_1= ruleTypeReference | this_Enum_2= ruleEnum ) ( (lv_multi_3_0= '[]' ) )? )
-            // InternalVarlinkIdl.g:499:3: (this_BasicType_0= ruleBasicType | this_TypeReference_1= ruleTypeReference | this_Enum_2= ruleEnum ) ( (lv_multi_3_0= '[]' ) )?
-            {
-            // InternalVarlinkIdl.g:499:3: (this_BasicType_0= ruleBasicType | this_TypeReference_1= ruleTypeReference | this_Enum_2= ruleEnum )
-            int alt7=3;
-            switch ( input.LA(1) ) {
-            case 15:
-            case 16:
-                {
-                alt7=1;
-                }
-                break;
-            case 17:
-                {
-                alt7=1;
-                }
-                break;
-            case 18:
-                {
-                alt7=1;
-                }
-                break;
-            case 19:
-                {
-                alt7=1;
-                }
-                break;
-            case 20:
-                {
-                alt7=1;
-                }
-                break;
-            case RULE_ID:
-            case 8:
-            case 9:
-            case 21:
-            case 23:
-            case 25:
-                {
-                alt7=2;
-                }
-                break;
-            case 10:
-                {
-                alt7=3;
-                }
-                break;
-            default:
-                if (state.backtracking>0) {state.failed=true; return current;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
-
-                throw nvae;
-            }
-
+            // InternalVarlinkIdl.g:498:2: (this_BasicType_0= ruleBasicType | this_TypeReference_1= ruleTypeReference | this_Enum_2= ruleEnum | this_Object_3= ruleObject | this_Array_4= ruleArray | this_Dictionary_5= ruleDictionary | this_Optional_6= ruleOptional )
+            int alt7=7;
+            alt7 = dfa7.predict(input);
             switch (alt7) {
                 case 1 :
-                    // InternalVarlinkIdl.g:500:4: this_BasicType_0= ruleBasicType
+                    // InternalVarlinkIdl.g:499:3: this_BasicType_0= ruleBasicType
                     {
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getElementTypeAccess().getBasicTypeParserRuleCall_0_0());
-                      			
+                      			newCompositeNode(grammarAccess.getElementTypeAccess().getBasicTypeParserRuleCall_0());
+                      		
                     }
-                    pushFollow(FOLLOW_11);
+                    pushFollow(FOLLOW_2);
                     this_BasicType_0=ruleBasicType();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = this_BasicType_0;
-                      				afterParserOrEnumRuleCall();
-                      			
+                      			current = this_BasicType_0;
+                      			afterParserOrEnumRuleCall();
+                      		
                     }
 
                     }
                     break;
                 case 2 :
-                    // InternalVarlinkIdl.g:509:4: this_TypeReference_1= ruleTypeReference
+                    // InternalVarlinkIdl.g:508:3: this_TypeReference_1= ruleTypeReference
                     {
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getElementTypeAccess().getTypeReferenceParserRuleCall_0_1());
-                      			
+                      			newCompositeNode(grammarAccess.getElementTypeAccess().getTypeReferenceParserRuleCall_1());
+                      		
                     }
-                    pushFollow(FOLLOW_11);
+                    pushFollow(FOLLOW_2);
                     this_TypeReference_1=ruleTypeReference();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = this_TypeReference_1;
-                      				afterParserOrEnumRuleCall();
-                      			
+                      			current = this_TypeReference_1;
+                      			afterParserOrEnumRuleCall();
+                      		
                     }
 
                     }
                     break;
                 case 3 :
-                    // InternalVarlinkIdl.g:518:4: this_Enum_2= ruleEnum
+                    // InternalVarlinkIdl.g:517:3: this_Enum_2= ruleEnum
                     {
                     if ( state.backtracking==0 ) {
 
-                      				newCompositeNode(grammarAccess.getElementTypeAccess().getEnumParserRuleCall_0_2());
-                      			
+                      			newCompositeNode(grammarAccess.getElementTypeAccess().getEnumParserRuleCall_2());
+                      		
                     }
-                    pushFollow(FOLLOW_11);
+                    pushFollow(FOLLOW_2);
                     this_Enum_2=ruleEnum();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      				current = this_Enum_2;
-                      				afterParserOrEnumRuleCall();
-                      			
+                      			current = this_Enum_2;
+                      			afterParserOrEnumRuleCall();
+                      		
                     }
 
                     }
                     break;
-
-            }
-
-            // InternalVarlinkIdl.g:527:3: ( (lv_multi_3_0= '[]' ) )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
-
-            if ( (LA8_0==14) ) {
-                alt8=1;
-            }
-            switch (alt8) {
-                case 1 :
-                    // InternalVarlinkIdl.g:528:4: (lv_multi_3_0= '[]' )
+                case 4 :
+                    // InternalVarlinkIdl.g:526:3: this_Object_3= ruleObject
                     {
-                    // InternalVarlinkIdl.g:528:4: (lv_multi_3_0= '[]' )
-                    // InternalVarlinkIdl.g:529:5: lv_multi_3_0= '[]'
-                    {
-                    lv_multi_3_0=(Token)match(input,14,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_multi_3_0, grammarAccess.getElementTypeAccess().getMultiLeftSquareBracketRightSquareBracketKeyword_1_0());
-                      				
+                      			newCompositeNode(grammarAccess.getElementTypeAccess().getObjectParserRuleCall_3());
+                      		
                     }
+                    pushFollow(FOLLOW_2);
+                    this_Object_3=ruleObject();
+
+                    state._fsp--;
+                    if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					if (current==null) {
-                      						current = createModelElement(grammarAccess.getElementTypeRule());
-                      					}
-                      					setWithLastConsumed(current, "multi", true, "[]");
-                      				
+                      			current = this_Object_3;
+                      			afterParserOrEnumRuleCall();
+                      		
                     }
-
-                    }
-
 
                     }
                     break;
+                case 5 :
+                    // InternalVarlinkIdl.g:535:3: this_Array_4= ruleArray
+                    {
+                    if ( state.backtracking==0 ) {
 
-            }
+                      			newCompositeNode(grammarAccess.getElementTypeAccess().getArrayParserRuleCall_4());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_Array_4=ruleArray();
 
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current = this_Array_4;
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+                case 6 :
+                    // InternalVarlinkIdl.g:544:3: this_Dictionary_5= ruleDictionary
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      			newCompositeNode(grammarAccess.getElementTypeAccess().getDictionaryParserRuleCall_5());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_Dictionary_5=ruleDictionary();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current = this_Dictionary_5;
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+                case 7 :
+                    // InternalVarlinkIdl.g:553:3: this_Optional_6= ruleOptional
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      			newCompositeNode(grammarAccess.getElementTypeAccess().getOptionalParserRuleCall_6());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_Optional_6=ruleOptional();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current = this_Optional_6;
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
 
             }
 
@@ -1571,8 +1574,380 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleElementType"
 
 
+    // $ANTLR start "entryRuleArray"
+    // InternalVarlinkIdl.g:565:1: entryRuleArray returns [EObject current=null] : iv_ruleArray= ruleArray EOF ;
+    public final EObject entryRuleArray() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleArray = null;
+
+
+        try {
+            // InternalVarlinkIdl.g:565:46: (iv_ruleArray= ruleArray EOF )
+            // InternalVarlinkIdl.g:566:2: iv_ruleArray= ruleArray EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getArrayRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleArray=ruleArray();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleArray; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleArray"
+
+
+    // $ANTLR start "ruleArray"
+    // InternalVarlinkIdl.g:572:1: ruleArray returns [EObject current=null] : (otherlv_0= '[]' ( (lv_type_1_0= ruleElementType ) ) ) ;
+    public final EObject ruleArray() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        EObject lv_type_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalVarlinkIdl.g:578:2: ( (otherlv_0= '[]' ( (lv_type_1_0= ruleElementType ) ) ) )
+            // InternalVarlinkIdl.g:579:2: (otherlv_0= '[]' ( (lv_type_1_0= ruleElementType ) ) )
+            {
+            // InternalVarlinkIdl.g:579:2: (otherlv_0= '[]' ( (lv_type_1_0= ruleElementType ) ) )
+            // InternalVarlinkIdl.g:580:3: otherlv_0= '[]' ( (lv_type_1_0= ruleElementType ) )
+            {
+            otherlv_0=(Token)match(input,14,FOLLOW_10); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(otherlv_0, grammarAccess.getArrayAccess().getLeftSquareBracketRightSquareBracketKeyword_0());
+              		
+            }
+            // InternalVarlinkIdl.g:584:3: ( (lv_type_1_0= ruleElementType ) )
+            // InternalVarlinkIdl.g:585:4: (lv_type_1_0= ruleElementType )
+            {
+            // InternalVarlinkIdl.g:585:4: (lv_type_1_0= ruleElementType )
+            // InternalVarlinkIdl.g:586:5: lv_type_1_0= ruleElementType
+            {
+            if ( state.backtracking==0 ) {
+
+              					newCompositeNode(grammarAccess.getArrayAccess().getTypeElementTypeParserRuleCall_1_0());
+              				
+            }
+            pushFollow(FOLLOW_2);
+            lv_type_1_0=ruleElementType();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElementForParent(grammarAccess.getArrayRule());
+              					}
+              					set(
+              						current,
+              						"type",
+              						lv_type_1_0,
+              						"de.dentrassi.varlink.idl.VarlinkIdl.ElementType");
+              					afterParserOrEnumRuleCall();
+              				
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleArray"
+
+
+    // $ANTLR start "entryRuleDictionary"
+    // InternalVarlinkIdl.g:607:1: entryRuleDictionary returns [EObject current=null] : iv_ruleDictionary= ruleDictionary EOF ;
+    public final EObject entryRuleDictionary() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleDictionary = null;
+
+
+        try {
+            // InternalVarlinkIdl.g:607:51: (iv_ruleDictionary= ruleDictionary EOF )
+            // InternalVarlinkIdl.g:608:2: iv_ruleDictionary= ruleDictionary EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getDictionaryRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleDictionary=ruleDictionary();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleDictionary; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleDictionary"
+
+
+    // $ANTLR start "ruleDictionary"
+    // InternalVarlinkIdl.g:614:1: ruleDictionary returns [EObject current=null] : (otherlv_0= '[string]' ( (lv_type_1_0= ruleElementType ) ) ) ;
+    public final EObject ruleDictionary() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        EObject lv_type_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalVarlinkIdl.g:620:2: ( (otherlv_0= '[string]' ( (lv_type_1_0= ruleElementType ) ) ) )
+            // InternalVarlinkIdl.g:621:2: (otherlv_0= '[string]' ( (lv_type_1_0= ruleElementType ) ) )
+            {
+            // InternalVarlinkIdl.g:621:2: (otherlv_0= '[string]' ( (lv_type_1_0= ruleElementType ) ) )
+            // InternalVarlinkIdl.g:622:3: otherlv_0= '[string]' ( (lv_type_1_0= ruleElementType ) )
+            {
+            otherlv_0=(Token)match(input,15,FOLLOW_10); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(otherlv_0, grammarAccess.getDictionaryAccess().getStringKeyword_0());
+              		
+            }
+            // InternalVarlinkIdl.g:626:3: ( (lv_type_1_0= ruleElementType ) )
+            // InternalVarlinkIdl.g:627:4: (lv_type_1_0= ruleElementType )
+            {
+            // InternalVarlinkIdl.g:627:4: (lv_type_1_0= ruleElementType )
+            // InternalVarlinkIdl.g:628:5: lv_type_1_0= ruleElementType
+            {
+            if ( state.backtracking==0 ) {
+
+              					newCompositeNode(grammarAccess.getDictionaryAccess().getTypeElementTypeParserRuleCall_1_0());
+              				
+            }
+            pushFollow(FOLLOW_2);
+            lv_type_1_0=ruleElementType();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElementForParent(grammarAccess.getDictionaryRule());
+              					}
+              					set(
+              						current,
+              						"type",
+              						lv_type_1_0,
+              						"de.dentrassi.varlink.idl.VarlinkIdl.ElementType");
+              					afterParserOrEnumRuleCall();
+              				
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDictionary"
+
+
+    // $ANTLR start "entryRuleOptional"
+    // InternalVarlinkIdl.g:649:1: entryRuleOptional returns [EObject current=null] : iv_ruleOptional= ruleOptional EOF ;
+    public final EObject entryRuleOptional() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleOptional = null;
+
+
+        try {
+            // InternalVarlinkIdl.g:649:49: (iv_ruleOptional= ruleOptional EOF )
+            // InternalVarlinkIdl.g:650:2: iv_ruleOptional= ruleOptional EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getOptionalRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleOptional=ruleOptional();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleOptional; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleOptional"
+
+
+    // $ANTLR start "ruleOptional"
+    // InternalVarlinkIdl.g:656:1: ruleOptional returns [EObject current=null] : (otherlv_0= '?' ( (lv_type_1_0= ruleElementType ) ) ) ;
+    public final EObject ruleOptional() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        EObject lv_type_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalVarlinkIdl.g:662:2: ( (otherlv_0= '?' ( (lv_type_1_0= ruleElementType ) ) ) )
+            // InternalVarlinkIdl.g:663:2: (otherlv_0= '?' ( (lv_type_1_0= ruleElementType ) ) )
+            {
+            // InternalVarlinkIdl.g:663:2: (otherlv_0= '?' ( (lv_type_1_0= ruleElementType ) ) )
+            // InternalVarlinkIdl.g:664:3: otherlv_0= '?' ( (lv_type_1_0= ruleElementType ) )
+            {
+            otherlv_0=(Token)match(input,16,FOLLOW_10); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(otherlv_0, grammarAccess.getOptionalAccess().getQuestionMarkKeyword_0());
+              		
+            }
+            // InternalVarlinkIdl.g:668:3: ( (lv_type_1_0= ruleElementType ) )
+            // InternalVarlinkIdl.g:669:4: (lv_type_1_0= ruleElementType )
+            {
+            // InternalVarlinkIdl.g:669:4: (lv_type_1_0= ruleElementType )
+            // InternalVarlinkIdl.g:670:5: lv_type_1_0= ruleElementType
+            {
+            if ( state.backtracking==0 ) {
+
+              					newCompositeNode(grammarAccess.getOptionalAccess().getTypeElementTypeParserRuleCall_1_0());
+              				
+            }
+            pushFollow(FOLLOW_2);
+            lv_type_1_0=ruleElementType();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElementForParent(grammarAccess.getOptionalRule());
+              					}
+              					set(
+              						current,
+              						"type",
+              						lv_type_1_0,
+              						"de.dentrassi.varlink.idl.VarlinkIdl.ElementType");
+              					afterParserOrEnumRuleCall();
+              				
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleOptional"
+
+
     // $ANTLR start "entryRuleTypeReference"
-    // InternalVarlinkIdl.g:545:1: entryRuleTypeReference returns [EObject current=null] : iv_ruleTypeReference= ruleTypeReference EOF ;
+    // InternalVarlinkIdl.g:691:1: entryRuleTypeReference returns [EObject current=null] : iv_ruleTypeReference= ruleTypeReference EOF ;
     public final EObject entryRuleTypeReference() throws RecognitionException {
         EObject current = null;
 
@@ -1580,8 +1955,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:545:54: (iv_ruleTypeReference= ruleTypeReference EOF )
-            // InternalVarlinkIdl.g:546:2: iv_ruleTypeReference= ruleTypeReference EOF
+            // InternalVarlinkIdl.g:691:54: (iv_ruleTypeReference= ruleTypeReference EOF )
+            // InternalVarlinkIdl.g:692:2: iv_ruleTypeReference= ruleTypeReference EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getTypeReferenceRule()); 
@@ -1612,47 +1987,36 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeReference"
-    // InternalVarlinkIdl.g:552:1: ruleTypeReference returns [EObject current=null] : ( (lv_name_0_0= ruleValidID ) ) ;
+    // InternalVarlinkIdl.g:698:1: ruleTypeReference returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
     public final EObject ruleTypeReference() throws RecognitionException {
         EObject current = null;
 
-        AntlrDatatypeRuleToken lv_name_0_0 = null;
-
+        Token otherlv_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:558:2: ( ( (lv_name_0_0= ruleValidID ) ) )
-            // InternalVarlinkIdl.g:559:2: ( (lv_name_0_0= ruleValidID ) )
+            // InternalVarlinkIdl.g:704:2: ( ( (otherlv_0= RULE_ID ) ) )
+            // InternalVarlinkIdl.g:705:2: ( (otherlv_0= RULE_ID ) )
             {
-            // InternalVarlinkIdl.g:559:2: ( (lv_name_0_0= ruleValidID ) )
-            // InternalVarlinkIdl.g:560:3: (lv_name_0_0= ruleValidID )
+            // InternalVarlinkIdl.g:705:2: ( (otherlv_0= RULE_ID ) )
+            // InternalVarlinkIdl.g:706:3: (otherlv_0= RULE_ID )
             {
-            // InternalVarlinkIdl.g:560:3: (lv_name_0_0= ruleValidID )
-            // InternalVarlinkIdl.g:561:4: lv_name_0_0= ruleValidID
+            // InternalVarlinkIdl.g:706:3: (otherlv_0= RULE_ID )
+            // InternalVarlinkIdl.g:707:4: otherlv_0= RULE_ID
             {
-            if ( state.backtracking==0 ) {
-
-              				newCompositeNode(grammarAccess.getTypeReferenceAccess().getNameValidIDParserRuleCall_0());
-              			
-            }
-            pushFollow(FOLLOW_2);
-            lv_name_0_0=ruleValidID();
-
-            state._fsp--;
-            if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               				if (current==null) {
-              					current = createModelElementForParent(grammarAccess.getTypeReferenceRule());
+              					current = createModelElement(grammarAccess.getTypeReferenceRule());
               				}
-              				set(
-              					current,
-              					"name",
-              					lv_name_0_0,
-              					"de.dentrassi.varlink.idl.VarlinkIdl.ValidID");
-              				afterParserOrEnumRuleCall();
+              			
+            }
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              				newLeafNode(otherlv_0, grammarAccess.getTypeReferenceAccess().getNameTypeAliasCrossReference_0());
               			
             }
 
@@ -1683,7 +2047,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBasicType"
-    // InternalVarlinkIdl.g:581:1: entryRuleBasicType returns [EObject current=null] : iv_ruleBasicType= ruleBasicType EOF ;
+    // InternalVarlinkIdl.g:721:1: entryRuleBasicType returns [EObject current=null] : iv_ruleBasicType= ruleBasicType EOF ;
     public final EObject entryRuleBasicType() throws RecognitionException {
         EObject current = null;
 
@@ -1691,8 +2055,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:581:50: (iv_ruleBasicType= ruleBasicType EOF )
-            // InternalVarlinkIdl.g:582:2: iv_ruleBasicType= ruleBasicType EOF
+            // InternalVarlinkIdl.g:721:50: (iv_ruleBasicType= ruleBasicType EOF )
+            // InternalVarlinkIdl.g:722:2: iv_ruleBasicType= ruleBasicType EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBasicTypeRule()); 
@@ -1723,7 +2087,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBasicType"
-    // InternalVarlinkIdl.g:588:1: ruleBasicType returns [EObject current=null] : ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'data' | lv_type_0_6= 'object' ) ) ) ;
+    // InternalVarlinkIdl.g:728:1: ruleBasicType returns [EObject current=null] : ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) ) ) ;
     public final EObject ruleBasicType() throws RecognitionException {
         EObject current = null;
 
@@ -1731,68 +2095,56 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         Token lv_type_0_2=null;
         Token lv_type_0_3=null;
         Token lv_type_0_4=null;
-        Token lv_type_0_5=null;
-        Token lv_type_0_6=null;
 
 
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:594:2: ( ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'data' | lv_type_0_6= 'object' ) ) ) )
-            // InternalVarlinkIdl.g:595:2: ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'data' | lv_type_0_6= 'object' ) ) )
+            // InternalVarlinkIdl.g:734:2: ( ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) ) ) )
+            // InternalVarlinkIdl.g:735:2: ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) ) )
             {
-            // InternalVarlinkIdl.g:595:2: ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'data' | lv_type_0_6= 'object' ) ) )
-            // InternalVarlinkIdl.g:596:3: ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'data' | lv_type_0_6= 'object' ) )
+            // InternalVarlinkIdl.g:735:2: ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) ) )
+            // InternalVarlinkIdl.g:736:3: ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) )
             {
-            // InternalVarlinkIdl.g:596:3: ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'data' | lv_type_0_6= 'object' ) )
-            // InternalVarlinkIdl.g:597:4: (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'data' | lv_type_0_6= 'object' )
+            // InternalVarlinkIdl.g:736:3: ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) )
+            // InternalVarlinkIdl.g:737:4: (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' )
             {
-            // InternalVarlinkIdl.g:597:4: (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'data' | lv_type_0_6= 'object' )
-            int alt9=6;
+            // InternalVarlinkIdl.g:737:4: (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' )
+            int alt8=4;
             switch ( input.LA(1) ) {
-            case 15:
-                {
-                alt9=1;
-                }
-                break;
-            case 16:
-                {
-                alt9=2;
-                }
-                break;
             case 17:
                 {
-                alt9=3;
+                alt8=1;
                 }
                 break;
             case 18:
                 {
-                alt9=4;
+                alt8=2;
                 }
                 break;
             case 19:
                 {
-                alt9=5;
+                alt8=3;
                 }
                 break;
             case 20:
                 {
-                alt9=6;
+                alt8=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt9) {
+            switch (alt8) {
                 case 1 :
-                    // InternalVarlinkIdl.g:598:5: lv_type_0_1= 'bool'
+                    // InternalVarlinkIdl.g:738:5: lv_type_0_1= 'bool'
                     {
-                    lv_type_0_1=(Token)match(input,15,FOLLOW_2); if (state.failed) return current;
+                    lv_type_0_1=(Token)match(input,17,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_type_0_1, grammarAccess.getBasicTypeAccess().getTypeBoolKeyword_0_0());
@@ -1810,9 +2162,9 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalVarlinkIdl.g:609:5: lv_type_0_2= 'int'
+                    // InternalVarlinkIdl.g:749:5: lv_type_0_2= 'int'
                     {
-                    lv_type_0_2=(Token)match(input,16,FOLLOW_2); if (state.failed) return current;
+                    lv_type_0_2=(Token)match(input,18,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_type_0_2, grammarAccess.getBasicTypeAccess().getTypeIntKeyword_0_1());
@@ -1830,9 +2182,9 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalVarlinkIdl.g:620:5: lv_type_0_3= 'float'
+                    // InternalVarlinkIdl.g:760:5: lv_type_0_3= 'float'
                     {
-                    lv_type_0_3=(Token)match(input,17,FOLLOW_2); if (state.failed) return current;
+                    lv_type_0_3=(Token)match(input,19,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_type_0_3, grammarAccess.getBasicTypeAccess().getTypeFloatKeyword_0_2());
@@ -1850,9 +2202,9 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalVarlinkIdl.g:631:5: lv_type_0_4= 'string'
+                    // InternalVarlinkIdl.g:771:5: lv_type_0_4= 'string'
                     {
-                    lv_type_0_4=(Token)match(input,18,FOLLOW_2); if (state.failed) return current;
+                    lv_type_0_4=(Token)match(input,20,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_type_0_4, grammarAccess.getBasicTypeAccess().getTypeStringKeyword_0_3());
@@ -1864,46 +2216,6 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                       						current = createModelElement(grammarAccess.getBasicTypeRule());
                       					}
                       					setWithLastConsumed(current, "type", lv_type_0_4, null);
-                      				
-                    }
-
-                    }
-                    break;
-                case 5 :
-                    // InternalVarlinkIdl.g:642:5: lv_type_0_5= 'data'
-                    {
-                    lv_type_0_5=(Token)match(input,19,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      					newLeafNode(lv_type_0_5, grammarAccess.getBasicTypeAccess().getTypeDataKeyword_0_4());
-                      				
-                    }
-                    if ( state.backtracking==0 ) {
-
-                      					if (current==null) {
-                      						current = createModelElement(grammarAccess.getBasicTypeRule());
-                      					}
-                      					setWithLastConsumed(current, "type", lv_type_0_5, null);
-                      				
-                    }
-
-                    }
-                    break;
-                case 6 :
-                    // InternalVarlinkIdl.g:653:5: lv_type_0_6= 'object'
-                    {
-                    lv_type_0_6=(Token)match(input,20,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      					newLeafNode(lv_type_0_6, grammarAccess.getBasicTypeAccess().getTypeObjectKeyword_0_5());
-                      				
-                    }
-                    if ( state.backtracking==0 ) {
-
-                      					if (current==null) {
-                      						current = createModelElement(grammarAccess.getBasicTypeRule());
-                      					}
-                      					setWithLastConsumed(current, "type", lv_type_0_6, null);
                       				
                     }
 
@@ -1940,7 +2252,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMethod"
-    // InternalVarlinkIdl.g:669:1: entryRuleMethod returns [EObject current=null] : iv_ruleMethod= ruleMethod EOF ;
+    // InternalVarlinkIdl.g:787:1: entryRuleMethod returns [EObject current=null] : iv_ruleMethod= ruleMethod EOF ;
     public final EObject entryRuleMethod() throws RecognitionException {
         EObject current = null;
 
@@ -1948,8 +2260,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:669:47: (iv_ruleMethod= ruleMethod EOF )
-            // InternalVarlinkIdl.g:670:2: iv_ruleMethod= ruleMethod EOF
+            // InternalVarlinkIdl.g:787:47: (iv_ruleMethod= ruleMethod EOF )
+            // InternalVarlinkIdl.g:788:2: iv_ruleMethod= ruleMethod EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMethodRule()); 
@@ -1980,7 +2292,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMethod"
-    // InternalVarlinkIdl.g:676:1: ruleMethod returns [EObject current=null] : (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleObject ) ) otherlv_3= '->' ( (lv_result_4_0= ruleObject ) ) ) ;
+    // InternalVarlinkIdl.g:794:1: ruleMethod returns [EObject current=null] : (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) ) ;
     public final EObject ruleMethod() throws RecognitionException {
         EObject current = null;
 
@@ -1996,11 +2308,11 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:682:2: ( (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleObject ) ) otherlv_3= '->' ( (lv_result_4_0= ruleObject ) ) ) )
-            // InternalVarlinkIdl.g:683:2: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleObject ) ) otherlv_3= '->' ( (lv_result_4_0= ruleObject ) ) )
+            // InternalVarlinkIdl.g:800:2: ( (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) ) )
+            // InternalVarlinkIdl.g:801:2: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) )
             {
-            // InternalVarlinkIdl.g:683:2: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleObject ) ) otherlv_3= '->' ( (lv_result_4_0= ruleObject ) ) )
-            // InternalVarlinkIdl.g:684:3: otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleObject ) ) otherlv_3= '->' ( (lv_result_4_0= ruleObject ) )
+            // InternalVarlinkIdl.g:801:2: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) )
+            // InternalVarlinkIdl.g:802:3: otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) )
             {
             otherlv_0=(Token)match(input,21,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -2008,11 +2320,11 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getMethodAccess().getMethodKeyword_0());
               		
             }
-            // InternalVarlinkIdl.g:688:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalVarlinkIdl.g:689:4: (lv_name_1_0= RULE_ID )
+            // InternalVarlinkIdl.g:806:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalVarlinkIdl.g:807:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalVarlinkIdl.g:689:4: (lv_name_1_0= RULE_ID )
-            // InternalVarlinkIdl.g:690:5: lv_name_1_0= RULE_ID
+            // InternalVarlinkIdl.g:807:4: (lv_name_1_0= RULE_ID )
+            // InternalVarlinkIdl.g:808:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -2038,19 +2350,19 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalVarlinkIdl.g:706:3: ( (lv_arguments_2_0= ruleObject ) )
-            // InternalVarlinkIdl.g:707:4: (lv_arguments_2_0= ruleObject )
+            // InternalVarlinkIdl.g:824:3: ( (lv_arguments_2_0= ruleArguments ) )
+            // InternalVarlinkIdl.g:825:4: (lv_arguments_2_0= ruleArguments )
             {
-            // InternalVarlinkIdl.g:707:4: (lv_arguments_2_0= ruleObject )
-            // InternalVarlinkIdl.g:708:5: lv_arguments_2_0= ruleObject
+            // InternalVarlinkIdl.g:825:4: (lv_arguments_2_0= ruleArguments )
+            // InternalVarlinkIdl.g:826:5: lv_arguments_2_0= ruleArguments
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getMethodAccess().getArgumentsObjectParserRuleCall_2_0());
+              					newCompositeNode(grammarAccess.getMethodAccess().getArgumentsArgumentsParserRuleCall_2_0());
               				
             }
-            pushFollow(FOLLOW_12);
-            lv_arguments_2_0=ruleObject();
+            pushFollow(FOLLOW_11);
+            lv_arguments_2_0=ruleArguments();
 
             state._fsp--;
             if (state.failed) return current;
@@ -2063,7 +2375,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
               						current,
               						"arguments",
               						lv_arguments_2_0,
-              						"de.dentrassi.varlink.idl.VarlinkIdl.Object");
+              						"de.dentrassi.varlink.idl.VarlinkIdl.Arguments");
               					afterParserOrEnumRuleCall();
               				
             }
@@ -2079,19 +2391,19 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_3, grammarAccess.getMethodAccess().getHyphenMinusGreaterThanSignKeyword_3());
               		
             }
-            // InternalVarlinkIdl.g:729:3: ( (lv_result_4_0= ruleObject ) )
-            // InternalVarlinkIdl.g:730:4: (lv_result_4_0= ruleObject )
+            // InternalVarlinkIdl.g:847:3: ( (lv_result_4_0= ruleResult ) )
+            // InternalVarlinkIdl.g:848:4: (lv_result_4_0= ruleResult )
             {
-            // InternalVarlinkIdl.g:730:4: (lv_result_4_0= ruleObject )
-            // InternalVarlinkIdl.g:731:5: lv_result_4_0= ruleObject
+            // InternalVarlinkIdl.g:848:4: (lv_result_4_0= ruleResult )
+            // InternalVarlinkIdl.g:849:5: lv_result_4_0= ruleResult
             {
             if ( state.backtracking==0 ) {
 
-              					newCompositeNode(grammarAccess.getMethodAccess().getResultObjectParserRuleCall_4_0());
+              					newCompositeNode(grammarAccess.getMethodAccess().getResultResultParserRuleCall_4_0());
               				
             }
             pushFollow(FOLLOW_2);
-            lv_result_4_0=ruleObject();
+            lv_result_4_0=ruleResult();
 
             state._fsp--;
             if (state.failed) return current;
@@ -2104,7 +2416,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
               						current,
               						"result",
               						lv_result_4_0,
-              						"de.dentrassi.varlink.idl.VarlinkIdl.Object");
+              						"de.dentrassi.varlink.idl.VarlinkIdl.Result");
               					afterParserOrEnumRuleCall();
               				
             }
@@ -2138,8 +2450,230 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleMethod"
 
 
+    // $ANTLR start "entryRuleArguments"
+    // InternalVarlinkIdl.g:870:1: entryRuleArguments returns [EObject current=null] : iv_ruleArguments= ruleArguments EOF ;
+    public final EObject entryRuleArguments() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleArguments = null;
+
+
+        try {
+            // InternalVarlinkIdl.g:870:50: (iv_ruleArguments= ruleArguments EOF )
+            // InternalVarlinkIdl.g:871:2: iv_ruleArguments= ruleArguments EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getArgumentsRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleArguments=ruleArguments();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleArguments; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleArguments"
+
+
+    // $ANTLR start "ruleArguments"
+    // InternalVarlinkIdl.g:877:1: ruleArguments returns [EObject current=null] : ( (lv_arguments_0_0= ruleObject ) ) ;
+    public final EObject ruleArguments() throws RecognitionException {
+        EObject current = null;
+
+        EObject lv_arguments_0_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalVarlinkIdl.g:883:2: ( ( (lv_arguments_0_0= ruleObject ) ) )
+            // InternalVarlinkIdl.g:884:2: ( (lv_arguments_0_0= ruleObject ) )
+            {
+            // InternalVarlinkIdl.g:884:2: ( (lv_arguments_0_0= ruleObject ) )
+            // InternalVarlinkIdl.g:885:3: (lv_arguments_0_0= ruleObject )
+            {
+            // InternalVarlinkIdl.g:885:3: (lv_arguments_0_0= ruleObject )
+            // InternalVarlinkIdl.g:886:4: lv_arguments_0_0= ruleObject
+            {
+            if ( state.backtracking==0 ) {
+
+              				newCompositeNode(grammarAccess.getArgumentsAccess().getArgumentsObjectParserRuleCall_0());
+              			
+            }
+            pushFollow(FOLLOW_2);
+            lv_arguments_0_0=ruleObject();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              				if (current==null) {
+              					current = createModelElementForParent(grammarAccess.getArgumentsRule());
+              				}
+              				set(
+              					current,
+              					"arguments",
+              					lv_arguments_0_0,
+              					"de.dentrassi.varlink.idl.VarlinkIdl.Object");
+              				afterParserOrEnumRuleCall();
+              			
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleArguments"
+
+
+    // $ANTLR start "entryRuleResult"
+    // InternalVarlinkIdl.g:906:1: entryRuleResult returns [EObject current=null] : iv_ruleResult= ruleResult EOF ;
+    public final EObject entryRuleResult() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleResult = null;
+
+
+        try {
+            // InternalVarlinkIdl.g:906:47: (iv_ruleResult= ruleResult EOF )
+            // InternalVarlinkIdl.g:907:2: iv_ruleResult= ruleResult EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getResultRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleResult=ruleResult();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleResult; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleResult"
+
+
+    // $ANTLR start "ruleResult"
+    // InternalVarlinkIdl.g:913:1: ruleResult returns [EObject current=null] : ( (lv_result_0_0= ruleObject ) ) ;
+    public final EObject ruleResult() throws RecognitionException {
+        EObject current = null;
+
+        EObject lv_result_0_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalVarlinkIdl.g:919:2: ( ( (lv_result_0_0= ruleObject ) ) )
+            // InternalVarlinkIdl.g:920:2: ( (lv_result_0_0= ruleObject ) )
+            {
+            // InternalVarlinkIdl.g:920:2: ( (lv_result_0_0= ruleObject ) )
+            // InternalVarlinkIdl.g:921:3: (lv_result_0_0= ruleObject )
+            {
+            // InternalVarlinkIdl.g:921:3: (lv_result_0_0= ruleObject )
+            // InternalVarlinkIdl.g:922:4: lv_result_0_0= ruleObject
+            {
+            if ( state.backtracking==0 ) {
+
+              				newCompositeNode(grammarAccess.getResultAccess().getResultObjectParserRuleCall_0());
+              			
+            }
+            pushFollow(FOLLOW_2);
+            lv_result_0_0=ruleObject();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              				if (current==null) {
+              					current = createModelElementForParent(grammarAccess.getResultRule());
+              				}
+              				set(
+              					current,
+              					"result",
+              					lv_result_0_0,
+              					"de.dentrassi.varlink.idl.VarlinkIdl.Object");
+              				afterParserOrEnumRuleCall();
+              			
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleResult"
+
+
     // $ANTLR start "entryRuleError"
-    // InternalVarlinkIdl.g:752:1: entryRuleError returns [EObject current=null] : iv_ruleError= ruleError EOF ;
+    // InternalVarlinkIdl.g:942:1: entryRuleError returns [EObject current=null] : iv_ruleError= ruleError EOF ;
     public final EObject entryRuleError() throws RecognitionException {
         EObject current = null;
 
@@ -2147,8 +2681,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:752:46: (iv_ruleError= ruleError EOF )
-            // InternalVarlinkIdl.g:753:2: iv_ruleError= ruleError EOF
+            // InternalVarlinkIdl.g:942:46: (iv_ruleError= ruleError EOF )
+            // InternalVarlinkIdl.g:943:2: iv_ruleError= ruleError EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getErrorRule()); 
@@ -2179,7 +2713,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleError"
-    // InternalVarlinkIdl.g:759:1: ruleError returns [EObject current=null] : (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) ) ;
+    // InternalVarlinkIdl.g:949:1: ruleError returns [EObject current=null] : (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) ) ;
     public final EObject ruleError() throws RecognitionException {
         EObject current = null;
 
@@ -2192,11 +2726,11 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:765:2: ( (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) ) )
-            // InternalVarlinkIdl.g:766:2: (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) )
+            // InternalVarlinkIdl.g:955:2: ( (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) ) )
+            // InternalVarlinkIdl.g:956:2: (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) )
             {
-            // InternalVarlinkIdl.g:766:2: (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) )
-            // InternalVarlinkIdl.g:767:3: otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) )
+            // InternalVarlinkIdl.g:956:2: (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) )
+            // InternalVarlinkIdl.g:957:3: otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) )
             {
             otherlv_0=(Token)match(input,23,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -2204,11 +2738,11 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getErrorAccess().getErrorKeyword_0());
               		
             }
-            // InternalVarlinkIdl.g:771:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalVarlinkIdl.g:772:4: (lv_name_1_0= RULE_ID )
+            // InternalVarlinkIdl.g:961:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalVarlinkIdl.g:962:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalVarlinkIdl.g:772:4: (lv_name_1_0= RULE_ID )
-            // InternalVarlinkIdl.g:773:5: lv_name_1_0= RULE_ID
+            // InternalVarlinkIdl.g:962:4: (lv_name_1_0= RULE_ID )
+            // InternalVarlinkIdl.g:963:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -2234,11 +2768,11 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalVarlinkIdl.g:789:3: ( (lv_properties_2_0= ruleObject ) )
-            // InternalVarlinkIdl.g:790:4: (lv_properties_2_0= ruleObject )
+            // InternalVarlinkIdl.g:979:3: ( (lv_properties_2_0= ruleObject ) )
+            // InternalVarlinkIdl.g:980:4: (lv_properties_2_0= ruleObject )
             {
-            // InternalVarlinkIdl.g:790:4: (lv_properties_2_0= ruleObject )
-            // InternalVarlinkIdl.g:791:5: lv_properties_2_0= ruleObject
+            // InternalVarlinkIdl.g:980:4: (lv_properties_2_0= ruleObject )
+            // InternalVarlinkIdl.g:981:5: lv_properties_2_0= ruleObject
             {
             if ( state.backtracking==0 ) {
 
@@ -2294,7 +2828,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInterfaceName"
-    // InternalVarlinkIdl.g:812:1: entryRuleInterfaceName returns [String current=null] : iv_ruleInterfaceName= ruleInterfaceName EOF ;
+    // InternalVarlinkIdl.g:1002:1: entryRuleInterfaceName returns [String current=null] : iv_ruleInterfaceName= ruleInterfaceName EOF ;
     public final String entryRuleInterfaceName() throws RecognitionException {
         String current = null;
 
@@ -2302,8 +2836,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:812:53: (iv_ruleInterfaceName= ruleInterfaceName EOF )
-            // InternalVarlinkIdl.g:813:2: iv_ruleInterfaceName= ruleInterfaceName EOF
+            // InternalVarlinkIdl.g:1002:53: (iv_ruleInterfaceName= ruleInterfaceName EOF )
+            // InternalVarlinkIdl.g:1003:2: iv_ruleInterfaceName= ruleInterfaceName EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getInterfaceNameRule()); 
@@ -2334,7 +2868,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInterfaceName"
-    // InternalVarlinkIdl.g:819:1: ruleInterfaceName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) ;
+    // InternalVarlinkIdl.g:1009:1: ruleInterfaceName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleInterfaceName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2346,13 +2880,13 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:825:2: ( (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) )
-            // InternalVarlinkIdl.g:826:2: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
+            // InternalVarlinkIdl.g:1015:2: ( (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) )
+            // InternalVarlinkIdl.g:1016:2: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
             {
-            // InternalVarlinkIdl.g:826:2: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
-            // InternalVarlinkIdl.g:827:3: this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
+            // InternalVarlinkIdl.g:1016:2: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
+            // InternalVarlinkIdl.g:1017:3: this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_13); if (state.failed) return current;
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_12); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			current.merge(this_ID_0);
@@ -2363,23 +2897,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
               			newLeafNode(this_ID_0, grammarAccess.getInterfaceNameAccess().getIDTerminalRuleCall_0());
               		
             }
-            // InternalVarlinkIdl.g:834:3: ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
-            loop10:
+            // InternalVarlinkIdl.g:1024:3: ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
+            loop9:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-                if ( (LA10_0==24) && (synpred1_InternalVarlinkIdl())) {
-                    alt10=1;
+                if ( (LA9_0==24) && (synpred1_InternalVarlinkIdl())) {
+                    alt9=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt9) {
             	case 1 :
-            	    // InternalVarlinkIdl.g:835:4: ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID
+            	    // InternalVarlinkIdl.g:1025:4: ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID
             	    {
-            	    // InternalVarlinkIdl.g:835:4: ( ( '.' )=>kw= '.' )
-            	    // InternalVarlinkIdl.g:836:5: ( '.' )=>kw= '.'
+            	    // InternalVarlinkIdl.g:1025:4: ( ( '.' )=>kw= '.' )
+            	    // InternalVarlinkIdl.g:1026:5: ( '.' )=>kw= '.'
             	    {
             	    kw=(Token)match(input,24,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
@@ -2391,7 +2925,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_13); if (state.failed) return current;
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_12); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      				current.merge(this_ID_2);
@@ -2407,7 +2941,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop9;
                 }
             } while (true);
 
@@ -2436,7 +2970,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleValidID"
-    // InternalVarlinkIdl.g:855:1: entryRuleValidID returns [String current=null] : iv_ruleValidID= ruleValidID EOF ;
+    // InternalVarlinkIdl.g:1045:1: entryRuleValidID returns [String current=null] : iv_ruleValidID= ruleValidID EOF ;
     public final String entryRuleValidID() throws RecognitionException {
         String current = null;
 
@@ -2444,8 +2978,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:855:47: (iv_ruleValidID= ruleValidID EOF )
-            // InternalVarlinkIdl.g:856:2: iv_ruleValidID= ruleValidID EOF
+            // InternalVarlinkIdl.g:1045:47: (iv_ruleValidID= ruleValidID EOF )
+            // InternalVarlinkIdl.g:1046:2: iv_ruleValidID= ruleValidID EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getValidIDRule()); 
@@ -2476,7 +3010,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValidID"
-    // InternalVarlinkIdl.g:862:1: ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD ) ;
+    // InternalVarlinkIdl.g:1052:1: ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD ) ;
     public final AntlrDatatypeRuleToken ruleValidID() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2488,29 +3022,29 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:868:2: ( (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD ) )
-            // InternalVarlinkIdl.g:869:2: (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD )
+            // InternalVarlinkIdl.g:1058:2: ( (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD ) )
+            // InternalVarlinkIdl.g:1059:2: (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD )
             {
-            // InternalVarlinkIdl.g:869:2: (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD )
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalVarlinkIdl.g:1059:2: (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD )
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA11_0==RULE_ID) ) {
-                alt11=1;
+            if ( (LA10_0==RULE_ID) ) {
+                alt10=1;
             }
-            else if ( ((LA11_0>=8 && LA11_0<=9)||LA11_0==15||(LA11_0>=17 && LA11_0<=21)||LA11_0==23||LA11_0==25) ) {
-                alt11=2;
+            else if ( ((LA10_0>=8 && LA10_0<=9)||(LA10_0>=17 && LA10_0<=21)||LA10_0==23||LA10_0==25) ) {
+                alt10=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
-            switch (alt11) {
+            switch (alt10) {
                 case 1 :
-                    // InternalVarlinkIdl.g:870:3: this_ID_0= RULE_ID
+                    // InternalVarlinkIdl.g:1060:3: this_ID_0= RULE_ID
                     {
                     this_ID_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -2527,7 +3061,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalVarlinkIdl.g:878:3: this_KEYWORD_1= ruleKEYWORD
+                    // InternalVarlinkIdl.g:1068:3: this_KEYWORD_1= ruleKEYWORD
                     {
                     if ( state.backtracking==0 ) {
 
@@ -2577,7 +3111,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleKEYWORD"
-    // InternalVarlinkIdl.g:892:1: entryRuleKEYWORD returns [String current=null] : iv_ruleKEYWORD= ruleKEYWORD EOF ;
+    // InternalVarlinkIdl.g:1082:1: entryRuleKEYWORD returns [String current=null] : iv_ruleKEYWORD= ruleKEYWORD EOF ;
     public final String entryRuleKEYWORD() throws RecognitionException {
         String current = null;
 
@@ -2585,8 +3119,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:892:47: (iv_ruleKEYWORD= ruleKEYWORD EOF )
-            // InternalVarlinkIdl.g:893:2: iv_ruleKEYWORD= ruleKEYWORD EOF
+            // InternalVarlinkIdl.g:1082:47: (iv_ruleKEYWORD= ruleKEYWORD EOF )
+            // InternalVarlinkIdl.g:1083:2: iv_ruleKEYWORD= ruleKEYWORD EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getKEYWORDRule()); 
@@ -2617,7 +3151,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleKEYWORD"
-    // InternalVarlinkIdl.g:899:1: ruleKEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'float' | kw= 'string' | kw= 'data' | kw= 'object' ) ;
+    // InternalVarlinkIdl.g:1089:1: ruleKEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' ) ;
     public final AntlrDatatypeRuleToken ruleKEYWORD() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2627,73 +3161,68 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:905:2: ( (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'float' | kw= 'string' | kw= 'data' | kw= 'object' ) )
-            // InternalVarlinkIdl.g:906:2: (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'float' | kw= 'string' | kw= 'data' | kw= 'object' )
+            // InternalVarlinkIdl.g:1095:2: ( (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' ) )
+            // InternalVarlinkIdl.g:1096:2: (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' )
             {
-            // InternalVarlinkIdl.g:906:2: (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'float' | kw= 'string' | kw= 'data' | kw= 'object' )
-            int alt12=10;
+            // InternalVarlinkIdl.g:1096:2: (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' )
+            int alt11=9;
             switch ( input.LA(1) ) {
             case 9:
                 {
-                alt12=1;
+                alt11=1;
                 }
                 break;
             case 25:
                 {
-                alt12=2;
+                alt11=2;
                 }
                 break;
             case 8:
                 {
-                alt12=3;
+                alt11=3;
                 }
                 break;
             case 21:
                 {
-                alt12=4;
+                alt11=4;
                 }
                 break;
             case 23:
                 {
-                alt12=5;
-                }
-                break;
-            case 15:
-                {
-                alt12=6;
+                alt11=5;
                 }
                 break;
             case 17:
                 {
-                alt12=7;
+                alt11=6;
                 }
                 break;
             case 18:
                 {
-                alt12=8;
+                alt11=7;
                 }
                 break;
             case 19:
                 {
-                alt12=9;
+                alt11=8;
                 }
                 break;
             case 20:
                 {
-                alt12=10;
+                alt11=9;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt12) {
+            switch (alt11) {
                 case 1 :
-                    // InternalVarlinkIdl.g:907:3: kw= 'type'
+                    // InternalVarlinkIdl.g:1097:3: kw= 'type'
                     {
                     kw=(Token)match(input,9,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -2706,7 +3235,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalVarlinkIdl.g:913:3: kw= 'enum'
+                    // InternalVarlinkIdl.g:1103:3: kw= 'enum'
                     {
                     kw=(Token)match(input,25,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -2719,7 +3248,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalVarlinkIdl.g:919:3: kw= 'interface'
+                    // InternalVarlinkIdl.g:1109:3: kw= 'interface'
                     {
                     kw=(Token)match(input,8,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -2732,7 +3261,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalVarlinkIdl.g:925:3: kw= 'method'
+                    // InternalVarlinkIdl.g:1115:3: kw= 'method'
                     {
                     kw=(Token)match(input,21,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -2745,7 +3274,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalVarlinkIdl.g:931:3: kw= 'error'
+                    // InternalVarlinkIdl.g:1121:3: kw= 'error'
                     {
                     kw=(Token)match(input,23,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -2758,9 +3287,9 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalVarlinkIdl.g:937:3: kw= 'bool'
+                    // InternalVarlinkIdl.g:1127:3: kw= 'bool'
                     {
-                    kw=(Token)match(input,15,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,17,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -2771,52 +3300,39 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalVarlinkIdl.g:943:3: kw= 'float'
+                    // InternalVarlinkIdl.g:1133:3: kw= 'int'
                     {
-                    kw=(Token)match(input,17,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,18,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
-                      			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getFloatKeyword_6());
+                      			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getIntKeyword_6());
                       		
                     }
 
                     }
                     break;
                 case 8 :
-                    // InternalVarlinkIdl.g:949:3: kw= 'string'
+                    // InternalVarlinkIdl.g:1139:3: kw= 'float'
                     {
-                    kw=(Token)match(input,18,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,19,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
-                      			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getStringKeyword_7());
+                      			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getFloatKeyword_7());
                       		
                     }
 
                     }
                     break;
                 case 9 :
-                    // InternalVarlinkIdl.g:955:3: kw= 'data'
-                    {
-                    kw=(Token)match(input,19,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      			current.merge(kw);
-                      			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDataKeyword_8());
-                      		
-                    }
-
-                    }
-                    break;
-                case 10 :
-                    // InternalVarlinkIdl.g:961:3: kw= 'object'
+                    // InternalVarlinkIdl.g:1145:3: kw= 'string'
                     {
                     kw=(Token)match(input,20,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
-                      			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getObjectKeyword_9());
+                      			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getStringKeyword_8());
                       		
                     }
 
@@ -2847,8 +3363,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred1_InternalVarlinkIdl
     public final void synpred1_InternalVarlinkIdl_fragment() throws RecognitionException {   
-        // InternalVarlinkIdl.g:836:5: ( '.' )
-        // InternalVarlinkIdl.g:836:6: '.'
+        // InternalVarlinkIdl.g:1026:5: ( '.' )
+        // InternalVarlinkIdl.g:1026:6: '.'
         {
         match(input,24,FOLLOW_2); if (state.failed) return ;
 
@@ -2875,25 +3391,25 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     protected DFA3 dfa3 = new DFA3(this);
-    static final String dfa_1s = "\17\uffff";
-    static final String dfa_2s = "\1\12\1\4\13\13\2\uffff";
-    static final String dfa_3s = "\1\12\1\31\13\15\2\uffff";
-    static final String dfa_4s = "\15\uffff\1\2\1\1";
-    static final String dfa_5s = "\17\uffff}>";
+    protected DFA7 dfa7 = new DFA7(this);
+    static final String dfa_1s = "\16\uffff";
+    static final String dfa_2s = "\1\12\1\4\12\13\2\uffff";
+    static final String dfa_3s = "\1\12\1\31\12\15\2\uffff";
+    static final String dfa_4s = "\14\uffff\1\2\1\1";
+    static final String dfa_5s = "\16\uffff}>";
     static final String[] dfa_6s = {
             "\1\1",
-            "\1\2\3\uffff\1\5\1\3\1\uffff\2\15\2\uffff\1\10\1\uffff\1\11\1\12\1\13\1\14\1\6\1\uffff\1\7\1\uffff\1\4",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
-            "\2\16\1\15",
+            "\1\2\3\uffff\1\5\1\3\1\uffff\2\14\4\uffff\1\10\1\11\1\12\1\13\1\6\1\uffff\1\7\1\uffff\1\4",
+            "\2\15\1\14",
+            "\2\15\1\14",
+            "\2\15\1\14",
+            "\2\15\1\14",
+            "\2\15\1\14",
+            "\2\15\1\14",
+            "\2\15\1\14",
+            "\2\15\1\14",
+            "\2\15\1\14",
+            "\2\15\1\14",
             "",
             ""
     };
@@ -2922,20 +3438,70 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
             return "252:2: (this_Enum_0= ruleEnum | this_Object_1= ruleObject )";
         }
     }
+    static final String dfa_7s = "\23\uffff";
+    static final String dfa_8s = "\1\4\2\uffff\1\4\3\uffff\12\13\2\uffff";
+    static final String dfa_9s = "\1\24\2\uffff\1\31\3\uffff\12\15\2\uffff";
+    static final String dfa_10s = "\1\uffff\1\1\1\2\1\uffff\1\5\1\6\1\7\12\uffff\1\4\1\3";
+    static final String dfa_11s = "\23\uffff}>";
+    static final String[] dfa_12s = {
+            "\1\2\5\uffff\1\3\3\uffff\1\4\1\5\1\6\4\1",
+            "",
+            "",
+            "\1\7\3\uffff\1\12\1\10\1\uffff\2\21\4\uffff\1\15\1\16\1\17\1\20\1\13\1\uffff\1\14\1\uffff\1\11",
+            "",
+            "",
+            "",
+            "\2\22\1\21",
+            "\2\22\1\21",
+            "\2\22\1\21",
+            "\2\22\1\21",
+            "\2\22\1\21",
+            "\2\22\1\21",
+            "\2\22\1\21",
+            "\2\22\1\21",
+            "\2\22\1\21",
+            "\2\22\1\21",
+            "",
+            ""
+    };
+
+    static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
+    static final char[] dfa_8 = DFA.unpackEncodedStringToUnsignedChars(dfa_8s);
+    static final char[] dfa_9 = DFA.unpackEncodedStringToUnsignedChars(dfa_9s);
+    static final short[] dfa_10 = DFA.unpackEncodedString(dfa_10s);
+    static final short[] dfa_11 = DFA.unpackEncodedString(dfa_11s);
+    static final short[][] dfa_12 = unpackEncodedStringArray(dfa_12s);
+
+    class DFA7 extends DFA {
+
+        public DFA7(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 7;
+            this.eot = dfa_7;
+            this.eof = dfa_7;
+            this.min = dfa_8;
+            this.max = dfa_9;
+            this.accept = dfa_10;
+            this.special = dfa_11;
+            this.transition = dfa_12;
+        }
+        public String getDescription() {
+            return "498:2: (this_BasicType_0= ruleBasicType | this_TypeReference_1= ruleTypeReference | this_Enum_2= ruleEnum | this_Object_3= ruleObject | this_Array_4= ruleArray | this_Dictionary_5= ruleDictionary | this_Optional_6= ruleOptional )";
+        }
+    }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000A00202L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000002BE8310L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000002BE0310L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000400L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000002BE9B10L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000002BE1B10L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000002BF8710L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000001FC410L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000001000002L});
 
 }

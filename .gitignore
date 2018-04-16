@@ -3,6 +3,7 @@
 
 target/
 
-# Local
+# Eclipse - Only in local directory
 
 /.project
+/.settings/

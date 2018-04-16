@@ -1,9 +1,10 @@
 Manifest-Version: 1.0
+Automatic-Module-Name: de.dentrassi.varlink.idl
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-Vendor: %providerName
 Bundle-Localization: OSGI-INF/l10n/bundle
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-SymbolicName: de.dentrassi.varlink.idl; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;bundle-version="[2.12.0,3.0.0)",
@@ -19,34 +20,12 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.dentrassi.varlink.idl;version="0.1.0",
  de.dentrassi.varlink.idl.generator;version="0.1.0";uses:="org.eclipse.xtext.generator,org.eclipse.emf.ecore.resource",
  de.dentrassi.varlink.idl.parser.antlr;version="0.1.0";uses:="de.dentrassi.varlink.idl.parser.antlr.internal,org.eclipse.xtext.parser.antlr,de.dentrassi.varlink.idl.services",
- de.dentrassi.varlink.idl.parser.antlr.internal;version="0.1.0";
-  uses:="org.eclipse.emf.ecore,
-   org.eclipse.xtext.parser.antlr,
-   org.antlr.runtime,
-   de.dentrassi.varlink.idl.services",
+ de.dentrassi.varlink.idl.parser.antlr.internal;version="0.1.0"; uses:="org.eclipse.emf.ecore,  org.eclipse.xtext.parser.antlr,  org.antlr.runtime,  de.dentrassi.varlink.idl.services",
  de.dentrassi.varlink.idl.scoping;version="0.1.0",
- de.dentrassi.varlink.idl.serializer;version="0.1.0";
-  uses:="org.eclipse.emf.ecore,
-   org.eclipse.xtext.nodemodel,
-   org.eclipse.xtext.serializer.analysis,
-   de.dentrassi.varlink.idl.varlinkIdl,
-   org.eclipse.xtext.serializer.sequencer,
-   org.eclipse.xtext,
-   de.dentrassi.varlink.idl.services,
-   org.eclipse.xtext.serializer",
+ de.dentrassi.varlink.idl.serializer;version="0.1.0"; uses:="org.eclipse.emf.ecore,  org.eclipse.xtext.nodemodel,  org.eclipse.xtext.serializer.analysis,  de.dentrassi.varlink.idl.varlinkIdl,  org.eclipse.xtext.serializer.sequencer,  org.eclipse.xtext,  de.dentrassi.varlink.idl.services,  org.eclipse.xtext.serializer",
  de.dentrassi.varlink.idl.services;version="0.1.0";uses:="org.eclipse.xtext.service,org.eclipse.xtext",
  de.dentrassi.varlink.idl.validation;version="0.1.0",
  de.dentrassi.varlink.idl.varlinkIdl;version="0.1.0";uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
- de.dentrassi.varlink.idl.varlinkIdl.impl;version="0.1.0";
-  uses:="org.eclipse.emf.ecore,
-   org.eclipse.emf.ecore.impl,
-   org.eclipse.emf.common.util,
-   org.eclipse.emf.common.notify,
-   de.dentrassi.varlink.idl.varlinkIdl",
- de.dentrassi.varlink.idl.varlinkIdl.util;version="0.1.0";
-  uses:="org.eclipse.emf.ecore,
-   org.eclipse.emf.common.notify,
-   org.eclipse.emf.common.notify.impl,
-   de.dentrassi.varlink.idl.varlinkIdl,
-   org.eclipse.emf.ecore.util"
+ de.dentrassi.varlink.idl.varlinkIdl.impl;version="0.1.0"; uses:="org.eclipse.emf.ecore,  org.eclipse.emf.ecore.impl,  org.eclipse.emf.common.util,  org.eclipse.emf.common.notify,  de.dentrassi.varlink.idl.varlinkIdl",
+ de.dentrassi.varlink.idl.varlinkIdl.util;version="0.1.0"; uses:="org.eclipse.emf.ecore,  org.eclipse.emf.common.notify,  org.eclipse.emf.common.notify.impl,  de.dentrassi.varlink.idl.varlinkIdl,  org.eclipse.emf.ecore.util"
 Import-Package: org.apache.log4j;version="[1.2.0,2.0.0)"

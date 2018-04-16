@@ -19,6 +19,9 @@ import java.nio.file.FileVisitResult;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -28,6 +31,7 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
+import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.sonatype.plexus.build.incremental.BuildContext;
 
 import de.dentrassi.varlink.generator.Generator;
@@ -118,16 +122,39 @@ public class GenerateMojo extends AbstractMojo {
 
             final Loader loader = new Loader();
 
+            final Map<String, List<Diagnostic>> errors = new HashMap<>();
+
             walkFileTree(
                     this.sourcePath.toPath(),
                     new SimpleFileVisitor<Path>() {
                         @Override
                         public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs)
                                 throws IOException {
-                            loader.loadFrom(file);
+
+                            final List<Diagnostic> localErrors = loader.loadFrom(file);
+                            if (!localErrors.isEmpty()) {
+                                errors.put(file.toString(), localErrors);
+                            }
+
                             return FileVisitResult.CONTINUE;
                         }
                     });
+
+            // process errors
+
+            if (!errors.isEmpty()) {
+                for (final Map.Entry<String, List<Diagnostic>> entry : errors.entrySet()) {
+                    for (final Diagnostic diag : entry.getValue()) {
+                        String location = diag.getLocation();
+                        if (location == null) {
+                            location = entry.getKey();
+                        }
+                        getLog().error(String.format("%s:%s:%s: %s", location, diag.getLine(),
+                                diag.getColumn(), diag.getMessage()));
+                    }
+                }
+                throw new MojoFailureException("Failed to validate models. See log for more information.");
+            }
 
             // setup generator
 

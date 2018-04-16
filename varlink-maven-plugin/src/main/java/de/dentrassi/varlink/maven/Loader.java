@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017, 2018 Red Hat Inc
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Jens Reimann - initial API and implementation
+ *******************************************************************************/
 package de.dentrassi.varlink.maven;
 
 import java.io.IOException;
@@ -8,6 +18,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
@@ -23,13 +34,13 @@ public class Loader {
         return this.interfaces;
     }
 
-    public void loadFrom(final Path path) throws IOException {
+    public List<Diagnostic> loadFrom(final Path path) throws IOException {
 
         new VarlinkIdlStandaloneSetup().createInjectorAndDoEMFRegistration();
 
         final ResourceSet resourceSet = new ResourceSetImpl();
 
-        final URI uri = URI.createURI(path.toUri().toString());
+        final URI uri = URI.createFileURI(path.toString());
 
         // initialize package
         VarlinkIdlPackage.eINSTANCE.eClass();
@@ -43,6 +54,8 @@ public class Loader {
         }
 
         this.interfaces.add((Interface) c);
+
+        return r.getErrors();
     }
 
 }

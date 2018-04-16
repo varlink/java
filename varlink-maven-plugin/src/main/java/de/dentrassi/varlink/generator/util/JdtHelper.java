@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2017, 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -9,6 +9,8 @@
  *     Jens Reimann - initial API and implementation
  *******************************************************************************/
 package de.dentrassi.varlink.generator.util;
+
+import static org.eclipse.jdt.core.dom.Modifier.ModifierKeyword.PUBLIC_KEYWORD;
 
 import java.io.File;
 import java.io.Writer;
@@ -32,6 +34,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
 import org.eclipse.jdt.core.dom.PackageDeclaration;
+import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.StringLiteral;
 import org.eclipse.jdt.core.dom.Type;
@@ -167,6 +170,27 @@ public class JdtHelper {
 
     public static <T extends ASTNode> T copyNode(final AST ast, final T node) {
         return (T) ASTNode.copySubtree(ast, node);
+    }
+
+    public static MethodDeclaration createGetter(final AST ast, final Type type, final String name) {
+        final MethodDeclaration md = ast.newMethodDeclaration();
+        md.setName(ast.newSimpleName("get" + Names.toUpperFirst(name)));
+        make(md, PUBLIC_KEYWORD);
+
+        md.setReturnType2(type);
+
+        final Block body = ast.newBlock();
+        md.setBody(body);
+
+        final ReturnStatement ret = ast.newReturnStatement();
+        body.statements().add(ret);
+
+        final FieldAccess fa = ast.newFieldAccess();
+        fa.setExpression(ast.newThisExpression());
+        fa.setName(ast.newSimpleName(name));
+        ret.setExpression(fa);
+
+        return md;
     }
 
 }

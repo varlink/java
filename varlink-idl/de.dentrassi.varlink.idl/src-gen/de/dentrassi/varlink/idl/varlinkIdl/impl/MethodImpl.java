@@ -1,6 +1,6 @@
 /**
  * ******************************************************************************
- * Copyright (c) 2017 Red Hat Inc
+ * Copyright (c) 2018 Red Hat Inc
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,7 +12,9 @@
  */
 package de.dentrassi.varlink.idl.varlinkIdl.impl;
 
+import de.dentrassi.varlink.idl.varlinkIdl.Arguments;
 import de.dentrassi.varlink.idl.varlinkIdl.Method;
+import de.dentrassi.varlink.idl.varlinkIdl.Result;
 import de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -47,7 +49,7 @@ public class MethodImpl extends MemberImpl implements Method
    * @generated
    * @ordered
    */
-  protected de.dentrassi.varlink.idl.varlinkIdl.Object arguments;
+  protected Arguments arguments;
 
   /**
    * The cached value of the '{@link #getResult() <em>Result</em>}' containment reference.
@@ -57,7 +59,7 @@ public class MethodImpl extends MemberImpl implements Method
    * @generated
    * @ordered
    */
-  protected de.dentrassi.varlink.idl.varlinkIdl.Object result;
+  protected Result result;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,7 +87,7 @@ public class MethodImpl extends MemberImpl implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public de.dentrassi.varlink.idl.varlinkIdl.Object getArguments()
+  public Arguments getArguments()
   {
     return arguments;
   }
@@ -95,9 +97,9 @@ public class MethodImpl extends MemberImpl implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetArguments(de.dentrassi.varlink.idl.varlinkIdl.Object newArguments, NotificationChain msgs)
+  public NotificationChain basicSetArguments(Arguments newArguments, NotificationChain msgs)
   {
-    de.dentrassi.varlink.idl.varlinkIdl.Object oldArguments = arguments;
+    Arguments oldArguments = arguments;
     arguments = newArguments;
     if (eNotificationRequired())
     {
@@ -112,7 +114,7 @@ public class MethodImpl extends MemberImpl implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setArguments(de.dentrassi.varlink.idl.varlinkIdl.Object newArguments)
+  public void setArguments(Arguments newArguments)
   {
     if (newArguments != arguments)
     {
@@ -133,7 +135,7 @@ public class MethodImpl extends MemberImpl implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public de.dentrassi.varlink.idl.varlinkIdl.Object getResult()
+  public Result getResult()
   {
     return result;
   }
@@ -143,9 +145,9 @@ public class MethodImpl extends MemberImpl implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetResult(de.dentrassi.varlink.idl.varlinkIdl.Object newResult, NotificationChain msgs)
+  public NotificationChain basicSetResult(Result newResult, NotificationChain msgs)
   {
-    de.dentrassi.varlink.idl.varlinkIdl.Object oldResult = result;
+    Result oldResult = result;
     result = newResult;
     if (eNotificationRequired())
     {
@@ -160,7 +162,7 @@ public class MethodImpl extends MemberImpl implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setResult(de.dentrassi.varlink.idl.varlinkIdl.Object newResult)
+  public void setResult(Result newResult)
   {
     if (newResult != result)
     {
@@ -223,10 +225,10 @@ public class MethodImpl extends MemberImpl implements Method
     switch (featureID)
     {
       case VarlinkIdlPackage.METHOD__ARGUMENTS:
-        setArguments((de.dentrassi.varlink.idl.varlinkIdl.Object)newValue);
+        setArguments((Arguments)newValue);
         return;
       case VarlinkIdlPackage.METHOD__RESULT:
-        setResult((de.dentrassi.varlink.idl.varlinkIdl.Object)newValue);
+        setResult((Result)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -243,10 +245,10 @@ public class MethodImpl extends MemberImpl implements Method
     switch (featureID)
     {
       case VarlinkIdlPackage.METHOD__ARGUMENTS:
-        setArguments((de.dentrassi.varlink.idl.varlinkIdl.Object)null);
+        setArguments((Arguments)null);
         return;
       case VarlinkIdlPackage.METHOD__RESULT:
-        setResult((de.dentrassi.varlink.idl.varlinkIdl.Object)null);
+        setResult((Result)null);
         return;
     }
     super.eUnset(featureID);

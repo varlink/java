@@ -4,12 +4,12 @@
 
     <groupId>de.dentrassi.varlink</groupId>
     <artifactId>varlink-parent</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <packaging>pom</packaging>
 
     <name>Varlink Java :: Parent</name>
     <description>Varlink for Java</description>
-    <url>https://github.com/ctron/varlink-java</url>
+    <url>https://github.com/varlink/java</url>
 
     <inceptionYear>2017</inceptionYear>
 
@@ -26,7 +26,7 @@
         <url>https://github.com/ctron/varlink-java</url>
         <connection>scm:git:git://github.com/ctron/varlink-java.git</connection>
         <developerConnection>scm:git:git@github.com:ctron/varlink-java.git</developerConnection>
-        <tag>varlink-java-0.1.0</tag>
+        <tag>varlink-java-0.2.0</tag>
     </scm>
 
     <issueManagement>
@@ -66,7 +66,7 @@
     <modules>
         <module>varlink-core</module>
         <module>varlink-bindings</module>
-        <module>varlink-idl</module>
+        <module>varlink-idl/de.dentrassi.varlink.idl</module>
         <module>varlink-maven-plugin</module>
     </modules>
 
@@ -176,6 +176,12 @@
                     <version>3.5</version>
                 </plugin>
 
+                <!-- maven extras -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
 
                 <!-- xtext -->
 
