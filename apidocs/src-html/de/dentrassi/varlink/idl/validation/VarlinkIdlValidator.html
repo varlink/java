@@ -7,7 +7,7 @@
 <body>
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>/**<a name="line.1"></a>
-<span class="sourceLineNo">002</span> * Copyright (c) 2017 Red Hat Inc<a name="line.2"></a>
+<span class="sourceLineNo">002</span> * Copyright (c) 2017, 2018 Red Hat Inc<a name="line.2"></a>
 <span class="sourceLineNo">003</span> * All rights reserved. This program and the accompanying materials<a name="line.3"></a>
 <span class="sourceLineNo">004</span> * are made available under the terms of the Eclipse Public License v1.0<a name="line.4"></a>
 <span class="sourceLineNo">005</span> * which accompanies this distribution, and is available at<a name="line.5"></a>
@@ -19,10 +19,35 @@
 <span class="sourceLineNo">011</span>package de.dentrassi.varlink.idl.validation;<a name="line.11"></a>
 <span class="sourceLineNo">012</span><a name="line.12"></a>
 <span class="sourceLineNo">013</span>import de.dentrassi.varlink.idl.validation.AbstractVarlinkIdlValidator;<a name="line.13"></a>
-<span class="sourceLineNo">014</span><a name="line.14"></a>
-<span class="sourceLineNo">015</span>@SuppressWarnings("all")<a name="line.15"></a>
-<span class="sourceLineNo">016</span>public class VarlinkIdlValidator extends AbstractVarlinkIdlValidator {<a name="line.16"></a>
-<span class="sourceLineNo">017</span>}<a name="line.17"></a>
+<span class="sourceLineNo">014</span>import de.dentrassi.varlink.idl.varlinkIdl.Field;<a name="line.14"></a>
+<span class="sourceLineNo">015</span>import de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage;<a name="line.15"></a>
+<span class="sourceLineNo">016</span>import org.eclipse.xtext.validation.Check;<a name="line.16"></a>
+<span class="sourceLineNo">017</span><a name="line.17"></a>
+<span class="sourceLineNo">018</span>@SuppressWarnings("all")<a name="line.18"></a>
+<span class="sourceLineNo">019</span>public class VarlinkIdlValidator extends AbstractVarlinkIdlValidator {<a name="line.19"></a>
+<span class="sourceLineNo">020</span>  public final static String FIELD_NOT_LOWER_CASE = "field.notLowerCase";<a name="line.20"></a>
+<span class="sourceLineNo">021</span>  <a name="line.21"></a>
+<span class="sourceLineNo">022</span>  @Check<a name="line.22"></a>
+<span class="sourceLineNo">023</span>  public void checkFieldName(final Field field) {<a name="line.23"></a>
+<span class="sourceLineNo">024</span>    if (((field.getName() == null) || field.getName().isEmpty())) {<a name="line.24"></a>
+<span class="sourceLineNo">025</span>      return;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>    }<a name="line.26"></a>
+<span class="sourceLineNo">027</span>    boolean _startsWith = field.getName().startsWith("_");<a name="line.27"></a>
+<span class="sourceLineNo">028</span>    if (_startsWith) {<a name="line.28"></a>
+<span class="sourceLineNo">029</span>      this.error("Field names must not start with \'_\'", field, VarlinkIdlPackage.Literals.FIELD__NAME);<a name="line.29"></a>
+<span class="sourceLineNo">030</span>    }<a name="line.30"></a>
+<span class="sourceLineNo">031</span>    boolean _endsWith = field.getName().endsWith("_");<a name="line.31"></a>
+<span class="sourceLineNo">032</span>    if (_endsWith) {<a name="line.32"></a>
+<span class="sourceLineNo">033</span>      this.error("Field names must not end with \'_\'", field, VarlinkIdlPackage.Literals.FIELD__NAME);<a name="line.33"></a>
+<span class="sourceLineNo">034</span>    }<a name="line.34"></a>
+<span class="sourceLineNo">035</span>    boolean _isLowerCase = Character.isLowerCase(field.getName().charAt(0));<a name="line.35"></a>
+<span class="sourceLineNo">036</span>    boolean _not = (!_isLowerCase);<a name="line.36"></a>
+<span class="sourceLineNo">037</span>    if (_not) {<a name="line.37"></a>
+<span class="sourceLineNo">038</span>      this.error("Field names should start with lower case letter", field, VarlinkIdlPackage.Literals.FIELD__NAME, <a name="line.38"></a>
+<span class="sourceLineNo">039</span>        VarlinkIdlValidator.FIELD_NOT_LOWER_CASE);<a name="line.39"></a>
+<span class="sourceLineNo">040</span>    }<a name="line.40"></a>
+<span class="sourceLineNo">041</span>  }<a name="line.41"></a>
+<span class="sourceLineNo">042</span>}<a name="line.42"></a>
 
 
 

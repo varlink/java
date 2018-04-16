@@ -7,7 +7,7 @@
 <body>
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>/*******************************************************************************<a name="line.1"></a>
-<span class="sourceLineNo">002</span> * Copyright (c) 2017 Red Hat Inc<a name="line.2"></a>
+<span class="sourceLineNo">002</span> * Copyright (c) 2017, 2018 Red Hat Inc<a name="line.2"></a>
 <span class="sourceLineNo">003</span> * All rights reserved. This program and the accompanying materials<a name="line.3"></a>
 <span class="sourceLineNo">004</span> * are made available under the terms of the Eclipse Public License v1.0<a name="line.4"></a>
 <span class="sourceLineNo">005</span> * which accompanies this distribution, and is available at<a name="line.5"></a>
@@ -18,18 +18,40 @@
 <span class="sourceLineNo">010</span> *******************************************************************************/<a name="line.10"></a>
 <span class="sourceLineNo">011</span>package de.dentrassi.varlink.spi;<a name="line.11"></a>
 <span class="sourceLineNo">012</span><a name="line.12"></a>
-<span class="sourceLineNo">013</span>public final class Errors {<a name="line.13"></a>
+<span class="sourceLineNo">013</span>import java.util.function.BiFunction;<a name="line.13"></a>
 <span class="sourceLineNo">014</span><a name="line.14"></a>
-<span class="sourceLineNo">015</span>    private Errors() {<a name="line.15"></a>
-<span class="sourceLineNo">016</span>    }<a name="line.16"></a>
-<span class="sourceLineNo">017</span><a name="line.17"></a>
-<span class="sourceLineNo">018</span>    public static void check(final CallResponse result) {<a name="line.18"></a>
-<span class="sourceLineNo">019</span>        if (result.isError()) {<a name="line.19"></a>
-<span class="sourceLineNo">020</span>            throw new CallErrorException(result);<a name="line.20"></a>
-<span class="sourceLineNo">021</span>        }<a name="line.21"></a>
-<span class="sourceLineNo">022</span>    }<a name="line.22"></a>
-<span class="sourceLineNo">023</span><a name="line.23"></a>
-<span class="sourceLineNo">024</span>}<a name="line.24"></a>
+<span class="sourceLineNo">015</span>public final class Errors {<a name="line.15"></a>
+<span class="sourceLineNo">016</span><a name="line.16"></a>
+<span class="sourceLineNo">017</span>    private Errors() {<a name="line.17"></a>
+<span class="sourceLineNo">018</span>    }<a name="line.18"></a>
+<span class="sourceLineNo">019</span><a name="line.19"></a>
+<span class="sourceLineNo">020</span>    public static void check(final CallResponse response) {<a name="line.20"></a>
+<span class="sourceLineNo">021</span>        if (!response.isError()) {<a name="line.21"></a>
+<span class="sourceLineNo">022</span>            return;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>        }<a name="line.23"></a>
+<span class="sourceLineNo">024</span><a name="line.24"></a>
+<span class="sourceLineNo">025</span>        throw new CallErrorException(response);<a name="line.25"></a>
+<span class="sourceLineNo">026</span>    }<a name="line.26"></a>
+<span class="sourceLineNo">027</span><a name="line.27"></a>
+<span class="sourceLineNo">028</span>    public static void checkErrors(final CallResponse response,<a name="line.28"></a>
+<span class="sourceLineNo">029</span>            final BiFunction&lt;String, CallResponse, RuntimeException&gt; errorMapper) {<a name="line.29"></a>
+<span class="sourceLineNo">030</span><a name="line.30"></a>
+<span class="sourceLineNo">031</span>        if (!response.isError()) {<a name="line.31"></a>
+<span class="sourceLineNo">032</span>            return;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>        }<a name="line.33"></a>
+<span class="sourceLineNo">034</span><a name="line.34"></a>
+<span class="sourceLineNo">035</span>        final String errorName = response.getError();<a name="line.35"></a>
+<span class="sourceLineNo">036</span>        if (errorName != null &amp;&amp; errorMapper != null) {<a name="line.36"></a>
+<span class="sourceLineNo">037</span>            final RuntimeException error = errorMapper.apply(errorName, response);<a name="line.37"></a>
+<span class="sourceLineNo">038</span>            if (error != null) {<a name="line.38"></a>
+<span class="sourceLineNo">039</span>                throw error;<a name="line.39"></a>
+<span class="sourceLineNo">040</span>            }<a name="line.40"></a>
+<span class="sourceLineNo">041</span>        }<a name="line.41"></a>
+<span class="sourceLineNo">042</span><a name="line.42"></a>
+<span class="sourceLineNo">043</span>        throw new CallErrorException(response);<a name="line.43"></a>
+<span class="sourceLineNo">044</span>    }<a name="line.44"></a>
+<span class="sourceLineNo">045</span><a name="line.45"></a>
+<span class="sourceLineNo">046</span>}<a name="line.46"></a>
 
 
 
