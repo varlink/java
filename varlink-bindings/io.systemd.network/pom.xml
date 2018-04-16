@@ -5,7 +5,7 @@
     <parent>
         <groupId>de.dentrassi.varlink.bindings</groupId>
         <artifactId>varlink-bindings</artifactId>
-        <version>0.2.0-SNAPSHOT</version>
+        <version>0.2.0</version>
     </parent>
 
     <artifactId>io.systemd.network</artifactId>
