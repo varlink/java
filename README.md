@@ -24,5 +24,5 @@ There is an Eclipse editor for Varlink based files. It can be installed using th
 
 ## P2 Repository
 
-Varlink for Java also provides a P2 repository: https://ctron.github.io/varlink-java/p2/latest
+Varlink for Java also provides a P2 repository: https://varlink.github.io/java/p2/latest
 
