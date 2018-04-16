@@ -1,4 +1,4 @@
-# Varlink for Java [![Build status](https://api.travis-ci.org/ctron/varlink-java.svg)](https://travis-ci.org/ctron/varlink-java) [![Maven Central](https://img.shields.io/maven-central/v/de.dentrassi.varlink/varlink-parent.svg "Maven Central Status")](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22de.dentrassi.varlink%22%20AND%20a%3A%22varlink-core%22)
+# Varlink for Java [![Build status](https://api.travis-ci.org/varlink/java.svg)](https://travis-ci.org/varlink/java) [![Maven Central](https://img.shields.io/maven-central/v/de.dentrassi.varlink/varlink-parent.svg "Maven Central Status")](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22de.dentrassi.varlink%22%20AND%20a%3A%22varlink-core%22)
 
 "Varlink for Java" are Java bindings and tools for [Varlink](http://varlink.org "Varlink").
 
@@ -26,3 +26,15 @@ There is an Eclipse editor for Varlink based files. It can be installed using th
 
 Varlink for Java also provides a P2 repository: https://varlink.github.io/java/p2/latest
 
+## Building the project
+
+This project consists of two main builds. The first is a plain maven build and the second is a Maven Tycho based build.
+Unfortunately this is necessary due to the way the different components work. I am happy to receive a PR which
+fixes this nightmare ;-)
+
+In order to build this project you need to issue the following two commands:
+
+~~~sh
+mvn clean install
+mvn clean install -f varlink-idl/pom.xml
+~~~
