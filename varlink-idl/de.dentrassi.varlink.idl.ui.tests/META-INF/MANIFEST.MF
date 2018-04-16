@@ -3,7 +3,7 @@ Automatic-Module-Name: de.dentrassi.varlink.idl.ui.tests
 Bundle-ManifestVersion: 2
 Bundle-Name: de.dentrassi.varlink.idl.ui.tests
 Bundle-Vendor: Jens Reimann
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.2.1.qualifier
 Bundle-SymbolicName: de.dentrassi.varlink.idl.ui.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: de.dentrassi.varlink.idl,

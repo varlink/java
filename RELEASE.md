@@ -17,6 +17,10 @@ Head over to http://oss.sonatype.org/ and do the release.
     git push origin
     git checkout develop
 
+## Set new Tycho version
+
+    mvn -f varlink-idl/pom.xml tycho-versions:set-version -DnewVersion=0.0.0-SNAPSHOT
+
 ## Upload the documentation
 
     git checkout <tag>
@@ -25,4 +29,3 @@ Head over to http://oss.sonatype.org/ and do the release.
     cd target/staging
     # upload, upload p2
     git checkout develop
-
