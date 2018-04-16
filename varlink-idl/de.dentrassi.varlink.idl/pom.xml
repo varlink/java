@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -10,7 +12,6 @@
     </parent>
 
     <artifactId>de.dentrassi.varlink.idl</artifactId>
-    <packaging>bundle</packaging>
 
     <name>Varlink Java :: IDL :: Core</name>
 
@@ -43,7 +44,6 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.0.0</version>
                 <executions>
                     <execution>
                         <id>add-source</id>
@@ -68,6 +68,13 @@
                                     <directory>model</directory>
                                     <targetPath>model</targetPath>
                                 </resource>
+                                <resource>
+                                    <directory>.</directory>
+                                    <includes>
+                                        <include>about.*</include>
+                                        <include>plugin.xml</include>
+                                    </includes>
+                                </resource>
                             </resources>
                         </configuration>
                     </execution>
@@ -83,21 +90,12 @@
             </plugin>
 
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <unpackBundle>true</unpackBundle>
-                    <instructions>
-                        <Bundle-SymbolicName>$(maven-symbolicname);singleton:=true</Bundle-SymbolicName>
-                        <Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
-                        <Bundle-Localization>OSGI-INF/l10n/bundle</Bundle-Localization>
-                        <Include-Resource>
-                            OSGI-INF=OSGI-INF;recursive=true,
-                            model=model;recursive=true,
-                            plugin.xml
-                        </Include-Resource>
-                    </instructions>
+                    <archive>
+                        <manifestFile>META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
                 </configuration>
             </plugin>
 

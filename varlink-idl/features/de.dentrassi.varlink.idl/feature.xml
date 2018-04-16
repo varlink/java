@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.dentrassi.varlink.idl"
+      label="%featureName"
+      version="0.2.0.qualifier"
+      provider-name="%providerName"
+      plugin="de.dentrassi.varlink.idl">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="%copyrightURL">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.xtext.ui" version="2.12.0"/>
+      <import plugin="org.eclipse.xtext" version="2.12.0" match="compatible"/>
+      <import plugin="org.eclipse.equinox.common" version="3.5.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.12.0" match="compatible"/>
+      <import plugin="org.antlr.runtime" version="4.0.0" match="compatible"/>
+      <import plugin="org.eclipse.xtext.util" version="2.12.0" match="compatible"/>
+      <import plugin="org.eclipse.xtend.lib" version="2.12.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.common" version="2.12.0" match="compatible"/>
+      <import plugin="org.eclipse.xtext.common.types" version="2.12.0" match="compatible"/>
+      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import plugin="org.eclipse.xtext.ui" version="2.12.0" match="compatible"/>
+      <import plugin="org.eclipse.xtext.ui.shared" version="2.12.0" match="compatible"/>
+      <import plugin="org.eclipse.xtext.ui.codetemplates.ui" version="2.12.0" match="compatible"/>
+      <import plugin="org.eclipse.ui.editors" version="3.10.0" match="compatible"/>
+      <import plugin="org.eclipse.ui.ide" version="3.10.0" match="compatible"/>
+      <import plugin="org.eclipse.ui" version="3.109.0" match="compatible"/>
+      <import plugin="org.eclipse.compare" version="3.7.0" match="compatible"/>
+      <import plugin="org.eclipse.xtext.builder" version="2.12.0" match="compatible"/>
+      <import plugin="org.eclipse.xtext.common.types.ui" version="2.12.0" match="compatible"/>
+      <import plugin="org.eclipse.jdt.debug.ui" version="3.8.0" match="compatible"/>
+      <import plugin="org.eclipse.xtext.ide" version="2.12.0" match="compatible"/>
+      <import plugin="org.eclipse.xtext.xbase.ide" version="2.12.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="de.dentrassi.varlink.idl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.dentrassi.varlink.idl.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.dentrassi.varlink.idl.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

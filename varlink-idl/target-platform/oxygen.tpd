@@ -25,6 +25,8 @@ location "http://download.eclipse.org/releases/oxygen" {
 	org.eclipse.xtend.sdk.feature.group
 	org.eclipse.xtend.lib
 
+	org.eclipse.xpand.feature.group
+
 	com.google.inject
 	com.google.guava
 	org.objectweb.asm [5.0.1,6.0.0)

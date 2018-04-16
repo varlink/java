@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse Oxygen" sequenceNumber="1521810441">
+<target name="Eclipse Oxygen" sequenceNumber="1523862803">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.platform.feature.group" version="4.7.3.v20180301-0715"/>
-      <unit id="org.eclipse.jdt.feature.group" version="3.13.3.v20180301-0715"/>
+      <unit id="org.eclipse.platform.feature.group" version="4.7.3.v20180330-0640"/>
+      <unit id="org.eclipse.jdt.feature.group" version="3.13.4.v20180330-0919"/>
       <unit id="org.eclipse.emf.sdk.feature.group" version="2.13.0.v20170609-0928"/>
       <unit id="org.eclipse.emf.edit.ui.feature.group" version="2.13.0.v20170609-0928"/>
       <unit id="org.eclipse.emf.mwe.sdk.feature.group" version="1.3.21.201705291011"/>
@@ -21,6 +21,7 @@
       <unit id="org.eclipse.xtend.dependencies.feature.group" version="2.2.0.v201605260315"/>
       <unit id="org.eclipse.xtend.sdk.feature.group" version="2.12.0.v20170519-1412"/>
       <unit id="org.eclipse.xtend.lib" version="2.12.0.v20170518-0757"/>
+      <unit id="org.eclipse.xpand.feature.group" version="2.2.0.v201605260315"/>
       <unit id="com.google.inject" version="3.0.0.v201312141243"/>
       <unit id="com.google.guava" version="21.0.0.v20170206-1425"/>
       <unit id="org.objectweb.asm" version="5.2.0.v20170126-0011"/>
