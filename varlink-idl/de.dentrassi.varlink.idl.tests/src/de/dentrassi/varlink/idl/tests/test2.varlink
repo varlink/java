@@ -14,7 +14,10 @@ type TypeFoo (
   int: int,
   float: float,
   string: string,
+  object: object,
   enum: ?[]?(foo, bar, baz),
+  dictionary: [string]string,
+  stringset: [string](),
   type: ?TypeEnum,
   anon: (
     foo: bool,
