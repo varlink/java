@@ -53,7 +53,7 @@
         </repository>
         <site>
             <id>project</id>
-            <url>https://ctron.github.io/varlink-java</url>
+            <url>https://varlink.org/java/</url>
         </site>
     </distributionManagement>
 
