@@ -34,10 +34,6 @@ public interface Error extends Member
   /**
    * Returns the value of the '<em><b>Properties</b></em>' containment reference.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Properties</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Properties</em>' containment reference.
    * @see #setProperties(de.dentrassi.varlink.idl.varlinkIdl.Object)

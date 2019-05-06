@@ -75,6 +75,7 @@ public class TypeAliasImpl extends MemberImpl implements TypeAlias
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public TypeAliasDefinition getDefinition()
   {
     return definition;
@@ -102,6 +103,7 @@ public class TypeAliasImpl extends MemberImpl implements TypeAlias
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setDefinition(TypeAliasDefinition newDefinition)
   {
     if (newDefinition != definition)

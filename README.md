@@ -38,3 +38,6 @@ In order to build this project you need to issue the following two commands:
 mvn clean install
 mvn clean install -f varlink-idl/pom.xml
 ~~~
+
+Also see: [HACKING.md](HACKING.md)
+

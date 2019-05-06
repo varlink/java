@@ -192,7 +192,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
 
   /**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-   * 
+   *
    * <p>This method is used to initialize {@link VarlinkIdlPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
@@ -207,7 +207,8 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
     if (isInited) return (VarlinkIdlPackage)EPackage.Registry.INSTANCE.getEPackage(VarlinkIdlPackage.eNS_URI);
 
     // Obtain or create and register package
-    VarlinkIdlPackageImpl theVarlinkIdlPackage = (VarlinkIdlPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof VarlinkIdlPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new VarlinkIdlPackageImpl());
+    Object registeredVarlinkIdlPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+    VarlinkIdlPackageImpl theVarlinkIdlPackage = registeredVarlinkIdlPackage instanceof VarlinkIdlPackageImpl ? (VarlinkIdlPackageImpl)registeredVarlinkIdlPackage : new VarlinkIdlPackageImpl();
 
     isInited = true;
 
@@ -220,7 +221,6 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
     // Mark meta-data to indicate it can't be changed
     theVarlinkIdlPackage.freeze();
 
-  
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(VarlinkIdlPackage.eNS_URI, theVarlinkIdlPackage);
     return theVarlinkIdlPackage;
@@ -231,6 +231,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getInterface()
   {
     return interfaceEClass;
@@ -241,6 +242,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getInterface_Name()
   {
     return (EAttribute)interfaceEClass.getEStructuralFeatures().get(0);
@@ -251,6 +253,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getInterface_Members()
   {
     return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
@@ -261,6 +264,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getMember()
   {
     return memberEClass;
@@ -271,6 +275,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getMember_Name()
   {
     return (EAttribute)memberEClass.getEStructuralFeatures().get(0);
@@ -281,6 +286,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getTypeAlias()
   {
     return typeAliasEClass;
@@ -291,6 +297,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getTypeAlias_Definition()
   {
     return (EReference)typeAliasEClass.getEStructuralFeatures().get(0);
@@ -301,6 +308,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getTypeAliasDefinition()
   {
     return typeAliasDefinitionEClass;
@@ -311,6 +319,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getEnum()
   {
     return enumEClass;
@@ -321,6 +330,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getEnum_Fields()
   {
     return (EAttribute)enumEClass.getEStructuralFeatures().get(0);
@@ -331,6 +341,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getObject()
   {
     return objectEClass;
@@ -341,6 +352,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getObject_Fields()
   {
     return (EReference)objectEClass.getEStructuralFeatures().get(0);
@@ -351,6 +363,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getField()
   {
     return fieldEClass;
@@ -361,6 +374,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getField_Name()
   {
     return (EAttribute)fieldEClass.getEStructuralFeatures().get(0);
@@ -371,6 +385,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getField_Type()
   {
     return (EReference)fieldEClass.getEStructuralFeatures().get(1);
@@ -381,6 +396,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getElementType()
   {
     return elementTypeEClass;
@@ -391,6 +407,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getArray()
   {
     return arrayEClass;
@@ -401,6 +418,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getArray_Type()
   {
     return (EReference)arrayEClass.getEStructuralFeatures().get(0);
@@ -411,6 +429,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getDictionary()
   {
     return dictionaryEClass;
@@ -421,6 +440,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getDictionary_Type()
   {
     return (EReference)dictionaryEClass.getEStructuralFeatures().get(0);
@@ -431,6 +451,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getOptional()
   {
     return optionalEClass;
@@ -441,6 +462,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getOptional_Type()
   {
     return (EReference)optionalEClass.getEStructuralFeatures().get(0);
@@ -451,6 +473,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getTypeReference()
   {
     return typeReferenceEClass;
@@ -461,6 +484,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getTypeReference_Name()
   {
     return (EReference)typeReferenceEClass.getEStructuralFeatures().get(0);
@@ -471,6 +495,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getBasicType()
   {
     return basicTypeEClass;
@@ -481,6 +506,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getBasicType_Type()
   {
     return (EAttribute)basicTypeEClass.getEStructuralFeatures().get(0);
@@ -491,6 +517,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getMethod()
   {
     return methodEClass;
@@ -501,6 +528,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getMethod_Arguments()
   {
     return (EReference)methodEClass.getEStructuralFeatures().get(0);
@@ -511,6 +539,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getMethod_Result()
   {
     return (EReference)methodEClass.getEStructuralFeatures().get(1);
@@ -521,6 +550,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getArguments()
   {
     return argumentsEClass;
@@ -531,6 +561,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getArguments_Arguments()
   {
     return (EReference)argumentsEClass.getEStructuralFeatures().get(0);
@@ -541,6 +572,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getResult()
   {
     return resultEClass;
@@ -551,6 +583,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getResult_Result()
   {
     return (EReference)resultEClass.getEStructuralFeatures().get(0);
@@ -561,6 +594,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getError()
   {
     return errorEClass;
@@ -571,6 +605,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getError_Properties()
   {
     return (EReference)errorEClass.getEStructuralFeatures().get(0);
@@ -581,6 +616,7 @@ public class VarlinkIdlPackageImpl extends EPackageImpl implements VarlinkIdlPac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public VarlinkIdlFactory getVarlinkIdlFactory()
   {
     return (VarlinkIdlFactory)getEFactoryInstance();

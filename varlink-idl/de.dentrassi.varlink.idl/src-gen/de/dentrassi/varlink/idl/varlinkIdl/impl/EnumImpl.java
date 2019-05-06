@@ -73,6 +73,7 @@ public class EnumImpl extends TypeAliasDefinitionImpl implements de.dentrassi.va
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EList<String> getFields()
   {
     if (fields == null)
@@ -160,7 +161,7 @@ public class EnumImpl extends TypeAliasDefinitionImpl implements de.dentrassi.va
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
+    StringBuilder result = new StringBuilder(super.toString());
     result.append(" (fields: ");
     result.append(fields);
     result.append(')');

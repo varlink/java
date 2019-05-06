@@ -116,6 +116,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Interface createInterface()
   {
     InterfaceImpl interface_ = new InterfaceImpl();
@@ -127,6 +128,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Member createMember()
   {
     MemberImpl member = new MemberImpl();
@@ -138,6 +140,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public TypeAlias createTypeAlias()
   {
     TypeAliasImpl typeAlias = new TypeAliasImpl();
@@ -149,6 +152,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public TypeAliasDefinition createTypeAliasDefinition()
   {
     TypeAliasDefinitionImpl typeAliasDefinition = new TypeAliasDefinitionImpl();
@@ -160,6 +164,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public de.dentrassi.varlink.idl.varlinkIdl.Enum createEnum()
   {
     EnumImpl enum_ = new EnumImpl();
@@ -171,6 +176,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public de.dentrassi.varlink.idl.varlinkIdl.Object createObject()
   {
     ObjectImpl object = new ObjectImpl();
@@ -182,6 +188,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Field createField()
   {
     FieldImpl field = new FieldImpl();
@@ -193,6 +200,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public ElementType createElementType()
   {
     ElementTypeImpl elementType = new ElementTypeImpl();
@@ -204,6 +212,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Array createArray()
   {
     ArrayImpl array = new ArrayImpl();
@@ -215,6 +224,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Dictionary createDictionary()
   {
     DictionaryImpl dictionary = new DictionaryImpl();
@@ -226,6 +236,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Optional createOptional()
   {
     OptionalImpl optional = new OptionalImpl();
@@ -237,6 +248,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public TypeReference createTypeReference()
   {
     TypeReferenceImpl typeReference = new TypeReferenceImpl();
@@ -248,6 +260,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public BasicType createBasicType()
   {
     BasicTypeImpl basicType = new BasicTypeImpl();
@@ -259,6 +272,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Method createMethod()
   {
     MethodImpl method = new MethodImpl();
@@ -270,6 +284,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Arguments createArguments()
   {
     ArgumentsImpl arguments = new ArgumentsImpl();
@@ -281,6 +296,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Result createResult()
   {
     ResultImpl result = new ResultImpl();
@@ -292,6 +308,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public de.dentrassi.varlink.idl.varlinkIdl.Error createError()
   {
     ErrorImpl error = new ErrorImpl();
@@ -303,6 +320,7 @@ public class VarlinkIdlFactoryImpl extends EFactoryImpl implements VarlinkIdlFac
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public VarlinkIdlPackage getVarlinkIdlPackage()
   {
     return (VarlinkIdlPackage)getEPackage();

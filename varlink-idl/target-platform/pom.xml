@@ -12,8 +12,8 @@
     </parent>
 
     <groupId>de.dentrassi.varlink.idl.target-platform</groupId>
-    <artifactId>oxygen</artifactId>
-    <name>Varlink Java :: IDL :: Target Platform :: Oxygen</name>
+    <artifactId>2019-03</artifactId>
+    <name>Varlink Java :: IDL :: Target Platform :: 2019-03</name>
 
     <packaging>eclipse-target-definition</packaging>
 

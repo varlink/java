@@ -75,6 +75,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public de.dentrassi.varlink.idl.varlinkIdl.Object getResult()
   {
     return result;
@@ -102,6 +103,7 @@ public class ResultImpl extends MinimalEObjectImpl.Container implements Result
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setResult(de.dentrassi.varlink.idl.varlinkIdl.Object newResult)
   {
     if (newResult != result)

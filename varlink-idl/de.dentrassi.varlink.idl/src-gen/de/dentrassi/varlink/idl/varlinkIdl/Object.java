@@ -36,10 +36,6 @@ public interface Object extends TypeAliasDefinition, ElementType
    * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
    * The list contents are of type {@link de.dentrassi.varlink.idl.varlinkIdl.Field}.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Fields</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Fields</em>' containment reference list.
    * @see de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage#getObject_Fields()

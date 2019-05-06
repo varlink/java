@@ -75,6 +75,7 @@ public class ArrayImpl extends ElementTypeImpl implements Array
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public ElementType getType()
   {
     return type;
@@ -102,6 +103,7 @@ public class ArrayImpl extends ElementTypeImpl implements Array
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setType(ElementType newType)
   {
     if (newType != type)

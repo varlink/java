@@ -13,7 +13,6 @@ package de.dentrassi.varlink.idl.ui.internal;
 import com.google.common.collect.Maps;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.Module;
 import de.dentrassi.varlink.idl.VarlinkIdlRuntimeModule;
 import de.dentrassi.varlink.idl.ui.VarlinkIdlUiModule;
 import java.util.Collections;
@@ -30,6 +29,7 @@ import org.osgi.framework.BundleContext;
  */
 public class IdlActivator extends AbstractUIPlugin {
 
+	public static final String PLUGIN_ID = "de.dentrassi.varlink.idl.ui";
 	public static final String DE_DENTRASSI_VARLINK_IDL_VARLINKIDL = "de.dentrassi.varlink.idl.VarlinkIdl";
 	
 	private static final Logger logger = Logger.getLogger(IdlActivator.class);
@@ -67,10 +67,10 @@ public class IdlActivator extends AbstractUIPlugin {
 	
 	protected Injector createInjector(String language) {
 		try {
-			Module runtimeModule = getRuntimeModule(language);
-			Module sharedStateModule = getSharedStateModule();
-			Module uiModule = getUiModule(language);
-			Module mergedModule = Modules2.mixin(runtimeModule, sharedStateModule, uiModule);
+			com.google.inject.Module runtimeModule = getRuntimeModule(language);
+			com.google.inject.Module sharedStateModule = getSharedStateModule();
+			com.google.inject.Module uiModule = getUiModule(language);
+			com.google.inject.Module mergedModule = Modules2.mixin(runtimeModule, sharedStateModule, uiModule);
 			return Guice.createInjector(mergedModule);
 		} catch (Exception e) {
 			logger.error("Failed to create injector for " + language);
@@ -79,22 +79,23 @@ public class IdlActivator extends AbstractUIPlugin {
 		}
 	}
 	
-	protected Module getRuntimeModule(String grammar) {
+	protected com.google.inject.Module getRuntimeModule(String grammar) {
 		if (DE_DENTRASSI_VARLINK_IDL_VARLINKIDL.equals(grammar)) {
 			return new VarlinkIdlRuntimeModule();
 		}
 		throw new IllegalArgumentException(grammar);
 	}
 	
-	protected Module getUiModule(String grammar) {
+	protected com.google.inject.Module getUiModule(String grammar) {
 		if (DE_DENTRASSI_VARLINK_IDL_VARLINKIDL.equals(grammar)) {
 			return new VarlinkIdlUiModule(this);
 		}
 		throw new IllegalArgumentException(grammar);
 	}
 	
-	protected Module getSharedStateModule() {
+	protected com.google.inject.Module getSharedStateModule() {
 		return new SharedStateModule();
 	}
+	
 	
 }

@@ -12,6 +12,7 @@ package de.dentrassi.varlink.idl.ui;
 
 import com.google.inject.Injector;
 import de.dentrassi.varlink.idl.ui.internal.IdlActivator;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory;
 import org.osgi.framework.Bundle;
 
@@ -23,12 +24,13 @@ public class VarlinkIdlExecutableExtensionFactory extends AbstractGuiceAwareExec
 
 	@Override
 	protected Bundle getBundle() {
-		return IdlActivator.getInstance().getBundle();
+		return Platform.getBundle(IdlActivator.PLUGIN_ID);
 	}
 	
 	@Override
 	protected Injector getInjector() {
-		return IdlActivator.getInstance().getInjector(IdlActivator.DE_DENTRASSI_VARLINK_IDL_VARLINKIDL);
+		IdlActivator activator = IdlActivator.getInstance();
+		return activator != null ? activator.getInjector(IdlActivator.DE_DENTRASSI_VARLINK_IDL_VARLINKIDL) : null;
 	}
-	
+
 }

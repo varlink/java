@@ -396,15 +396,16 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTypeIntKeyword_0_1 = (Keyword)cTypeAlternatives_0.eContents().get(1);
 		private final Keyword cTypeFloatKeyword_0_2 = (Keyword)cTypeAlternatives_0.eContents().get(2);
 		private final Keyword cTypeStringKeyword_0_3 = (Keyword)cTypeAlternatives_0.eContents().get(3);
+		private final Keyword cTypeObjectKeyword_0_4 = (Keyword)cTypeAlternatives_0.eContents().get(4);
 		
 		//BasicType:
-		//	type=("bool" | "int" | "float" | "string");
+		//	type=("bool" | "int" | "float" | "string" | "object");
 		@Override public ParserRule getRule() { return rule; }
 		
-		//type=("bool" | "int" | "float" | "string")
+		//type=("bool" | "int" | "float" | "string" | "object")
 		public Assignment getTypeAssignment() { return cTypeAssignment; }
 		
-		//("bool" | "int" | "float" | "string")
+		//("bool" | "int" | "float" | "string" | "object")
 		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
 		
 		//"bool"
@@ -418,6 +419,9 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//"string"
 		public Keyword getTypeStringKeyword_0_3() { return cTypeStringKeyword_0_3; }
+		
+		//"object"
+		public Keyword getTypeObjectKeyword_0_4() { return cTypeObjectKeyword_0_4; }
 	}
 	public class MethodElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.dentrassi.varlink.idl.VarlinkIdl.Method");
@@ -582,12 +586,13 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cIntKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
 		private final Keyword cFloatKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
 		private final Keyword cStringKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cObjectKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
 		
 		//KEYWORD:
-		//	'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'int' | 'float' | 'string';
+		//	'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'int' | 'float' | 'string' | 'object';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'int' | 'float' | 'string'
+		//'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'int' | 'float' | 'string' | 'object'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'type'
@@ -616,6 +621,9 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'string'
 		public Keyword getStringKeyword_8() { return cStringKeyword_8; }
+		
+		//'object'
+		public Keyword getObjectKeyword_9() { return cObjectKeyword_9; }
 	}
 	
 	
@@ -825,7 +833,7 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BasicType:
-	//	type=("bool" | "int" | "float" | "string");
+	//	type=("bool" | "int" | "float" | "string" | "object");
 	public BasicTypeElements getBasicTypeAccess() {
 		return pBasicType;
 	}
@@ -896,7 +904,7 @@ public class VarlinkIdlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//KEYWORD:
-	//	'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'int' | 'float' | 'string';
+	//	'type' | 'enum' | 'interface' | 'method' | 'error' | 'bool' | 'int' | 'float' | 'string' | 'object';
 	public KEYWORDElements getKEYWORDAccess() {
 		return pKEYWORD;
 	}

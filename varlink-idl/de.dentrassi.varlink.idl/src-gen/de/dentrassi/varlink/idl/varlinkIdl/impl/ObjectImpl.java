@@ -78,6 +78,7 @@ public class ObjectImpl extends TypeAliasDefinitionImpl implements de.dentrassi.
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EList<Field> getFields()
   {
     if (fields == null)

@@ -23,5 +23,4 @@ public abstract class AbstractVarlinkIdlValidator extends AbstractDeclarativeVal
 		result.add(de.dentrassi.varlink.idl.varlinkIdl.VarlinkIdlPackage.eINSTANCE);
 		return result;
 	}
-	
 }

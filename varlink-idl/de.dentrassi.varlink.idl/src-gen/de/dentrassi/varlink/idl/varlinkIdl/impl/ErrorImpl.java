@@ -73,6 +73,7 @@ public class ErrorImpl extends MemberImpl implements de.dentrassi.varlink.idl.va
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public de.dentrassi.varlink.idl.varlinkIdl.Object getProperties()
   {
     return properties;
@@ -100,6 +101,7 @@ public class ErrorImpl extends MemberImpl implements de.dentrassi.varlink.idl.va
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setProperties(de.dentrassi.varlink.idl.varlinkIdl.Object newProperties)
   {
     if (newProperties != properties)

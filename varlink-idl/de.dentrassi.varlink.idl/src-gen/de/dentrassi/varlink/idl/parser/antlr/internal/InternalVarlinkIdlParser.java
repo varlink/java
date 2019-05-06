@@ -32,7 +32,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'interface'", "'type'", "'('", "','", "')'", "':'", "'[]'", "'[string]'", "'?'", "'bool'", "'int'", "'float'", "'string'", "'method'", "'->'", "'error'", "'.'", "'enum'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'interface'", "'type'", "'('", "','", "')'", "':'", "'[]'", "'[string]'", "'?'", "'bool'", "'int'", "'float'", "'string'", "'object'", "'method'", "'->'", "'error'", "'.'", "'enum'"
     };
     public static final int RULE_SL_COMMENT=5;
     public static final int T__19=19;
@@ -51,6 +51,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
     public static final int RULE_ID=4;
     public static final int RULE_WS=6;
     public static final int RULE_ANY_OTHER=7;
+    public static final int T__26=26;
     public static final int T__22=22;
     public static final int T__23=23;
     public static final int T__24=24;
@@ -205,7 +206,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==9||LA1_0==21||LA1_0==23) ) {
+                if ( (LA1_0==9||LA1_0==22||LA1_0==24) ) {
                     alt1=1;
                 }
 
@@ -343,12 +344,12 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                 alt2=1;
                 }
                 break;
-            case 21:
+            case 22:
                 {
                 alt2=2;
                 }
                 break;
-            case 23:
+            case 24:
                 {
                 alt2=3;
                 }
@@ -1027,7 +1028,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==RULE_ID||(LA5_0>=8 && LA5_0<=9)||(LA5_0>=17 && LA5_0<=21)||LA5_0==23||LA5_0==25) ) {
+            if ( (LA5_0==RULE_ID||(LA5_0>=8 && LA5_0<=9)||(LA5_0>=17 && LA5_0<=22)||LA5_0==24||LA5_0==26) ) {
                 alt5=1;
             }
             switch (alt5) {
@@ -2087,7 +2088,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBasicType"
-    // InternalVarlinkIdl.g:728:1: ruleBasicType returns [EObject current=null] : ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) ) ) ;
+    // InternalVarlinkIdl.g:728:1: ruleBasicType returns [EObject current=null] : ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'object' ) ) ) ;
     public final EObject ruleBasicType() throws RecognitionException {
         EObject current = null;
 
@@ -2095,22 +2096,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         Token lv_type_0_2=null;
         Token lv_type_0_3=null;
         Token lv_type_0_4=null;
+        Token lv_type_0_5=null;
 
 
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:734:2: ( ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) ) ) )
-            // InternalVarlinkIdl.g:735:2: ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) ) )
+            // InternalVarlinkIdl.g:734:2: ( ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'object' ) ) ) )
+            // InternalVarlinkIdl.g:735:2: ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'object' ) ) )
             {
-            // InternalVarlinkIdl.g:735:2: ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) ) )
-            // InternalVarlinkIdl.g:736:3: ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) )
+            // InternalVarlinkIdl.g:735:2: ( ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'object' ) ) )
+            // InternalVarlinkIdl.g:736:3: ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'object' ) )
             {
-            // InternalVarlinkIdl.g:736:3: ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' ) )
-            // InternalVarlinkIdl.g:737:4: (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' )
+            // InternalVarlinkIdl.g:736:3: ( (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'object' ) )
+            // InternalVarlinkIdl.g:737:4: (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'object' )
             {
-            // InternalVarlinkIdl.g:737:4: (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' )
-            int alt8=4;
+            // InternalVarlinkIdl.g:737:4: (lv_type_0_1= 'bool' | lv_type_0_2= 'int' | lv_type_0_3= 'float' | lv_type_0_4= 'string' | lv_type_0_5= 'object' )
+            int alt8=5;
             switch ( input.LA(1) ) {
             case 17:
                 {
@@ -2130,6 +2132,11 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
             case 20:
                 {
                 alt8=4;
+                }
+                break;
+            case 21:
+                {
+                alt8=5;
                 }
                 break;
             default:
@@ -2221,6 +2228,26 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 5 :
+                    // InternalVarlinkIdl.g:782:5: lv_type_0_5= 'object'
+                    {
+                    lv_type_0_5=(Token)match(input,21,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					newLeafNode(lv_type_0_5, grammarAccess.getBasicTypeAccess().getTypeObjectKeyword_0_4());
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElement(grammarAccess.getBasicTypeRule());
+                      					}
+                      					setWithLastConsumed(current, "type", lv_type_0_5, null);
+                      				
+                    }
+
+                    }
+                    break;
 
             }
 
@@ -2252,7 +2279,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMethod"
-    // InternalVarlinkIdl.g:787:1: entryRuleMethod returns [EObject current=null] : iv_ruleMethod= ruleMethod EOF ;
+    // InternalVarlinkIdl.g:798:1: entryRuleMethod returns [EObject current=null] : iv_ruleMethod= ruleMethod EOF ;
     public final EObject entryRuleMethod() throws RecognitionException {
         EObject current = null;
 
@@ -2260,8 +2287,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:787:47: (iv_ruleMethod= ruleMethod EOF )
-            // InternalVarlinkIdl.g:788:2: iv_ruleMethod= ruleMethod EOF
+            // InternalVarlinkIdl.g:798:47: (iv_ruleMethod= ruleMethod EOF )
+            // InternalVarlinkIdl.g:799:2: iv_ruleMethod= ruleMethod EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMethodRule()); 
@@ -2292,7 +2319,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMethod"
-    // InternalVarlinkIdl.g:794:1: ruleMethod returns [EObject current=null] : (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) ) ;
+    // InternalVarlinkIdl.g:805:1: ruleMethod returns [EObject current=null] : (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) ) ;
     public final EObject ruleMethod() throws RecognitionException {
         EObject current = null;
 
@@ -2308,23 +2335,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:800:2: ( (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) ) )
-            // InternalVarlinkIdl.g:801:2: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) )
+            // InternalVarlinkIdl.g:811:2: ( (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) ) )
+            // InternalVarlinkIdl.g:812:2: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) )
             {
-            // InternalVarlinkIdl.g:801:2: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) )
-            // InternalVarlinkIdl.g:802:3: otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) )
+            // InternalVarlinkIdl.g:812:2: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) ) )
+            // InternalVarlinkIdl.g:813:3: otherlv_0= 'method' ( (lv_name_1_0= RULE_ID ) ) ( (lv_arguments_2_0= ruleArguments ) ) otherlv_3= '->' ( (lv_result_4_0= ruleResult ) )
             {
-            otherlv_0=(Token)match(input,21,FOLLOW_3); if (state.failed) return current;
+            otherlv_0=(Token)match(input,22,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getMethodAccess().getMethodKeyword_0());
               		
             }
-            // InternalVarlinkIdl.g:806:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalVarlinkIdl.g:807:4: (lv_name_1_0= RULE_ID )
+            // InternalVarlinkIdl.g:817:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalVarlinkIdl.g:818:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalVarlinkIdl.g:807:4: (lv_name_1_0= RULE_ID )
-            // InternalVarlinkIdl.g:808:5: lv_name_1_0= RULE_ID
+            // InternalVarlinkIdl.g:818:4: (lv_name_1_0= RULE_ID )
+            // InternalVarlinkIdl.g:819:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -2350,11 +2377,11 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalVarlinkIdl.g:824:3: ( (lv_arguments_2_0= ruleArguments ) )
-            // InternalVarlinkIdl.g:825:4: (lv_arguments_2_0= ruleArguments )
+            // InternalVarlinkIdl.g:835:3: ( (lv_arguments_2_0= ruleArguments ) )
+            // InternalVarlinkIdl.g:836:4: (lv_arguments_2_0= ruleArguments )
             {
-            // InternalVarlinkIdl.g:825:4: (lv_arguments_2_0= ruleArguments )
-            // InternalVarlinkIdl.g:826:5: lv_arguments_2_0= ruleArguments
+            // InternalVarlinkIdl.g:836:4: (lv_arguments_2_0= ruleArguments )
+            // InternalVarlinkIdl.g:837:5: lv_arguments_2_0= ruleArguments
             {
             if ( state.backtracking==0 ) {
 
@@ -2385,17 +2412,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,22,FOLLOW_6); if (state.failed) return current;
+            otherlv_3=(Token)match(input,23,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getMethodAccess().getHyphenMinusGreaterThanSignKeyword_3());
               		
             }
-            // InternalVarlinkIdl.g:847:3: ( (lv_result_4_0= ruleResult ) )
-            // InternalVarlinkIdl.g:848:4: (lv_result_4_0= ruleResult )
+            // InternalVarlinkIdl.g:858:3: ( (lv_result_4_0= ruleResult ) )
+            // InternalVarlinkIdl.g:859:4: (lv_result_4_0= ruleResult )
             {
-            // InternalVarlinkIdl.g:848:4: (lv_result_4_0= ruleResult )
-            // InternalVarlinkIdl.g:849:5: lv_result_4_0= ruleResult
+            // InternalVarlinkIdl.g:859:4: (lv_result_4_0= ruleResult )
+            // InternalVarlinkIdl.g:860:5: lv_result_4_0= ruleResult
             {
             if ( state.backtracking==0 ) {
 
@@ -2451,7 +2478,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleArguments"
-    // InternalVarlinkIdl.g:870:1: entryRuleArguments returns [EObject current=null] : iv_ruleArguments= ruleArguments EOF ;
+    // InternalVarlinkIdl.g:881:1: entryRuleArguments returns [EObject current=null] : iv_ruleArguments= ruleArguments EOF ;
     public final EObject entryRuleArguments() throws RecognitionException {
         EObject current = null;
 
@@ -2459,8 +2486,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:870:50: (iv_ruleArguments= ruleArguments EOF )
-            // InternalVarlinkIdl.g:871:2: iv_ruleArguments= ruleArguments EOF
+            // InternalVarlinkIdl.g:881:50: (iv_ruleArguments= ruleArguments EOF )
+            // InternalVarlinkIdl.g:882:2: iv_ruleArguments= ruleArguments EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getArgumentsRule()); 
@@ -2491,7 +2518,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleArguments"
-    // InternalVarlinkIdl.g:877:1: ruleArguments returns [EObject current=null] : ( (lv_arguments_0_0= ruleObject ) ) ;
+    // InternalVarlinkIdl.g:888:1: ruleArguments returns [EObject current=null] : ( (lv_arguments_0_0= ruleObject ) ) ;
     public final EObject ruleArguments() throws RecognitionException {
         EObject current = null;
 
@@ -2502,14 +2529,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:883:2: ( ( (lv_arguments_0_0= ruleObject ) ) )
-            // InternalVarlinkIdl.g:884:2: ( (lv_arguments_0_0= ruleObject ) )
+            // InternalVarlinkIdl.g:894:2: ( ( (lv_arguments_0_0= ruleObject ) ) )
+            // InternalVarlinkIdl.g:895:2: ( (lv_arguments_0_0= ruleObject ) )
             {
-            // InternalVarlinkIdl.g:884:2: ( (lv_arguments_0_0= ruleObject ) )
-            // InternalVarlinkIdl.g:885:3: (lv_arguments_0_0= ruleObject )
+            // InternalVarlinkIdl.g:895:2: ( (lv_arguments_0_0= ruleObject ) )
+            // InternalVarlinkIdl.g:896:3: (lv_arguments_0_0= ruleObject )
             {
-            // InternalVarlinkIdl.g:885:3: (lv_arguments_0_0= ruleObject )
-            // InternalVarlinkIdl.g:886:4: lv_arguments_0_0= ruleObject
+            // InternalVarlinkIdl.g:896:3: (lv_arguments_0_0= ruleObject )
+            // InternalVarlinkIdl.g:897:4: lv_arguments_0_0= ruleObject
             {
             if ( state.backtracking==0 ) {
 
@@ -2562,7 +2589,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleResult"
-    // InternalVarlinkIdl.g:906:1: entryRuleResult returns [EObject current=null] : iv_ruleResult= ruleResult EOF ;
+    // InternalVarlinkIdl.g:917:1: entryRuleResult returns [EObject current=null] : iv_ruleResult= ruleResult EOF ;
     public final EObject entryRuleResult() throws RecognitionException {
         EObject current = null;
 
@@ -2570,8 +2597,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:906:47: (iv_ruleResult= ruleResult EOF )
-            // InternalVarlinkIdl.g:907:2: iv_ruleResult= ruleResult EOF
+            // InternalVarlinkIdl.g:917:47: (iv_ruleResult= ruleResult EOF )
+            // InternalVarlinkIdl.g:918:2: iv_ruleResult= ruleResult EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getResultRule()); 
@@ -2602,7 +2629,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleResult"
-    // InternalVarlinkIdl.g:913:1: ruleResult returns [EObject current=null] : ( (lv_result_0_0= ruleObject ) ) ;
+    // InternalVarlinkIdl.g:924:1: ruleResult returns [EObject current=null] : ( (lv_result_0_0= ruleObject ) ) ;
     public final EObject ruleResult() throws RecognitionException {
         EObject current = null;
 
@@ -2613,14 +2640,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:919:2: ( ( (lv_result_0_0= ruleObject ) ) )
-            // InternalVarlinkIdl.g:920:2: ( (lv_result_0_0= ruleObject ) )
+            // InternalVarlinkIdl.g:930:2: ( ( (lv_result_0_0= ruleObject ) ) )
+            // InternalVarlinkIdl.g:931:2: ( (lv_result_0_0= ruleObject ) )
             {
-            // InternalVarlinkIdl.g:920:2: ( (lv_result_0_0= ruleObject ) )
-            // InternalVarlinkIdl.g:921:3: (lv_result_0_0= ruleObject )
+            // InternalVarlinkIdl.g:931:2: ( (lv_result_0_0= ruleObject ) )
+            // InternalVarlinkIdl.g:932:3: (lv_result_0_0= ruleObject )
             {
-            // InternalVarlinkIdl.g:921:3: (lv_result_0_0= ruleObject )
-            // InternalVarlinkIdl.g:922:4: lv_result_0_0= ruleObject
+            // InternalVarlinkIdl.g:932:3: (lv_result_0_0= ruleObject )
+            // InternalVarlinkIdl.g:933:4: lv_result_0_0= ruleObject
             {
             if ( state.backtracking==0 ) {
 
@@ -2673,7 +2700,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleError"
-    // InternalVarlinkIdl.g:942:1: entryRuleError returns [EObject current=null] : iv_ruleError= ruleError EOF ;
+    // InternalVarlinkIdl.g:953:1: entryRuleError returns [EObject current=null] : iv_ruleError= ruleError EOF ;
     public final EObject entryRuleError() throws RecognitionException {
         EObject current = null;
 
@@ -2681,8 +2708,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:942:46: (iv_ruleError= ruleError EOF )
-            // InternalVarlinkIdl.g:943:2: iv_ruleError= ruleError EOF
+            // InternalVarlinkIdl.g:953:46: (iv_ruleError= ruleError EOF )
+            // InternalVarlinkIdl.g:954:2: iv_ruleError= ruleError EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getErrorRule()); 
@@ -2713,7 +2740,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleError"
-    // InternalVarlinkIdl.g:949:1: ruleError returns [EObject current=null] : (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) ) ;
+    // InternalVarlinkIdl.g:960:1: ruleError returns [EObject current=null] : (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) ) ;
     public final EObject ruleError() throws RecognitionException {
         EObject current = null;
 
@@ -2726,23 +2753,23 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:955:2: ( (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) ) )
-            // InternalVarlinkIdl.g:956:2: (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) )
+            // InternalVarlinkIdl.g:966:2: ( (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) ) )
+            // InternalVarlinkIdl.g:967:2: (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) )
             {
-            // InternalVarlinkIdl.g:956:2: (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) )
-            // InternalVarlinkIdl.g:957:3: otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) )
+            // InternalVarlinkIdl.g:967:2: (otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) ) )
+            // InternalVarlinkIdl.g:968:3: otherlv_0= 'error' ( (lv_name_1_0= RULE_ID ) ) ( (lv_properties_2_0= ruleObject ) )
             {
-            otherlv_0=(Token)match(input,23,FOLLOW_3); if (state.failed) return current;
+            otherlv_0=(Token)match(input,24,FOLLOW_3); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getErrorAccess().getErrorKeyword_0());
               		
             }
-            // InternalVarlinkIdl.g:961:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalVarlinkIdl.g:962:4: (lv_name_1_0= RULE_ID )
+            // InternalVarlinkIdl.g:972:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalVarlinkIdl.g:973:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalVarlinkIdl.g:962:4: (lv_name_1_0= RULE_ID )
-            // InternalVarlinkIdl.g:963:5: lv_name_1_0= RULE_ID
+            // InternalVarlinkIdl.g:973:4: (lv_name_1_0= RULE_ID )
+            // InternalVarlinkIdl.g:974:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_6); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -2768,11 +2795,11 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalVarlinkIdl.g:979:3: ( (lv_properties_2_0= ruleObject ) )
-            // InternalVarlinkIdl.g:980:4: (lv_properties_2_0= ruleObject )
+            // InternalVarlinkIdl.g:990:3: ( (lv_properties_2_0= ruleObject ) )
+            // InternalVarlinkIdl.g:991:4: (lv_properties_2_0= ruleObject )
             {
-            // InternalVarlinkIdl.g:980:4: (lv_properties_2_0= ruleObject )
-            // InternalVarlinkIdl.g:981:5: lv_properties_2_0= ruleObject
+            // InternalVarlinkIdl.g:991:4: (lv_properties_2_0= ruleObject )
+            // InternalVarlinkIdl.g:992:5: lv_properties_2_0= ruleObject
             {
             if ( state.backtracking==0 ) {
 
@@ -2828,7 +2855,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInterfaceName"
-    // InternalVarlinkIdl.g:1002:1: entryRuleInterfaceName returns [String current=null] : iv_ruleInterfaceName= ruleInterfaceName EOF ;
+    // InternalVarlinkIdl.g:1013:1: entryRuleInterfaceName returns [String current=null] : iv_ruleInterfaceName= ruleInterfaceName EOF ;
     public final String entryRuleInterfaceName() throws RecognitionException {
         String current = null;
 
@@ -2836,8 +2863,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:1002:53: (iv_ruleInterfaceName= ruleInterfaceName EOF )
-            // InternalVarlinkIdl.g:1003:2: iv_ruleInterfaceName= ruleInterfaceName EOF
+            // InternalVarlinkIdl.g:1013:53: (iv_ruleInterfaceName= ruleInterfaceName EOF )
+            // InternalVarlinkIdl.g:1014:2: iv_ruleInterfaceName= ruleInterfaceName EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getInterfaceNameRule()); 
@@ -2868,7 +2895,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInterfaceName"
-    // InternalVarlinkIdl.g:1009:1: ruleInterfaceName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) ;
+    // InternalVarlinkIdl.g:1020:1: ruleInterfaceName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleInterfaceName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2880,11 +2907,11 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:1015:2: ( (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) )
-            // InternalVarlinkIdl.g:1016:2: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
+            // InternalVarlinkIdl.g:1026:2: ( (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) )
+            // InternalVarlinkIdl.g:1027:2: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
             {
-            // InternalVarlinkIdl.g:1016:2: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
-            // InternalVarlinkIdl.g:1017:3: this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
+            // InternalVarlinkIdl.g:1027:2: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
+            // InternalVarlinkIdl.g:1028:3: this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
             {
             this_ID_0=(Token)match(input,RULE_ID,FOLLOW_12); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -2897,25 +2924,25 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
               			newLeafNode(this_ID_0, grammarAccess.getInterfaceNameAccess().getIDTerminalRuleCall_0());
               		
             }
-            // InternalVarlinkIdl.g:1024:3: ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
+            // InternalVarlinkIdl.g:1035:3: ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
             loop9:
             do {
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==24) && (synpred1_InternalVarlinkIdl())) {
+                if ( (LA9_0==25) && (synpred1_InternalVarlinkIdl())) {
                     alt9=1;
                 }
 
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalVarlinkIdl.g:1025:4: ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID
+            	    // InternalVarlinkIdl.g:1036:4: ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID
             	    {
-            	    // InternalVarlinkIdl.g:1025:4: ( ( '.' )=>kw= '.' )
-            	    // InternalVarlinkIdl.g:1026:5: ( '.' )=>kw= '.'
+            	    // InternalVarlinkIdl.g:1036:4: ( ( '.' )=>kw= '.' )
+            	    // InternalVarlinkIdl.g:1037:5: ( '.' )=>kw= '.'
             	    {
-            	    kw=(Token)match(input,24,FOLLOW_3); if (state.failed) return current;
+            	    kw=(Token)match(input,25,FOLLOW_3); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      					current.merge(kw);
@@ -2970,7 +2997,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleValidID"
-    // InternalVarlinkIdl.g:1045:1: entryRuleValidID returns [String current=null] : iv_ruleValidID= ruleValidID EOF ;
+    // InternalVarlinkIdl.g:1056:1: entryRuleValidID returns [String current=null] : iv_ruleValidID= ruleValidID EOF ;
     public final String entryRuleValidID() throws RecognitionException {
         String current = null;
 
@@ -2978,8 +3005,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:1045:47: (iv_ruleValidID= ruleValidID EOF )
-            // InternalVarlinkIdl.g:1046:2: iv_ruleValidID= ruleValidID EOF
+            // InternalVarlinkIdl.g:1056:47: (iv_ruleValidID= ruleValidID EOF )
+            // InternalVarlinkIdl.g:1057:2: iv_ruleValidID= ruleValidID EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getValidIDRule()); 
@@ -3010,7 +3037,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValidID"
-    // InternalVarlinkIdl.g:1052:1: ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD ) ;
+    // InternalVarlinkIdl.g:1063:1: ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD ) ;
     public final AntlrDatatypeRuleToken ruleValidID() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3022,17 +3049,17 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:1058:2: ( (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD ) )
-            // InternalVarlinkIdl.g:1059:2: (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD )
+            // InternalVarlinkIdl.g:1069:2: ( (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD ) )
+            // InternalVarlinkIdl.g:1070:2: (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD )
             {
-            // InternalVarlinkIdl.g:1059:2: (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD )
+            // InternalVarlinkIdl.g:1070:2: (this_ID_0= RULE_ID | this_KEYWORD_1= ruleKEYWORD )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
             if ( (LA10_0==RULE_ID) ) {
                 alt10=1;
             }
-            else if ( ((LA10_0>=8 && LA10_0<=9)||(LA10_0>=17 && LA10_0<=21)||LA10_0==23||LA10_0==25) ) {
+            else if ( ((LA10_0>=8 && LA10_0<=9)||(LA10_0>=17 && LA10_0<=22)||LA10_0==24||LA10_0==26) ) {
                 alt10=2;
             }
             else {
@@ -3044,7 +3071,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalVarlinkIdl.g:1060:3: this_ID_0= RULE_ID
+                    // InternalVarlinkIdl.g:1071:3: this_ID_0= RULE_ID
                     {
                     this_ID_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -3061,7 +3088,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalVarlinkIdl.g:1068:3: this_KEYWORD_1= ruleKEYWORD
+                    // InternalVarlinkIdl.g:1079:3: this_KEYWORD_1= ruleKEYWORD
                     {
                     if ( state.backtracking==0 ) {
 
@@ -3111,7 +3138,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleKEYWORD"
-    // InternalVarlinkIdl.g:1082:1: entryRuleKEYWORD returns [String current=null] : iv_ruleKEYWORD= ruleKEYWORD EOF ;
+    // InternalVarlinkIdl.g:1093:1: entryRuleKEYWORD returns [String current=null] : iv_ruleKEYWORD= ruleKEYWORD EOF ;
     public final String entryRuleKEYWORD() throws RecognitionException {
         String current = null;
 
@@ -3119,8 +3146,8 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVarlinkIdl.g:1082:47: (iv_ruleKEYWORD= ruleKEYWORD EOF )
-            // InternalVarlinkIdl.g:1083:2: iv_ruleKEYWORD= ruleKEYWORD EOF
+            // InternalVarlinkIdl.g:1093:47: (iv_ruleKEYWORD= ruleKEYWORD EOF )
+            // InternalVarlinkIdl.g:1094:2: iv_ruleKEYWORD= ruleKEYWORD EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getKEYWORDRule()); 
@@ -3151,7 +3178,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleKEYWORD"
-    // InternalVarlinkIdl.g:1089:1: ruleKEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' ) ;
+    // InternalVarlinkIdl.g:1100:1: ruleKEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' | kw= 'object' ) ;
     public final AntlrDatatypeRuleToken ruleKEYWORD() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3161,18 +3188,18 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalVarlinkIdl.g:1095:2: ( (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' ) )
-            // InternalVarlinkIdl.g:1096:2: (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' )
+            // InternalVarlinkIdl.g:1106:2: ( (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' | kw= 'object' ) )
+            // InternalVarlinkIdl.g:1107:2: (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' | kw= 'object' )
             {
-            // InternalVarlinkIdl.g:1096:2: (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' )
-            int alt11=9;
+            // InternalVarlinkIdl.g:1107:2: (kw= 'type' | kw= 'enum' | kw= 'interface' | kw= 'method' | kw= 'error' | kw= 'bool' | kw= 'int' | kw= 'float' | kw= 'string' | kw= 'object' )
+            int alt11=10;
             switch ( input.LA(1) ) {
             case 9:
                 {
                 alt11=1;
                 }
                 break;
-            case 25:
+            case 26:
                 {
                 alt11=2;
                 }
@@ -3182,12 +3209,12 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                 alt11=3;
                 }
                 break;
-            case 21:
+            case 22:
                 {
                 alt11=4;
                 }
                 break;
-            case 23:
+            case 24:
                 {
                 alt11=5;
                 }
@@ -3212,6 +3239,11 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                 alt11=9;
                 }
                 break;
+            case 21:
+                {
+                alt11=10;
+                }
+                break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
@@ -3222,7 +3254,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
             switch (alt11) {
                 case 1 :
-                    // InternalVarlinkIdl.g:1097:3: kw= 'type'
+                    // InternalVarlinkIdl.g:1108:3: kw= 'type'
                     {
                     kw=(Token)match(input,9,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -3235,9 +3267,9 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalVarlinkIdl.g:1103:3: kw= 'enum'
+                    // InternalVarlinkIdl.g:1114:3: kw= 'enum'
                     {
-                    kw=(Token)match(input,25,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,26,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -3248,7 +3280,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalVarlinkIdl.g:1109:3: kw= 'interface'
+                    // InternalVarlinkIdl.g:1120:3: kw= 'interface'
                     {
                     kw=(Token)match(input,8,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -3261,9 +3293,9 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalVarlinkIdl.g:1115:3: kw= 'method'
+                    // InternalVarlinkIdl.g:1126:3: kw= 'method'
                     {
-                    kw=(Token)match(input,21,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,22,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -3274,9 +3306,9 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalVarlinkIdl.g:1121:3: kw= 'error'
+                    // InternalVarlinkIdl.g:1132:3: kw= 'error'
                     {
-                    kw=(Token)match(input,23,FOLLOW_2); if (state.failed) return current;
+                    kw=(Token)match(input,24,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
@@ -3287,7 +3319,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalVarlinkIdl.g:1127:3: kw= 'bool'
+                    // InternalVarlinkIdl.g:1138:3: kw= 'bool'
                     {
                     kw=(Token)match(input,17,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -3300,7 +3332,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalVarlinkIdl.g:1133:3: kw= 'int'
+                    // InternalVarlinkIdl.g:1144:3: kw= 'int'
                     {
                     kw=(Token)match(input,18,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -3313,7 +3345,7 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalVarlinkIdl.g:1139:3: kw= 'float'
+                    // InternalVarlinkIdl.g:1150:3: kw= 'float'
                     {
                     kw=(Token)match(input,19,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -3326,13 +3358,26 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalVarlinkIdl.g:1145:3: kw= 'string'
+                    // InternalVarlinkIdl.g:1156:3: kw= 'string'
                     {
                     kw=(Token)match(input,20,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			current.merge(kw);
                       			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getStringKeyword_8());
+                      		
+                    }
+
+                    }
+                    break;
+                case 10 :
+                    // InternalVarlinkIdl.g:1162:3: kw= 'object'
+                    {
+                    kw=(Token)match(input,21,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(kw);
+                      			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getObjectKeyword_9());
                       		
                     }
 
@@ -3363,10 +3408,10 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred1_InternalVarlinkIdl
     public final void synpred1_InternalVarlinkIdl_fragment() throws RecognitionException {   
-        // InternalVarlinkIdl.g:1026:5: ( '.' )
-        // InternalVarlinkIdl.g:1026:6: '.'
+        // InternalVarlinkIdl.g:1037:5: ( '.' )
+        // InternalVarlinkIdl.g:1037:6: '.'
         {
-        match(input,24,FOLLOW_2); if (state.failed) return ;
+        match(input,25,FOLLOW_2); if (state.failed) return ;
 
         }
     }
@@ -3392,24 +3437,25 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
 
     protected DFA3 dfa3 = new DFA3(this);
     protected DFA7 dfa7 = new DFA7(this);
-    static final String dfa_1s = "\16\uffff";
-    static final String dfa_2s = "\1\12\1\4\12\13\2\uffff";
-    static final String dfa_3s = "\1\12\1\31\12\15\2\uffff";
-    static final String dfa_4s = "\14\uffff\1\2\1\1";
-    static final String dfa_5s = "\16\uffff}>";
+    static final String dfa_1s = "\17\uffff";
+    static final String dfa_2s = "\1\12\1\4\13\13\2\uffff";
+    static final String dfa_3s = "\1\12\1\32\13\15\2\uffff";
+    static final String dfa_4s = "\15\uffff\1\2\1\1";
+    static final String dfa_5s = "\17\uffff}>";
     static final String[] dfa_6s = {
             "\1\1",
-            "\1\2\3\uffff\1\5\1\3\1\uffff\2\14\4\uffff\1\10\1\11\1\12\1\13\1\6\1\uffff\1\7\1\uffff\1\4",
-            "\2\15\1\14",
-            "\2\15\1\14",
-            "\2\15\1\14",
-            "\2\15\1\14",
-            "\2\15\1\14",
-            "\2\15\1\14",
-            "\2\15\1\14",
-            "\2\15\1\14",
-            "\2\15\1\14",
-            "\2\15\1\14",
+            "\1\2\3\uffff\1\5\1\3\1\uffff\2\15\4\uffff\1\10\1\11\1\12\1\13\1\14\1\6\1\uffff\1\7\1\uffff\1\4",
+            "\2\16\1\15",
+            "\2\16\1\15",
+            "\2\16\1\15",
+            "\2\16\1\15",
+            "\2\16\1\15",
+            "\2\16\1\15",
+            "\2\16\1\15",
+            "\2\16\1\15",
+            "\2\16\1\15",
+            "\2\16\1\15",
+            "\2\16\1\15",
             "",
             ""
     };
@@ -3438,29 +3484,30 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
             return "252:2: (this_Enum_0= ruleEnum | this_Object_1= ruleObject )";
         }
     }
-    static final String dfa_7s = "\23\uffff";
-    static final String dfa_8s = "\1\4\2\uffff\1\4\3\uffff\12\13\2\uffff";
-    static final String dfa_9s = "\1\24\2\uffff\1\31\3\uffff\12\15\2\uffff";
-    static final String dfa_10s = "\1\uffff\1\1\1\2\1\uffff\1\5\1\6\1\7\12\uffff\1\4\1\3";
-    static final String dfa_11s = "\23\uffff}>";
+    static final String dfa_7s = "\24\uffff";
+    static final String dfa_8s = "\1\4\2\uffff\1\4\3\uffff\13\13\2\uffff";
+    static final String dfa_9s = "\1\25\2\uffff\1\32\3\uffff\13\15\2\uffff";
+    static final String dfa_10s = "\1\uffff\1\1\1\2\1\uffff\1\5\1\6\1\7\13\uffff\1\4\1\3";
+    static final String dfa_11s = "\24\uffff}>";
     static final String[] dfa_12s = {
-            "\1\2\5\uffff\1\3\3\uffff\1\4\1\5\1\6\4\1",
+            "\1\2\5\uffff\1\3\3\uffff\1\4\1\5\1\6\5\1",
             "",
             "",
-            "\1\7\3\uffff\1\12\1\10\1\uffff\2\21\4\uffff\1\15\1\16\1\17\1\20\1\13\1\uffff\1\14\1\uffff\1\11",
+            "\1\7\3\uffff\1\12\1\10\1\uffff\2\22\4\uffff\1\15\1\16\1\17\1\20\1\21\1\13\1\uffff\1\14\1\uffff\1\11",
             "",
             "",
             "",
-            "\2\22\1\21",
-            "\2\22\1\21",
-            "\2\22\1\21",
-            "\2\22\1\21",
-            "\2\22\1\21",
-            "\2\22\1\21",
-            "\2\22\1\21",
-            "\2\22\1\21",
-            "\2\22\1\21",
-            "\2\22\1\21",
+            "\2\23\1\22",
+            "\2\23\1\22",
+            "\2\23\1\22",
+            "\2\23\1\22",
+            "\2\23\1\22",
+            "\2\23\1\22",
+            "\2\23\1\22",
+            "\2\23\1\22",
+            "\2\23\1\22",
+            "\2\23\1\22",
+            "\2\23\1\22",
             "",
             ""
     };
@@ -3494,14 +3541,14 @@ public class InternalVarlinkIdlParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000A00202L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000002BE0310L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000001400202L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000000057E0310L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000400L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000002BE1B10L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000057E1B10L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000001FC410L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000003FC410L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000002000002L});
 
 }

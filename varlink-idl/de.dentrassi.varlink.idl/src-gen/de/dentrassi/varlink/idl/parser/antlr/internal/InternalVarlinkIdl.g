@@ -778,6 +778,17 @@ ruleBasicType returns [EObject current=null]
 					}
 					setWithLastConsumed($current, "type", lv_type_0_4, null);
 				}
+				    |
+				lv_type_0_5='object'
+				{
+					newLeafNode(lv_type_0_5, grammarAccess.getBasicTypeAccess().getTypeObjectKeyword_0_4());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getBasicTypeRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_5, null);
+				}
 			)
 		)
 	)
@@ -1146,6 +1157,12 @@ ruleKEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 		{
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getStringKeyword_8());
+		}
+		    |
+		kw='object'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getObjectKeyword_9());
 		}
 	)
 ;

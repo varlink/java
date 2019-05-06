@@ -75,6 +75,7 @@ public class ArgumentsImpl extends MinimalEObjectImpl.Container implements Argum
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public de.dentrassi.varlink.idl.varlinkIdl.Object getArguments()
   {
     return arguments;
@@ -102,6 +103,7 @@ public class ArgumentsImpl extends MinimalEObjectImpl.Container implements Argum
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setArguments(de.dentrassi.varlink.idl.varlinkIdl.Object newArguments)
   {
     if (newArguments != arguments)

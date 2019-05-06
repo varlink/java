@@ -75,6 +75,7 @@ public class DictionaryImpl extends ElementTypeImpl implements Dictionary
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public ElementType getType()
   {
     return type;
@@ -102,6 +103,7 @@ public class DictionaryImpl extends ElementTypeImpl implements Dictionary
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setType(ElementType newType)
   {
     if (newType != type)

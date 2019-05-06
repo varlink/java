@@ -87,6 +87,7 @@ public class MethodImpl extends MemberImpl implements Method
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Arguments getArguments()
   {
     return arguments;
@@ -114,6 +115,7 @@ public class MethodImpl extends MemberImpl implements Method
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setArguments(Arguments newArguments)
   {
     if (newArguments != arguments)
@@ -135,6 +137,7 @@ public class MethodImpl extends MemberImpl implements Method
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Result getResult()
   {
     return result;
@@ -162,6 +165,7 @@ public class MethodImpl extends MemberImpl implements Method
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setResult(Result newResult)
   {
     if (newResult != result)

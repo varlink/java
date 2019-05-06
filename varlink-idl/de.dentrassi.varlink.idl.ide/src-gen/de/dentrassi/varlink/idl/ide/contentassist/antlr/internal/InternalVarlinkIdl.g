@@ -684,6 +684,12 @@ rule__BasicType__TypeAlternatives_0
 		'string'
 		{ after(grammarAccess.getBasicTypeAccess().getTypeStringKeyword_0_3()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getBasicTypeAccess().getTypeObjectKeyword_0_4()); }
+		'object'
+		{ after(grammarAccess.getBasicTypeAccess().getTypeObjectKeyword_0_4()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -767,6 +773,12 @@ rule__KEYWORD__Alternatives
 		{ before(grammarAccess.getKEYWORDAccess().getStringKeyword_8()); }
 		'string'
 		{ after(grammarAccess.getKEYWORDAccess().getStringKeyword_8()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getKEYWORDAccess().getObjectKeyword_9()); }
+		'object'
+		{ after(grammarAccess.getKEYWORDAccess().getObjectKeyword_9()); }
 	)
 ;
 finally {

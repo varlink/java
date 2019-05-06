@@ -1,8 +1,8 @@
-target "Eclipse Oxygen"
+target "Eclipse 2019-03"
 
 with source
 
-location "http://download.eclipse.org/releases/oxygen" {
+location "http://download.eclipse.org/releases/2019-03" {
 	org.eclipse.platform.feature.group
 	org.eclipse.jdt.feature.group
 
@@ -29,7 +29,7 @@ location "http://download.eclipse.org/releases/oxygen" {
 
 	com.google.inject
 	com.google.guava
-	org.objectweb.asm [5.0.1,6.0.0)
+	org.objectweb.asm
 	org.antlr.runtime
 
 	org.eclipse.draw2d.feature.group

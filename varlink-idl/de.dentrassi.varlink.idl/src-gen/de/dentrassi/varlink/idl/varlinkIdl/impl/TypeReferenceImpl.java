@@ -74,6 +74,7 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public TypeAlias getName()
   {
     if (name != null && name.eIsProxy())
@@ -104,6 +105,7 @@ public class TypeReferenceImpl extends ElementTypeImpl implements TypeReference
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setName(TypeAlias newName)
   {
     TypeAlias oldName = name;

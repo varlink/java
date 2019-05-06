@@ -204,6 +204,15 @@
 			</activeWhen>
 		</handler>
 	</extension>
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type
+			base-type="org.eclipse.core.runtime.text"
+			file-extensions="varlink"
+			id="de.dentrassi.varlink.idl.VarlinkIdl.contenttype"
+			name="VarlinkIdl File"
+			priority="normal">
+		</content-type>
+	</extension>
 	<!-- adding resource factories -->
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
@@ -388,12 +397,18 @@
 			class="de.dentrassi.varlink.idl.ui.VarlinkIdlExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="varlink">
 		</viewer>
+		<contentTypeBinding
+			contentTypeId="de.dentrassi.varlink.idl.VarlinkIdl.contenttype"
+			contentViewerId="de.dentrassi.varlink.idl.VarlinkIdl.compare.contentViewers" />
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
 		<viewer id="de.dentrassi.varlink.idl.VarlinkIdl.compare.contentMergeViewers"
 			class="de.dentrassi.varlink.idl.ui.VarlinkIdlExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="varlink" label="VarlinkIdl Compare">
 		</viewer>
+		<contentTypeBinding
+			contentTypeId="de.dentrassi.varlink.idl.VarlinkIdl.contenttype"
+			contentMergeViewerId="de.dentrassi.varlink.idl.VarlinkIdl.compare.contentMergeViewers" />
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
 		<provider id="de.dentrassi.varlink.idl.VarlinkIdl.editors.documentProviders"

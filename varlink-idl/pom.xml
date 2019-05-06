@@ -18,7 +18,7 @@
     <description>Varlink IDL</description>
 
     <properties>
-        <tycho.version>1.1.0</tycho.version>
+        <tycho.version>1.4.0</tycho.version>
     </properties>
 
     <modules>
@@ -71,7 +71,7 @@
                     <target>
                         <artifact>
                             <groupId>de.dentrassi.varlink.idl.target-platform</groupId>
-                            <artifactId>oxygen</artifactId>
+                            <artifactId>2019-03</artifactId>
                             <version>${project.version}</version>
                         </artifact>
                     </target>
