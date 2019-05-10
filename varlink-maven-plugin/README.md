@@ -24,13 +24,13 @@ plugin to the `pom.xml`:
 </build>
 ~~~
 
-You will either need to add the dependencies to `varlink-java` manually or
-use `varlink-bindings` as module parent:
-
+For the generated bindings to work, you will also need to add the `varlink-core` as dependency to the `pom.xml`:
 ~~~xml
-<parent>
-    <groupId>de.dentrassi.varlink.bindings</groupId>
-    <artifactId>varlink-bindings</artifactId>
-    <version><!-- varlink version --></version>
-</parent>
-~~~ 
+<dependencies>
+    <dependency>
+      <groupId>de.dentrassi.varlink</groupId>
+      <artifactId>varlink-core</artifactId>
+      <version><!-- varlink-core version --></version>
+    </dependency>
+</dependencies>
+~~~
